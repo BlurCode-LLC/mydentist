@@ -1,0 +1,314 @@
+{% extends 'dentx/app.html' %}
+{% load static i18n mydentist_tags %}
+
+{% block title %}
+	{% trans "Doska" %}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="mt-5">
+            <h1 class="header-title">{% trans "Doska" %}</h1>
+            <hr>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-4 col-12 mb-4" style="max-height: 700px; overflow-x: hidden; overflow-y: scroll;">
+                <div class="card">
+                    <div class="card-header card-header-flush" style="background-color: white">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-header-title">{% trans "Kutilmoqda" %}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if appointments_waiting %}
+                            {% for appointment in appointments_waiting %}
+                                <div index="{{ appointment.appointment.id }}" class="kanban-item">
+                                    <div class="card" draggable="false" style="border-top: 3px solid #0dcaf0;">
+                                        <div class="card-body p-3">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h4>{% date_format appointment.appointment.begin %}</h4>
+                                                    <h4>{% time_format appointment.appointment.begin %} - {% time_format appointment.appointment.end %}</h4>
+                                                </div>
+                                                <div class="col-auto small">
+                                                    <span class="badge bg-info status-badge">{% trans "Kutilmoqda" %}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-xs">
+                                                                <div class="text-center border border-1">
+                                                                    <img src="/media/{{ appointment.patient.image }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col p-0">
+                                                            <h6 class="ml-5">{{ appointment.patient }}</h6>
+                                                            <h6 class="ml-5">{{ appointment.patient.phone_number }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4"></div>
+                                                    <div class="row align-items-start mt-1">
+                                                        <div class="col">
+                                                            <div class="small text-muted">{{ appointment.service.name }}</div>
+                                                            <div class="small text-muted">{{ appointment.appointment.comment }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer1 p-2 border-top">
+                                            <div class="row">
+                                                <div class="col">
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="tel:{{ appointment.patient.phone_number }}" class="btn btn-outline-info mr-2" draggable="false">
+                                                        <i class="fas fa-phone"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div index="0" class="kanban-item">
+                                <div></div>
+                                <div class="card-body text-center small text-muted">{% trans "Qabullar mavjud emas" %}</div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 mb-4" style="max-height: 700px; overflow-x: hidden; overflow-y: scroll;">
+                <div class="card">
+                    <div class="card-header card-header-flush" style="background-color: white">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-header-title">{% trans "Kelgan" %}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if appointments_done %}
+                            {% for appointment in appointments_done %}
+                                <div index="{{ appointment.appointment.id }}" class="kanban-item">
+                                    <div class="card" draggable="false" style="border-top: 3px solid #198754;">
+                                        <div class="card-body p-3">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h4>{% date_format appointment.appointment.begin %}</h4>
+                                                    <h4>{% time_format appointment.appointment.begin %} - {% time_format appointment.appointment.end %}</h4>
+                                                </div>
+                                                <div class="col-auto small">
+                                                    <span class="badge bg-success status-badge">{% trans "Kelgan" %}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-xs">
+                                                                <div class="text-center border border-1">
+                                                                    <img src="/media/{{ appointment.patient.image }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col p-0">
+                                                            <h6 class="ml-5">{{ appointment.patient }}</h6>
+                                                            <h6 class="ml-5">{{ appointment.patient.phone_number }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4"></div>
+                                                    <div class="row align-items-start mt-1">
+                                                        <div class="col">
+                                                            <div class="small text-muted">{{ appointment.service.name }}</div>
+                                                            <div class="small text-muted">{{ appointment.appointment.comment }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer1 p-2 border-top">
+                                            <div class="row">
+                                                <div class="col">
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="tel:{{ appointment.patient.phone_number }}" class="btn btn-outline-success mr-2" draggable="false">
+                                                        <i class="fas fa-phone"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div index="0" class="kanban-item">
+                                <div></div>
+                                <div class="card-body text-center small text-muted">{% trans "Qabullar mavjud emas" %}</div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 mb-4" style="max-height: 700px; overflow-x: hidden; overflow-y: scroll;">
+                <div class="card">
+                    <div class="card-header card-header-flush" style="background-color: white">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-header-title">{% trans "Kelmagan" %}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if appointments_missed %}
+                            {% for appointment in appointments_missed %}
+                                <div index="{{ appointment.appointment.id }}" class="kanban-item">
+                                    <div class="card" draggable="false" style="border-top: 3px solid #dc3545;">
+                                        <div class="card-body p-3">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h4>{% date_format appointment.appointment.begin %}</h4>
+                                                    <h4>{% time_format appointment.appointment.begin %} - {% time_format appointment.appointment.end %}</h4>
+                                                </div>
+                                                <div class="col-auto small">
+                                                    <span class="badge bg-danger status-badge">{% trans "Kelmagan" %}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-start">
+                                                <div class="col">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-xs">
+                                                                <div class="text-center border border-1">
+                                                                    <img src="/media/{{ appointment.patient.image }}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col p-0">
+                                                            <h6 class="ml-5">{{ appointment.patient }}</h6>
+                                                            <h6 class="ml-5">{{ appointment.patient.phone_number }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4"></div>
+                                                    <div class="row align-items-start mt-1">
+                                                        <div class="col">
+                                                            <div class="small text-muted">{{ appointment.service.name }}</div>
+                                                            <div class="small text-muted">{{ appointment.appointment.comment }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer1 p-2 border-top">
+                                            <div class="row">
+                                                <div class="col">
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="tel:{{ appointment.patient.phone_number }}" class="btn btn-outline-danger mr-2" draggable="false">
+                                                        <i class="fas fa-phone"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div index="0" class="kanban-item">
+                                <div></div>
+                                <div class="card-body text-center small text-muted">{% trans "Qabullar mavjud emas" %}</div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        let list = $("section > .container > .row > div > .card")
+        let windowHeight = $(window).height()
+        let height
+        if (windowHeight > 900) {
+            height = 700
+        } else if (windowHeight > 600) {
+            height = 500
+        } else {
+            height = 200
+        }
+        for (let i = 0; i < list.length; i++) {
+            if ($(list[i]).innerHeight() <= height) {
+                $($(list[i]).parent()).css("overflow", "hidden")
+            }
+        }
+        $(".status-badge").on("click", function() {
+            id = $(this).parent().parent().parent().parent().parent().attr("index")
+            if ($(this).html() == "{% trans "Kutilmoqda" %}") {
+                $.ajax({
+                    url: "{% url 'dentx:status_update' %}",
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: "{{ csrf_token }}",
+                        id: id,
+                        status: $(this).html()
+                    }
+                }).always(function(result) {
+                    $(`div[index='${result}'] .status-badge`).removeClass("bg-info").addClass("bg-success").html("{% trans "Kelgan" %}")
+                    $(`div[index='${result}'] > div`).attr("style", "border-top: 3px solid #198754;")
+                    $(`div[index='${result}'] .card-footer1 a`).removeClass("btn-outline-info").addClass("btn-outline-success")
+                })
+            } else if ($(this).html() == "{% trans "Kelgan" %}") {
+                $.ajax({
+                    url: "{% url 'dentx:status_update' %}",
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: "{{ csrf_token }}",
+                        id: id,
+                        status: $(this).html()
+                    }
+                }).always(function(result) {
+                    $(`div[index='${result}'] .status-badge`).removeClass("bg-success").addClass("bg-danger").html("{% trans "Kelmagan" %}")
+                    $(`div[index='${result}'] > div`).attr("style", "border-top: 3px solid #dc3545;")
+                    $(`div[index='${result}'] .card-footer1 a`).removeClass("btn-outline-success").addClass("btn-outline-danger")
+                })
+            } else if ($(this).html() == "{% trans "Kelmagan" %}") {
+                $.ajax({
+                    url: "{% url 'dentx:status_update' %}",
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: "{{ csrf_token }}",
+                        id: id,
+                        status: $(this).html()
+                    }
+                }).always(function(result) {
+                    $(`div[index='${result}'] .status-badge`).removeClass("bg-danger").addClass("bg-info").html("{% trans "Kutilmoqda" %}")
+                    $(`div[index='${result}'] > div`).attr("style", "border-top: 3px solid #0dcaf0;")
+                    $(`div[index='${result}'] .card-footer1 a`).removeClass("btn-outline-danger").addClass("btn-outline-info")
+                })
+            }
+        })
+    </script>
+{% endblock %}

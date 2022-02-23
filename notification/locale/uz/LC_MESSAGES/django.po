@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 18:40+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\notification\apps.py:8
+msgid "Xabarlar"
+msgstr ""
+
+#: .\notification\models.py:7 .\notification\models.py:25
+msgid "Tish shifokori"
+msgstr ""
+
+#: .\notification\models.py:8 .\notification\models.py:24
+msgid "Bemor"
+msgstr ""
+
+#: .\notification\models.py:9 .\notification\models.py:26
+msgid "Xabar turi"
+msgstr ""
+
+#: .\notification\models.py:10 .\notification\models.py:27
+msgid "Xabar matni"
+msgstr ""
+
+#: .\notification\models.py:11 .\notification\models.py:28
+msgid "Xabar jo'natilgan vaqt"
+msgstr ""
+
+#: .\notification\models.py:12 .\notification\models.py:29
+msgid "O'qilganmi?"
+msgstr ""
+
+#: .\notification\models.py:15
+msgid "D2P Xabar"
+msgstr ""
+
+#: .\notification\models.py:16
+msgid "D2P Xabarlar"
+msgstr ""
+
+#: .\notification\models.py:32
+msgid "P2D Xabar"
+msgstr ""
+
+#: .\notification\models.py:33
+msgid "P2D Xabarlar"
+msgstr ""

@@ -1,0 +1,164 @@
+{% extends 'dentx/app.html' %}
+{% load static i18n mydentist_tags %}
+
+{% block title %}
+	{% trans "Bemorlar" %}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="header mt-md-5">
+            <div class="header-body">
+                <br>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="header-title">{% trans "Bemorlar" %}</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">{% trans "Yangi bemor" %}</button>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{% trans "Yangi bemor" %}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-group" method="POST">
+                                        {% csrf_token %}
+                                        <div class="pats">
+                                            <div class="mb-1 d-flex justify-content-between">
+                                                <label for="id_name">{{ patientform.name.label }}</label>
+                                            </div>
+                                            <div class="input-group w-100">
+                                                {{ patientform.name }}
+                                            </div>
+                                            <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
+                                                <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
+                                                    {{ patientform.phone_number }}
+                                                </div> 
+                                                <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
+                                                    {{ patientform.birthday }}
+                                                </div>
+                                                <div class="end col-12 col-lg-3">
+                                                    <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
+                                                    <div>
+                                                    {% for el in patientform.gender %}
+                                                        {{ el }}
+                                                    {% endfor %}
+                                                    </div>
+                                                </div>
+                                                <div class="end col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
+                                                    {{ patientform.address }}
+                                                </div>
+                                            </div>
+                                            <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
+                                                <div class="end col-12 col-lg-3">
+                                                    <label class="mb-1 left" for="id_language">{{ languageform.language.label }}</label>
+                                                    <div>
+                                                    {{ languageform.language }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
+                                            <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow mt-5 border-top">
+                {% if text is not None %}
+                    <div class="alert alert-success">
+                        {{ text }}
+                    </div>
+                {% endif %}
+                {% comment %} <ul class="d-flex justify-content-end list-group-horizontal me-auto my-2 my-lg-0 offset-lg-6" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Qarz" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="#">{% trans "Eng kami" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Eng ko'pi" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Ishi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown1">
+                            <li><a class="dropdown-item" href="#">{% trans "Yakunlangan" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Yakunlanmagan" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Jinsi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown2">
+                            <li><a class="dropdown-item" href="#">{% trans "Erkak" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Ayol" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Oxirgi tashrifi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown3">
+                            <li><a class="dropdown-item" href="#">{% trans "Kecha" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Shu hafta" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Shu oyda" %}</a></li>
+                        </ul>
+                    </li>
+                </ul> {% endcomment %}
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">{% trans "Rasm" %}</th>
+                            <th scope="col">{% trans "Ism" %}</th>
+                            <th scope="col">{% trans "Jins" %}</th>
+                            <th scope="col">{% trans "Manzil" %}</th>
+                            <th scope="col">{% trans "Qilingan ishlar" %}</th>
+                            <th scope="col">{% trans "Qarz" %}</th>
+                            <th scope="col">{% trans "Rejada" %}</th>
+                            <th scope="col">{% trans "Oxirgi tashrif" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                        <tr>
+                            <th>
+                                <div class="avatar avatar-xs mx-auto">
+                                    <div class="border border-1">
+                                        <img src="/media/{{ result.patient_extra.image }}">
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                <a href="{% url 'dentx:patient' id=result.patient_extra.id active_tab="profile" %}" class="text-decoration-none">
+                                    <h6>{{ result.patient_extra }}</h6>
+                                    <h6>{{ result.patient_extra.birthday.year }}</h6>
+                                    <h6>{{ result.patient_extra.phone_number }}</h6>
+                                </a>
+                            </td>
+                            <td>{{ result.gender }}</td>
+                            <td>{{ result.patient_extra.address }}</td>
+                            <td>{{ result.done }}</td>
+                            <td>{{ result.total_sum }} {% trans "so'm" %}</td>
+                            <td>{{ result.coming }}</td>
+                            <td>{% last_visit_format result.last_visit %}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

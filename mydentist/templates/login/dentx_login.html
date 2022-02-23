@@ -1,0 +1,65 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <link href="{% static 'vendor/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <title>{% trans "Tizimga kirish" %} - DentX</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="panel">
+                <div class="logo mb-5">DentX</div>
+                <div class="big_title mb-4">{% trans "Tizimga kirish" %}</div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            {% if error_message %}
+                                <div class="alert alert-danger">
+                                    {{ error_message }}
+                                </div>
+                            {% endif %}
+                            {% for error in loginform.email.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            {% for error in loginform.password.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                {% for field in loginform %}
+                                <div class="mb-3">
+                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endfor %}
+                                {% if request.GET.next %}
+                                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                                {% endif %}
+                                <button type="submit" class="btn my_btn mt-4 mx-auto">{% trans "Jo'natish" %}</button>
+                            </form>
+                            <a href="{% url 'baseapp:index' %}">
+                                <p class="mt-5 mb-3 text-center text-muted">&copy; MyDentist</p>
+                            </a>
+                            <div class="extra_login text-center">
+                                <a href="{% url 'login:password_reset' %}">{% trans "Parolni unutdingizmi?" %}</a>
+                                <p>{% trans "Akkauntingiz yo'qmi?" %} <a href="tel:+998932757757">{% trans "U holda biz bilan bog'lanib ro'yhatdan o'ting" %}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'vendor/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <title>{{ exception }} - MyDentist</title>
+</head>
+<body class="text-center">
+    <div class="mt-5">
+        <a href="{% url 'baseapp:index' %}">
+            <img class="mb-4" src="{% static 'img/logo.png' %}" alt="" width="200">
+        </a>
+        <h1 class="h3 mb-3 fw-normal">{% trans "Ushbu bo'limga kirish cheklangan" %}</h1>
+        <a href="{% url 'baseapp:index' %}" class="btn btn-lg my_btn">{% trans "Bosh sahifaga qaytish" %}</a>
+    </div>
+    <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+</body>
+</html>

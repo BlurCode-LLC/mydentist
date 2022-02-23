@@ -1,0 +1,347 @@
+{% extends 'app_user.html' %}
+{% load static i18n %}
+
+{% block title %}
+	{% trans "Sozlamalar" %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="sub_title_gray center mb-4">
+            {% trans "Sozlamalar" %}
+        </div>
+        <ul class="nav nav-pills my_select mx-auto mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item my_select_item" role="presentation">
+                <button class="nav-link {% if active_tab == "profile" %}active{% endif %}" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">{% trans "Shaxsiy ma'lumotlar" %}</button>
+            </li>
+            <li class="nav-item my_select_item" role="presentation">
+                <button class="nav-link {% if active_tab == "password" %}active{% endif %}" id="pills-password-tab" data-bs-toggle="pill" data-bs-target="#pills-password" type="button" role="tab" aria-controls="pills-password" aria-selected="false">{% trans "Parolni o'zgartirish" %}</button>
+            </li>
+            <li class="nav-item my_select_item" role="presentation">
+                <button class="nav-link {% if active_tab == "illness" %}active{% endif %}" id="pills-illness-tab" data-bs-toggle="pill" data-bs-target="#pills-illness" type="button" role="tab" aria-controls="pills-illness" aria-selected="false">{% trans "Kasalliklar" %}</button>
+            </li>
+            <li class="nav-item my_select_item" role="presentation">
+                <button class="nav-link {% if active_tab == "other-illness" %}active{% endif %}" id="pills-other-illness-tab" data-bs-toggle="pill" data-bs-target="#pills-other-illness" type="button" role="tab" aria-controls="pills-other-illness" aria-selected="false">{% trans "Boshqa kasalliklar" %}</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="panel">
+                    <form action={% url 'patient:update' form="profile" %} method="POST">
+                        {% csrf_token %}
+                        {% if active_tab == "profile" and success_message == "Updated successfully" %}
+                            <div class="alert alert-success">
+                                {% trans "Ma'lumotlar muvaffaqiyatli o'zgartirildi" %}
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            {% for field in userform %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                                {% if field.name == "birth_year" %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="birthday_holder" class="form-label">{% trans "Tug'ilgan sana" %}</label>
+                                        <div id="birthday_holder">
+                                            <div class="birth_item">
+                                                <i id="birth_year_1" class="fas fa-sort-up"></i>
+                                                {{ field }}
+                                                <i id="birth_year_2" class="fas fa-sort-down"></i>
+                                            </div>
+                                {% elif field.name == "birth_month" %}
+                                            <div class="birth_item">
+                                                <i id="birth_month_1" class="fas fa-sort-up"></i>
+                                                {{ field }}
+                                                <i id="birth_month_2" class="fas fa-sort-down"></i>
+                                            </div>
+                                {% elif field.name == "birth_day" %}
+                                            <div class="birth_item">
+                                                <i id="birth_day_1" class="fas fa-sort-up"></i>
+                                                {{ field }}
+                                                <i id="birth_day_2" class="fas fa-sort-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                        {{ field }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-md-6 mb-3">
+                                <label for="id_language" class="form-label">{{ languageform.language.label }}</label>
+                                {{ languageform.language }}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn my_btn mx-auto">{% trans "Ma'lumotlarni o'zgartirish" %}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade {% if active_tab == "password" %}show active{% endif %}" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
+                <div class="panel">
+                    <form action={% url 'patient:update' form="password" %} method="POST">
+                        {% csrf_token %}
+                        {% if active_tab == "password" and success_message %}
+                            {% if success_message == "Updated successfully" %}
+                                <div class="alert alert-success">
+                                    {% trans "Ma'lumotlar muvaffaqiyatli o'zgartirildi" %}
+                                </div>
+                            {% elif success_message == "Passwords do not match" %}
+                                <div class="alert alert-danger">
+                                    {% trans "Parollar mos kelmayapti" %}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% for field in passwordupdateform %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            <div class="col-md-6 mb-3 mx-auto">
+                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn my_btn mx-auto">{% trans "Ma'lumotlarni o'zgartirish" %}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade {% if active_tab == "illness" %}show active{% endif %}" id="pills-illness" role="tabpanel" aria-labelledby="pills-illness-tab">
+                <div class="panel">
+                    <form action={% url 'patient:update' form="illness" %} method="POST">
+                        {% csrf_token %}
+                        {% if active_tab == "illness" and success_message == "Updated successfully" %}
+                            <div class="alert alert-success">
+                                {% trans "Ma'lumotlar muvaffaqiyatli o'zgartirildi" %}
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            {% for field in illnessform %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                                {% if field.name != "allergy_detail" %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                        {{ field }}
+                                        {% if field.name == "allergy" %}
+                                            {{ illnessform.allergy_detail }}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <button type="submit" class="btn my_btn mx-auto">{% trans "Ma'lumotlarni o'zgartirish" %}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade {% if active_tab == "other-illness" %}show active{% endif %}" id="pills-other-illness" role="tabpanel" aria-labelledby="pills-other-illness-tab">
+                <div class="panel">
+                    <form action={% url 'patient:update' form="other-illness" %} method="POST">
+                        {% csrf_token %}
+                        {% if active_tab == "other-illness" and success_message == "Updated successfully" %}
+                            <div class="alert alert-success">
+                                {% trans "Ma'lumotlar muvaffaqiyatli o'zgartirildi" %}
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            {% for field in otherillnessform %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                                {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                        {{ field }}
+                                        {% if field.name == "medications" %}
+                                            {{ otherillnessform.medications_detail }}
+                                        {% elif field.name == "pregnancy" %}
+                                            {{ otherillnessform.pregnancy_detail }}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <button type="submit" class="btn my_btn mx-auto">{% trans "Ma'lumotlarni o'zgartirish" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% for field in illnessform %}
+            {% if field.name == "allergy" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+                if ($("#id_allergy").val() == 2) {
+                    $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name != "allergy_detail" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+            {% endif %}
+        {% endfor %}
+        {% for field in otherillnessform %}
+            {% if field.name == "medications" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+                if ($("#id_medications").val() == 2) {
+                    $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name == "pregnancy" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+                if ($("#id_pregnancy").val() == 2) {
+                    $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+            {% endif %}
+        {% endfor %}
+        var date = new Date()
+        var current_year = date.getFullYear(), current_month = date.getMonth()
+        var months_uz = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+            months_ru = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+        $("#birth_year_1").on("click", function(){
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) < current_year) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) + 1)
+            }
+        })
+        $("#birth_year_2").on("click", function() {
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) > 1900) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) - 1)
+            }
+        })
+        {% get_current_language as LANGUAGE_CODE %}
+        $("#birth_month_1").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = 0; i < months_uz.length; i++) {
+                        if ($("#month_holder").val() == months_uz[i] && i < months_uz.length - 1) {
+                            $("#month_holder").val(months_uz[i + 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = 0; i < months_ru.length; i++) {
+                        if ($("#month_holder").val() == months_ru[i] && i < months_ru.length - 1) {
+                            $("#month_holder").val(months_ru[i + 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_month_2").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = months_uz.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_uz[i] && i > 0) {
+                            $("#month_holder").val(months_uz[i - 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = months_ru.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_ru[i] && i > 0) {
+                            $("#month_holder").val(months_ru[i - 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_day_1").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) < 31) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) + 1)
+            }
+        })
+        $("#birth_day_2").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) > 1) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) - 1)
+            }
+        })
+        $("#id_allergy").on("change", function() {
+            if ($("#id_allergy").val() == 2) {
+                $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+            } else  {
+                $("#id_allergy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#other_illness").on("change", function() {
+            if ($("#other_illness").is(":checked")) {
+                $("#other_illness_holder").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#other_illness_holder").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_medications").on("change", function() {
+            if ($("#id_medications").val() == 2) {
+                $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_medications_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_pregnancy").on("change", function() {
+            if ($("#id_pregnancy").val() == 2) {
+                $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_pregnancy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#birth_year_1").on("change", function() {
+            if (parseInt(this.val()) >= current_year) {
+                this.val(current_year)
+            }
+        })
+        let request_path = "{{ request.path }}"
+        request_path = request_path.split("/")
+        $("#pills-profile-tab").on("click", function() {
+            temp = request_path
+            temp[temp.length - 1] = "profile"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-password-tab").on("click", function() {
+            temp = request_path
+            temp[temp.length - 1] = "password"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-illness-tab").on("click", function() {
+            temp = request_path
+            temp[request_path.length - 1] = "illness"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-other-illness-tab").on("click", function() {
+            temp = request_path
+            temp[request_path.length - 1] = "other-illness"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+    </script>
+{% endblock %}

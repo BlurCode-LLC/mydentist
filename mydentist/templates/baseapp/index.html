@@ -1,0 +1,182 @@
+{% extends authenticated|yesno:'app_user.html,app.html' %}
+{% load static i18n %}
+
+{% block title %}
+	{% trans "Bosh sahifa" %}
+{% endblock %}
+
+{% block content %}
+	<div id="first_screen">
+		<div class="search_form">
+			<form method="POST">
+				{% csrf_token %}
+				<div class="title_g">{% trans "Xizmatni qidirish" %}</div>
+				<div class="checkers">
+					<div class="dropdown select">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="service" data-bs-toggle="dropdown" aria-expanded="false">
+							{{ service.name }}
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="service">
+							{% for el in services %}
+							<li class="dropdown-item">{{ el.name }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="dropdown select">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="region" data-bs-toggle="dropdown" aria-expanded="false">
+							{{ region.name }}
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="region">
+							{% for el in regions %}
+							<li class="dropdown-item">{{ el.name }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{{ searchform.service }}
+					{{ searchform.region }}
+					{{ geoform.latitude }}
+					{{ geoform.longitude }}
+				</div>
+				<button type="submit" class="btn my_btn mx-auto">{% trans "Qidirish" %}</button>
+			</form>
+		</div>
+		<div class="presentation">
+			<div class="container">
+				<div class="title_w">{% trans "Yengilroq, arzonroq, yaqinroq!" %}</div>
+				<div class="row my_row">
+					<div class="col-sm-4">
+						<img width="90" src="{% static 'img/user-md-solid.svg' %}">
+						<span class="present_about">{% trans "Qanday qilib yaxshi tish shifokorini topsam bo'ladi?" %}</span>
+						<span class="present_text">{% trans "Tish shifokorlarining protseduralarning narxi va ular haqida ma'lumot faqat 3-4 marta bosish bilan" %}</span>
+					</div>
+					<div class="col-sm-4">
+						<img width="117" src="{% static 'img/map-marked-alt-solid.svg' %}">
+						<span class="present_about">{% trans "Eng yaqin tish shifokorlari" %}</span>
+						<span class="present_text">{% trans "Tish shifokorlarini yaqinlik bo'yicha, vaqtni va pulni tejang bo'yicha taqqoslang" %}</span>
+					</div>
+					<div class="col-sm-4">
+						<img width="130" src="{% static 'img/user-edit-solid.svg' %}">
+						<span class="present_about">{% trans "Konsultatsiyaga yozilish" %}</span>
+						<span class="present_text">{% trans "Bir marta bosish bilan divanda o'tirgan holda qabulga yoziling" %}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="second_screen">
+		<div class="container">
+			<div class="title_b">{% trans "Agar siz tish shifokori bo'lsangiz" %}</div>
+			<div class="row">
+				<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+					<img width="100%" src="{% static 'img/tech.png' %}">
+				</div>
+				<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+					<div class="sub_title_gray mt-4">{% trans "MyDentist platformasida o'z ishingizni boshqaring" %}</div>
+					<div class="factor_holder">
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Ish jadvalini nazorat qilish" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Mijoz ma'lumotlari" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Qulay interfeys" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Platformada mijoz bilan o'zaro aloqa" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Har bir tish holatining grafik ko'rinishi" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Dasturning mobil versiyasi" %}</span>
+						</div>
+						<div class="factor_item">
+							<i class="fas fa-check-circle"></i>
+							<span>{% trans "Xavfsiz va ishonchli ma'lumotlarni saqlash" %}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="contact_panel">
+		<div class="container">
+			<div class="row">
+				<div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">
+					<div class="sub_title_white mt-4 mb-3">
+						{% trans "Savol bormi? Ma'lumotlaringizni qoldiring va biz sizga qayta qo'ng'iroq qilamiz" %}
+					</div>
+					<form>
+						<div class="mb-3">
+							<input type="name" placeholder="Имя" class="form-control my_input" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<input type="tel" placeholder="Номер телефона" class="form-control my_input" id="exampleInputPassword1">
+						</div>
+						<button type="button" class="btn my_btn">{% trans "Jo'natish" %}</button>
+					</form>
+				</div>
+				<div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">
+					<div class="sub_title_white mt-4 mb-3">
+						{% trans "Biz ijtimoiy tarmoqlarda" %}
+					</div>
+					<div class="social_holder">
+						<a href="#"><i class="fab fa-telegram"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-facebook"></i></a>
+					</div>
+					<div class="sub_title_white_2">
+						{% trans "Biz bilan bog'laning" %}
+					</div>
+					<div class="phone_holder">
+						<div class="phone">
+							<a class="nav-link" href="tel:+998932757757">+998 93 275 77 57</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">
+					<div class="sub_title_white mt-4 mb-3">
+						{% trans "Stomatologlarni ko'rish uchun bizning telegram botimiz" %}
+					</div>
+					<a href="https://t.me/MyDentistUzBot" class="btn my_btn" target="_blank">{% trans "Telegram botga o'tish" %}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+		var options = {
+			enableHighAccuracy: true,
+			timeout: 10000,
+			maximumAge: 0
+		}
+		function success(pos) {
+			var crd = pos.coords;
+			$("input[name='latitude']").val(crd.latitude.toFixed(6))
+			$("input[name='longitude']").val(crd.longitude.toFixed(6))
+		}
+		function error(err) {
+			console.warn(`ERROR(${err.code}): ${err.message}`);
+		}
+		navigator.geolocation.getCurrentPosition(success, error, options)
+
+		$("input[name='service']").val("{{ service.name }}")
+		$("ul[aria-labelledby='service'] li").on("click", function() {
+			$("#service").text($(this).text())
+			$("input[name='service']").val($(this).text())
+		})
+		$("ul[aria-labelledby='region'] li").on("click", function() {
+			$("#region").text($(this).text())
+			$("input[name='region']").val($("ul[aria-labelledby='region'] li").index($(this)) + 1)
+		})
+	</script>
+{% endblock %}

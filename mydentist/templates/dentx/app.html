@@ -1,0 +1,375 @@
+{% load static i18n mydentist_tags %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <link href="{% static 'vendor/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <title>{% block title %}{% endblock %} - DentX</title>
+    </head>
+    <body>
+        <div class="container-fluid fixed-top bg-white">
+            <div class="my-header">
+                <a href="{% url 'dentx:appointments' %}" class="my-header-logo">DentX</a>
+                <a href="{% url 'dentx:appointments' %}" class="my-header-item{% if "/appointments/" in request.path %} active-item{% endif %}">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>{% trans "Qabullar" %}</span>
+                </a>
+                <a href="{% url 'dentx:board' %}" class="my-header-item{% if "/board/" in request.path %} active-item{% endif %}">
+                    <i class="fas fa-clipboard-list-check"></i>
+                    <span>{% trans "Doska" %}</span>
+                </a>
+                <a href="{% url 'dentx:patients' %}" class="my-header-item{% if "/patients/" in request.path %} active-item{% endif %}">
+                    <i class="fas fa-user"></i>
+                    <span>{% trans "Bemorlar" %}</span>
+                </a>
+                <div id="waiting-list" class="my-header-item" data-bs-toggle="modal" data-bs-target="#waitingListModal">
+                    <i class="fas fa-th-list"></i>
+                    <span>{% trans "Kutish zali" %}</span>
+                </div>
+                <div id="reminder" class="my-header-item" data-bs-toggle="modal" data-bs-target="#reminderModal">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>{% trans "Eslatmalar" %}</span>
+                </div>
+                <a href="{% url 'dentx:animations' %}" class="my-header-item{% if "/animations/" in request.path %} active-item{% endif %}">
+                    <i class="fab fa-youtube"></i>
+                    <span>{% trans "Animatsiyalar" %}</span>
+                </a>
+                <div class="my_panel">
+                    <div class="inner_panel d-flex justify-content-between">
+                        <form action="{% url 'dentx:search' %}" class="input-group panel_item d-flex align-items-center">
+                            <input id="my_search" name="search" type="text" class="form-control" placeholder="{% trans "Bemorlarni qidirish" %}">
+                            <button class="btn search_btn btn-outline-secondary" type="submit" id="search-button">{% trans "Qidirish" %}</button>
+                        </form>
+                        <div id="search_result"></div>
+                        <div class="panel_item">
+                            <div class="dropdown position-static">
+                                <button class="btn my_notification position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-bell"></i>
+                                    {% if notifications_count != 0 %}
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            {{ notifications_count }}
+                                        </span>
+                                    {% endif %}
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-md-end my_drop" aria-labelledby="navbarDropdown">
+                                    {% if notifications %}
+                                        {% for notification in notifications %}
+                                            <li class="notification-box">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-sm-3 col-3 text-center">
+                                                        <div class="my_accaunt" style="background-image: url('{{ notification.sender.image.url }}');"></div>
+                                                    </div>
+                                                    <div class="col-lg-8 col-sm-8 col-8">
+                                                        <div class="info_name">{{ notification.sender }}</div>
+                                                        <div class="info_desc">
+                                                            {% get_message notification.notification %}
+                                                        </div>
+                                                        <small class="info_desc">{{ notification.notification.datetime }}</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p style="text-align: center; margin: 20px 0;">{% trans "Xabarlar mavjud emas" %}</p>
+                                    {% endif %}
+                                </ul> 
+                            </div>
+                        </div>
+                        <div class="panel_item">
+                            <div class="dropdown">
+                                <button class="btn my_accaunt position-relative" style="background-image: url('/media/{{ dentist.image }}');" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'dentx:settings' active_tab="profile" %}">{% trans "Sozlamalar" %}</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'dentx:logout' %}">
+                                            <i class="fas fa-sign-out-alt"></i> {% trans "Chiqish" %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-space"></div>
+        <div class="modal fade" id="waitingListModal" tabindex="-1" aria-labelledby="waitingListModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="waitingListModalLabel">{% trans "Kutish zali" %}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered w-100">
+                            <thead>
+                                <tr>
+                                    <th scope="col">{% trans "Bemor FIOsi" %}</th>
+                                    <th scope="col">{% trans "Sabab" %}</th>
+                                    <th scope="col">{% trans "Izohlar" %}</th>
+                                    <th scope="col">{% trans "Telefon raqam" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for query in queries %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'dentx:patient' id=query.patient.id active_tab="profile" %}" class="text-decoration-none">{{ query.patient }}</a>
+                                        </td>
+                                        <td>{{ query.query.reason }}</td>
+                                        <td>{{ query.query.comment }}</td>
+                                        <td>{{ query.patient.phone_number }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="reminderModal" tabindex="-1" aria-labelledby="reminderModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reminderModalLabel">{% trans "Eslatmalar" %}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+        <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+        <script type="text/javascript">
+            function addReminder(element, category, id=null) {
+                console.log()
+                console.log($(element).prev().prev().html())
+                if ($(element).attr("id") == `add-${category}`) {   
+                    $(element).after(
+                        $(`<div id="add-${category}" class="input-group w-25" key=></div>`).append(
+                            $(`<input id="${category}-name" class="form-control" type="text" placeholder="{% trans "Eslatmani kiriting" %}" style="border-radius: 0">`),
+                            $(`<button id="add-${category}-reminder" class="btn btn-primary"></button>`).append(
+                                $("<i class=\"fas fa-check\"></i>")
+                            ),
+                            $(`<button id="cancel-${category}-reminder" class="btn btn-secondary"></button>`).append(
+                                $("<i class=\"fas fa-times\"></i>")
+                            )
+                        )
+                    )
+                    $(element).remove()
+                    $(`#add-${category}-reminder`).on("click", function() {
+                        confirmReminder(this, "add", category)
+                    })
+                    $(`#cancel-${category}-reminder`).on("click", function() {
+                        cancelReminder(this, "add", category)
+                    })
+                } else if ($(element).attr("id") == `edit-${category}-${id}`) {
+                    $(element).parent().after(
+                        $(`<div id="edit-${category}-${id}" class="input-group w-25"></div>`).append(
+                            $(`<input id="${category}-name" class="form-control" type="text" value="${$(element).prev().prev().html()}" placeholder="{% trans "Eslatmani kiriting" %}" style="border-radius: 0">`),
+                            $(`<button id="add-${category}-${id}-reminder" class="btn btn-primary"></button>`).append(
+                                $("<i class=\"fas fa-check\"></i>")
+                            ),
+                            $(`<button id="cancel-${category}-${id}-reminder" class="btn btn-secondary"></button>`).append(
+                                $("<i class=\"fas fa-times\"></i>")
+                            )
+                        )
+                    )
+                    $(element).parent().remove()
+                    $(`#add-${category}-${id}-reminder`).on("click", function() {
+                        confirmReminder(this, "edit", category, id)
+                    })
+                    $(`#cancel-${category}-${id}-reminder`).on("click", function() {
+                        cancelReminder(this, "edit", category, id, $(element).prev().is(":checked"))
+                    })
+                }
+            }
+            function confirmReminder(element, type, category, id=null) {
+                if ($(`#${category}-name`).val() !== "") {
+                    if (type == "add") {
+                        $.ajax({
+                            url: "{% url 'dentx:reminders' %}",
+                            method: "POST",
+                            data: {
+                                csrfmiddlewaretoken: "{{ csrf_token }}",
+                                category: category,
+                                type: type,
+                                name: $(`#${category}-name`).val()
+                            }
+                        }).always(function(result) {
+                            cancelReminder(element, type, category)
+                            $("#do-reminders .mb-2").empty()
+                            $("#buy-reminders .mb-2").empty()
+                            reminders(result)
+                        })
+                    } else if (type == "edit") {
+                        $.ajax({
+                            url: "{% url 'dentx:reminders' %}",
+                            method: "POST",
+                            data: {
+                                csrfmiddlewaretoken: "{{ csrf_token }}",
+                                category: category,
+                                type: type,
+                                name: $(`#${category}-name`).val(),
+                                id: id
+                            }
+                        }).always(function(result) {
+                            $("#do-reminders .mb-2").empty()
+                            $("#buy-reminders .mb-2").empty()
+                            reminders(result)
+                        })
+                    }
+                }
+            }
+            function cancelReminder(element, type, category, id=null, is_done=null) {
+                if (type == "add") {
+                    $(element).parent().before(
+                        $(`<button id="add-${category}">{% trans "Eslatma qo'shish" %}</button>`)
+                    )
+                    $(element).parent().remove()
+                    $(`#add-${category}`).on("click", function() {
+                        addReminder(this, category)
+                    })
+                } else if (type == "edit") {
+                    $(element).parent().before(
+                        $("<div class=\"form-check\"></div>").append(
+                            $(`<label class="form-check-label" for="${id}">${$(element).prev().prev().val()}</label>`),
+                            $(`<input class="form-check-input" type="checkbox" ${is_done ? "checked" : ""} id="${id}">`),
+                            $(`<button id="edit-${category}-${id}" class="border-0 bg-white ms-1"><i class="fas fa-edit"></i></button>`),
+                            $(`<button id="delete-${category}-${id}" class="border-0 bg-white"><i class="fas fa-minus-circle"></i></button>`)
+                        )
+                    )
+                    $(element).parent().remove()
+                    $(`#edit-${category}-${id}`).on("click", function() {
+                        addReminder(this, category, id)
+                    })
+                    $(`#delete-${category}-${id}`).on("click", function() {
+                        deleteReminder(this, "delete", "do", id)
+                    })
+                }
+            }
+            function deleteReminder(element, type, category, id=null) {
+                $.ajax({
+                    url: "{% url 'dentx:reminders' %}",
+                    method: "POST",
+                    data: {
+                        csrfmiddlewaretoken: "{{ csrf_token }}",
+                        type: type,
+                        id: id
+                    }
+                }).always(function(result) {
+                    $("#do-reminders .mb-2").empty()
+                    $("#buy-reminders .mb-2").empty()
+                    reminders(result)
+                })
+            }
+            function reminders(result) {
+                for (let i = 0; i < result["do"].length; i++) {
+                    $("#do-reminders .mb-2").append(
+                        $("<div class=\"form-check\"></div>").append(
+                            $(`<label class="form-check-label" for="${result["do"][i]["id"]}">${result["do"][i]["name"]}</label>`),
+                            $(`<input class="form-check-input" type="checkbox" ${result["do"][i]["is_done"] ? "checked" : ""} id="${result["do"][i]["id"]}">`),
+                            $(`<button id="edit-do-${result["do"][i]["id"]}" class="border-0 bg-white ms-1"><i class="fas fa-edit"></i></button>`),
+                            $(`<button id="delete-do-${result["do"][i]["id"]}" class="border-0 bg-white"><i class="fas fa-minus-circle"></i></button>`)
+                        )
+                    )
+                    $(`#edit-do-${result["do"][i]["id"]}`).on("click", function() {
+                        addReminder(this, "do", result["do"][i]["id"])
+                    })
+                    $(`#delete-do-${result["do"][i]["id"]}`).on("click", function() {
+                        deleteReminder(this, "delete", "do", result["do"][i]["id"])
+                    })
+                }
+                for (let i = 0; i < result["buy"].length; i++) {
+                    $("#buy-reminders .mb-2").append(
+                        $("<div class=\"form-check\"></div>").append(
+                            $(`<label class="form-check-label" for="${result["buy"][i]["id"]}">${result["buy"][i]["name"]}</label>`),
+                            $(`<input class="form-check-input" type="checkbox" ${result["buy"][i]["is_done"] ? "checked" : ""} id="${result["buy"][i]["id"]}">`),
+                            $(`<button id="edit-buy-${result["buy"][i]["id"]}" class="border-0 bg-white ms-1"><i class="fas fa-edit"></i></button>`),
+                            $(`<button id="delete-buy-${result["buy"][i]["id"]}" class="border-0 bg-white"><i class="fas fa-minus-circle"></i></button>`)
+                        )
+                    )
+                    $(`#edit-buy-${result["buy"][i]["id"]}`).on("click", function() {
+                        addReminder(this, "buy", result["buy"][i]["id"])
+                    })
+                    $(`#delete-buy-${result["buy"][i]["id"]}`).on("click", function() {
+                        deleteReminder(this, "delete", "buy", result["buy"][i]["id"])
+                    })
+                }
+                $("#do-reminders input[type=checkbox]").on("change", function() {
+                    $.ajax({
+                        url: "{% url 'dentx:reminders' %}",
+                        method: "POST",
+                        data: {
+                            csrfmiddlewaretoken: "{{ csrf_token }}",
+                            category: "do",
+                            type: "edit",
+                            name: $("label[for='do-name']").val(),
+                            is_done: $(this).is(":checked"),
+                            id: $(this).attr("id")
+                        }
+                    }).always(function(result) {
+                        $("#do-reminders .mb-2").empty()
+                        $("#buy-reminders .mb-2").empty()
+                        reminders(result)
+                    })
+                })
+                $("#buy-reminders input[type=checkbox]").on("change", function() {
+                    $.ajax({
+                        url: "{% url 'dentx:reminders' %}",
+                        method: "POST",
+                        data: {
+                            csrfmiddlewaretoken: "{{ csrf_token }}",
+                            category: "buy",
+                            type: "edit",
+                            name: $("label[for='buy-name']").val(),
+                            is_done: $(this).is(":checked"),
+                            id: $(this).attr("id")
+                        }
+                    }).always(function(result) {
+                        $("#do-reminders .mb-2").empty()
+                        $("#buy-reminders .mb-2").empty()
+                        reminders(result)
+                    })
+                })
+            }
+            $.ajax({
+                url: "{% url 'dentx:reminders' %}",
+            }).always(function(result) {
+                $("#reminderModal .modal-body").append(
+                    $("<div id=\"do-reminders\" class=\"mb-4\"></div>").append(
+                        $("<h6>{% trans "Qilish kerak" %}</h6>"),
+                        $("<hr>"),
+                        $("<div class=\"mb-2\"></div>"),
+                        $("<button id=\"add-do\" class=\"bg-white\">{% trans "Eslatma qo'shish" %}</button>")
+                    ),
+                    $("<div id=\"buy-reminders\" class=\"mb-4\"></div>").append(
+                        $("<h6>{% trans "Sotib olish kerak" %}</h6>"),
+                        $("<hr>"),
+                        $("<div class=\"mb-2\"></div>"),
+                        $("<button id=\"add-buy\" class=\"bg-white\">{% trans "Eslatma qo'shish" %}</button>")
+                    )
+                )
+                reminders(result)
+                $("#add-do").on("click", function() {
+                    addReminder(this, "do")
+                })
+                $("#add-buy").on("click", function() {
+                    addReminder(this, "buy")
+                })
+            })
+        </script>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

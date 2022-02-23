@@ -1,0 +1,55 @@
+{% extends 'app.html' %}
+{% load static i18n %}
+
+{% block title %}
+	{% trans "Tizimga kirish" %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel">
+            <div class="big_title mb-4">{% trans "Tizimga kirish" %}</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        {% if error_message %}
+                            <div class="alert alert-danger">
+                                {{ error_message }}
+                            </div>
+                        {% endif %}
+                        {% for error in loginform.email.errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                        {% for error in loginform.password.errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% for field in loginform %}
+                            <div class="mb-3">
+                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                            {% if request.GET.next %}
+                                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                            {% endif %}
+                            <button type="submit" class="btn my_btn mt-4 mx-auto">{% trans "Jo'natish" %}</button>
+                        </form>
+                        <a href="{% url 'baseapp:index' %}">
+                            <p class="mt-5 mb-3 text-center text-muted">&copy; MyDentist</p>
+                        </a>
+                        <div class="extra_login text-center">
+                            <a href="{% url 'login:password_reset' %}">{% trans "Parolni unutdingizmi?" %}</a>
+                            <p>{% trans "Akkauntingiz yo'qmi?" %} <a href="{% url 'login:register' %}">{% trans "Ro'yhatdan o'ting" %}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

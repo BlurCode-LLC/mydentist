@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 18:41+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\patient\apps.py:8
+msgid "Bemor ma'lumotlari"
+msgstr "Данные пациента"
+
+#: .\patient\forms.py:10
+msgid "Ism"
+msgstr "Имя"
+
+#: .\patient\forms.py:14
+msgid "Ismingiz"
+msgstr "Ваше имя"
+
+#: .\patient\forms.py:21
+msgid "Familiya"
+msgstr "Фамилия"
+
+#: .\patient\forms.py:25
+msgid "Familiyangiz"
+msgstr "Ваша фамилия"
+
+#: .\patient\forms.py:32 .\patient\forms.py:150 .\patient\models.py:11
+msgid "Jins"
+msgstr "Пол"
+
+#: .\patient\forms.py:68
+msgid "Telefon raqam"
+msgstr "Номер телефона"
+
+#: .\patient\forms.py:72
+msgid "Telefon raqamingiz"
+msgstr "Ваш номер телефона"
+
+#: .\patient\forms.py:79
+msgid "Elektron manzil"
+msgstr "Электронная почта"
+
+#: .\patient\forms.py:83
+msgid "Elektron pochtangiz"
+msgstr "Ваша электронная почта"
+
+#: .\patient\forms.py:89 .\patient\forms.py:159 .\patient\models.py:12
+msgid "Manzil"
+msgstr "Адрес"
+
+#: .\patient\forms.py:93
+msgid "Manzilingiz"
+msgstr "Ваш адрес"
+
+#: .\patient\forms.py:104
+msgid "Til"
+msgstr "Язык"
+
+#: .\patient\forms.py:120 .\patient\models.py:9 .\patient\models.py:18
+#: .\patient\models.py:53 .\patient\models.py:73 .\patient\models.py:96
+#: .\patient\models.py:122
+msgid "Bemor"
+msgstr "Пациент"
+
+#: .\patient\forms.py:124
+msgid "Bemor FIOsi"
+msgstr "ФИО пациента"
+
+#: .\patient\forms.py:130 .\patient\models.py:10
+msgid "Telefon raqami"
+msgstr "Номер телефона"
+
+#: .\patient\forms.py:134
+msgid "+9989XXXXXXXX"
+msgstr ""
+
+#: .\patient\forms.py:140
+msgid "Tugilgan sana"
+msgstr "Дата рождения"
+
+#: .\patient\forms.py:163
+msgid "Manzilni kiriting"
+msgstr "Введите адрес"
+
+#: .\patient\models.py:13
+msgid "Tug'ilgan sanasi"
+msgstr "Дата рождения"
+
+#: .\patient\models.py:14
+msgid "Rasmi"
+msgstr "Фото"
+
+#: .\patient\models.py:15
+msgid "Tili"
+msgstr "Язык"
+
+#: .\patient\models.py:19
+msgid "Bemorlar"
+msgstr "Пациенты"
+
+#: .\patient\models.py:54
+msgid "Qandli diabet"
+msgstr "Сахарный диабет"
+
+#: .\patient\models.py:55
+msgid "Narkoz"
+msgstr "Наркоз"
+
+#: .\patient\models.py:56
+msgid "Gepatit B"
+msgstr "Гепатит Б"
+
+#: .\patient\models.py:57
+msgid "OITS"
+msgstr "СПИД"
+
+#: .\patient\models.py:58
+msgid "Qon bosimi"
+msgstr "Давление"
+
+#: .\patient\models.py:59
+msgid "Allergiya"
+msgstr "Аллергия"
+
+#: .\patient\models.py:60
+msgid "Bronxial astma"
+msgstr "Бронхиальная астма"
+
+#: .\patient\models.py:61
+msgid "Bosh aylanishi"
+msgstr "Головокружение"
+
+#: .\patient\models.py:64 .\patient\models.py:85
+msgid "Bemor kasalligi"
+msgstr "Заболевание пациента"
+
+#: .\patient\models.py:65 .\patient\models.py:86
+msgid "Bemor kasalliklari"
+msgstr "Заболевания пациента"
+
+#: .\patient\models.py:74
+msgid "Epilepsiya"
+msgstr "Эпилепсия"
+
+#: .\patient\models.py:75
+msgid "Qon kasali"
+msgstr "Заболевание крови"
+
+#: .\patient\models.py:76
+msgid "Doimiy dorilar"
+msgstr "Постоянные лекарства"
+
+#: .\patient\models.py:77
+msgid "Insultga uchraganmisiz?"
+msgstr "Болели инсультом?"
+
+#: .\patient\models.py:78
+msgid "Yurak xurujiga uchraganmisiz?"
+msgstr "Болели инфарктом?"
+
+#: .\patient\models.py:79
+msgid "Onkologik kasalliklar"
+msgstr "Онкологические заболевания"
+
+#: .\patient\models.py:80
+msgid "Sil kasalligi"
+msgstr "Туберкулёз"
+
+#: .\patient\models.py:81
+msgid "Spirtli ichimlik ichasizmi?"
+msgstr "Принимаете ли алкоголь?"
+
+#: .\patient\models.py:82
+msgid "Homiladorlik"
+msgstr "Беременность"
+
+#: .\patient\models.py:94
+msgid "Tish raqami"
+msgstr "Номер зуба"
+
+#: .\patient\models.py:95 .\patient\models.py:112 .\patient\models.py:125
+msgid "Tish holati"
+msgstr "Состояние зуба"
+
+#: .\patient\models.py:99
+msgid "Tish"
+msgstr "Зуб"
+
+#: .\patient\models.py:100
+msgid "Tishlar"
+msgstr "Зубы"
+
+#: .\patient\models.py:108
+msgid "Holat nomi"
+msgstr "Название состояния"
+
+#: .\patient\models.py:109
+msgid "Holat qo'shimchasi"
+msgstr "Префикс состояния"
+
+#: .\patient\models.py:113 .\patient\models.py:126
+msgid "Tish holatlari"
+msgstr "Состояния зубов"
+
+#: .\patient\models.py:121
+msgid "Ish jarayonidagi rasm"
+msgstr "Картинка из процесса работы"
+
+#: .\patient\views.py:426
+msgid "Yangi bemor qo'shildi"
+msgstr "Добавлен новый пациент"
+
+#~ msgid "Ish nomi"
+#~ msgstr "Название работы"
+
+#~ msgid "Qilinganligi"
+#~ msgstr "Сделано?"
+
+#~ msgid "Qilingan ish"
+#~ msgstr "Сделанная работа"
+
+#~ msgid "Qilingan ishlar"
+#~ msgstr "Сделанные работы"
+
+#~ msgid "Yanvar"
+#~ msgstr "Январь"
+
+#~ msgid "Fevral"
+#~ msgstr "Февраль"
+
+#~ msgid "Mart"
+#~ msgstr "Март"
+
+#~ msgid "Aprel"
+#~ msgstr "Апрель"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "Iyun"
+#~ msgstr "Июнь"
+
+#~ msgid "Iyul"
+#~ msgstr "Июль"
+
+#~ msgid "Avgust"
+#~ msgstr "Август"
+
+#~ msgid "Sentyabr"
+#~ msgstr "Сентябрь"
+
+#~ msgid "Oktyabr"
+#~ msgstr "Октябрь"
+
+#~ msgid "Noyabr"
+#~ msgstr "Ноябрь"
+
+#~ msgid "Dekabr"
+#~ msgstr "Декабрь"
+
+#~ msgid "Foydalanuvchi"
+#~ msgstr "Пользователь"
+
+#~ msgid "Manzili"
+#~ msgstr "Адрес"
+
+#~ msgid "Foydalanuvchilar"
+#~ msgstr "Пользователи"
+
+#~ msgid "Foydalanuvchi kasalliklari"
+#~ msgstr "Заболевания пользователя"

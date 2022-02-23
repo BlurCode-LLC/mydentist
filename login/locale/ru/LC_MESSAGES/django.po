@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-07 18:41+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\login\apps.py:8
+msgid "Kirish ma'lumotlari"
+msgstr "Данные входа"
+
+#: .\login\forms.py:8
+msgid "E-mail yoki telefon raqam"
+msgstr "E-mail или номер телефона"
+
+#: .\login\forms.py:17 .\login\forms.py:39 .\login\forms.py:96
+msgid "Parol"
+msgstr "Пароль"
+
+#: .\login\forms.py:30
+msgid "Login"
+msgstr "Логин"
+
+#: .\login\forms.py:52
+msgid "Eski parol"
+msgstr "Старый пароль"
+
+#: .\login\forms.py:61
+msgid "Yangi parol"
+msgstr "Новый пароль"
+
+#: .\login\forms.py:70 .\login\forms.py:105
+msgid "Parolni tasdiqlang"
+msgstr "Подтвердите свой пароль"
+
+#: .\login\forms.py:83 .\login\models.py:7
+msgid "E-mail"
+msgstr ""
+
+#: .\login\models.py:8
+msgid "uidb64"
+msgstr ""
+
+#: .\login\models.py:9
+msgid "Token"
+msgstr "Токен"
+
+#: .\login\models.py:10
+msgid "Faolligi"
+msgstr "Активность"
+
+#: .\login\models.py:13
+msgid "Parol tiklanishi"
+msgstr "Сброс пароля"
+
+#: .\login\models.py:14
+msgid "Parol tiklanishlari"
+msgstr "Сбросы пароля"
+
+#: .\login\views.py:134
+msgid "Parollar to'g'ri kemayapti"
+msgstr "Пароли не совпадают"
+
+#: .\login\views.py:185 .\login\views.py:210
+msgid "Xato parol"
+msgstr "Неверный пароль"
+
+#: .\login\views.py:215
+msgid "Xato e-mail"
+msgstr "Неверный e-mail"
+
+#: .\login\views.py:256
+msgid "Parolni tiklash"
+msgstr "Подтвердите свой пароль"
+
+#: .\login\views.py:297
+msgid "Parollar mos kelmayapti"
+msgstr "Пароли не совпадают"
+
+#: .\login\views.py:312 .\login\views.py:314 .\login\views.py:316
+#: .\login\views.py:318
+msgid "Havolani muddati yakunlandi"
+msgstr "Истек срок действия ссылки"
+
+#: .\login\views.py:367
+msgid "Noto'g'ri login yoki parol"
+msgstr "Неверный логин или пароль"

@@ -1,0 +1,7 @@
+autopep8==1.6.0
+django==3.2.5
+geopy==2.2.0
+mysqlclient==2.1.0
+pillow==8.4.0
+pip-chill==1.0.1
+python-dotenv==0.19.2

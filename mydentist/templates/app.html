@@ -1,0 +1,99 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}" class="h-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <link href="{% static 'vendor/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link rel="icon" href="{% static 'favicon.ico' %}">
+        <title>{% block title %}{% endblock %} - MyDentist</title>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'baseapp:index' %}">
+                        <img src="{% static 'img/logo-full.png' %}">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="tel:+998932757757">+998 93 275 77 57</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{% url 'baseapp:index' %}#first_screen">{% trans "Dastur haqida" %}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'baseapp:index' %}#second_screen">{% trans "Stomatolog uchun" %}</a>
+                            </li>
+                            <div class="dropdown lang_select nav-link">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% if LANGUAGE_CODE == "uz" %}
+                                        O'zbekcha
+                                    {% else %}
+                                        Русский
+                                    {% endif %}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'set_language' user_language="uz" %}">O'zbekcha</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'set_language' user_language="ru" %}">Русский</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <li class="nav-item enter_btn">
+                                <a class="nav-link" href="{% url 'login:login' %}">{% trans "Kirish" %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-space"></div>
+            {% block content %}{% endblock %}
+        </main>
+        <div class="footer mt-auto">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="footer_logo mb-2">
+                            <a href="{% url 'baseapp:index' %}">
+                                <img src="{% static 'img/logo.png' %}">
+                            </a>
+                        </div>
+                        <div class="footer_text_2">{% trans "Bemor va stomatologlar uchun zamonaviy platforma" %}</div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="footer_text_1 mb-2">{% trans "Sayt fayllari" %}</div>
+                        <a href="#" class="footer_text_2">{% trans "Ommaviy oferta" %}</a>
+                        <a href="#" class="footer_text_2">{% trans "Foydalanish shartlari" %}</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="footer_text_1 mb-2">{% trans "Hududlar" %}</div>
+                        <span class="footer_text_2">{% trans "Toshkent" %}</span>
+                        <span class="footer_text_2">{% trans "Andijon viloyati" %}</span>
+                        <span class="footer_text_2">{% trans "Samarqand viloyati" %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pre_footer px-3 py-2">
+            <a href="https://www.instagram.com/blurcode.studio/" target="_blank">
+                <img height="30px" src="{% static 'img/bc-logo.png' %}">
+            </a>
+            <a class="developers" href="https://www.instagram.com/blurcode.studio/" target="_blank">Powered by BlurCode Studio</a>
+        </div>
+        <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+        {% block javascript %}{% endblock %}
+    </body>
+</html>

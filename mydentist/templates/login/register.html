@@ -1,0 +1,249 @@
+{% extends 'app.html' %}
+{% load static i18n %}
+
+{% block title %}
+	{% trans "Ro'yhatdan o'tish" %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel mb-5">
+            <div class="big_title mb-5">
+                {% trans "Ro'yhatdan o'tish" %}
+            </div>
+            {% if error_message %}
+                <div class="alert alert-danger">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="container">
+                    <div class="row">
+                        {% for field in userform %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            {% if field.name == "birth_year" %}
+                                <div class="col-md-6 mb-3">
+                                    <label for="birthday_holder" class="form-label">{% trans "Tug'ilgan sana" %}</label>
+                                    <div id="birthday_holder">
+                                        <div class="birth_item">
+                                            <i id="birth_year_1" class="fas fa-sort-up"></i>
+                                            {{ field }}
+                                            <i id="birth_year_2" class="fas fa-sort-down"></i>
+                                        </div>
+                            {% elif field.name == "birth_month" %}
+                                        <div class="birth_item">
+                                            <i id="birth_month_1" class="fas fa-sort-up"></i>
+                                            {{ field }}
+                                            <i id="birth_month_2" class="fas fa-sort-down"></i>
+                                        </div>
+                            {% elif field.name == "birth_day" %}
+                                        <div class="birth_item">
+                                            <i id="birth_day_1" class="fas fa-sort-up"></i>
+                                            {{ field }}
+                                            <i id="birth_day_2" class="fas fa-sort-down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="col-md-6 mb-3">
+                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% for field in passwordform %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            <div class="col-md-6 mb-3">
+                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        <div class="big_title mt-5 mb-5">
+                            {% trans "Kasalliklar haqida" %}
+                        </div>
+                        {% for field in illnessform %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                            {% if field.name != "allergy_detail" %}
+                                <div class="col-md-6 mb-3">
+                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                    {{ field }}
+                                    {% if field.name == "allergy" %}
+                                        {{ illnessform.allergy_detail }}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="big_title mt-5 mb-1">
+                    {% trans "Boshqa kasalliklar" %}
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <label class="form-check-label" for="other_illness">{% trans "Ko'rsatish" %}</label>
+                        <input class="form-check-input" type="checkbox" id="other_illness">
+                    </div>
+                </div>
+                <div id="other_illness_holder" class="d-none">
+                    <div class="container">
+                        <div class="row">
+                            {% for field in otherillnessform %}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                                {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                        {{ field }}
+                                        {% if field.name == "medications" %}
+                                            {{ otherillnessform.medications_detail }}
+                                        {% elif field.name == "pregnancy" %}
+                                            {{ otherillnessform.pregnancy_detail }}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn my_btn mx-auto">{% trans "Jo'natish" %}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        var date = new Date()
+        var current_year = date.getFullYear(), current_month = date.getMonth()
+        var months_uz = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+            months_ru = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+        $("#birth_year_1").on("click", function(){
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) < current_year) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) + 1)
+            }
+        })
+        $("#birth_year_2").on("click", function() {
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) > 1900) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) - 1)
+            }
+        })
+        {% get_current_language as LANGUAGE_CODE %}
+        $("#birth_month_1").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = 0; i < months_uz.length; i++) {
+                        if ($("#month_holder").val() == months_uz[i] && i < months_uz.length - 1) {
+                            $("#month_holder").val(months_uz[i + 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = 0; i < months_ru.length; i++) {
+                        if ($("#month_holder").val() == months_ru[i] && i < months_ru.length - 1) {
+                            $("#month_holder").val(months_ru[i + 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_month_2").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = months_uz.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_uz[i] && i > 0) {
+                            $("#month_holder").val(months_uz[i - 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = months_ru.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_ru[i] && i > 0) {
+                            $("#month_holder").val(months_ru[i - 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_day_1").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) < 31) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) + 1)
+            }
+        })
+        $("#birth_day_2").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) > 1) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) - 1)
+            }
+        })
+        $("#id_allergy").on("change", function() {
+            if ($("#id_allergy").val() == 2) {
+                $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+            } else  {
+                $("#id_allergy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#other_illness").on("change", function() {
+            if ($("#other_illness").is(":checked")) {
+                $("#other_illness_holder").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#other_illness_holder").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_medications").on("change", function() {
+            if ($("#id_medications").val() == 2) {
+                $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_medications_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_pregnancy").on("change", function() {
+            if ($("#id_pregnancy").val() == 2) {
+                $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_pregnancy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#birth_year_1").on("change", function() {
+            if (parseInt(this.val()) >= current_year) {
+                this.val(current_year)
+            }
+        })
+    </script>
+{% endblock %}

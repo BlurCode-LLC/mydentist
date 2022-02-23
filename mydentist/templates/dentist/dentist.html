@@ -1,0 +1,199 @@
+{% extends authenticated|yesno:'app_user.html,app.html' %}
+{% load static i18n mydentist_tags %}
+
+{% block title %}
+	{{ dentist_extra.fullname }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-4 col-sm-12">
+                <div class="sub_title_gray_2 center mb-3">
+                    {{ dentist_extra.fullname }}
+                </div>
+                <img class="img-fluid" src="/media/{{ dentist.image }}" alt="{{ dentist_extra.fullname }}">
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="row pt-5">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="info_holder">
+                            <div class="info_name">{% trans "Ish sohasi:" %}</div>
+                            <div class="info_desc">{{ dentist_extra.speciality }}</div>
+                        </div>
+                        {% if dentist.experience %}
+                            <div class="info_holder">
+                                <div class="info_name">{% trans "Ish tajribasi:" %}</div>
+                                <div class="info_desc">{{ dentist.experience }}</div>
+                            </div>
+                        {% endif %}
+                        <div class="info_holder">
+                            <div class="info_name">{% trans "Shifoxona:" %}</div>
+                            <div class="info_desc">{{ clinic_extra.name }}</div>
+                        </div>
+                        <div class="info_holder">
+                            <div class="info_name">{% trans "Manzil:" %}</div>
+                            <div class="info_desc">{{ clinic_extra.address }}</div>
+                        </div>
+                        {% if clinic_extra.orientir %}
+                            <div class="info_holder">
+                                <div class="info_name">{% trans "Mo'ljal:" %}</div>
+                                <div class="info_desc">{{ clinic_extra.orientir }}</div>
+                            </div>
+                        {% endif %}
+                        <div class="info_holder">
+                            <div class="info_name">{% trans "Ish tartibi:" %}</div>
+                            {% if dentist.is_fullday %}
+                                <div class="info_desc">
+                                    {% trans "24 soat" %}
+                                </div>
+                            {% else %}
+                                <div class="info_desc">
+                                    {{ dentist.worktime_begin }} - {{ dentist.worktime_end }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        {% if authenticated %}
+                            {% if query is None and appointment is None %}
+                                <button type="button" class="btn my_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{% trans "Qabulga yozilish" %}</button>
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">{% trans "Tish shifokor qabuliga yozilish" %}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Yopish"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="id_reason" class="form-label">{{ queryform.reason.label }}</label>
+                                                        {{ queryform.reason }}
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="id_comment" class="form-label">{{ queryform.comment.label }}</label>
+                                                        {{ queryform.comment }}
+                                                        <div id="emailHelp" class="form-text">
+                                                            {% trans "Sizga maqul kunlar va vaqt, hamda boshqa izohlar" %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn my_close_btn" data-bs-dismiss="modal">{% trans "Yopish" %}</button>
+                                                    <button type="submit" class="btn my_btn_1">{% trans "Jo'natish" %}</button>
+                                                </div>
+                                            </form>
+                                        </div>        
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'login:login' %}?next={{ request.path }}" class="btn my_btn">{% trans "Qabulga yozilish" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if services is not None %}
+                <div class="info_holder mt-3">
+                    <div class="big_title">{% trans "Narxlar" %}</div>
+                    <div class="my_table">
+                        <table class="table table-primary table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">{% trans "Xizmat nomi" %}</th>
+                                    <th scope="col">{% trans "Narxi" %}</th>
+                                    <th scope="col">{% trans "Davomiyligi" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for service in services %}
+                                    <tr>
+                                        <td>{{ service.service_extra.name }}</td>
+                                        <td>{{ service.service.price }} {% trans "so'm" %}</td>
+                                        <td>{% convert_time service.service.duration %}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="info_holder">
+                    <div class="map">
+                        {% if cabinet_images %}
+                            <div class="big_title">{% trans "Kabinet rasmlari" %}</div>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    {% for i in counter %}
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ i }}" class="active" aria-current="true" aria-label="Slide {{ i }}"></button>
+                                    {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="/media/{{ cabinet_image.image }}" class="d-block w-100" alt="...">
+                                    </div>
+                                    {% for image in cabinet_images %}
+                                        <div class="carousel-item">
+                                            <img src="/media/{{ image.image }}" class="d-block w-100" alt="...">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        {% elif cabinet_image %}
+                            <div class="big_title">{% trans "Kabinet rasmi" %}</div>
+                            <img src="/media/{{ cabinet_image.image }}" class="d-block w-100" alt="...">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_holder">
+			<div class="map mb-4">
+				<div class="big_title">{% trans "Xaritada joylashuv" %}</div>
+				<div class="container">
+					<div id="map"></div>
+				</div>
+			</div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=9c44946f-08f3-4e0d-a8e0-12aad041b5ff&lang=ru_RU"></script>
+	<script type="text/javascript">
+		ymaps.ready(init)
+		function init(){
+			let myMap = new ymaps.Map("map", {
+				center: [40.767684, 72.336187],
+				zoom: 10
+			}), myGeoObject
+			
+            myGeoObject = new ymaps.GeoObject({
+                // Описание геометрии.
+                geometry: {
+                    type: "Point",
+                    coordinates: [parseFloat("{{ clinic.latitude }}".replace(/,/, ".")), parseFloat("{{ clinic.longitude }}".replace(/,/, "."))]
+                },
+                // Свойства.
+                properties: {
+                    // Контент метки.
+                    iconContent: "{{ dentist_extra.fullname }}"
+                }
+            }, {
+                // Опции.
+                // Иконка метки будет растягиваться под размер ее содержимого.
+                preset: 'islands#blackStretchyIcon'
+            })
+            myMap.geoObjects.add(myGeoObject)
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'dentx/app.html' %}
+{% load static i18n mydentist_tags %}
+
+{% block title %}
+	{% trans "Qidiruv natijalari" %}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="header mt-md-5">
+            <div class="header-body">
+                <br>
+                <div class="row align-items-center">
+                    <div class="col">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == "uz" %}
+                            <h1 class="header-title">"{{ search }}" so'rovi bo'yicha natijalar</h1>
+                        {% elif LANGUAGE_CODE == "ru" %}
+                            <h1 class="header-title">Результаты поиска для "{{ search }}"</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if results %}
+                <div class="overflow mt-5 border-top">
+                {% comment %} <ul class="d-flex justify-content-end list-group-horizontal me-auto my-2 my-lg-0 offset-lg-6" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Qarz" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="#">{% trans "Eng kami" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Eng ko'pi" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Ishi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown1">
+                            <li><a class="dropdown-item" href="#">{% trans "Yakunlangan" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Yakunlanmagan" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Jinsi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown2">
+                            <li><a class="dropdown-item" href="#">{% trans "Erkak" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Ayol" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown list-group-item">
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Oxirgi tashrifi" %}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown3">
+                            <li><a class="dropdown-item" href="#">{% trans "Kecha" %}</a></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Shu hafta" %}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">{% trans "Shu oyda" %}</a></li>
+                        </ul>
+                    </li>
+                </ul> {% endcomment %}
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">{% trans "Rasm" %}</th>
+                                <th scope="col">{% trans "Ism" %}</th>
+                                <th scope="col">{% trans "Jins" %}</th>
+                                <th scope="col">{% trans "Manzil" %}</th>
+                                <th scope="col">{% trans "Qilingan ishlar" %}</th>
+                                <th scope="col">{% trans "Qarz" %}</th>
+                                <th scope="col">{% trans "Rejada" %}</th>
+                                <th scope="col">{% trans "Oxirgi tashrif" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                            <tr>
+                                <th>
+                                    <div class="avatar avatar-xs mx-auto">
+                                        <div class="border border-1">
+                                            <img src="{{ result.image }}">
+                                        </div>
+                                    </div>
+                                </th>
+                                <td>
+                                    <a href="{% url 'dentx:patient' id=result.id active_tab="profile" %}" class="text-decoration-none">
+                                        <h6>{{ result.patient }}</h6>
+                                        <h6>{{ result.birthday }}</h6>
+                                        <h6>{{ result.phone_number }}</h6>
+                                    </a>
+                                </td>
+                                <td>{{ result.gender }}</td>
+                                <td>{{ result.address }}</td>
+                                <td>{{ result.done }}</td>
+                                <td>{{ result.total_sum }} {% trans "so'm" %}</td>
+                                <td>{{ result.coming }}</td>
+                                <td>{% last_visit_format result.last_visit %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <h4 class="text-center mt-5">{% trans "Kechirasiz, sizning so'rovingiz bo'yicha natijalar topilmadi" %}</h4>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

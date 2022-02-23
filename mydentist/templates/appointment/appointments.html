@@ -1,0 +1,544 @@
+{% extends 'dentx/app.html' %}
+{% load static i18n %}
+
+{% block title %}
+	{% trans "Yozuvlar" %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container-fluid">
+            {% if text is not None %}
+                <div class="alert alert-{% if is_success %}success{% else %}danger{% endif %}">
+                    {{ text }}
+                </div>
+            {% endif %}
+            <div class="controls d-flex align-items-center justify-content-between">
+                <div class="angles">
+                    <a><i class="fal fa-angle-left"></i></a>
+                    <a><i class="fal fa-angle-right"></i></a>
+                </div>
+                <div class="daily-about">
+                    <p></p>
+                </div>
+                <span class="full-screen">
+                    <i class="fal fa-expand" id="full-screen"></i>
+                    <i class="fal fa-compress d-none" id="full-screen-close"></i>
+                </span>
+            </div>
+            <div class="d-none hidden-button">
+                <button data-bs-toggle="modal" data-bs-target="#appointmentModal"></button>
+            </div>
+            <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ patientform.name.label }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-group" method="POST">
+                                {% csrf_token %}
+                                <div class="pats">
+                                    <div class="mb-1 d-flex justify-content-between">
+                                        <label for="id_name">{{ patientform.name.label }}</label>
+                                    </div>
+                                    <div class="input-group w-100">
+                                        {{ patientform.name }}
+                                        <span class="input-group-text">
+                                            <p>
+                                                <i class="fas fa-caret-down"></i>
+                                            </p>
+                                        </span>
+                                    </div>
+                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
+                                        <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                            <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
+                                            {{ patientform.phone_number }}
+                                        </div> 
+                                        <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                            <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
+                                            {{ patientform.birthday }}
+                                        </div>
+                                        <div class="end col-12 col-lg-3">
+                                            <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
+                                            <div>
+                                            {% for el in patientform.gender %}
+                                                {{ el }}
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="end col-12 col-lg-3 d-flex flex-column align-items-start">
+                                            <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
+                                            {{ patientform.address }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="work-time">
+                                    <div class="form-title">
+                                        <p><i class="fal fa-calendar-week"></i></p>
+                                    </div>
+                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-4">
+                                        <div class="left col-12 col-lg-3">
+                                            <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
+                                            {{ appointmentform.service }}
+                                        </div>
+                                        {{ appointmentform.begin_day }}
+                                        <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                            <label class="mb-1 left" for="id_begin_time">{{ appointmentform.begin_time.label }}</label>
+                                            {{ appointmentform.begin_time }}
+                                        </div>
+                                        <div class="end col-12 col-lg-3">
+                                            <label class="mb-1 left" for="id_duration">{{ appointmentform.duration.label }}</label>
+                                            {{ appointmentform.duration }}
+                                        </div>
+                                        <div class="end col-12 col-lg-3">
+                                            <label class="mb-1 left" for="id_comment">{{ appointmentform.comment.label }}</label>
+                                            {{ appointmentform.comment }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Saqlash" %}</button>
+                                    <button class="btn btn-danger mt-2 d-none" type="button" id="appointment-delete-button">{% trans "O'chirish" %}</button>
+                                    <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'uz' %}
+        days = [
+            "Dushanba",
+            "Seshanba",
+            "Chorshanba",
+            "Payshanba",
+            "Juma",
+            "Shanba",
+            "Yakshanba"
+        ]
+        months = [
+            "yanvar",
+            "fevral",
+            "mart",
+            "aprel",
+            "may",
+            "iyun",
+            "iyul",
+            "avgust",
+            "sentyabr",
+            "oktyabr",
+            "noyabr",
+            "dekabr"
+        ]
+        {% elif LANGUAGE_CODE == 'ru' %}
+        days = [
+            "Понедельник",
+            "Вторник",
+            "Среда",
+            "Четверг",
+            "Пятница",
+            "Суббота",
+            "Воскресенье"
+        ]
+        months = [
+            "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря"
+        ]
+        {% endif %}
+        let current_datetime = new Date()
+        let text = [
+            `${days[(current_datetime.getDay() + 6) % 7]}, ${current_datetime.getDate()}-${months[current_datetime.getMonth()]} ${current_datetime.getFullYear()}, ${current_datetime.getHours()}`,
+            current_datetime.getMinutes() < 10 ? `0${current_datetime.getMinutes()}` : current_datetime.getMinutes(),
+            current_datetime.getSeconds() < 10 ? `0${current_datetime.getSeconds()}` : current_datetime.getSeconds()
+        ]
+        $(".daily-about p").html(text.join(":"))
+        let colon = false
+        setInterval(function () {
+            current_datetime = new Date()
+            text = [
+                `${days[(current_datetime.getDay() + 6) % 7]}, ${current_datetime.getDate()}-${months[current_datetime.getMonth()]} ${current_datetime.getFullYear()}, ${current_datetime.getHours()}`,
+                current_datetime.getMinutes() < 10 ? `0${current_datetime.getMinutes()}` : current_datetime.getMinutes(),
+                current_datetime.getSeconds() < 10 ? `0${current_datetime.getSeconds()}` : current_datetime.getSeconds()
+            ]
+            if (colon) {
+                $(".daily-about p").html(text.join(":"))
+                colon = false
+            } else {
+                $(".daily-about p").html(text.join(" "))
+                colon = true
+            }
+        }, 1000)
+        today = new Date()
+        today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
+        $.ajax({
+            url: "{% url 'dentx:table' %}"
+        }).always(function(result) {
+            $(".overflow").html(result)
+            $(".overflow td.time").on("dblclick", function() {
+                console.log($(this).index())
+                $(".hidden-button > button")[0].click()
+                let attr = $("form").attr("action")
+                if (typeof attr !== "undefined" && attr !== false) {
+                    $("form").removeAttr("action")
+                }
+                temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
+                $("#id_name").val("")
+                $("#id_phone_number").val("")
+                $("#id_phone_number").removeAttr("readonly")
+                $("#id_birthday").val("")
+                $("#id_birthday").removeAttr("readonly")
+                $(`#id_gender_0`).attr("checked", true)
+                $("#id_address").val("")
+                $("#id_address").removeAttr("readonly")
+                $("#id_service").val($("#id_service option")[0].value).change()
+                $("#id_begin_day").val(temp[0])
+                time = $(this).parent().children(":first-child").text()
+                text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                $("#id_begin_time").val(time).change()
+                $(".form-title p").text(text)
+                $("#id_duration").val(15).change()
+                $("#id_comment").val("")
+                $("#appointment-delete-button").addClass("d-none")
+            })
+            $(".overflow td.appointment").on("dblclick", function() {
+                console.log($(this).index())
+                $.ajax({
+                    url: "{% url 'dentx:appointment' %}",
+                    type: "POST",
+                    data : {
+                        csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                        date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
+                        time: $(this).parent().children(":first-child").text(),
+                    },
+                }).always(function(result) {
+                    function changeDetector() {
+                        $("#id_phone_number").val("")
+                        $("#id_phone_number").removeAttr("readonly")
+                        $("#id_birthday").val("")
+                        $("#id_birthday").removeAttr("readonly")
+                        $("#id_address").val("")
+                        $("#id_address").removeAttr("readonly")
+                    }
+                    $(".hidden-button > button")[0].click()
+                    temp = result.date.split("<br>")
+                    time = result.time
+                    text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                    $(".form-title p").text(text)
+                    $("form").attr("action", "{% url 'dentx:appointments_update' %}")
+                    $("#id_name").val(result["name"])
+                    $("#id_name").on("input", changeDetector)
+                    $("#id_phone_number").val(result["phone_number"])
+                    $("#id_phone_number").attr("readonly", "readonly")
+                    $("#id_birthday").val(result["birthday"])
+                    $("#id_birthday").attr("readonly", "readonly")
+                    $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
+                    $("input[name='gender']").on("change", changeDetector)
+                    $("#id_address").val(result["address"])
+                    $("#id_address").attr("readonly", "readonly")
+                    $("#id_service").val(result["service"]).change()
+                    $("#id_begin_day").val(temp[0])
+                    $("#id_begin_time").val(time).change()
+                    $("#id_duration").val(result["duration"]).change()
+                    $("#id_comment").val(result["comment"])
+                    $("#appointment-delete-button").removeClass("d-none")
+                    $("#appointment-delete-button").on("click", function() {
+                        $("section .container-fluid").append(
+                            $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
+                                $('{% csrf_token %}'),
+                                $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
+                                $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
+                                $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
+                            )
+                        )
+                        $("#appointment-delete-form-button").click()
+                    })
+                })
+            })
+        })
+        $(".fa-angle-left").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    day: today.getDate(),
+                    month: today.getMonth() + 1,
+                    year: today.getFullYear(),
+                    direction: "left"
+                }
+            }).always(function(result) {
+                $(".overflow").html(result)
+                $(".overflow td.time").on("dblclick", function() {
+                    $(".hidden-button > button")[0].click()
+                    let attr = $("form").attr("action")
+                    if (typeof attr !== "undefined" && attr !== false) {
+                        $("form").removeAttr("action")
+                    }
+                    temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
+                    $("#id_name").val("")
+                    $("#id_phone_number").val("")
+                    $("#id_phone_number").removeAttr("readonly")
+                    $("#id_birthday").val("")
+                    $("#id_birthday").removeAttr("readonly")
+                    $(`#id_gender_0`).attr("checked", true)
+                    $("#id_address").val("")
+                    $("#id_address").removeAttr("readonly")
+                    $("#id_service").val($("#id_service option")[0].value).change()
+                    $("#id_begin_day").val(temp[0])
+                    time = $(this).parent().children(":first-child").text()
+                    text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                    $("#id_begin_time").val(time).change()
+                    $(".form-title p").text(text)
+                    $("#id_duration").val(15).change()
+                    $("#id_comment").val("")
+                    $("#appointment-delete-button").addClass("d-none")
+                })
+                $(".overflow td.appointment").on("dblclick", function() {
+                    $.ajax({
+                        url: "{% url 'dentx:appointment' %}",
+                        type: "POST",
+                        data : {
+                            csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                            date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
+                            time: $(this).parent().children(":first-child").text(),
+                        },
+                    }).always(function(result) {
+                        function changeDetector() {
+                            $("#id_phone_number").val("")
+                            $("#id_phone_number").removeAttr("readonly")
+                            $("#id_birthday").val("")
+                            $("#id_birthday").removeAttr("readonly")
+                            $("#id_address").val("")
+                            $("#id_address").removeAttr("readonly")
+                        }
+                        $(".hidden-button > button")[0].click()
+                        temp = result.date.split("<br>")
+                        time = result.time
+                        text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                        $(".form-title p").text(text)
+                        $("form").attr("action", "{% url 'dentx:appointments_update' %}")
+                        $("#id_name").val(result["name"])
+                        $("#id_name").on("input", changeDetector)
+                        $("#id_phone_number").val(result["phone_number"])
+                        $("#id_phone_number").attr("readonly", "readonly")
+                        $("#id_birthday").val(result["birthday"])
+                        $("#id_birthday").attr("readonly", "readonly")
+                        $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
+                        $("input[name='gender']").on("change", changeDetector)
+                        $("#id_address").val(result["address"])
+                        $("#id_address").attr("readonly", "readonly")
+                        $("#id_service").val(result["service"]).change()
+                        $("#id_begin_day").val(temp[0])
+                        $("#id_begin_time").val(time).change()
+                        $("#id_duration").val(result["duration"]).change()
+                        $("#id_comment").val(result["comment"])
+                        $("#appointment-delete-button").removeClass("d-none")
+                        $("#appointment-delete-button").on("click", function() {
+                            $("section .container-fluid").append(
+                                $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
+                                    $('{% csrf_token %}'),
+                                    $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
+                                    $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
+                                    $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
+                                )
+                            )
+                            $("#appointment-delete-form-button").click()
+                        })
+                    })
+                })
+            })
+            today.setTime(today.getTime() - 7 * 24 * 60 * 60 * 1000)
+        })
+        $(".fa-angle-right").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    day: today.getDate(),
+                    month: today.getMonth() + 1,
+                    year: today.getFullYear(),
+                    direction: "right"
+                }
+            }).always(function(result) {
+                $(".overflow").html(result)
+                $(".overflow td.time").on("dblclick", function() {
+                    $(".hidden-button > button")[0].click()
+                    let attr = $("form").attr("action")
+                    if (typeof attr !== "undefined" && attr !== false) {
+                        $("form").removeAttr("action")
+                    }
+                    temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
+                    $("#id_name").val("")
+                    $("#id_phone_number").val("")
+                    $("#id_phone_number").removeAttr("readonly")
+                    $("#id_birthday").val("")
+                    $("#id_birthday").removeAttr("readonly")
+                    $(`#id_gender_0`).attr("checked", true)
+                    $("#id_address").val("")
+                    $("#id_address").removeAttr("readonly")
+                    $("#id_service").val($("#id_service option")[0].value).change()
+                    $("#id_begin_day").val(temp[0])
+                    time = $(this).parent().children(":first-child").text()
+                    text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                    $("#id_begin_time").val(time).change()
+                    $(".form-title p").text(text)
+                    $("#id_duration").val(15).change()
+                    $("#id_comment").val("")
+                    $("#appointment-delete-button").addClass("d-none")
+                })
+                $(".overflow td.appointment").on("dblclick", function() {
+                    $.ajax({
+                        url: "{% url 'dentx:appointment' %}",
+                        type: "POST",
+                        data : {
+                            csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                            date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
+                            time: $(this).parent().children(":first-child").text(),
+                        },
+                    }).always(function(result) {
+                        function changeDetector() {
+                            $("#id_phone_number").val("")
+                            $("#id_phone_number").removeAttr("readonly")
+                            $("#id_birthday").val("")
+                            $("#id_birthday").removeAttr("readonly")
+                            $("#id_address").val("")
+                            $("#id_address").removeAttr("readonly")
+                        }
+                        $(".hidden-button > button")[0].click()
+                        temp = result.date.split("<br>")
+                        time = result.time
+                        text = ` ${temp[1]}, ${temp[0]}, ${time}`
+                        $(".form-title p").text(text)
+                        $("form").attr("action", "{% url 'dentx:appointments_update' %}")
+                        $("#id_name").val(result["name"])
+                        $("#id_name").on("input", changeDetector)
+                        $("#id_phone_number").val(result["phone_number"])
+                        $("#id_phone_number").attr("readonly", "readonly")
+                        $("#id_birthday").val(result["birthday"])
+                        $("#id_birthday").attr("readonly", "readonly")
+                        $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
+                        $("input[name='gender']").on("change", changeDetector)
+                        $("#id_address").val(result["address"])
+                        $("#id_address").attr("readonly", "readonly")
+                        $("#id_service").val(result["service"]).change()
+                        $("#id_begin_day").val(temp[0])
+                        $("#id_begin_time").val(time).change()
+                        $("#id_duration").val(result["duration"]).change()
+                        $("#id_comment").val(result["comment"])
+                        $("#appointment-delete-button").removeClass("d-none")
+                        $("#appointment-delete-button").on("click", function() {
+                            $("section .container-fluid").append(
+                                $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
+                                    $('{% csrf_token %}'),
+                                    $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
+                                    $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
+                                    $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
+                                )
+                            )
+                            $("#appointment-delete-form-button").click()
+                        })
+                    })
+                })
+            })
+            today.setTime(today.getTime() + 7 * 24 * 60 * 60 * 1000)
+        })
+        $("#full-screen").on("click", function() {
+            $("body > .container-fluid").removeClass("fixed-top")
+            if ($("#full-screen-close").hasClass("d-none")) {
+                $("#full-screen-close").addClass("d-block").removeClass("d-none")
+                $("#full-screen").addClass("d-none")
+                $(".overflow").addClass("full")
+                $(".controls").addClass("full-con")
+            } else {
+                $("#full-screen-close").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#full-screen-close").on("click", function() {
+            $("body > .container-fluid").addClass("fixed-top")
+            if ($("#full-screen").hasClass("d-none")) {
+                $("#full-screen").addClass("d-block").removeClass("d-none")
+                $("#full-screen-close").addClass("d-none")
+                $(".overflow").removeClass("full")
+                $(".controls").removeClass("full-con")
+            } else {
+                $("#full-screen").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("span.input-group-text").on("click", function() {
+            if ($(".input-group").has("div.w-100").length == 0) {
+                $.ajax({
+                    url : "{% url 'dentx:patients_list' %}",
+                }).always(function(result) {
+                    $("#id_name").removeClass("mb-3").parent().append(
+                        $("<div class=\"w-100\"></div>")
+                    )
+                    for (let i = 0; i < result.length; i++) {
+                        $(".input-group div.w-100").append(
+                            $("<div class=\"row align-items-center py-1 px-2\"></div>").append(
+                                $("<div class=\"col-auto\"></div>").append(
+                                    $("<div class=\"avatar avatar-xs\"></div>").append(
+                                        $("<div class=\"text-center border border-1\"></div>").append(
+                                            $("<img>").attr("src", `/media/${result[i]["image"]}`)
+                                        )
+                                    )
+                                )
+                            ).append(
+                                $("<div class=\"col p-0\"></div>").append(
+                                    $("<h6 class=\"ml-5\"></h6>").html(result[i]["name"])
+                                ).append(
+                                    $("<h6 class=\"ml-5\"></h6>").html(result[i]["phone_number"])
+                                )
+                            )
+                        )
+                    }
+                    $(".input-group div.w-100 > div").on("click", function() {
+                        $("#id_name").val(result[$(this).index()]["name"])
+                        $("#id_phone_number").val(result[$(this).index()]["phone_number"])
+                        $("#id_birthday").val(result[$(this).index()]["birthday"])
+                        $(`#id_gender_${result[$(this).index()]["gender"] - 1}`).attr("checked", true)
+                        $("#id_address").val(result[$(this).index()]["address"])
+                        $(".input-group div.w-100").remove()
+                        $("#id_name").addClass("mb-3")
+                    })
+                })
+            } else {
+                $(".input-group div.w-100").remove()
+                $("#id_name").addClass("mb-3")
+            }
+        })
+        $("#id_service"){% for service in services %}.append(
+            $("<option></option>").html("{{ service.service_name.name }}")
+        )
+        {% endfor %}
+        $("#id_service").on("change", function() {
+            {% for service in services %}if ($("#id_service").val() == "{{ service.service_name.name }}") {
+                $("#id_duration").val("{{ service.service.duration }}").change()
+            }{% endfor %}
+        })
+        $("#id_begin_time"){% for time in times %}.append(
+            $("<option></option>").html("{{ time }}")
+        )
+        {% endfor %}
+    </script>
+{% endblock %}
