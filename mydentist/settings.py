@@ -1,25 +1,24 @@
-from dotenv import load_dotenv
+from decouple import config, Csv
 from pathlib import Path
-import os
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
 BASE_DIR = PROJECT_DIR.parent
 GLOBAL_DIR = BASE_DIR.parent
 
-load_dotenv(BASE_DIR / ".env")
+
+SECRET_KEY = config('SECRET_KEY')
 
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = config('DEBUG', cast=bool)
 
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-DEBUG = False
-
-ALLOWED_HOSTS = [
-    "mydentist.uz",
-    "www.mydentist.uz",
-    "mydentist.pythonanywhere.com"
-]
+# ALLOWED_HOSTS = [
+#     "mydentist.uz",
+#     "www.mydentist.uz",
+#     "mydentist.pythonanywhere.com"
+# ]
 
 
 INSTALLED_APPS = [
@@ -75,12 +74,12 @@ WSGI_APPLICATION = 'mydentist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv("DATABASE_ENGINE"),
-        'NAME': os.getenv("DATABASE_NAME"),
-        'USER': os.getenv("DATABASE_USER"),
-        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
-        'HOST': os.getenv("DATABASE_HOST"),
-        'PORT': os.getenv("DATABASE_PORT"),
+        'ENGINE': config('DATABASE_ENGINE'),
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
@@ -139,12 +138,12 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_USE_SSL = True    # use port 465
 EMAIL_USE_TLS = False    # use port 587
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

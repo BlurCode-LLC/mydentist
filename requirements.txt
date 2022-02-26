@@ -4,4 +4,4 @@ geopy==2.2.0
 mysqlclient==2.1.0
 pillow==8.4.0
 pip-chill==1.0.1
-python-dotenv==0.19.2
+python-decouple==3.6
