@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -127,3 +128,16 @@ class Process_photo(models.Model):
 
     def __str__(self):
         return f"{self.image.name} - {self.patient.__str__()}"
+
+
+class Key(models.Model):
+
+    patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_user_id")
+    key = models.IntegerField(_("Kod"))
+
+    class Meta:
+        verbose_name = _("Bemor kodi ")
+        verbose_name_plural = _("Bemor kodlari")
+    
+    def __str__(self):
+        return f"{self.key} - {self.patient.__str__()}"

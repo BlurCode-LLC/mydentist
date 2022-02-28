@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -173,3 +174,17 @@ class Reminder(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.dentist.__str__()}"
+
+
+class Reason(models.Model):
+
+    name = models.CharField(_("Sabab nomi"), max_length=100)
+    value = models.IntegerField(_("Raqami"))
+    language = models.ForeignKey("baseapp.Language", verbose_name=_("Tili"), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("Sabab ")
+        verbose_name_plural = _("Sabablar")
+    
+    def __str__(self):
+        return f"{self.name}"

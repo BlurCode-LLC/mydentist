@@ -71,12 +71,13 @@
                                                     <div class="mb-3">
                                                         <label for="id_reason" class="form-label">{{ queryform.reason.label }}</label>
                                                         {{ queryform.reason }}
+                                                        {{ queryform.reason_detail }}
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="id_comment" class="form-label">{{ queryform.comment.label }}</label>
                                                         {{ queryform.comment }}
                                                         <div id="emailHelp" class="form-text">
-                                                            {% trans "Sizga maqul kunlar va vaqt, hamda boshqa izohlar" %}
+                                                            {% trans "Sizga maqul kun va vaqt, hamda boshqa izohlar" %}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,5 +196,19 @@
             })
             myMap.geoObjects.add(myGeoObject)
 		}
+        $("#id_reason").append(
+            {% for option in reason_options %}
+            $("<option value='{{ option.value }}'>{{ option.name }}</option>"),
+            {% endfor %}
+        )
+        $("#id_reason").on("change", function () {
+            if ($(this).val() == 25) {
+                $("#id_reason_detail").removeClass("d-none").attr("required", true)
+            } else {
+                if (! $("#id_reason_detail").hasClass(".d-none")) {
+                    $("#id_reason_detail").addClass("d-none").removeAttr("required")
+                }
+            }
+        })
 	</script>
 {% endblock %}

@@ -86,7 +86,8 @@ class EmailForm(forms.Form):
                 'class': "form-control"
             }
         ),
-        localize=True
+        localize=True,
+        required=False
     )
 
 

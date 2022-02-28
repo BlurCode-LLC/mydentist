@@ -93,50 +93,47 @@
 					$("main > .container").removeClass("d-none")
 				}
 				for (let i = 0; i < result.length; i++) {
-					$(`#pills-${tab} .row`).append(
-						$("<div></div>").addClass("col-md-4 col-sm-12").append(
-							$(`<div number="${i + 1}"></div>`).addClass("stom_card").append(
-								$("<div></div>").addClass("card_img_holder").append(
+					$(`#pills-${tab} > .row`).append(
+						$("<div class='col col-sm-12'></div>").append(
+							$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
+								$("<div class='card_img_holder col-md-4'></div>").append(
 									$("<img>").attr("src", result[i]["image"])
+								),
+								$("<div class='col-md-8'></div>").append(
+									$("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
+									$("<div></div>").addClass("card_info").html(`${result[i]["fullname"]}`),
+									$("<div></div>").addClass("card_info").html(`${result[i]["clinic_name"]}`),
+									/* $("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
+									$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`), */
+									$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]}`)
 								)
-							).append(
-								$("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"])
-							).append(
-								$("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`)
-							).append(
-								$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`)
-							).append(
-								$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]}`)
 							)
 						)
 					)
 					if (result[i]["orientir"]) {
-						$(`#pills-${tab} .row .stom_card[number="${i + 1}"]`).append(
+						$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
 							$("<div></div>").addClass("card_info").html(`{% trans "Mo'ljal:" %} ${result[i]["orientir"]}`)
 						)
 					}
 					if (result[i]["is_fullday"]) {
-						$(`#pills-${tab} .row .stom_card[number="${i + 1}"]`).append(
+						$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
 							$("<div></div>").addClass("card_info").html("{% trans "Ishlash vaqti:" %} {% trans "24 soat" %}")
 						)
 					} else {
-						$(`#pills-${tab} .row .stom_card[number="${i + 1}"]`).append(
+						$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
 							$("<div></div>").addClass("card_info").html(`{% trans "Ishlash vaqti:" %} ${result[i]["worktime_begin"]} - ${result[i]["worktime_end"]}`)
 						)
 					}
-					$(`#pills-${tab} .row .stom_card[number="${i + 1}"]`).append(
-						$("<div></div>").addClass("card_info").html(`{% trans "Telefon raqami:" %} ${result[i]["phone_number"]}`)
-					).append(
-						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`)
-					).append(
-						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${result[i]["service_price"]} {% trans "so'm" %}`)
-					).append(
+					$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
+						$("<div></div>").addClass("card_info").html(`{% trans "Telefon raqami:" %} ${result[i]["phone_number"]}`),
+						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`),
+						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${result[i]["service_price"]} {% trans "so'm" %}`),
 						$("<div></div>").addClass("btn_holder").append(
-							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Narxlarni ko'rish" %}")
-						).append(
+							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Narxlarni ko'rish" %}"),
 							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Qabulga yozilish" %}")
 						)
 					)
+					console.log(i)
 				}
 				if ($("#map").is(":empty")) {
 					ymaps.ready(init)

@@ -8,14 +8,23 @@ class QueryForm(forms.Form):
 
     reason = forms.CharField(
         label=_("Borish sababi"),
+        widget=forms.Select(
+            attrs={
+                'class': "form-select",
+                'placeholder': _("Sababini tanlang")
+            },
+            # choices=CHOICES['reason']
+        ),
+        localize=True
+    )
+    reason_detail = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': "form-control",
+                'class': "form-control mt-3 d-none",
                 'placeholder': _("Sababini kiriting")
             }
         ),
-        max_length=255,
-        localize=True
+        required=False
     )
     comment = forms.CharField(
         label=_("Tish shifokoriga izohlar"),
@@ -25,7 +34,8 @@ class QueryForm(forms.Form):
                 'placeholder': _("Izohlaringizni kiriting")
             }
         ),
-        localize=True
+        localize=True,
+        required=False
     )
 
 

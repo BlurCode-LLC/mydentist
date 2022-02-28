@@ -83,7 +83,8 @@ class UserForm(forms.Form):
                 'placeholder': _("Elektron pochtangiz")
             }
         ),
-        localize=True
+        localize=True,
+        required=False
     )
     address = forms.CharField(
         label=_("Manzil"),

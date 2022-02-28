@@ -115,7 +115,34 @@ CHOICES = {
         ("210", _("3 soat 30 daqiqa")),
         ("225", _("3 soat 45 daqiqa")),
         ("240", _("4 soat")),
-    ]
+    ],
+    # 'reason': [
+    #     ("1", _("Konsultatsiya")),
+    #     ("2", _("Tish og‘rig‘i (doimiy)")),
+    #     ("3", _("Tish og‘rig‘i (tunda)")),
+    #     ("4", _("Tish og‘rig‘i (issiq va sovuqqa)")),
+    #     ("5", _("Tish og‘rig‘i (faqat sovuqqa)")),
+    #     ("6", _("Tish og‘rig‘i (kovakka ovqat kirib qolganda)")),
+    #     ("7", _("Tish og‘rig‘i (tishlaganda)")),
+    #     ("8", _("Tish og‘rig‘i (shirinlikda)")),
+    #     ("9", _("Tish og‘rig‘i (jag‘ning to'la bir tomonida)")),
+    #     ("10", _("Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)")),
+    #     ("11", _("Tish qimirlashi")),
+    #     ("12", _("Milk qonashi")),
+    #     ("13", _("Milk shishishi")),
+    #     ("14", _("Isitma")),
+    #     ("15", _("Tish ildiz")),
+    #     ("16", _("Estetik nuqson (ko‘rinishi yomon)")),
+    #     ("17", _("Kovak")),
+    #     ("18", _("Tish qo‘ydirish")),
+    #     ("19", _("Tishni oldirish")),
+    #     ("20", _("Tishlarni tozalatish")),
+    #     ("21", _("Implant qo‘ydirish")),
+    #     ("22", _("Breket qo'ydirish")),
+    #     ("23", _("Protez qildirish")),
+    #     ("24", _("Plombalash")),
+    #     ("25", _("Boshqa sabab")),
+    # ]
 }
 
 GENDERS = [

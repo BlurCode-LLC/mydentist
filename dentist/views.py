@@ -15,7 +15,7 @@ from notification.models import Patient2dentist
 from patient.forms import LanguageForm
 from patient.models import User as UserExtra
 from .forms import *
-from .models import User as DentistUser, User_translation as DentistUserTranslation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
+from .models import Reason, User as DentistUser, User_translation as DentistUserTranslation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
 
 
 def dentist(request, slug):
@@ -27,22 +27,45 @@ def dentist(request, slug):
             user_extra = UserExtra.objects.get(user=user)
             dentist_extra = DentistUserTranslation.objects.get(language__name=current_language, dentist__slug=slug)
             dentist = DentistUser.objects.get(pk=dentist_extra.dentist_id)
-            query = Query.objects.create(
-                dentist=dentist,
-                patient=user_extra,
-                reason=queryform.cleaned_data['reason'],
-                comment=queryform.cleaned_data['comment'],
-            )
-            notification = Patient2dentist.objects.create(
-                sender=user_extra,
-                recipient=dentist,
-                type="query",
-                message=f"{queryform.cleaned_data['reason']}{NEW_LINE}{queryform.cleaned_data['comment']}",
-                datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
-                is_read=False
-            )
+            reason_value = int(queryform.cleaned_data['reason'])
+            if reason_value != 25:
+                reason = Reason.objects.get(
+                    value=reason_value,
+                    language__pk=dentist.language_id
+                )
+                query = Query.objects.create(
+                    dentist=dentist,
+                    patient=user_extra,
+                    reason=reason.name,
+                    comment=queryform.cleaned_data['comment'],
+                )
+                notification = Patient2dentist.objects.create(
+                    sender=user_extra,
+                    recipient=dentist,
+                    type="query",
+                    message=f"{reason.name}{NEW_LINE}{queryform.cleaned_data['comment']}",
+                    datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
+                    is_read=False
+                )
+            else:
+                query = Query.objects.create(
+                    dentist=dentist,
+                    patient=user_extra,
+                    reason=queryform.cleaned_data['reason_detail'],
+                    comment=queryform.cleaned_data['comment'],
+                )
+                notification = Patient2dentist.objects.create(
+                    sender=user_extra,
+                    recipient=dentist,
+                    type="query",
+                    message=f"{queryform.cleaned_data['reason_detail']}{NEW_LINE}{queryform.cleaned_data['comment']}",
+                    datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
+                    is_read=False
+                )
+            return redirect("dentist:dentist", slug=dentist.slug)
     else:
         queryform = QueryForm()
+        reason_options = Reason.objects.filter(language__name=current_language).only("name", "value")
     try:
         user = User.objects.get(username=request.user.username)
         user_extra = UserExtra.objects.get(user=user)
@@ -65,8 +88,7 @@ def dentist(request, slug):
     authenticated = is_authenticated(request, "patient") or is_authenticated(request, "dentist")
     if authenticated:
         try:
-            user = PatientUser.objects.get(
-                user__username=request.user.username)
+            user = PatientUser.objects.get(user__username=request.user.username)
             authenticated = "patient"
             check_language(request, "patient")
         except:
@@ -108,6 +130,7 @@ def dentist(request, slug):
         'cabinet_images': cabinet_images,
         'counter': counter,
         'queryform': queryform,
+        'reason_options': reason_options,
         'appointment': appointment,
         'query': query,
         'authenticated': authenticated
