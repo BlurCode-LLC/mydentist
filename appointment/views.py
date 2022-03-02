@@ -125,6 +125,7 @@ def appointments(request):
                 else:
                     is_success = False
                     text = _("Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang")
+                return redirect("dentx:appointments")
     services = get_services(
         Service.objects.filter(dentist=dentist),
         dentist.language_id

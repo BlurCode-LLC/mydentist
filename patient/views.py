@@ -382,7 +382,11 @@ def patients(request):
             return redirect(request.META.get("HTTP_REFERER", "/"))
     else:
         check_language(request, "dentist")
-    text = None
+    if 'text' in request.session:
+        text = request.session['text']
+        del request.session['text']
+    else:
+        text = None
     user = User.objects.get(username=request.user.username)
     dentist = DentistUser.objects.get(user=user)
     notifications = get_notifications(request, "dentist")
@@ -424,7 +428,8 @@ def patients(request):
                     gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
                 )
                 success = _("Yangi bemor qo'shildi")
-                text = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
+                request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
+                return redirect("dentx:patients")
     results = get_patients()
     patientform = PatientForm()
     languageform = LanguageForm()

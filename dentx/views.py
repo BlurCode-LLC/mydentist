@@ -66,6 +66,7 @@ def reminders(request):
         elif request.POST['type'] == "delete":
             reminder = Reminder.objects.get(pk=int(request.POST['id']))
             reminder.delete()
+        return redirect("dentx:reminders")
     reminders_do = get_reminders(Reminder.objects.filter(
         dentist=dentist,
         category="do"

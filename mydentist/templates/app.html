@@ -86,12 +86,14 @@
                 </div>
             </div>
         </div>
-        <div class="pre_footer px-3 py-2">
-            <a href="https://www.instagram.com/blurcode.studio/" target="_blank">
-                <img height="30px" src="{% static 'img/bc-logo.png' %}">
-            </a>
-            <a class="developers" href="https://www.instagram.com/blurcode.studio/" target="_blank">Powered by BlurCode Studio</a>
-        </div>
+        <nav class="pre_footer navbar px-3 py-2">
+            <div class="container-fluid vertical-align">
+                <a href="https://www.instagram.com/blurcode.studio/" target="_blank">
+                    <img height="30px" src="{% static 'img/bc-logo.png' %}">
+                </a>
+                <a class="developers" href="https://www.instagram.com/blurcode.studio/" target="_blank">Powered by BlurCode Studio</a>
+            </div>
+        </nav>
         <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
         {% block javascript %}{% endblock %}
