@@ -114,10 +114,11 @@
 
 .select button {
   font-weight: 600;
-  background-color: #289CD7;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 1px #289CD7 solid;
+    border-radius: 25px;
+    color: black;
 }
 
 .dropdown-item {
