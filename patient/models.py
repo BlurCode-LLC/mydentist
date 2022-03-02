@@ -132,7 +132,7 @@ class Process_photo(models.Model):
 
 class Key(models.Model):
 
-    patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_user_id")
+    patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_user_id")
     key = models.IntegerField(_("Kod"))
 
     class Meta:

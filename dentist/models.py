@@ -188,3 +188,16 @@ class Reason(models.Model):
     
     def __str__(self):
         return f"{self.name}"
+
+
+class Patient(models.Model):
+
+    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_patient")
+    patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_patient")
+
+    class Meta:
+        verbose_name = _("Tish shifokorining bemori ")
+        verbose_name_plural = _("Tish shifokorining bemorlari")
+    
+    def __str__(self):
+        return f"{self.dentist.__str__()} - {self.patient.__str__()}"
