@@ -89,32 +89,37 @@ def results(request):
 
 def get_dentists(request):
     if 'post' in request.session:
+        current_language = get_language()
         searchform = SearchForm(request.session['post'])
         geoform = GeoForm(request.session['post'])
         if searchform.is_valid() and geoform.is_valid():
             if request.POST['sort_by'] == "price":
                 services_obj = Service_translation.objects.filter(
                     name=searchform.cleaned_data['service'],
-                    service__dentist__clinic__region__pk=searchform.cleaned_data['region']
+                    service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
+                    language__name=current_language
                 )
                 if request.POST['female'] == "true" and request.POST['time'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         service__dentist__gender__pk=2,
-                        service__dentist__is_fullday=True
+                        service__dentist__is_fullday=True,
+                        language__name=current_language
                     )
                 elif request.POST['female'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
-                        service__dentist__gender__pk=2
+                        service__dentist__gender__pk=2,
+                        language__name=current_language
                     )
                 elif request.POST['time'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
-                        service__dentist__is_fullday=True
+                        service__dentist__is_fullday=True,
+                        language__name=current_language
                     )
                 results = get_results(
                     list(services_obj.order_by('service__price'))
@@ -122,26 +127,30 @@ def get_dentists(request):
             elif request.POST['sort_by'] == "near":
                 services_obj = Service_translation.objects.filter(
                     name=searchform.cleaned_data['service'],
-                    service__dentist__clinic__region__pk=searchform.cleaned_data['region']
+                    service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
+                    language__name=current_language
                 )
                 if request.POST['female'] == "true" and request.POST['time'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         service__dentist__gender__pk=2,
-                        service__dentist__is_fullday=True
+                        service__dentist__is_fullday=True,
+                        language__name=current_language
                     )
                 elif request.POST['female'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
-                        service__dentist__gender__pk=2
+                        service__dentist__gender__pk=2,
+                        language__name=current_language
                     )
                 elif request.POST['time'] == "true":
                     services_obj = Service_translation.objects.filter(
                         name=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
-                        service__dentist__is_fullday=True
+                        service__dentist__is_fullday=True,
+                        language__name=current_language
                     )
                 results = get_results(
                     sort_by_distance(
