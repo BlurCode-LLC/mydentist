@@ -49,11 +49,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            {% else %}
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                            {% elif field.name == "phone_number" %}
+                            <div class="col-md-6 mb-3">
+                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
                                     {{ field }}
                                 </div>
+                            </div>
+                            {% else %}
+                            <div class="col-md-6 mb-3">
+                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
                             {% endif %}
                         {% endfor %}
                         {% for field in passwordform %}
@@ -214,9 +222,9 @@
         })
         $("#id_allergy").on("change", function() {
             if ($("#id_allergy").val() == 2) {
-                $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+                $("#id_allergy_detail").attr("required", true).addClass("d-block").removeClass("d-none")
             } else  {
-                $("#id_allergy_detail").removeClass("d-block").addClass("d-none")
+                $("#id_allergy_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
             }
         })
         $("#other_illness").on("change", function() {
@@ -228,16 +236,16 @@
         })
         $("#id_medications").on("change", function() {
             if ($("#id_medications").val() == 2) {
-                $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+                $("#id_medications_detail").attr("required", true).addClass("d-block").removeClass("d-none")
             } else {
-                $("#id_medications_detail").removeClass("d-block").addClass("d-none")
+                $("#id_medications_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
             }
         })
         $("#id_pregnancy").on("change", function() {
             if ($("#id_pregnancy").val() == 2) {
-                $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+                $("#id_pregnancy_detail").attr("required", true).addClass("d-block").removeClass("d-none")
             } else {
-                $("#id_pregnancy_detail").removeClass("d-block").addClass("d-none")
+                $("#id_pregnancy_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
             }
         })
         $("#birth_year_1").on("change", function() {
@@ -267,6 +275,33 @@
             $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
         )
         $("#id_dizziness").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_epilepsy").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_blood_disease").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_medications").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_stroke").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_heart_attack").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_oncologic").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_tuberculosis").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_alcohol").prepend(
+            $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+        )
+        $("#id_pregnancy").prepend(
             $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
         )
     </script>

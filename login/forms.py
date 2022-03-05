@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 class LoginForm(forms.Form):
 
     email = forms.CharField(
-        label=_("E-mail yoki telefon raqam"),
+        label=_("Telefon raqam"),
         widget=forms.TextInput(
             attrs={
                 'class': "form-control"

@@ -8,7 +8,7 @@ from illness.models import *
 class User(models.Model):
 
     user = models.OneToOneField("auth.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_user")
-    phone_number = models.CharField(_("Telefon raqami"), max_length=50)
+    phone_number = models.CharField(_("Telefon raqami"), max_length=50, unique=True)
     gender = models.ForeignKey("baseapp.Gender", verbose_name=_("Jins"), on_delete=models.CASCADE, related_name="patient_gender")
     address = models.CharField(_("Manzil"), max_length=255)
     birthday = models.DateField(_("Tug'ilgan sanasi"), auto_now=False, auto_now_add=False)

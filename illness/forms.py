@@ -108,6 +108,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['epilepsy']
         ),
         localize=True,
+        required=False
     )
     blood_disease = forms.IntegerField(
         label=_("Qon kasali"),
@@ -118,6 +119,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['blood_disease']
         ),
         localize=True,
+        required=False
     )
     medications = forms.IntegerField(
         label=_("Doimiy dorilar"),
@@ -128,6 +130,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['medications']
         ),
         localize=True,
+        required=False
     )
     medications_detail = forms.CharField(
         widget=forms.TextInput(
@@ -148,6 +151,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['stroke']
         ),
         localize=True,
+        required=False
     )
     heart_attack = forms.IntegerField(
         label=_("Yurak xurujiga uchraganmisiz?"),
@@ -158,6 +162,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['heart_attack']
         ),
         localize=True,
+        required=False
     )
     oncologic = forms.IntegerField(
         label=_("Onkologik kasalliklar"),
@@ -168,6 +173,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['oncologic']
         ),
         localize=True,
+        required=False
     )
     tuberculosis = forms.IntegerField(
         label=_("Sil kasalligi"),
@@ -178,6 +184,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['tuberculosis']
         ),
         localize=True,
+        required=False
     )
     alcohol = forms.IntegerField(
         label=_("Spirtli ichimlik ichasizmi?"),
@@ -188,6 +195,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['alcohol']
         ),
         localize=True,
+        required=False
     )
     pregnancy = forms.IntegerField(
         label=_("Homiladorlik"),
@@ -198,6 +206,7 @@ class OtherIllnessForm(forms.Form):
             choices=CHOICES['pregnancy']
         ),
         localize=True,
+        required=False
     )
     pregnancy_detail = forms.CharField(
         widget=forms.TextInput(

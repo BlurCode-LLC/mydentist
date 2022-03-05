@@ -69,7 +69,9 @@ class UserForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': "form-control",
-                'placeholder': _("Telefon raqamingiz")
+                'type': "tel",
+                'pattern': "([0-9]{2}) [0-9]{3}-[0-9]{2}-[0-9]{2}",
+                'placeholder': _("(XX) XXX-XX-XX")
             }
         ),
         max_length=20,
