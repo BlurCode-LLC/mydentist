@@ -27,6 +27,7 @@ def register(request):
     if is_authenticated(request, "patient") or is_authenticated(request, "dentist"):
         return redirect(request.META.get("HTTP_REFERER", "/"))
     if request.method == "POST":
+        print(request.POST)
         userform = UserForm(request.POST)
         passwordform = PasswordForm(request.POST)
         illnessform = IllnessForm(request.POST)
