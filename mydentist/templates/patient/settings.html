@@ -27,6 +27,11 @@
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="panel">
+                    <div class="mb-3 text-center">
+                        <img src="{{ user_extra.image.url }}" class="img-fluid">
+                        <button class="btn my_btn mt-3 mx-auto" id="photo-upload-button">Rasmni o'zgartirish</button>
+                        <input type="file" class="d-none" id="photo-upload" name="photo-upload">
+                    </div>
                     <form action={% url 'patient:update' form="profile" %} method="POST">
                         {% csrf_token %}
                         {% if active_tab == "profile" and success_message == "Updated successfully" %}
@@ -180,6 +185,9 @@
 
 {% block javascript %}
     <script type="text/javascript">
+        $("#photo-upload-button").on("click", function () {
+            $("#photo-upload").click()
+        })
         {% for field in illnessform %}
             {% if field.name == "allergy" %}
                 $("#id_{{ field.name }}").val({{ field.value }})

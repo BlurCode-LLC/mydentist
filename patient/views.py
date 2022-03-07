@@ -208,6 +208,8 @@ def settings(request, active_tab="profile"):
         'active_tab': active_tab,
         'success_message': success_message,
         'authenticated': authenticated,
+        'user': user,
+        'user_extra': user_extra
     })
 
 

@@ -40,6 +40,10 @@
                                 <div class="info_name">{% trans "Manzil" %}: </div>
                                 <div class="info_desc">{{ user_extra.address }}</div>
                             </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Kod" %}: </div>
+                                <div class="info_desc">{{ user_extra.patient_user_id.key }}</div>
+                            </div>
                             {% if dentist is not None %}
                                 <div class="info_holder mb-2">
                                     <div class="info_name">{% trans "Qabuliga yozilgan tish shifokori" %}: </div>
