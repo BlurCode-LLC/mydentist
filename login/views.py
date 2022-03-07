@@ -1,4 +1,5 @@
 from datetime import datetime
+from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -14,7 +15,7 @@ from baseapp.models import Language, Gender
 from dentist.models import User as DentistUser
 from illness.models import *
 from illness.forms import *
-from patient.models import User as PatientUser, Illness, Other_Illness
+from patient.models import Key, User as PatientUser, Illness, Other_Illness
 from patient.forms import *
 from mydentist.handler import *
 from mydentist.var import *
@@ -59,6 +60,10 @@ def register(request):
                     language=Language.objects.get(name=get_language()),
                     gender=Gender.objects.get(pk=userform.cleaned_data['gender'])
                 )
+                key = Key.objects.create(
+                    patient=user_extra,
+                    key=randint(100000, 999999)
+                )
                 if illnessform.cleaned_data['allergy'] == 2:
                     try:
                         allergy = Allergy.objects.get(
@@ -84,6 +89,9 @@ def register(request):
                 illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                 illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
                 illness.save()
+                otherillness = Illness.objects.get(patient=user_extra)
+                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if 'epilepsy' in otherillnessform.cleaned_data else None
+                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if 'blood_disease' in otherillnessform.cleaned_data else None
                 if otherillnessform.cleaned_data['medications'] == 2:
                     try:
                         medications = Medications.objects.get(
@@ -99,6 +107,12 @@ def register(request):
                     medications = Medications.objects.get(
                         value=otherillnessform.cleaned_data['medications'],
                     )
+                otherillness.medications_id = medications.id
+                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id
+                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id
+                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id
+                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id
+                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id
                 if otherillnessform.cleaned_data['pregnancy'] == 2:
                     try:
                         pregnancy = Pregnancy.objects.get(
@@ -114,15 +128,6 @@ def register(request):
                     pregnancy = Pregnancy.objects.get(
                         value=otherillnessform.cleaned_data['pregnancy'],
                     )
-                otherillness = Illness.objects.get(patient=user_extra)
-                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id
-                otherillness.medications_id = medications.id
-                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id
-                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id
-                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id
-                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id
-                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id
                 otherillness.pregnancy_id = pregnancy.id
                 otherillness.save()
                 return redirect("login:login")
