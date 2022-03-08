@@ -161,29 +161,29 @@ def settings(request, active_tab="profile"):
         passwordupdateform = PasswordUpdateForm()
     illness = Illness.objects.get(patient=user_extra)
     illnessform = IllnessForm({
-        'diabet': Diabet.objects.get(pk=illness.diabet_id).value,
-        'anesthesia': Anesthesia.objects.get(pk=illness.anesthesia_id).value,
-        'hepatitis': Hepatitis.objects.get(pk=illness.hepatitis_id).value,
-        'aids': AIDS.objects.get(pk=illness.aids_id).value,
-        'pressure': Pressure.objects.get(pk=illness.pressure_id).value,
-        'allergy': Allergy.objects.get(pk=illness.allergy_id).value,
-        'allergy_detail': Allergy.objects.get(pk=illness.allergy_id).desc,
-        'asthma': Asthma.objects.get(pk=illness.asthma_id).value,
-        'dizziness': Dizziness.objects.get(pk=illness.dizziness_id).value,
+        'diabet': Diabet.objects.get(pk=illness.diabet_id).value if illness.diabet_id is not None else None,
+        'anesthesia': Anesthesia.objects.get(pk=illness.anesthesia_id).value if illness.anesthesia_id is not None else None,
+        'hepatitis': Hepatitis.objects.get(pk=illness.hepatitis_id).value if illness.hepatitis_id is not None else None,
+        'aids': AIDS.objects.get(pk=illness.aids_id).value if illness.aids_id is not None else None,
+        'pressure': Pressure.objects.get(pk=illness.pressure_id).value if illness.pressure_id is not None else None,
+        'allergy': Allergy.objects.get(pk=illness.allergy_id).value if illness.allergy_id is not None else None,
+        'allergy_detail': Allergy.objects.get(pk=illness.allergy_id).desc if illness.allergy_id is not None else None,
+        'asthma': Asthma.objects.get(pk=illness.asthma_id).value if illness.asthma_id is not None else None,
+        'dizziness': Dizziness.objects.get(pk=illness.dizziness_id).value if illness.dizziness_id is not None else None,
     })
     otherillness = Other_Illness.objects.get(patient=user_extra)
     otherillnessform = OtherIllnessForm({
-        'epilepsy': Epilepsy.objects.get(pk=otherillness.epilepsy_id).value,
-        'blood_disease': Blood_disease.objects.get(pk=otherillness.blood_disease_id).value,
-        'medications': Medications.objects.get(pk=otherillness.medications_id).value,
-        'medications_detail': Medications.objects.get(pk=otherillness.medications_id).desc,
-        'stroke': Stroke.objects.get(pk=otherillness.stroke_id).value,
-        'heart_attack': Heart_attack.objects.get(pk=otherillness.heart_attack_id).value,
-        'oncologic': Oncologic.objects.get(pk=otherillness.oncologic_id).value,
-        'tuberculosis': Tuberculosis.objects.get(pk=otherillness.tuberculosis_id).value,
-        'alcohol': Alcohol.objects.get(pk=otherillness.alcohol_id).value,
-        'pregnancy': Pregnancy.objects.get(pk=otherillness.pregnancy_id).value,
-        'pregnancy_detail': Pregnancy.objects.get(pk=otherillness.pregnancy_id).desc,
+        'epilepsy': Epilepsy.objects.get(pk=otherillness.epilepsy_id).value if otherillness.epilepsy_id is not None else None,
+        'blood_disease': Blood_disease.objects.get(pk=otherillness.blood_disease_id).value if otherillness.blood_disease_id is not None else None,
+        'medications': Medications.objects.get(pk=otherillness.medications_id).value if otherillness.medications_id is not None else None,
+        'medications_detail': Medications.objects.get(pk=otherillness.medications_id).desc if otherillness.medications_id is not None else None,
+        'stroke': Stroke.objects.get(pk=otherillness.stroke_id).value if otherillness.stroke_id is not None else None,
+        'heart_attack': Heart_attack.objects.get(pk=otherillness.heart_attack_id).value if otherillness.heart_attack_id is not None else None,
+        'oncologic': Oncologic.objects.get(pk=otherillness.oncologic_id).value if otherillness.oncologic_id is not None else None,
+        'tuberculosis': Tuberculosis.objects.get(pk=otherillness.tuberculosis_id).value if otherillness.tuberculosis_id is not None else None,
+        'alcohol': Alcohol.objects.get(pk=otherillness.alcohol_id).value if otherillness.alcohol_id is not None else None,
+        'pregnancy': Pregnancy.objects.get(pk=otherillness.pregnancy_id).value if otherillness.pregnancy_id is not None else None,
+        'pregnancy_detail': Pregnancy.objects.get(pk=otherillness.pregnancy_id).desc if otherillness.pregnancy_id is not None else None,
     })
     authenticated = is_authenticated(request, "patient")
     if authenticated:
@@ -376,6 +376,17 @@ def update(request, form):
         return redirect("patient:settings", active_tab="profile")
 
 
+def update_photo(request):
+    if request.method == "POST":
+        photo = request.FILES.get("file")
+        patient = PatientUser.objects.get(user=request.user)
+        patient.image = photo
+        patient.save()
+        return JsonResponse({
+            'photo': patient.image.url
+        }, safe=False)
+
+
 def patients(request):
     if not is_authenticated(request, "dentist"):
         if not is_authenticated(request, "patient"):
@@ -432,7 +443,7 @@ def patients(request):
                 success = _("Yangi bemor qo'shildi")
                 request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
                 return redirect("dentx:patients")
-    results = get_patients()
+    results = get_patients(request)
     patientform = PatientForm()
     languageform = LanguageForm()
     return render(request, "patient/patients.html", {
@@ -537,29 +548,29 @@ def patient(request, id, active_tab="profile"):
     })
     patient_illness = Illness.objects.get(patient=patient_extra)
     illnessform = IllnessForm({
-        'diabet': Diabet.objects.get(pk=patient_illness.diabet_id).value,
-        'anesthesia': Anesthesia.objects.get(pk=patient_illness.anesthesia_id).value,
-        'hepatitis': Hepatitis.objects.get(pk=patient_illness.hepatitis_id).value,
-        'aids': AIDS.objects.get(pk=patient_illness.aids_id).value,
-        'pressure': Pressure.objects.get(pk=patient_illness.pressure_id).value,
-        'allergy': Allergy.objects.get(pk=patient_illness.allergy_id).value,
-        'allergy_detail': Allergy.objects.get(pk=patient_illness.allergy_id).desc,
-        'asthma': Asthma.objects.get(pk=patient_illness.asthma_id).value,
-        'dizziness': Dizziness.objects.get(pk=patient_illness.dizziness_id).value,
+        'diabet': Diabet.objects.get(pk=patient_illness.diabet_id).value if patient_illness.diabet_id is not None else None,
+        'anesthesia': Anesthesia.objects.get(pk=patient_illness.anesthesia_id).value if patient_illness.anesthesia_id is not None else None,
+        'hepatitis': Hepatitis.objects.get(pk=patient_illness.hepatitis_id).value if patient_illness.hepatitis_id is not None else None,
+        'aids': AIDS.objects.get(pk=patient_illness.aids_id).value if patient_illness.aids_id is not None else None,
+        'pressure': Pressure.objects.get(pk=patient_illness.pressure_id).value if patient_illness.pressure_id is not None else None,
+        'allergy': Allergy.objects.get(pk=patient_illness.allergy_id).value if patient_illness.allergy_id is not None else None,
+        'allergy_detail': Allergy.objects.get(pk=patient_illness.allergy_id).desc if patient_illness.allergy_id is not None else None,
+        'asthma': Asthma.objects.get(pk=patient_illness.asthma_id).value if patient_illness.asthma_id is not None else None,
+        'dizziness': Dizziness.objects.get(pk=patient_illness.dizziness_id).value if patient_illness.dizziness_id is not None else None,
     })
     patient_other_illness = Other_Illness.objects.get(patient=patient_extra)
     otherillnessform = OtherIllnessForm({
-        'epilepsy': Epilepsy.objects.get(pk=patient_other_illness.epilepsy_id).value,
-        'blood_disease': Blood_disease.objects.get(pk=patient_other_illness.blood_disease_id).value,
-        'medications': Medications.objects.get(pk=patient_other_illness.medications_id).value,
-        'medications_detail': Medications.objects.get(pk=patient_other_illness.medications_id).desc,
-        'stroke': Stroke.objects.get(pk=patient_other_illness.stroke_id).value,
-        'heart_attack': Heart_attack.objects.get(pk=patient_other_illness.heart_attack_id).value,
-        'oncologic': Oncologic.objects.get(pk=patient_other_illness.oncologic_id).value,
-        'tuberculosis': Tuberculosis.objects.get(pk=patient_other_illness.tuberculosis_id).value,
-        'alcohol': Alcohol.objects.get(pk=patient_other_illness.alcohol_id).value,
-        'pregnancy': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).value,
-        'pregnancy_detail': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).desc,
+        'epilepsy': Epilepsy.objects.get(pk=patient_other_illness.epilepsy_id).value if patient_other_illness.epilepsy_id is not None else None,
+        'blood_disease': Blood_disease.objects.get(pk=patient_other_illness.blood_disease_id).value if patient_other_illness.blood_disease_id is not None else None,
+        'medications': Medications.objects.get(pk=patient_other_illness.medications_id).value if patient_other_illness.medications_id is not None else None,
+        'medications_detail': Medications.objects.get(pk=patient_other_illness.medications_id).desc if patient_other_illness.medications_id is not None else None,
+        'stroke': Stroke.objects.get(pk=patient_other_illness.stroke_id).value if patient_other_illness.stroke_id is not None else None,
+        'heart_attack': Heart_attack.objects.get(pk=patient_other_illness.heart_attack_id).value if patient_other_illness.heart_attack_id is not None else None,
+        'oncologic': Oncologic.objects.get(pk=patient_other_illness.oncologic_id).value if patient_other_illness.oncologic_id is not None else None,
+        'tuberculosis': Tuberculosis.objects.get(pk=patient_other_illness.tuberculosis_id).value if patient_other_illness.tuberculosis_id is not None else None,
+        'alcohol': Alcohol.objects.get(pk=patient_other_illness.alcohol_id).value if patient_other_illness.alcohol_id is not None else None,
+        'pregnancy': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).value if patient_other_illness.pregnancy_id is not None else None,
+        'pregnancy_detail': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).desc if patient_other_illness.pregnancy_id is not None else None,
     })
     upcoming = None
     appointments_obj = Appointment.objects.filter(patient=patient_extra).order_by("-begin")

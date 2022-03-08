@@ -346,7 +346,7 @@ def table(request):
             ))
         day_begin += timedelta(minutes=15)
         html += "</tr>"
-    html += "</tbody></table>"
+    html += "</tbody></table><script type='text/javascript'>$('.overflow').css({'overflow-x': 'scroll','overflow-y': 'scroll','height': '600px'})</script>"
     return HttpResponse(html)
 
 
@@ -359,7 +359,7 @@ def patients(request):
     else:
         check_language(request, "dentist")
     patients = []
-    temp = PatientUser.objects.all()
+    temp = [ PatientUser.objects.get(pk=patient.patient_id) for patient in Patient.objects.filter(dentist__user=request.user) ]
     for patient in temp:
         patients.append({
             'image': str(patient.image),

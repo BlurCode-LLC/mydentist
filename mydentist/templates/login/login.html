@@ -29,12 +29,17 @@
                         {% endfor %}
                         <form method="POST">
                             {% csrf_token %}
-                            {% for field in loginform %}
                             <div class="mb-3">
-                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
-                                {{ field }}
+                                <label for="id_{{ loginform.email.name }}" class="form-label">{{ loginform.email.label }}</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
+                                    {{ loginform.email }}
+                                </div>
                             </div>
-                            {% endfor %}
+                            <div class="mb-3">
+                                <label for="id_{{ loginform.password.name }}" class="form-label">{{ loginform.password.label }}</label>
+                                {{ loginform.password }}
+                            </div>
                             {% if request.GET.next %}
                                 <input type="hidden" name="next" value="{{ request.GET.next }}">
                             {% endif %}
@@ -52,4 +57,39 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $("#id_email").on("focus", function () {
+            if ($(this).val() == "") {
+                $(this).val("(")
+            }
+        })
+        $("#id_email").on("focusout", function () {
+            if ($(this).val() == "(") {
+                $(this).val("")
+            }
+        })
+        $("#id_email").on("keyup", function (e) {
+            if (e.keyCode == 8) {
+                if ($(this).val().length == 12 || $(this).val().length == 9) {
+                    let val = $(this).val()
+                    $(this).val(val.slice(0, val.length - 1))
+                } else if ($(this).val().length == 5) {
+                    let val = $(this).val()
+                    $(this).val(val.slice(0, val.length - 2))
+                }
+            }
+        })
+        $("#id_email").on("input", function () {
+            if ($(this).val().length == 3) {
+                $(this).val(`${$(this).val()}) `)
+            } else if ($(this).val().length == 8 || $(this).val().length == 11) {
+                $(this).val(`${$(this).val()}-`)
+            } else if ($(this).val().length == 0) {
+                $(this).val("(")
+            }
+        })
+    </script>
 {% endblock %}

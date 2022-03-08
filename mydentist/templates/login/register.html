@@ -246,6 +246,8 @@
                 $(this).val(`${$(this).val()}) `)
             } else if ($(this).val().length == 8 || $(this).val().length == 11) {
                 $(this).val(`${$(this).val()}-`)
+            } else if ($(this).val().length == 0) {
+                $(this).val("(")
             }
         })
         $("#id_allergy").on("change", function() {

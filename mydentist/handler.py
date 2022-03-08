@@ -8,7 +8,7 @@ from django.utils.translation import get_language
 from geopy.distance import distance
 from appointment.models import Appointment
 from baseapp.models import Language
-from dentist.models import User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
+from dentist.models import Patient, User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
 from notification.models import *
 from patient.models import User as PatientUser
 from .var import CHOICES, GENDERS, NEW_LINE
@@ -273,8 +273,8 @@ def get_notifications(request, status):
         return notifications
 
 
-def get_patients():
-    patients = PatientUser.objects.all()
+def get_patients(request):
+    patients = [ PatientUser.objects.get(pk=patient.patient_id) for patient in Patient.objects.filter(dentist__user=request.user) ]
     results = []
     for patient in patients:
         appointments = Appointment.objects.filter(

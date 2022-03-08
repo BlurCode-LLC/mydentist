@@ -47,6 +47,10 @@ def dentist(request, slug):
                     datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                     is_read=False
                 )
+                dp = Patient.objects.create(
+                    dentist=dentist,
+                    patient=user_extra
+                )
             else:
                 query = Query.objects.create(
                     dentist=dentist,
@@ -61,6 +65,10 @@ def dentist(request, slug):
                     message=f"{queryform.cleaned_data['reason_detail']}{NEW_LINE}{queryform.cleaned_data['comment']}",
                     datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                     is_read=False
+                )
+                dp = Patient.objects.create(
+                    dentist=dentist,
+                    patient=user_extra
                 )
             return redirect("dentist:dentist", slug=dentist.slug)
     else:
@@ -427,6 +435,17 @@ def update(request, form):
                 request.session['success_message'] = "Updated successfully"
                 return redirect("dentx:settings", active_tab="services")
         return redirect("dentx:settings", active_tab="profile")
+
+
+def update_photo(request):
+    if request.method == "POST":
+        photo = request.FILES.get("file")
+        dentist = DentistUser.objects.get(user=request.user)
+        dentist.image = photo
+        dentist.save()
+        return JsonResponse({
+            'photo': dentist.image.url
+        }, safe=False)
 
 
 def get_clinic(request):

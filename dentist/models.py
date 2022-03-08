@@ -64,6 +64,7 @@ class User(models.Model):
     experience = models.IntegerField(_("Tajriba"))
     worktime_begin = models.TimeField(_("Ish vaqti boshlanishi"), auto_now=False, auto_now_add=False)
     worktime_end = models.TimeField(_("Ish vaqti tugashi"), auto_now=False, auto_now_add=False)
+    work_days = models.IntegerField(_("Ish kunlari soni (6 yoki 7)"))
     is_fullday = models.BooleanField(_("24 soat rejimi"))
     slug = models.CharField(_("Slug"), max_length=255)
     clinic = models.ForeignKey("dentist.Clinic", verbose_name=_("Shifoxona"), on_delete=models.CASCADE, related_name="dentist_clinic")

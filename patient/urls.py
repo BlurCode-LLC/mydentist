@@ -5,4 +5,5 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('settings/<str:active_tab>', views.settings, name='settings'),
     path('update/<str:form>', views.update, name='update'),
+    path('update-photo', views.update_photo, name='update_photo')
 ]

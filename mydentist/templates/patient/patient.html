@@ -222,39 +222,75 @@
                                 <div class="info-pane">
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Epilepsiya" %}: </div>
-                                        <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
+                                        {% if not patient_other_illness.epilepsy.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Qon kasali" %}: </div>
-                                        <div class="info_desc">{% get_option select='blood_disease' index=patient_other_illness.blood_disease_id %}</div>
+                                        {% if not patient_other_illness.blood_disease.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='blood_disease' index=patient_other_illness.blood_disease_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Doimiy dorilar" %}: </div>
-                                        <div class="info_desc">{% get_option select='medications' index=patient_other_illness.medications_id %}</div>
+                                        {% if not patient_other_illness.medications.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='medications' index=patient_other_illness.medications_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Insultga uchraganmisiz?" %}: </div>
-                                        <div class="info_desc">{% get_option select='stroke' index=patient_other_illness.stroke_id %}</div>
+                                        {% if not patient_other_illness.stroke.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='stroke' index=patient_other_illness.stroke_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Yurak xurujiga uchraganmisiz?" %}: </div>
-                                        <div class="info_desc">{% get_option select='heart_attack' index=patient_other_illness.heart_attack_id %}</div>
+                                        {% if not patient_other_illness.heart_attack.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='heart_attack' index=patient_other_illness.heart_attack_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Onkologik kasalliklar" %}: </div>
-                                        <div class="info_desc">{% get_option select='oncologic' index=patient_other_illness.oncologic_id %}</div>
+                                        {% if not patient_other_illness.oncologic.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='oncologic' index=patient_other_illness.oncologic_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Sil kasalligi" %}: </div>
-                                        <div class="info_desc">{% get_option select='tuberculosis' index=patient_other_illness.tuberculosis_id %}</div>
+                                        {% if not patient_other_illness.tuberculosis.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='tuberculosis' index=patient_other_illness.tuberculosis_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Spirtli ichimlik ichasizmi?" %}: </div>
-                                        <div class="info_desc">{% get_option select='alcohol' index=patient_other_illness.alcohol_id %}</div>
+                                        {% if not patient_other_illness.alcohol.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='alcohol' index=patient_other_illness.alcohol_id %}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
                                         <div class="info_name">{% trans "Homiladorlik" %}: </div>
-                                        <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
+                                        {% if not patient_other_illness.pregnancy.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -542,7 +578,13 @@
     <script type="text/javascript">
         {% for field in illnessform %}
             {% if field.name == "allergy" %}
-                $("#id_{{ field.name }}").val({{ field.value }})
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
                 if ($("#id_allergy").val() == 2) {
                     $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
                 }
@@ -552,17 +594,35 @@
         {% endfor %}
         {% for field in otherillnessform %}
             {% if field.name == "medications" %}
-                $("#id_{{ field.name }}").val({{ field.value }})
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
                 if ($("#id_medications").val() == 2) {
                     $("#id_medications_detail").addClass("d-block").removeClass("d-none")
                 }
             {% elif field.name == "pregnancy" %}
-                $("#id_{{ field.name }}").val({{ field.value }})
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
                 if ($("#id_pregnancy").val() == 2) {
                     $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
                 }
             {% elif field.name != "medications_detail" and field.name != "pregnancy_detail" %}
-                $("#id_{{ field.name }}").val({{ field.value }})
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
             {% endif %}
         {% endfor %}
         var date = new Date()
@@ -695,7 +755,7 @@
                         processData: false,
                         contentType: false,
                         mimeType: "multipart/form-data",
-                        data : data
+                        data: data
                     }).always(function(result) {
                         let images = JSON.parse(result)
                         if (images.counter > 1) {

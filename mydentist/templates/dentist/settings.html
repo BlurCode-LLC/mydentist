@@ -30,6 +30,11 @@
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="panel">
+                    <div class="col-md-6 mb-3 text-center offset-md-3">
+                        <img src="{{ dentist.image.url }}" class="img-fluid" id="profile-photo">
+                        <button class="btn my_btn mt-3 mx-auto" id="photo-upload-button">Rasmni o'zgartirish</button>
+                        <input type="file" class="d-none" id="photo-upload" name="photo-upload">
+                    </div>
                     <form action={% url 'dentx:update_dentist' form="profile" %} method="POST">
                         {% csrf_token %}
                         {% if active_tab == "profile" and success_message == "Updated successfully" %}
@@ -288,6 +293,30 @@
 
 {% block javascript %}
     <script type="text/javascript">
+        let intervalFuncPhoto
+        $("#photo-upload-button").on("click", function () {
+            $("#photo-upload").click()
+            intervalFuncPhoto = setInterval(function() {
+                if ($("#photo-upload")[0].files.length != 0) {
+                    let data = new FormData()
+                    data.append("file", $("#photo-upload")[0].files[0])
+                    data.append("csrfmiddlewaretoken", "{{ csrf_token }}")
+                    $.ajax({
+                        url: "{% url 'dentist:update_photo' %}",
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        mimeType: "multipart/form-data",
+                        data: data,
+                        dataType: "json"
+                    }).always(function(result) {
+                        $("#profile-photo").attr("src", result.photo)
+                        $("#photo-upload").val("")
+                        clearInterval(intervalFuncPhoto)
+                    })
+                }
+            }, 500)
+        })
         {% for field in illnessform %}
             {% if field.name == "allergy" %}
                 $("#id_{{ field.name }}").val({{ field.value }})

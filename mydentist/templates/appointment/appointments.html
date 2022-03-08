@@ -490,37 +490,39 @@
                 $.ajax({
                     url : "{% url 'dentx:patients_list' %}",
                 }).always(function(result) {
-                    $("#id_name").removeClass("mb-3").parent().append(
-                        $("<div class=\"w-100\"></div>")
-                    )
-                    for (let i = 0; i < result.length; i++) {
-                        $(".input-group div.w-100").append(
-                            $("<div class=\"row align-items-center py-1 px-2\"></div>").append(
-                                $("<div class=\"col-auto\"></div>").append(
-                                    $("<div class=\"avatar avatar-xs\"></div>").append(
-                                        $("<div class=\"text-center border border-1\"></div>").append(
-                                            $("<img>").attr("src", `/media/${result[i]["image"]}`)
+                    if (result.length > 0) {
+                        $("#id_name").removeClass("mb-3").parent().append(
+                            $("<div class=\"w-100\"></div>")
+                        )
+                        for (let i = 0; i < result.length; i++) {
+                            $(".input-group div.w-100").append(
+                                $("<div class=\"row align-items-center py-1 px-2\"></div>").append(
+                                    $("<div class=\"col-auto\"></div>").append(
+                                        $("<div class=\"avatar avatar-xs\"></div>").append(
+                                            $("<div class=\"text-center border border-1\"></div>").append(
+                                                $("<img>").attr("src", `/media/${result[i]["image"]}`)
+                                            )
                                         )
                                     )
-                                )
-                            ).append(
-                                $("<div class=\"col p-0\"></div>").append(
-                                    $("<h6 class=\"ml-5\"></h6>").html(result[i]["name"])
                                 ).append(
-                                    $("<h6 class=\"ml-5\"></h6>").html(result[i]["phone_number"])
+                                    $("<div class=\"col p-0\"></div>").append(
+                                        $("<h6 class=\"ml-5\"></h6>").html(result[i]["name"])
+                                    ).append(
+                                        $("<h6 class=\"ml-5\"></h6>").html(result[i]["phone_number"])
+                                    )
                                 )
                             )
-                        )
+                        }
+                        $(".input-group div.w-100 > div").on("click", function() {
+                            $("#id_name").val(result[$(this).index()]["name"])
+                            $("#id_phone_number").val(result[$(this).index()]["phone_number"])
+                            $("#id_birthday").val(result[$(this).index()]["birthday"])
+                            $(`#id_gender_${result[$(this).index()]["gender"] - 1}`).attr("checked", true)
+                            $("#id_address").val(result[$(this).index()]["address"])
+                            $(".input-group div.w-100").remove()
+                            $("#id_name").addClass("mb-3")
+                        })
                     }
-                    $(".input-group div.w-100 > div").on("click", function() {
-                        $("#id_name").val(result[$(this).index()]["name"])
-                        $("#id_phone_number").val(result[$(this).index()]["phone_number"])
-                        $("#id_birthday").val(result[$(this).index()]["birthday"])
-                        $(`#id_gender_${result[$(this).index()]["gender"] - 1}`).attr("checked", true)
-                        $("#id_address").val(result[$(this).index()]["address"])
-                        $(".input-group div.w-100").remove()
-                        $("#id_name").addClass("mb-3")
-                    })
                 })
             } else {
                 $(".input-group div.w-100").remove()
