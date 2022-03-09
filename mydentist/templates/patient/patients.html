@@ -47,7 +47,10 @@
                                             <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
                                                 <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
                                                     <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
-                                                    {{ patientform.phone_number }}
+                                                    <div class="input-group wid">
+                                                        <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
+                                                        {{ patientform.phone_number }}
+                                                    </div>
                                                 </div> 
                                                 <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
                                                     <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
@@ -87,7 +90,7 @@
                                                             <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
                                                             {{ field }}
                                                             {% if field.name == "allergy" %}
-                                                                {{ illnessform.allergy_detail }}
+                                                                {{ patient_illnessform.allergy_detail }}
                                                             {% endif %}
                                                         </div>
                                                     {% endif %}
@@ -113,9 +116,9 @@
                                                                 <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
                                                                 {{ field }}
                                                                 {% if field.name == "medications" %}
-                                                                    {{ otherillnessform.medications_detail }}
+                                                                    {{ patient_otherillnessform.medications_detail }}
                                                                 {% elif field.name == "pregnancy" %}
-                                                                    {{ otherillnessform.pregnancy_detail }}
+                                                                    {{ patient_otherillnessform.pregnancy_detail }}
                                                                 {% endif %}
                                                             </div>
                                                         {% endif %}
@@ -220,20 +223,129 @@
 
 {% block javascript %}
 <script type="text/javascript">
-    $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr({"disabled": "disabled", "required": false})
+    $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language, #id_diabet, #id_anesthesia, #id_hepatitis, #id_aids, #id_pressure, #id_allergy, #id_asthma, #id_dizziness, #other_illness, #id_epilepsy, #id_blood_disease, #id_medications, #id_stroke, #id_heart_attack, #id_oncologic, #id_tuberculosis, #id_alcohol, #id_pregnancy").attr({"disabled": "disabled", "required": false})
     $("#auto-reg").on("change", function() {
         if ($("#auto-reg").is(":checked")) {
             $("#id_key").removeAttr("disabled")
             $("#id_key").attr("required", true)
-            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr({"disabled": "disabled", "required": false})
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language, #id_diabet, #id_anesthesia, #id_hepatitis, #id_aids, #id_pressure, #id_allergy, #id_asthma, #id_dizziness, #other_illness, #id_epilepsy, #id_blood_disease, #id_medications, #id_stroke, #id_heart_attack, #id_oncologic, #id_tuberculosis, #id_alcohol, #id_pregnancy").attr({"disabled": "disabled", "required": false})
         }
     })
     $("#man-reg").on("change", function() {
         if ($("#man-reg").is(":checked")) {
             $("#id_key").attr({"disabled": "disabled", "required": false})
-            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").removeAttr("disabled")
-            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr("required", true)
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language, #id_diabet, #id_anesthesia, #id_hepatitis, #id_aids, #id_pressure, #id_allergy, #id_asthma, #id_dizziness, #other_illness, #id_epilepsy, #id_blood_disease, #id_medications, #id_stroke, #id_heart_attack, #id_oncologic, #id_tuberculosis, #id_alcohol, #id_pregnancy").removeAttr("disabled")
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language, #id_diabet, #id_anesthesia, #id_hepatitis, #id_aids, #id_pressure, #id_allergy, #id_asthma, #id_dizziness, #other_illness, #id_epilepsy, #id_blood_disease, #id_medications, #id_stroke, #id_heart_attack, #id_oncologic, #id_tuberculosis, #id_alcohol, #id_pregnancy").attr("required", true)
         }
     })
+    $("#id_phone_number").on("focus", function () {
+        if ($(this).val() == "") {
+            $(this).val("(")
+        }
+    })
+    $("#id_phone_number").on("focusout", function () {
+        if ($(this).val() == "(") {
+            $(this).val("")
+        }
+    })
+    $("#id_phone_number").on("keydown", function (e) {
+        if (e.keyCode == 8) {
+            if ($(this).val().length == 12 || $(this).val().length == 9) {
+                let val = $(this).val()
+                $(this).val(val.slice(0, val.length - 1))
+            } else if ($(this).val().length == 5) {
+                let val = $(this).val()
+                $(this).val(val.slice(0, val.length - 2))
+            }
+        }
+    })
+    $("#id_phone_number").on("input", function () {
+        if ($(this).val().length == 3) {
+            $(this).val(`${$(this).val()}) `)
+        } else if ($(this).val().length == 8 || $(this).val().length == 11) {
+            $(this).val(`${$(this).val()}-`)
+        } else if ($(this).val().length == 0) {
+            $(this).val("(")
+        }
+    })
+    $("#id_allergy").on("change", function () {
+        if ($("#id_allergy").val() == 2) {
+            $("#id_allergy_detail").attr("required", true).addClass("d-block").removeClass("d-none")
+        } else {
+            $("#id_allergy_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
+        }
+    })
+    $("#other_illness").on("change", function () {
+        if ($("#other_illness").is(":checked")) {
+            $("#other_illness_holder").addClass("d-block").removeClass("d-none")
+        } else {
+            $("#other_illness_holder").removeClass("d-block").addClass("d-none")
+        }
+    })
+    $("#id_medications").on("change", function () {
+        if ($("#id_medications").val() == 2) {
+            $("#id_medications_detail").attr("required", true).addClass("d-block").removeClass("d-none")
+        } else {
+            $("#id_medications_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
+        }
+    })
+    $("#id_pregnancy").on("change", function () {
+        if ($("#id_pregnancy").val() == 2) {
+            $("#id_pregnancy_detail").attr("required", true).addClass("d-block").removeClass("d-none")
+        } else {
+            $("#id_pregnancy_detail").removeAttr("required", true).removeClass("d-block").addClass("d-none")
+        }
+    })
+    $("#id_diabet").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_anesthesia").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_hepatitis").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_aids").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_pressure").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_allergy").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_asthma").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_dizziness").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_epilepsy").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_blood_disease").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_medications").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_stroke").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_heart_attack").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_oncologic").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_tuberculosis").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_alcohol").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
+    $("#id_pregnancy").prepend(
+        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+    )
 </script>
 {% endblock %}

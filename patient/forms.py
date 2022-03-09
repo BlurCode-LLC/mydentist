@@ -125,7 +125,7 @@ class PatientForm(forms.Form):
         label=_("Bemor"),
         widget=forms.TextInput(
             attrs={
-                'class': "form-control mb-3",
+                'class': "form-control",
                 'placeholder': _("Bemor FIOsi"),
             }
         ),
@@ -136,7 +136,11 @@ class PatientForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': "form-control wid",
-                'placeholder': _("+9989XXXXXXXX"),
+                'type': "tel",
+                'pattern': "[(]{1}[\d]{2})[)]{1} [\d]{3}-[\d]{2}-[\d]{2}]",
+                'placeholder': _("(XX) XXX-XX-XX"),
+                'min-length': "14",
+                'max-length': "14"
             }
         ),
         localize=True
@@ -178,7 +182,7 @@ class CodeForm(forms.Form):
         label=_("Kod"),
         widget=forms.NumberInput(
             attrs={
-                'class': "form-control mb-3",
+                'class': "form-control",
                 'placeholder': _("Kodni kiriting"),
             }
         ),

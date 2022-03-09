@@ -96,9 +96,6 @@
 					$(`#pills-${tab} > .row`).append(
 						$("<div class='col col-sm-12'></div>").append(
 							$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
-								$("<div class='card_img_holder col-md-4'></div>").append(
-									$("<img>").attr("src", result[i]["image"])
-								),
 								$("<div class='col-md-8'></div>").append(
 									$("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
 									$("<div></div>").addClass("card_info").html(`${result[i]["fullname"]}`),
@@ -106,7 +103,11 @@
 									/* $("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
 									$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`), */
 									$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]}`)
+								),	
+								$("<div class='card_img_holder col-md-4'></div>").append(
+									$("<img>").attr("src", result[i]["image"])
 								)
+								
 							)
 						)
 					)

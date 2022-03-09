@@ -1,4 +1,5 @@
 from datetime import datetime, date
+from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -16,7 +17,7 @@ from login.forms import PasswordUpdateForm
 from mydentist.handler import *
 from mydentist.var import *
 from .forms import *
-from .models import User as PatientUser, Illness, Other_Illness, Process_photo
+from .models import Key, User as PatientUser, Illness, Other_Illness, Process_photo
 
 
 def profile(request):
@@ -405,44 +406,126 @@ def patients(request):
     notifications = get_notifications(request, "dentist")
     queries = get_queries(Query.objects.filter(dentist=dentist))
     if request.method == "POST":
-        patientform = PatientForm(request.POST)
-        languageform = LanguageForm(request.POST)
-        if patientform.is_valid() and languageform.is_valid():
-            try:
-                new_patient = PatientUser.objects.get(phone_number=patientform.cleaned_data['phone_number'])
-            except:
-                file_path = global_settings.PROJECT_DIR / "last_id.txt"
-                with open(file_path, "r") as file:
-                    id = int(file.read()) + 1
-                with open(file_path, "w") as file:
-                    file.write(str(id))
-                id = f"{id:07d}"
-                name = patientform.cleaned_data['name']
-                if len(name.split(" ")) > 1:
-                    new_user = User.objects.create_user(
-                        f"user{id}",
-                        password=f"user{id}",
-                        last_name=name.split(" ")[0],
-                        first_name=" ".join(name.split(" ")[1:])
+        print(request.POST)
+        if request.POST.get('regtype') == "auto":
+            pass
+        if request.POST.get('regtype') == "man":
+            patientform = PatientForm(request.POST)
+            languageform = LanguageForm(request.POST)
+            illnessform = IllnessForm(request.POST)
+            otherillnessform = OtherIllnessForm(request.POST)
+            if patientform.is_valid() and languageform.is_valid() and illnessform.is_valid() and otherillnessform.is_valid():
+                try:
+                    new_patient = PatientUser.objects.get(phone_number=patientform.cleaned_data['phone_number'])
+                except:
+                    file_path = global_settings.PROJECT_DIR / "last_id.txt"
+                    with open(file_path, "r") as file:
+                        id = int(file.read()) + 1
+                    with open(file_path, "w") as file:
+                        file.write(str(id))
+                    id = f"{id:07d}"
+                    name = patientform.cleaned_data['name']
+                    if len(name.split(" ")) > 1:
+                        new_user = User.objects.create_user(
+                            f"user{id}",
+                            password=f"user{id}",
+                            last_name=name.split(" ")[0],
+                            first_name=" ".join(name.split(" ")[1:])
+                        )
+                    else:
+                        new_user = User.objects.create_user(
+                            f"user{id}",
+                            password=f"user{id}",
+                            first_name=name
+                        )
+                    new_patient = PatientUser.objects.create(
+                        user=new_user,
+                        phone_number=patientform.cleaned_data['phone_number'],
+                        address=patientform.cleaned_data['address'],
+                        birthday=patientform.cleaned_data['birthday'],
+                        image="patients/photos/default.png",
+                        language=Language.objects.get(pk=languageform.cleaned_data['language']),
+                        gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
                     )
-                else:
-                    new_user = User.objects.create_user(
-                        f"user{id}",
-                        password=f"user{id}",
-                        first_name=name
+                    key = Key.objects.create(
+                        patient=new_patient,
+                        key=randint(100000, 999999)
                     )
-                new_patient = PatientUser.objects.create(
-                    user=new_user,
-                    phone_number=patientform.cleaned_data['phone_number'],
-                    address=patientform.cleaned_data['address'],
-                    birthday=patientform.cleaned_data['birthday'],
-                    image="patients/photos/default.png",
-                    language=Language.objects.get(pk=languageform.cleaned_data['language']),
-                    gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
-                )
-                success = _("Yangi bemor qo'shildi")
-                request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
-                return redirect("dentx:patients")
+                    if illnessform.cleaned_data['allergy'] == 2:
+                        try:
+                            allergy = Allergy.objects.get(
+                                value=illnessform.cleaned_data['allergy'],
+                                desc=illnessform.cleaned_data['allergy_detail'],
+                            )
+                        except:
+                            allergy = Allergy.objects.create(
+                                value=illnessform.cleaned_data['allergy'],
+                                desc=illnessform.cleaned_data['allergy_detail'],
+                            )
+                    else:
+                        allergy = Allergy.objects.get(
+                            value=illnessform.cleaned_data['allergy'],
+                        )
+                    illness = Illness.objects.get(patient=user_extra)
+                    illness.diabet_id = Diabet.objects.get(value=illnessform.cleaned_data['diabet']).id
+                    illness.anesthesia_id = Anesthesia.objects.get(value=illnessform.cleaned_data['anesthesia']).id
+                    illness.hepatitis_id = Hepatitis.objects.get(value=illnessform.cleaned_data['hepatitis']).id
+                    illness.aids_id = AIDS.objects.get(value=illnessform.cleaned_data['aids']).id
+                    illness.pressure_id = Pressure.objects.get(value=illnessform.cleaned_data['pressure']).id
+                    illness.allergy_id = allergy.id
+                    illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
+                    illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
+                    illness.save()
+                    otherillness = Illness.objects.get(patient=user_extra)
+                    otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
+                    otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
+                    if otherillnessform.cleaned_data.get('medications') is not None:
+                        if otherillnessform.cleaned_data['medications'] == 2:
+                            try:
+                                medications = Medications.objects.get(
+                                    value=otherillnessform.cleaned_data['medications'],
+                                    desc=otherillnessform.cleaned_data['medications_detail'],
+                                )
+                            except:
+                                medications = Medications.objects.create(
+                                    value=otherillnessform.cleaned_data['medications'],
+                                    desc=otherillnessform.cleaned_data['medications_detail'],
+                                )
+                        else:
+                            medications = Medications.objects.get(
+                                value=otherillnessform.cleaned_data['medications'],
+                            )
+                        otherillness.medications_id = medications.id
+                    else:
+                        otherillness.medications_id = None
+                    otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id if otherillnessform.cleaned_data.get('stroke') is not None else None
+                    otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id if otherillnessform.cleaned_data.get('heart_attack') is not None else None
+                    otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id if otherillnessform.cleaned_data.get('oncologic') is not None else None
+                    otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id if otherillnessform.cleaned_data.get('tuberculosis') is not None else None
+                    otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id if otherillnessform.cleaned_data.get('alcohol') is not None else None
+                    if otherillnessform.cleaned_data.get('pregnancy') is not None:
+                        if otherillnessform.cleaned_data['pregnancy'] == 2:
+                            try:
+                                pregnancy = Pregnancy.objects.get(
+                                    value=otherillnessform.cleaned_data['pregnancy'],
+                                    desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                                )
+                            except:
+                                pregnancy = Pregnancy.objects.create(
+                                    value=otherillnessform.cleaned_data['pregnancy'],
+                                    desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                                )
+                        else:
+                            pregnancy = Pregnancy.objects.get(
+                                value=otherillnessform.cleaned_data['pregnancy'],
+                            )
+                        otherillness.pregnancy_id = pregnancy.id
+                    else:
+                        otherillness.pregnancy_id = None
+                    otherillness.save()
+                    success = _("Yangi bemor qo'shildi")
+                    request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
+                    return redirect("dentx:patients")
     results = get_patients(request)
     patient_codeform = CodeForm()
     patientform = PatientForm()
