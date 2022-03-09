@@ -35,7 +35,7 @@
                             </li>
                             <div class="dropdown">
                                 <button class="nav-link notification_btn" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-bell"></i>{% if notifications_count != 0 %} +{{ notifications_count }}{% endif %}
+                                    <i class="fas fa-bell"></i>{% if notifications_count > 0 %}+{{ notifications_count }}{% endif %}
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-md-end my_drop" aria-labelledby="notificationDropdown">
                                     {% if notifications %}

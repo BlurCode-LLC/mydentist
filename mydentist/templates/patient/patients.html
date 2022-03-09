@@ -27,6 +27,16 @@
                                 <div class="modal-body">
                                     <form class="form-group" method="POST">
                                         {% csrf_token %}
+                                        <input type="radio" id="auto-reg" name="regtype" value="auto" checked>
+                                        <label for="auto-reg">{% trans "Kod kiritish" %}</label>
+                                        <div class="pats">
+                                            <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                <label class="mb-1 left" for="id_phone_number">{{ patient_codeform.key.label }}</label>
+                                                {{ patient_codeform.key }}
+                                            </div>
+                                        </div>
+                                        <input type="radio" id="man-reg" name="regtype" value="man">
+                                        <label for="auto-reg">{% trans "Ro'yhatdan o'tkazish" %}</label>
                                         <div class="pats">
                                             <div class="mb-1 d-flex justify-content-between">
                                                 <label for="id_name">{{ patientform.name.label }}</label>
@@ -62,6 +72,54 @@
                                                     <div>
                                                     {{ languageform.language }}
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="my-3">{% trans "Kasalliklar haqida" %}</h5>
+                                            <div class="row">
+                                                {% for field in patient_illnessform %}
+                                                    {% for error in field.errors %}
+                                                        <div class="alert alert-danger">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% if field.name != "allergy_detail" %}
+                                                        <div class="col-12 col-lg-3 mb-2">
+                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                            {{ field }}
+                                                            {% if field.name == "allergy" %}
+                                                                {{ illnessform.allergy_detail }}
+                                                            {% endif %}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            <h5 class="my-3">{% trans "Boshqa kasalliklar" %}</h5>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <label class="form-check-label" for="other_illness">{% trans "Ko'rsatish" %}</label>
+                                                    <input class="form-check-input" type="checkbox" id="other_illness">
+                                                </div>
+                                            </div>
+                                            <div id="other_illness_holder" class="d-none">
+                                                <div class="row">
+                                                    {% for field in patient_otherillnessform %}
+                                                        {% for error in field.errors %}
+                                                            <div class="alert alert-danger">
+                                                                {{ error }}
+                                                            </div>
+                                                        {% endfor %}
+                                                        {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                                                            <div class="col-12 col-lg-3 mb-2">
+                                                                <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                                {{ field }}
+                                                                {% if field.name == "medications" %}
+                                                                    {{ otherillnessform.medications_detail }}
+                                                                {% elif field.name == "pregnancy" %}
+                                                                    {{ otherillnessform.pregnancy_detail }}
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                         </div>
@@ -161,4 +219,21 @@
 {% endblock %}
 
 {% block javascript %}
+<script type="text/javascript">
+    $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr({"disabled": "disabled", "required": false})
+    $("#auto-reg").on("change", function() {
+        if ($("#auto-reg").is(":checked")) {
+            $("#id_key").removeAttr("disabled")
+            $("#id_key").attr("required", true)
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr({"disabled": "disabled", "required": false})
+        }
+    })
+    $("#man-reg").on("change", function() {
+        if ($("#man-reg").is(":checked")) {
+            $("#id_key").attr({"disabled": "disabled", "required": false})
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").removeAttr("disabled")
+            $("#id_name, #id_phone_number, #id_birthday, #id_gender_0, #id_gender_1, #id_address, #id_language").attr("required", true)
+        }
+    })
+</script>
 {% endblock %}

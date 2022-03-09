@@ -171,3 +171,19 @@ class PatientForm(forms.Form):
         localize=True
     )
 
+
+class CodeForm(forms.Form):
+
+    key = forms.IntegerField(
+        label=_("Kod"),
+        widget=forms.NumberInput(
+            attrs={
+                'class': "form-control mb-3",
+                'placeholder': _("Kodni kiriting"),
+            }
+        ),
+        localize=True,
+        min_value=100000,
+        max_value=999999
+    )
+

@@ -346,7 +346,7 @@ def table(request):
             ))
         day_begin += timedelta(minutes=15)
         html += "</tr>"
-    html += "</tbody></table><script type='text/javascript'>$('.overflow').css({'overflow-x': 'scroll','overflow-y': 'scroll','height': '600px'})</script>"
+    html += "</tbody></table><script type='text/javascript'>$('.overflow').css({'overflow-x': 'scroll','overflow-y': 'scroll','height': '45vh'})</script>"
     return HttpResponse(html)
 
 

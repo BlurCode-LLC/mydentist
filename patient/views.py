@@ -444,7 +444,10 @@ def patients(request):
                 request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
                 return redirect("dentx:patients")
     results = get_patients(request)
+    patient_codeform = CodeForm()
     patientform = PatientForm()
+    patient_illnessform = IllnessForm()
+    patient_otherillnessform = OtherIllnessForm()
     languageform = LanguageForm()
     return render(request, "patient/patients.html", {
         'dentist': dentist,
@@ -452,8 +455,11 @@ def patients(request):
         'notifications_count': len(notifications),
         'queries': queries,
         'results': results,
+        'patient_codeform': patient_codeform,
         'patientform': patientform,
         'languageform': languageform,
+        'patient_illnessform': patient_illnessform,
+        'patient_otherillnessform': patient_otherillnessform,
         'text': text
     })
 
