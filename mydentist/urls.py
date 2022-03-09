@@ -15,6 +15,7 @@ urlpatterns = [
     path('dentist/', include(('dentist.urls', 'dentist'), namespace='dentist')),
     path('dentx/', include(('dentx.urls', 'dentx'), namespace='dentx')),
     path('my/', include(('patient.urls', 'patient'), namespace='patient')),
+    path('bot/', include(('bot.urls', 'bot'), namespace='bot')),
     path('set_language/<user_language>', handler.set_language, name='set_language'),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
 ] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
