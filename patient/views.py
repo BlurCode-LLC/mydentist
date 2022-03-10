@@ -16,8 +16,9 @@ from illness.forms import *
 from login.forms import PasswordUpdateForm
 from mydentist.handler import *
 from mydentist.var import *
+from patient.tooth_handler import get_teeth
 from .forms import *
-from .models import Key, User as PatientUser, Illness, Other_Illness, Process_photo
+from .models import Key, Tooth, User as PatientUser, Illness, Other_Illness, Process_photo
 
 
 def profile(request):
@@ -397,7 +398,7 @@ def patients(request):
     else:
         check_language(request, "dentist")
     if 'text' in request.session:
-        text = request.session['text']
+        text = mark_safe(request.session['text'])
         del request.session['text']
     else:
         text = None
@@ -711,6 +712,7 @@ def patient(request, id, active_tab="profile"):
             )
         })
         number += 1
+    teeth_upper, teeth_lower = get_teeth(patient_extra, Tooth)
     process_photos = Process_photo.objects.filter(patient=patient_extra)
     if len(process_photos) > 1:
         counter = range(len(process_photos))
@@ -738,6 +740,8 @@ def patient(request, id, active_tab="profile"):
         'otherillnessform': otherillnessform,
         'upcoming': upcoming,
         'appointments': appointments,
+        'teeth_upper': teeth_upper,
+        'teeth_lower': teeth_lower,
         'process_photos': process_photos,
         'process_photo': process_photo,
         'counter': counter,
