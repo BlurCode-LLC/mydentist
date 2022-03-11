@@ -12,8 +12,12 @@
         <title>{% block title %}{% endblock %} - DentX</title>
     </head>
     <body>
-        <div class="container-fluid fixed-top bg-white">
+        <div class="container-fluid fixed-top bg-white position-relative">
             <div class="my-header">
+                <button id="close_btn">
+                    <i class="fas fa-times"></i>
+
+                </button>
                 <a href="{% url 'dentx:appointments' %}" class="my-header-logo">DentX</a>
                 <a href="{% url 'dentx:appointments' %}" class="my-header-item{% if "/appointments/" in request.path %} active-item{% endif %}">
                     <i class="far fa-calendar-alt"></i>
@@ -102,7 +106,11 @@
                 </div>
             </div>
         </div>
-        <div class="nav-space"></div>
+        <div class="nav-space">
+         <button>
+          <i class="fas fa-bars"></i>
+         </button>
+        </div>
         <div class="modal fade" id="waitingListModal" tabindex="-1" aria-labelledby="waitingListModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
@@ -151,6 +159,10 @@
         {% block content %}{% endblock %}
         <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+        <!-- New js file html hacker -->
+        <script src="{% static 'js/index.js' %}"></script>
+        <!-- New js file html hacker end-->
+
         <script type="text/javascript">
             function addReminder(element, category, id=null) {
                 console.log()
