@@ -391,14 +391,14 @@
                     {% endif %}
                 </div>
                 <div class="tab-pane fade {% if active_tab == "dental-map" %}show active{% endif %}" id="pills-dental-map" role="tabpanel" aria-labelledby="pills-dental-map-tab">
-                    <div class="overflow tab-pane fade show active">
+                    <div class="tab-pane fade show active">
                         <div class="row mt-5">
                             {% static 'svg' as path %}
                             <div class="col-12">
-                                <div class="d-flex justify-content-md-evenly">
+                                <div class="d-flex justify-content-around">
                                     {% for tooth_upper in teeth_upper %}
-                                    <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}">
-                                        <object data="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40"></object>
+                                    <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
+                                        <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
                                         <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
                                     </div>
                                     {% endfor %}
@@ -408,11 +408,11 @@
                         <div class="row mt-5">
                             {% static 'svg' as path %}
                             <div class="col-12">
-                                <div class="d-flex justify-content-md-evenly">
+                                <div class="d-flex justify-content-around">
                                     {% for tooth_lower in teeth_lower %}
-                                    <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}">
+                                    <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
                                         <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
-                                        <object data="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40"></object>
+                                        <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
                                     </div>
                                     {% endfor %}
                                 </div>
@@ -430,13 +430,18 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action={% url 'dentx:update_patient' id=patient_extra.id form="tooth" %} method="POST">
+                                    <form action={% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %} method="POST">
                                         {% csrf_token %}
                                         <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="d-flex">
-                                                    <object data="svg/no-11.svg" width="40"></object>
+                                            <div class="col-12">
+                                                <div class="d-flex flex-wrap justify-content-around">
                                                 </div>
+                                            </div>
+                                            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
+                                                <input type="number" id="id_code" name="code" class="form-control d-none" required/>
+                                                <input type="number" id="id_status" name="status" class="form-control d-none" required/>
+                                                <label for="id_comment" class="mb-1">Izoh</label>
+                                                <input type="text" id="id_comment" name="comment" class="form-control mb-3"/>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -659,6 +664,31 @@
         console.log($(".tooth > object"))
         $(".tooth").on("click", function() {
             $(".hidden-button > button")[0].click()
+            $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
+            let code = $(this).attr("code")
+            {% static 'svg' as path %}
+            {% for status in teeth_status %}
+            if ($(this).attr("status") != "{{ status.prefix }}") {
+                $("#toothModal .modal-body .row > .col-12 > .d-flex").append(
+                    $("<div class='d-flex flex-column align-items-center justify-content-end pb-3 px-3' style='border: 2px solid transparent' status='{{ status.id }}'></div>").append(
+                        $(`<img src='{{ path }}/{{ status.prefix }}-${code}.svg' width='40' />`),
+                        $("<span class='badge bg-secondary mt-3'></span>").html(code),
+                        $("<span></span>").html("{{ status.name }}")
+                    )
+                )
+            }
+            {% endfor %}
+            $("#id_code").val(code)
+            $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").on("click", function () {
+                $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").css({
+                    "border": "2px solid transparent",
+                })
+                $(this).css({
+                    "border": "2px solid #0d6efd",
+                    "border-radius": "5px",
+                })
+                $("#id_status").val($(this).attr("status"))
+            })
         })
         let intervalFunc
         $("#process-photo-upload-button").on("click", function() {

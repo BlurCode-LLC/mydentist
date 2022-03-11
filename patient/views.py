@@ -18,7 +18,7 @@ from mydentist.handler import *
 from mydentist.var import *
 from patient.tooth_handler import get_teeth
 from .forms import *
-from .models import Key, Tooth, User as PatientUser, Illness, Other_Illness, Process_photo
+from .models import Key, Tooth, Tooth_status, User as PatientUser, Illness, Other_Illness, Process_photo
 
 
 def profile(request):
@@ -500,7 +500,7 @@ def patients(request):
                     illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                     illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
                     illness.save()
-                    otherillness = Illness.objects.get(patient=new_patient)
+                    otherillness = Other_Illness.objects.get(patient=new_patient)
                     otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
                     otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                     if otherillnessform.cleaned_data.get('medications') is not None:
@@ -713,6 +713,7 @@ def patient(request, id, active_tab="profile"):
         })
         number += 1
     teeth_upper, teeth_lower = get_teeth(patient_extra, Tooth)
+    teeth_status = Tooth_status.objects.all()
     process_photos = Process_photo.objects.filter(patient=patient_extra)
     if len(process_photos) > 1:
         counter = range(len(process_photos))
@@ -742,6 +743,7 @@ def patient(request, id, active_tab="profile"):
         'appointments': appointments,
         'teeth_upper': teeth_upper,
         'teeth_lower': teeth_lower,
+        'teeth_status': teeth_status,
         'process_photos': process_photos,
         'process_photo': process_photo,
         'counter': counter,
@@ -872,4 +874,13 @@ def update(request, id, form):
                 'process_photo': process_photo,
                 'counter': counter,
             }, safe=False)
+        elif form == "dental-map":
+            tooth = Tooth.objects.get(
+                code=int(request.POST.get('code')),
+                patient=patient
+            )
+            tooth.status_id = int(request.POST.get('status'))
+            tooth.comment = request.POST.get('comment')
+            tooth.save()
+            return redirect("dentx:patient", id=id, active_tab="dental-map")
         return redirect("dentx:patient", id=id, active_tab="profile")
