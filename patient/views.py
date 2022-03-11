@@ -809,45 +809,51 @@ def update(request, id, form):
                 illness.save()
                 illnessform = IllnessForm(request.POST)
                 otherillness = Other_Illness.objects.get(patient=patient)
-                if otherillnessform.cleaned_data['medications'] == 2:
-                    try:
+                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
+                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
+                if otherillnessform.cleaned_data.get('medications') is not None:
+                    if otherillnessform.cleaned_data['medications'] == 2:
+                        try:
+                            medications = Medications.objects.get(
+                                value=otherillnessform.cleaned_data['medications'],
+                                desc=otherillnessform.cleaned_data['medications_detail'],
+                            )
+                        except:
+                            medications = Medications.objects.create(
+                                value=otherillnessform.cleaned_data['medications'],
+                                desc=otherillnessform.cleaned_data['medications_detail'],
+                            )
+                    else:
                         medications = Medications.objects.get(
                             value=otherillnessform.cleaned_data['medications'],
-                            desc=otherillnessform.cleaned_data['medications_detail'],
                         )
-                    except:
-                        medications = Medications.objects.create(
-                            value=otherillnessform.cleaned_data['medications'],
-                            desc=otherillnessform.cleaned_data['medications_detail'],
-                        )
+                    otherillness.medications_id = medications.id
                 else:
-                    medications = Medications.objects.get(
-                        value=otherillnessform.cleaned_data['medications'],
-                    )
-                if otherillnessform.cleaned_data['pregnancy'] == 2:
-                    try:
+                    otherillness.medications_id = None
+                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id if otherillnessform.cleaned_data.get('stroke') is not None else None
+                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id if otherillnessform.cleaned_data.get('heart_attack') is not None else None
+                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id if otherillnessform.cleaned_data.get('oncologic') is not None else None
+                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id if otherillnessform.cleaned_data.get('tuberculosis') is not None else None
+                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id if otherillnessform.cleaned_data.get('alcohol') is not None else None
+                if otherillnessform.cleaned_data.get('pregnancy') is not None:
+                    if otherillnessform.cleaned_data['pregnancy'] == 2:
+                        try:
+                            pregnancy = Pregnancy.objects.get(
+                                value=otherillnessform.cleaned_data['pregnancy'],
+                                desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                            )
+                        except:
+                            pregnancy = Pregnancy.objects.create(
+                                value=otherillnessform.cleaned_data['pregnancy'],
+                                desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                            )
+                    else:
                         pregnancy = Pregnancy.objects.get(
                             value=otherillnessform.cleaned_data['pregnancy'],
-                            desc=otherillnessform.cleaned_data['pregnancy_detail'],
                         )
-                    except:
-                        pregnancy = Pregnancy.objects.create(
-                            value=otherillnessform.cleaned_data['pregnancy'],
-                            desc=otherillnessform.cleaned_data['pregnancy_detail'],
-                        )
+                    otherillness.pregnancy_id = pregnancy.id
                 else:
-                    pregnancy = Pregnancy.objects.get(
-                        value=otherillnessform.cleaned_data['pregnancy'],
-                    )
-                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id
-                otherillness.medications_id = medications.id
-                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id
-                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id
-                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id
-                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id
-                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id
-                otherillness.pregnancy_id = pregnancy.id
+                    otherillness.pregnancy_id = None
                 otherillness.save()
                 otherillnessform = OtherIllnessForm(request.POST)
                 return redirect("dentx:patient", id=id, active_tab="profile")

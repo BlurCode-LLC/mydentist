@@ -238,8 +238,8 @@ def settings(request, active_tab="profile"):
         'region': clinic.region_id,
         'latitude': clinic.latitude,
         'longitude': clinic.longitude,
-        'worktime_begin': dentist.worktime_begin,
-        'worktime_end': dentist.worktime_end,
+        'worktime_begin': dentist.worktime_begin.strftime("%H:%M"),
+        'worktime_end': dentist.worktime_end.strftime("%H:%M"),
     })
     if 'incorrect_password' in request.session:
         passwordupdateform = PasswordUpdateForm(request.session['incorrect_password'])
