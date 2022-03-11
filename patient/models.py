@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from illness.models import *
+from .tooth_handler import teeth_creator
 
 
 class User(models.Model):
@@ -52,6 +53,8 @@ class User(models.Model):
                 alcohol=Alcohol.objects.get(pk=1),
                 pregnancy=Pregnancy.objects.get(pk=1),
             )
+        if len(Tooth.objects.filter(patient=self)) == 0:
+            teeth_creator(self, Tooth, Tooth_status)
 
 
 class Illness(models.Model):
@@ -88,8 +91,8 @@ class Other_Illness(models.Model):
     pregnancy = models.ForeignKey("illness.Pregnancy", verbose_name=_("Homiladorlik"), on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
-        verbose_name = _("Bemor kasalligi")
-        verbose_name_plural = _("Bemor kasalliklari")
+        verbose_name = _("Bemorning boshqa kasalligi")
+        verbose_name_plural = _("Bemorning boshqa kasalliklari")
 
     def __str__(self):
         return self.patient.__str__()
@@ -100,6 +103,7 @@ class Tooth(models.Model):
     code = models.IntegerField(_("Tish raqami"))
     status = models.ForeignKey("patient.Tooth_status", verbose_name=_("Tish holati"), on_delete=models.CASCADE, related_name="patient_tooth_status")
     patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_tooth")
+    comment = models.CharField(_("Izoh"), max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = _("Tish")
@@ -128,8 +132,8 @@ class Process_photo(models.Model):
     patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_process_photo")
 
     class Meta:
-        verbose_name = _("Tish holati")
-        verbose_name_plural = _("Tish holatlari")
+        verbose_name = _("Davolanish jarayoni")
+        verbose_name_plural = _("Davolanish jarayonlari")
 
     def __str__(self):
         return f"{self.image.name} - {self.patient.__str__()}"

@@ -1034,6 +1034,14 @@ div.my_accaunt {
   margin: 10px;
 }
 
+object { 
+  pointer-events: none;
+}
+
+.tooth, svg:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1400px) {
   .my_select {
     padding: 10px 0px;
