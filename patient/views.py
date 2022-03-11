@@ -406,10 +406,29 @@ def patients(request):
     notifications = get_notifications(request, "dentist")
     queries = get_queries(Query.objects.filter(dentist=dentist))
     if request.method == "POST":
-        print(request.POST)
         if request.POST.get('regtype') == "auto":
-            pass
-        if request.POST.get('regtype') == "man":
+            codeform = CodeForm(request.POST)
+            if codeform.is_valid():
+                print(codeform.cleaned_data)
+                try:
+                    key = Key.objects.get(
+                        key=codeform.cleaned_data.get('key')
+                    )
+                    try:
+                        dp = Patient.objects.get(
+                            dentist=dentist,
+                            patient=key.patient
+                        )
+                    except:
+                        dp = Patient.objects.create(
+                            dentist=dentist,
+                            patient=key.patient
+                        )
+                        request.session['text'] = mark_safe(_("Bemor qo'shildi"))
+                    return redirect("dentx:patients")
+                except:
+                    pass
+        elif request.POST.get('regtype') == "man":
             patientform = PatientForm(request.POST)
             languageform = LanguageForm(request.POST)
             illnessform = IllnessForm(request.POST)
@@ -451,6 +470,10 @@ def patients(request):
                         patient=new_patient,
                         key=randint(100000, 999999)
                     )
+                    dp = Patient.objects.create(
+                        dentist=dentist,
+                        patient=new_patient
+                    )
                     if illnessform.cleaned_data['allergy'] == 2:
                         try:
                             allergy = Allergy.objects.get(
@@ -466,7 +489,7 @@ def patients(request):
                         allergy = Allergy.objects.get(
                             value=illnessform.cleaned_data['allergy'],
                         )
-                    illness = Illness.objects.get(patient=user_extra)
+                    illness = Illness.objects.get(patient=new_patient)
                     illness.diabet_id = Diabet.objects.get(value=illnessform.cleaned_data['diabet']).id
                     illness.anesthesia_id = Anesthesia.objects.get(value=illnessform.cleaned_data['anesthesia']).id
                     illness.hepatitis_id = Hepatitis.objects.get(value=illnessform.cleaned_data['hepatitis']).id
@@ -476,7 +499,7 @@ def patients(request):
                     illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                     illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
                     illness.save()
-                    otherillness = Illness.objects.get(patient=user_extra)
+                    otherillness = Illness.objects.get(patient=new_patient)
                     otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
                     otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                     if otherillnessform.cleaned_data.get('medications') is not None:

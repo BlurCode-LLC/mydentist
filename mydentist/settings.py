@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appointment',
     'baseapp',
+    'bot',
     'dentist',
     'dentx',
     'illness',
@@ -150,3 +151,5 @@ EMAIL_USE_SSL = True    # use port 465
 EMAIL_USE_TLS = False    # use port 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
