@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, time
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -238,8 +238,12 @@ def settings(request, active_tab="profile"):
         'region': clinic.region_id,
         'latitude': clinic.latitude,
         'longitude': clinic.longitude,
-        'worktime_begin': dentist.worktime_begin,
-        'worktime_end': dentist.worktime_end,
+        
+    })
+    worktimeform = WorkTimeForm({
+        'work_days': dentist.work_days,
+        'worktime_begin': dentist.worktime_begin.strftime("%H:%M"),
+        'worktime_end': dentist.worktime_end.strftime("%H:%M")
     })
     if 'incorrect_password' in request.session:
         passwordupdateform = PasswordUpdateForm(request.session['incorrect_password'])
@@ -252,6 +256,7 @@ def settings(request, active_tab="profile"):
         'languageform': languageform,
         'passwordupdateform': passwordupdateform,
         'clinicform': clinicform,
+        'worktimeform': worktimeform,
         'serviceform': serviceform,
         'clinics': clinics,
         'active_clinic': active_clinic,
@@ -332,6 +337,16 @@ def update(request, form):
                     request.session['success_message'] = "Passwords do not match"
                     return redirect("dentx:settings", active_tab="password")
         elif form == "clinic":
+            worktimeform = WorkTimeForm(request.POST)
+            if worktimeform.is_valid():
+                dentist.work_days = worktimeform.cleaned_data['work_days']
+                begin = worktimeform.cleaned_data['worktime_begin'].split(":")
+                if len(begin) == 2:
+                    dentist.worktime_begin = time(int(begin[0]), int(begin[1]))
+                end = worktimeform.cleaned_data['worktime_end'].split(":")
+                if len(end) == 2:
+                    dentist.worktime_end = time(int(end[0]), int(end[1]))
+                dentist.save()
             clinicform = ClinicForm(request.POST)
             if clinicform.is_valid():
                 if request.POST['clinic'] == 'other':
@@ -367,10 +382,6 @@ def update(request, form):
                     dentist.save()
                     request.session['success_message'] = "Added successfully"
                     return redirect("dentx:settings", active_tab="clinic")
-                if request.POST['clinic'] == "other":
-                    clinic = Clinic.objects.create(
-                        name=clinicform.cleaned_data['clinic_name_uz']
-                    )
                 else:
                     clinic_translation = Clinic_translation.objects.get(
                         name=request.POST['clinic'],

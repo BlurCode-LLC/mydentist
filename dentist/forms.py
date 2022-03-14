@@ -220,6 +220,21 @@ class ClinicForm(forms.Form):
             choices=CHOICES['regions']
         )
     )
+
+class WorkTimeForm(forms.Form):
+    
+    work_days = forms.ChoiceField(
+        label=_("Ish kuni"),
+        widget=forms.RadioSelect(
+            attrs={
+                'class': "form-switch"
+            }
+        ),
+        choices=(
+            (6, _("6-kunlik ish")),
+            (7, _("7-kunlik ish"))
+        )
+    )
     worktime_begin = forms.CharField(
         widget=forms.TextInput(
             attrs={
