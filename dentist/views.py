@@ -238,7 +238,6 @@ def settings(request, active_tab="profile"):
         'region': clinic.region_id,
         'latitude': clinic.latitude,
         'longitude': clinic.longitude,
-        
     })
     worktimeform = WorkTimeForm({
         'work_days': dentist.work_days,

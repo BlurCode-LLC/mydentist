@@ -18,13 +18,13 @@
 }
 
 .enter_btn {
-  background-color: #289CD7;
+  background-color: #289cd7;
   border-radius: 25px;
   padding: 0px 8px;
   text-align: center;
   width: auto;
   max-width: 80px;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
 .enter_btn a {
@@ -32,7 +32,7 @@
 }
 
 .enter_btn:hover {
-  background-color: #5C636A;
+  background-color: #5c636a;
 }
 
 .enter_btn:hover a {
@@ -42,10 +42,13 @@
 .nav-space {
   height: 82px;
 }
+.nav-space button {
+  display: none;
+}
 
 #first_screen {
   position: relative;
-  background-color: #289CD7;
+  background-color: #289cd7;
 }
 
 .panel {
@@ -114,11 +117,11 @@
 
 .select button {
   font-weight: 600;
-    background-color: #ffffff;
-    padding: 10px 20px;
-    border: 1px #289CD7 solid;
-    border-radius: 25px;
-    color: black;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border: 1px #289cd7 solid;
+  border-radius: 25px;
+  color: black;
 }
 
 .dropdown-item {
@@ -157,9 +160,9 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
+  -ms-flex-pack: justify;
   flex-wrap: wrap;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 350px;
   margin: auto;
 }
@@ -171,11 +174,11 @@ a.my_btn {
 .my_btn {
   margin: 5px 0;
   padding: 10px 40px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   color: white;
   border-radius: 25px;
   font-weight: 600;
-  transition: background-color .4s;
+  transition: background-color 0.4s;
 }
 
 .panel .my_btn {
@@ -185,13 +188,13 @@ a.my_btn {
 .contact_panel .my_btn {
   background-color: white;
   color: black;
-  transition: background-color .4s, color .4s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 .my_btn_1 {
   margin: 5px 0;
   padding: 5px 10px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   color: white;
   border-radius: 25px;
   font-weight: 600;
@@ -200,14 +203,16 @@ a.my_btn {
 .my_btn_2 {
   margin: 5px 0px;
   padding: 5px 20px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   color: white;
   border-radius: 25px;
   font-weight: 600;
 }
 
-.my_btn:hover, .my_btn_1:hover, .my_btn_2:hover {
-  background-color: #5C636A;
+.my_btn:hover,
+.my_btn_1:hover,
+.my_btn_2:hover {
+  background-color: #5c636a;
   color: white;
 }
 
@@ -225,8 +230,10 @@ a.my_btn {
 }
 
 .my_row img {
-  -webkit-filter: invert(99%) sepia(0%) saturate(4031%) hue-rotate(157deg) brightness(119%) contrast(100%);
-  filter: invert(99%) sepia(0%) saturate(4031%) hue-rotate(157deg) brightness(119%) contrast(100%);
+  -webkit-filter: invert(99%) sepia(0%) saturate(4031%) hue-rotate(157deg)
+    brightness(119%) contrast(100%);
+  filter: invert(99%) sepia(0%) saturate(4031%) hue-rotate(157deg)
+    brightness(119%) contrast(100%);
 }
 
 .present_about {
@@ -284,14 +291,14 @@ a.my_btn {
 
 .factor_item i {
   font-size: 20px;
-  color: #289CD7;
+  color: #289cd7;
   margin-right: 8px;
 }
 
 .contact_panel {
   font-weight: normal;
   margin-top: 80px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   text-align: center;
   padding-bottom: 40px;
 }
@@ -324,7 +331,7 @@ a.my_btn {
 }
 
 .footer {
-  background-color: #289CD7;
+  background-color: #289cd7;
   padding: 40px 0;
 }
 
@@ -360,12 +367,12 @@ a.my_btn {
 }
 
 .developers:hover {
-  color: #0D6EFD;
+  color: #0d6efd;
 }
 
 .filter {
   padding: 10px 0px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   letter-spacing: 20px;
   text-align: center;
 }
@@ -438,35 +445,43 @@ a.my_btn {
   border-radius: 25px;
 }
 
-input, .form-control, .form-select {
+input,
+.form-control,
+.form-select {
   border-radius: 25px;
 }
 
-#birthday_holder i, #worktime_holder i {
+#birthday_holder i,
+#worktime_holder i {
   display: block;
   cursor: pointer;
 }
 
-#birthday_holder span, #worktime_holder span {
+#birthday_holder span,
+#worktime_holder span {
   font-size: 14px;
 }
 
-#birthday_holder div, #worktime_holder div {
+#birthday_holder div,
+#worktime_holder div {
   display: inline-block;
 }
 
-.birth_item, .worktime_item {
+.birth_item,
+.worktime_item {
   max-width: 100px;
   width: 100px;
   text-align: center;
 }
 
-.birth_item input, .worktime_item input {
+.birth_item input,
+.worktime_item input {
   width: 100%;
   text-align: center;
 }
 
-.birth_item input:focus, .worktime_item input:focus {
+.birth_item input:focus,
+.worktime_item input:focus {
   outline: none;
 }
 
@@ -483,7 +498,7 @@ input, .form-control, .form-select {
   padding: auto 10px;
   text-align: center;
   border-radius: 25px;
-  background-color: #289CD7;
+  background-color: #289cd7;
   border: none;
   color: white !important;
 }
@@ -558,7 +573,7 @@ table {
   color: black;
   display: block;
   border-radius: 25px !important;
-  transition: background-color .4s, color .4s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 .my_select_item button:hover {
@@ -567,7 +582,7 @@ table {
 }
 
 .my_select_item button.nav-link.active {
-  background-color: #289CD7;
+  background-color: #289cd7;
   color: white;
 }
 
@@ -643,14 +658,15 @@ table {
 }
 
 #stom-name {
-  color: rgba(0, 0, 0, .55);
+  color: rgba(0, 0, 0, 0.55);
 }
 
 #stom-name:hover {
   color: rgb(0, 0, 0);
 }
 
-#stom-name, #x-button {
+#stom-name,
+#x-button {
   cursor: pointer;
 }
 
@@ -667,7 +683,10 @@ table {
   padding: 0px;
   text-align: center;
 }
-
+#close_btn{
+  display: none;
+ 
+}
 .my-header-logo {
   margin-right: -4px;
   padding: 15px 35px;
@@ -700,13 +719,13 @@ table {
 .my-header-item:hover {
   cursor: pointer;
   color: #535151;
-  border-bottom: 2px solid #289CD7;
+  border-bottom: 2px solid #289cd7;
 }
 
 .my-header-item:active {
   cursor: pointer;
   color: #535151;
-  border: 2px solid #289CD7;
+  border: 2px solid #289cd7;
 }
 
 .my-header-item a {
@@ -745,7 +764,7 @@ table {
 }
 
 .active-item {
-  border-bottom: 2px solid #289CD7;
+  border-bottom: 2px solid #289cd7;
 }
 
 .search_result {
@@ -760,7 +779,7 @@ table {
 }
 
 .search_btn {
-  background-color: #289CD7;
+  background-color: #289cd7;
   border-radius: 25px;
   border: none;
   color: white;
@@ -792,18 +811,18 @@ table {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .my_notification {
-  background-color: #289CD7;
+  background-color: #289cd7;
   color: white;
   border-radius: 50%;
 }
@@ -830,7 +849,8 @@ table {
   border-bottom: 1px solid black;
 }
 
-.time-table thead tr th, .time-table tbody tr td {
+.time-table thead tr th,
+.time-table tbody tr td {
   border: 1px solid black;
 }
 
@@ -878,7 +898,8 @@ table {
   margin-left: 20px;
 }
 
-.controls a, .controls span {
+.controls a,
+.controls span {
   color: black;
   font-size: 30px;
   margin: 0 10px;
@@ -918,7 +939,7 @@ table {
   height: 100%;
   background: rgba(0, 0, 0, 0.356);
   z-index: 1000;
-  overflow-y:scroll ;
+  overflow-y: scroll;
 }
 
 .block-form {
@@ -928,10 +949,11 @@ table {
 }
 
 .pats input {
-  outline-color: #15C4D7;
+  outline-color: #15c4d7;
 }
 
-.pats, .work-time {
+.pats,
+.work-time {
   background: rgb(255, 255, 255);
   padding: 15px 15px 10px;
   margin-bottom: 10px;
@@ -987,7 +1009,7 @@ span.input-group-text {
 
 span.fa-border img {
   display: inline-block;
-} 
+}
 
 .table-hover * {
   vertical-align: middle;
@@ -1012,6 +1034,10 @@ div.my_accaunt {
   margin: 10px;
 }
 
+.tooth, svg:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1400px) {
   .my_select {
     padding: 10px 0px;
@@ -1019,7 +1045,7 @@ div.my_accaunt {
     overflow-x: scroll;
     position: static;
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
     white-space: nowrap;
   }
 }
@@ -1030,7 +1056,7 @@ div.my_accaunt {
     overflow-x: scroll;
     position: static;
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
     white-space: nowrap;
   }
 }
@@ -1041,7 +1067,7 @@ div.my_accaunt {
     width: 100%;
     overflow-x: scroll;
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
     white-space: nowrap;
   }
   .checker {
@@ -1060,8 +1086,8 @@ div.my_accaunt {
   .title_w {
     font-size: 26px;
   }
-  .card_img_holder img{
-    height:220px
+  .card_img_holder img {
+    height: 220px;
   }
   .title_b {
     font-size: 26px;
@@ -1104,6 +1130,87 @@ div.my_accaunt {
   }
 }
 
+@media (max-width: 991px) {
+  .my-header {
+    transition: all 0.3s ease;
+    max-width: 100% !important;
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+    flex-wrap: wrap;
+    white-space: normal;
+    transform: scale(0);
+  }
+  .my-header.show{
+    transform: scale(1);
+  }
+  .my-header > a,
+  .my-header > div {
+    width: 100%;
+  }
+  .my-header-item {
+    margin-right: 0;
+    vertical-align: middle;
+    padding: 15px 25px;
+    color: #535151;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  .my-header-item.active-item {
+    border-bottom: 0;
+    background-color: #eee;
+  }
+
+  .my-header-item i {
+    margin-right: 8px;
+  }
+
+  .nav-space {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    justify-content: end;
+    margin-bottom: -24px;
+  }
+  .nav-space button {
+    display: flex;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #0d6efd;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  .nav-space button:active {
+    transform: translateY(2px);
+  }
+  #close_btn{
+    display: flex;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer_text_1 {
     font-size: 16px;
@@ -1111,7 +1218,7 @@ div.my_accaunt {
   .footer_text_2 {
     font-size: 12px;
   }
-  .btn_holder{
+  .btn_holder {
     flex-direction: column;
     width: 70%;
   }
