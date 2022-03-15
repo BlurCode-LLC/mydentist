@@ -5,6 +5,7 @@ from json import loads
 
 from dentist.models import Service_translation, User as DentistUser
 from mydentist.var import REGIONS
+from mydentist.handler import get_results
 
 
 # def login(request):
@@ -55,26 +56,24 @@ def results(request):
     is_woman = body.get('woman')
     hour_24 = body.get("hour_24")
     no_que = body.get("no_que")
-
-    dentist_object = DentistUser.objects.filter(
-        clinic__region = region,
-
-    )
-
-    translation.activate(language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = language
-    services_obj = Service_translation.objects.filter(
-        language__name=language
-    ).values('name').annotate(
-        name_count=Count('name')
-    )
-    services = []
-    for i in range(len(services_obj)):
-        services.append({
-            'value': services_obj[i]['name'],
-            'name': services_obj[i]['name'],
-        })
+    sort_by = body.get("sort_by")
+    result = None
+    if sort_by == "price":
+        services_obj = Service_translation.objects.filter(
+            name = service,
+            service__dentist__clinic__region__pk = int(region),
+            language__name = language
+        )
+        print(services_obj)
+        result = get_results(list(services_obj))
+        
     return JsonResponse({
-        'services': services,
+        'services': result,
         'regions': REGIONS
     })
+        
+
+    
+
+    
+    
