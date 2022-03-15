@@ -350,6 +350,34 @@ def table(request):
     return HttpResponse(html)
 
 
+def test_table(request):
+    if not is_authenticated(request, "dentist"):
+        if not is_authenticated(request, "patient"):
+            return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")
+        else:
+            return redirect(request.META.get("HTTP_REFERER", "/"))
+    else:
+        check_language(request, "dentist")
+    if request.method == "POST":
+        if request.POST['direction'] == "left":
+            day = date(
+                int(request.POST['year']),
+                int(request.POST['month']),
+                int(request.POST['day'])
+            ) - timedelta(weeks=1)
+        elif request.POST['direction'] == "right":
+            temp = date(
+                int(request.POST['year']),
+                int(request.POST['month']),
+                int(request.POST['day'])
+            )
+            day = temp + timedelta(days=temp.weekday(), weeks=1)
+    else:
+        temp = date.today()
+        day = temp - timedelta(days=temp.weekday())
+    days = [ day ]
+
+
 def patients(request):
     if not is_authenticated(request, "dentist"):
         if not is_authenticated(request, "patient"):
