@@ -372,10 +372,74 @@ def test_table(request):
                 int(request.POST['day'])
             )
             day = temp + timedelta(days=temp.weekday(), weeks=1)
+        else:
+            temp = date.today()
+            day = temp - timedelta(days=temp.weekday())
     else:
         temp = date.today()
         day = temp - timedelta(days=temp.weekday())
-    days = [ day ]
+    days = [day]
+    table = [
+        [
+            {
+                'name': "Vaqt"
+            },
+            {
+                'day': day.strftime("%d.%m.%Y"),
+                'name': f"{DAYS[day.weekday()]} {day.day}",
+                'old_name': f"{day.day}-{MONTHS[day.month - 1].lower()} {day.year}<br>{DAYS[day.weekday()]}"
+            }
+        ]
+    ]
+    dentist = DentistUser.objects.get(user=request.user)
+    for i in range(dentist.work_days):
+        temp = days[-1] + timedelta(days=1)
+        days.append(temp)
+        table[0].append({
+            'day': temp.strftime("%d.%m.%Y"),
+            'name': f"{DAYS[temp.weekday()]} {temp.day}",
+            'old_name': f"{temp.day}-{MONTHS[temp.month - 1].lower()} {temp.year}<br>{DAYS[temp.weekday()]}"
+        })
+    day_begin = datetime(
+        days[0].year,
+        days[0].month,
+        days[0].day,
+        dentist.worktime_begin.hour,
+        dentist.worktime_begin.minute
+    )
+    day_end = datetime(
+        days[0].year,
+        days[0].month,
+        days[0].day,
+        dentist.worktime_end.hour,
+        dentist.worktime_end.minute
+    )
+    while day_begin <= day_end:
+        table.append([])
+        table[-1].append({
+            'class': "",
+            'name': day_begin.strftime('%H:%M')
+        })
+        for day in days:
+            time = datetime(
+                day.year,
+                day.month,
+                day.day,
+                day_begin.hour,
+                day_begin.minute,
+                tzinfo=timezone.now().tzinfo
+            )
+            table[-1].append(test_compare_time(
+                time,
+                Appointment.objects.filter(
+                    dentist=dentist,
+                    begin__year=time.year,
+                    begin__month=time.month,
+                    begin__day=time.day
+                )
+            ))
+        day_begin += timedelta(minutes=15)
+    return JsonResponse(table, safe=False)
 
 
 def patients(request):

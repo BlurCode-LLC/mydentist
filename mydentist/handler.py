@@ -219,6 +219,33 @@ def compare_time(datetime, appointments):
     return f"<td class=\"time\">{datetime.strftime('%H:%M')}</td>"
 
 
+def test_compare_time(datetime, appointments):
+    for appointment in appointments:
+        if datetime - appointment.begin >= timedelta() and appointment.end - datetime > timedelta():
+            if datetime - appointment.begin == timedelta():
+                patient = PatientUser.objects.get(pk=appointment.patient_id)
+                service = Service_translation.objects.filter(
+                    service__pk=appointment.service_id,
+                    language__pk=DentistUser.objects.get(pk=appointment.dentist_id).language_id
+                )[0]
+                duration = appointment.end - appointment.begin
+                minutes = duration.seconds // 60
+                return {
+                    'class': "appointment",
+                    'rowspan': minutes // 15,
+                    'name': f"{patient}<br>{service.name}"
+                }
+            else:
+                return {
+                    'class': "d-none",
+                    'name': ""
+                }
+    return {
+        'class': "time",
+        'name': datetime.strftime('%H:%M')
+    }
+
+
 def compare_appointment(begin, end, appointments):
     for appointment in appointments:
         if begin - appointment.begin >= timedelta():

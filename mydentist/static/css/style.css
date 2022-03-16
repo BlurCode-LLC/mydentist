@@ -39,9 +39,9 @@
   color: white !important;
 }
 
-.nav-space {
+/* .nav-space {
   height: 82px;
-}
+} */
 .nav-space button {
   display: none;
 }
@@ -1172,7 +1172,7 @@ div.my_accaunt {
   }
 
   .nav-space {
-    height: 60px;
+    /* height: 60px; */
     display: flex;
     align-items: center;
     padding: 0 16px;

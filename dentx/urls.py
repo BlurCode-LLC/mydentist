@@ -28,6 +28,7 @@ urlpatterns = [
     path('appointments/delete', appointment_views.appointments_delete, name='appointments_delete'),
     path('appointments/', appointment_views.appointments, name='appointments'),
     path('table/', appointment_views.table, name='table'),
+    path('test-table/', appointment_views.test_table, name='test_table'),
     path('patients/list', appointment_views.patients, name='patients_list'),
     path('appointment', appointment_views.appointment, name='appointment'),
     path('board/', dentx_views.board, name='board'),

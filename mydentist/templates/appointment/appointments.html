@@ -15,8 +15,15 @@
             {% endif %}
             <div class="controls d-flex align-items-center justify-content-between">
                 <div class="angles">
-                    <a><i class="fal fa-angle-left"></i></a>
-                    <a><i class="fal fa-angle-right"></i></a>
+                    <a>
+                        <i class="fal fa-angle-left"></i>
+                    </a>
+                    <a>
+                        <i class="fal fa-circle" style="font-size: 30px;"></i>
+                    </a>
+                    <a>
+                        <i class="fal fa-angle-right"></i>
+                    </a>
                 </div>
                 <div class="daily-about">
                     <p></p>
@@ -191,6 +198,148 @@
         today = new Date()
         today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
         $.ajax({
+            url: "{% url 'dentx:test_table' %}",
+            dataType: "json"
+        }).done(function (result) {
+            let thead = $("<thead></thead>")
+            let tr = $("<tr class='text-center'></tr>")
+            for (let i = 0; i < result[0].length; i++) {
+                $(tr).append(
+                    $("<th></th>").html(result[0][i].name)
+                )
+            }
+            $(thead).append($(tr))
+            let tbody = $("<tbody></tbody>")
+            for (let i = 1; i < result.length; i++) {
+                tr = $("<tr class='text-center'></tr>")
+                for (let j = 0; j < result[i].length; j++) {
+                    $(tr).append(
+                        $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                        )
+                }
+                $(tbody).append($(tr))
+            }
+            $(".overflow").append(
+                $("<table class='time-table table-bordered text-center'></table>").append(
+                    $(thead), $(tbody)
+                )
+            )
+        })
+        $(".fa-angle-left").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:test_table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    day: today.getDate(),
+                    month: today.getMonth() + 1,
+                    year: today.getFullYear(),
+                    direction: "left"
+                }
+            }).done(function (result) {
+                $(".overflow").empty()
+                let thead = $("<thead></thead>")
+                let tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < result[0].length; i++) {
+                    $(tr).append(
+                        $("<th></th>").html(result[0][i].name)
+                    )
+                }
+                $(thead).append($(tr))
+                let tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < result[i].length; j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            )
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<table class='time-table table-bordered text-center'></table>").append(
+                        $(thead), $(tbody)
+                    )
+                )
+            })
+            today.setTime(today.getTime() - 7 * 24 * 60 * 60 * 1000)
+        })
+        $(".fa-circle").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:test_table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    direction: "current"
+                }
+            }).done(function (result) {
+                $(".overflow").empty()
+                let thead = $("<thead></thead>")
+                let tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < result[0].length; i++) {
+                    $(tr).append(
+                        $("<th></th>").html(result[0][i].name)
+                    )
+                }
+                $(thead).append($(tr))
+                let tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < result[i].length; j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            )
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<table class='time-table table-bordered text-center'></table>").append(
+                        $(thead), $(tbody)
+                    )
+                )
+            })
+            today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
+        })
+        $(".fa-angle-right").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:test_table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    day: today.getDate(),
+                    month: today.getMonth() + 1,
+                    year: today.getFullYear(),
+                    direction: "right"
+                }
+            }).done(function (result) {
+                $(".overflow").empty()
+                let thead = $("<thead></thead>")
+                let tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < result[0].length; i++) {
+                    $(tr).append(
+                        $("<th></th>").html(result[0][i].name)
+                    )
+                }
+                $(thead).append($(tr))
+                let tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < result[i].length; j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            )
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<table class='time-table table-bordered text-center'></table>").append(
+                        $(thead), $(tbody)
+                    )
+                )
+            })
+            today.setTime(today.getTime() + 7 * 24 * 60 * 60 * 1000)
+        })
+        {% comment %} $.ajax({
             url: "{% url 'dentx:table' %}"
         }).always(function(result) {
             $(".overflow").html(result)
@@ -462,7 +611,7 @@
                 })
             })
             today.setTime(today.getTime() + 7 * 24 * 60 * 60 * 1000)
-        })
+        }) {% endcomment %}
         $("#full-screen").on("click", function() {
             $("body > .container-fluid").removeClass("fixed-top")
             if ($("#full-screen-close").hasClass("d-none")) {
