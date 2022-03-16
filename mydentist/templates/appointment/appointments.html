@@ -201,29 +201,90 @@
             url: "{% url 'dentx:test_table' %}",
             dataType: "json"
         }).done(function (result) {
-            let thead = $("<thead></thead>")
-            let tr = $("<tr class='text-center'></tr>")
-            for (let i = 0; i < result[0].length; i++) {
-                $(tr).append(
-                    $("<th></th>").html(result[0][i].name)
-                )
-            }
-            $(thead).append($(tr))
-            let tbody = $("<tbody></tbody>")
-            for (let i = 1; i < result.length; i++) {
-                tr = $("<tr class='text-center'></tr>")
-                for (let j = 0; j < result[i].length; j++) {
+            console.log(result)
+            if ($(window).width() <= 768) {
+                let len = result[0].length
+                let thead = $("<thead></thead>")
+                let tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < (len == 8 ? 5 : 4); i++) {
                     $(tr).append(
-                        $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
-                        )
+                        $("<th></th>").html(result[0][i].name)
+                    )
                 }
-                $(tbody).append($(tr))
-            }
-            $(".overflow").append(
-                $("<table class='time-table table-bordered text-center'></table>").append(
-                    $(thead), $(tbody)
+                $(thead).append($(tr))
+                let tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < (len == 8 ? 5 : 4); j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                        )
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<div class='overflow-1'></div>").append(
+                        $("<table class='time-table table-bordered text-center'></table>").append(
+                            $(thead), $(tbody)
+                        )
+                    )
                 )
-            )
+                thead = $("<thead></thead>")
+                tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < result[0].length; i++) {
+                    $(tr).append(
+                        $("<th></th>").html(result[0][i].name)
+                    )
+                    if (i == 0) {
+                        i += 3
+                    }
+                }
+                $(thead).append($(tr))
+                tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < result[i].length; j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                        )
+                        if (j == 0) {
+                            j += 3
+                        }
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<div class='overflow-2'></div>").append(
+                        $("<table class='time-table table-bordered text-center'></table>").append(
+                            $(thead), $(tbody)
+                        )
+                    )
+                )
+            } else {
+                let thead = $("<thead></thead>")
+                let tr = $("<tr class='text-center'></tr>")
+                for (let i = 0; i < result[0].length; i++) {
+                    $(tr).append(
+                        $("<th></th>").html(result[0][i].name)
+                    )
+                }
+                $(thead).append($(tr))
+                let tbody = $("<tbody></tbody>")
+                for (let i = 1; i < result.length; i++) {
+                    tr = $("<tr class='text-center'></tr>")
+                    for (let j = 0; j < result[i].length; j++) {
+                        $(tr).append(
+                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            )
+                    }
+                    $(tbody).append($(tr))
+                }
+                $(".overflow").append(
+                    $("<table class='time-table table-bordered text-center'></table>").append(
+                        $(thead), $(tbody)
+                    )
+                )
+            }
         })
         $(".fa-angle-left").on("click", function() {
             $.ajax({

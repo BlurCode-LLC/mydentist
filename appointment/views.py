@@ -386,18 +386,18 @@ def test_table(request):
             },
             {
                 'day': day.strftime("%d.%m.%Y"),
-                'name': f"{DAYS[day.weekday()]} {day.day}",
+                'name': f"{DAYS[day.weekday()]}<br>{day.day}-{MONTHS[day.month - 1].lower()}",
                 'old_name': f"{day.day}-{MONTHS[day.month - 1].lower()} {day.year}<br>{DAYS[day.weekday()]}"
             }
         ]
     ]
     dentist = DentistUser.objects.get(user=request.user)
-    for i in range(dentist.work_days):
+    for i in range(dentist.work_days - 1):
         temp = days[-1] + timedelta(days=1)
         days.append(temp)
         table[0].append({
             'day': temp.strftime("%d.%m.%Y"),
-            'name': f"{DAYS[temp.weekday()]} {temp.day}",
+            'name': f"{DAYS[temp.weekday()]}<br>{temp.day}-{MONTHS[temp.month - 1].lower()}",
             'old_name': f"{temp.day}-{MONTHS[temp.month - 1].lower()} {temp.year}<br>{DAYS[temp.weekday()]}"
         })
     day_begin = datetime(

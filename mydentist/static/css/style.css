@@ -837,8 +837,14 @@ table {
   background-repeat: no-repeat;
 }
 
-.overflow {
-  overflow-x: scroll;
+.overflow-1 {
+  margin-bottom: 10px;
+}
+
+.overflow-1, .overflow-2 {
+  overflow: scroll;
+  height: 300px;
+  border: 1px solid gray;
 }
 
 .time-table {
