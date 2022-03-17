@@ -39,9 +39,9 @@
   color: white !important;
 }
 
-/* .nav-space {
+.nav-space {
   height: 82px;
-} */
+}
 .nav-space button {
   display: none;
 }
@@ -64,7 +64,6 @@
 .search_form {
   padding-top: 120px;
   padding-bottom: 20px;
-  border-bottom: 2px dashed #535151;
   text-align: center;
   background-color: white;
 }
@@ -1227,6 +1226,17 @@ div.my_accaunt {
   .btn_holder {
     flex-direction: column;
     width: 70%;
+  }
+  .my_row img:nth-child(1){
+    width: 45px !important;
+  }
+  
+  .my_row img:nth-child(2){
+    width: 47px !important;
+  }
+  
+  .my_row img:nth-child(1){
+    width: 60px !important;
   }
 }
 
