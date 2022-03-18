@@ -7,6 +7,7 @@ urlpatterns = [
     path('api/', api.index, name='api_index'),
     path('results/', views.results, name='results'),
     path("api/results/", api.results, name = "api_results"),
+    path("api/dentist_page/", api.dentist_page, name = "api_dentist_page"),
     path('get_dentists/', views.get_dentists, name='get_dentists'),
     # path('get_dentists/', views.get_dentists, name='get_dentists'),
 ]

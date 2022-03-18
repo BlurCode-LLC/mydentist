@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
+from appointment.forms import AppointmentForm
 from appointment.models import Query, Appointment
 from baseapp.models import Language, Gender
 from dentist.models import User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
@@ -712,6 +713,14 @@ def patient(request, id, active_tab="profile"):
             )
         })
         number += 1
+    patientform = PatientForm({
+        'name': str(patient_extra),
+        'phone_number': patient_extra.phone_number,
+        'birthday': str(patient_extra.birthday),
+        'gender': patient_extra.gender_id,
+        'address': patient_extra.address
+    })
+    appointmentform = AppointmentForm()
     teeth_upper, teeth_lower = get_teeth(patient_extra, Tooth)
     teeth_status = Tooth_status.objects.all()
     process_photos = Process_photo.objects.filter(patient=patient_extra)
@@ -741,6 +750,8 @@ def patient(request, id, active_tab="profile"):
         'otherillnessform': otherillnessform,
         'upcoming': upcoming,
         'appointments': appointments,
+        'patientform': patientform,
+        'appointmentform': appointmentform,
         'teeth_upper': teeth_upper,
         'teeth_lower': teeth_lower,
         'teeth_status': teeth_status,

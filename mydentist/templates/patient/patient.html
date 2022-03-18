@@ -357,6 +357,94 @@
                     {% endif %}
                 </div>
                 <div class="tab-pane fade {% if active_tab == "process" %}show active{% endif %}" id="pills-process" role="tabpanel" aria-labelledby="pills-process-tab">
+                    <div class="container">
+                        <div class="row align-items-center mb-3">
+                            <div class="col"></div>
+                            <div class="col-auto">
+                                <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#appointmentModal">{% trans "Qabul qo'shish" %}</button>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ patientform.name.label }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-group" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="appointment_id"/>
+                                            <div class="pats">
+                                                <div class="mb-1 d-flex justify-content-between">
+                                                    <label for="id_name">{{ patientform.name.label }}</label>
+                                                </div>
+                                                <div class="input-group w-100">
+                                                    {{ patientform.name }}
+                                                    <span class="input-group-text">
+                                                        <p>
+                                                            <i class="fas fa-caret-down"></i>
+                                                        </p>
+                                                    </span>
+                                                </div>
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
+                                                    <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                        <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
+                                                        {{ patientform.phone_number }}
+                                                    </div> 
+                                                    <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                        <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
+                                                        {{ patientform.birthday }}
+                                                    </div>
+                                                    <div class="end col-12 col-lg-3">
+                                                        <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
+                                                        <div>
+                                                        {% for el in patientform.gender %}
+                                                            {{ el }}
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="end col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                        <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
+                                                        {{ patientform.address }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-time">
+                                                <div class="form-title">
+                                                    <p><i class="fal fa-calendar-week"></i></p>
+                                                </div>
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-4">
+                                                    <div class="left col-12 col-lg-3">
+                                                        <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
+                                                        {{ appointmentform.service }}
+                                                    </div>
+                                                    {{ appointmentform.begin_day }}
+                                                    <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                        <label class="mb-1 left" for="id_begin_time">{{ appointmentform.begin_time.label }}</label>
+                                                        {{ appointmentform.begin_time }}
+                                                    </div>
+                                                    <div class="end col-12 col-lg-3">
+                                                        <label class="mb-1 left" for="id_duration">{{ appointmentform.duration.label }}</label>
+                                                        {{ appointmentform.duration }}
+                                                    </div>
+                                                    <div class="end col-12 col-lg-3">
+                                                        <label class="mb-1 left" for="id_comment">{{ appointmentform.comment.label }}</label>
+                                                        {{ appointmentform.comment }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Saqlash" %}</button>
+                                                <button class="btn btn-danger mt-2 d-none" type="button" id="appointment-delete-button">{% trans "O'chirish" %}</button>
+                                                <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {% if appointments %}
                         <div class="overflow">
                             <table class="table table-primary table-striped">
@@ -660,6 +748,14 @@
             if (parseInt(this.val()) >= current_year) {
                 this.val(current_year)
             }
+        })
+        $("button[data-bs-target='#appointmentModal']").click(function () {
+            console.log(true)
+            $("#appointmentModal #id_name").attr("readonly", "readonly")
+            $("#appointmentModal #id_phone_number").attr("readonly", "readonly")
+            $("#appointmentModal #id_birthday").attr("readonly", "readonly")
+            $("#appointmentModal input[name='gender']").attr("disabled", "disabled")
+            $("#appointmentModal #id_address").attr("readonly", "readonly")
         })
         console.log($(".tooth > object"))
         $(".tooth").on("click", function() {

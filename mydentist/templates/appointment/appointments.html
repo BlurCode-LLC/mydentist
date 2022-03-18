@@ -1,4 +1,4 @@
-{% extends 'dentx/app.html' %}
+ {% extends 'dentx/app.html' %}
 {% load static i18n %}
 
 {% block title %}
@@ -46,6 +46,7 @@
                         <div class="modal-body">
                             <form class="form-group" method="POST">
                                 {% csrf_token %}
+                                <input type="hidden" name="appointment_id"/>
                                 <div class="pats">
                                     <div class="mb-1 d-flex justify-content-between">
                                         <label for="id_name">{{ patientform.name.label }}</label>
@@ -197,18 +198,14 @@
         }, 1000)
         today = new Date()
         today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
-        $.ajax({
-            url: "{% url 'dentx:test_table' %}",
-            dataType: "json"
-        }).done(function (result) {
-            console.log(result)
+        const tableCreate = (result) => {
             if ($(window).width() <= 768) {
                 let len = result[0].length
                 let thead = $("<thead></thead>")
                 let tr = $("<tr class='text-center'></tr>")
                 for (let i = 0; i < (len == 8 ? 5 : 4); i++) {
                     $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
+                        $("<th></th>").html(result[0][i].name).attr("old_name", result[0][i].old_name)
                     )
                 }
                 $(thead).append($(tr))
@@ -233,7 +230,7 @@
                 tr = $("<tr class='text-center'></tr>")
                 for (let i = 0; i < result[0].length; i++) {
                     $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
+                        $("<th></th>").html(result[0][i].name).attr("old_name", result[0][i].old_name)
                     )
                     if (i == 0) {
                         i += 3
@@ -265,7 +262,7 @@
                 let tr = $("<tr class='text-center'></tr>")
                 for (let i = 0; i < result[0].length; i++) {
                     $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
+                        $("<th></th>").html(result[0][i].name).attr("old_name", result[0][i].old_name)
                     )
                 }
                 $(thead).append($(tr))
@@ -285,133 +282,15 @@
                     )
                 )
             }
-        })
-        $(".fa-angle-left").on("click", function() {
-            $.ajax({
-                url : "{% url 'dentx:test_table' %}",
-                type: "POST",
-                data : {
-                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                    day: today.getDate(),
-                    month: today.getMonth() + 1,
-                    year: today.getFullYear(),
-                    direction: "left"
-                }
-            }).done(function (result) {
-                $(".overflow").empty()
-                let thead = $("<thead></thead>")
-                let tr = $("<tr class='text-center'></tr>")
-                for (let i = 0; i < result[0].length; i++) {
-                    $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
-                    )
-                }
-                $(thead).append($(tr))
-                let tbody = $("<tbody></tbody>")
-                for (let i = 1; i < result.length; i++) {
-                    tr = $("<tr class='text-center'></tr>")
-                    for (let j = 0; j < result[i].length; j++) {
-                        $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
-                            )
-                    }
-                    $(tbody).append($(tr))
-                }
-                $(".overflow").append(
-                    $("<table class='time-table table-bordered text-center'></table>").append(
-                        $(thead), $(tbody)
-                    )
-                )
-            })
-            today.setTime(today.getTime() - 7 * 24 * 60 * 60 * 1000)
-        })
-        $(".fa-circle").on("click", function() {
-            $.ajax({
-                url : "{% url 'dentx:test_table' %}",
-                type: "POST",
-                data : {
-                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                    direction: "current"
-                }
-            }).done(function (result) {
-                $(".overflow").empty()
-                let thead = $("<thead></thead>")
-                let tr = $("<tr class='text-center'></tr>")
-                for (let i = 0; i < result[0].length; i++) {
-                    $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
-                    )
-                }
-                $(thead).append($(tr))
-                let tbody = $("<tbody></tbody>")
-                for (let i = 1; i < result.length; i++) {
-                    tr = $("<tr class='text-center'></tr>")
-                    for (let j = 0; j < result[i].length; j++) {
-                        $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
-                            )
-                    }
-                    $(tbody).append($(tr))
-                }
-                $(".overflow").append(
-                    $("<table class='time-table table-bordered text-center'></table>").append(
-                        $(thead), $(tbody)
-                    )
-                )
-            })
-            today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
-        })
-        $(".fa-angle-right").on("click", function() {
-            $.ajax({
-                url : "{% url 'dentx:test_table' %}",
-                type: "POST",
-                data : {
-                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                    day: today.getDate(),
-                    month: today.getMonth() + 1,
-                    year: today.getFullYear(),
-                    direction: "right"
-                }
-            }).done(function (result) {
-                $(".overflow").empty()
-                let thead = $("<thead></thead>")
-                let tr = $("<tr class='text-center'></tr>")
-                for (let i = 0; i < result[0].length; i++) {
-                    $(tr).append(
-                        $("<th></th>").html(result[0][i].name)
-                    )
-                }
-                $(thead).append($(tr))
-                let tbody = $("<tbody></tbody>")
-                for (let i = 1; i < result.length; i++) {
-                    tr = $("<tr class='text-center'></tr>")
-                    for (let j = 0; j < result[i].length; j++) {
-                        $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
-                            )
-                    }
-                    $(tbody).append($(tr))
-                }
-                $(".overflow").append(
-                    $("<table class='time-table table-bordered text-center'></table>").append(
-                        $(thead), $(tbody)
-                    )
-                )
-            })
-            today.setTime(today.getTime() + 7 * 24 * 60 * 60 * 1000)
-        })
-        {% comment %} $.ajax({
-            url: "{% url 'dentx:table' %}"
-        }).always(function(result) {
-            $(".overflow").html(result)
             $(".overflow td.time").on("dblclick", function() {
                 console.log($(this).index())
                 $(".hidden-button > button")[0].click()
+                $("input[name='appointment_id']").val("")
                 let attr = $("form").attr("action")
                 if (typeof attr !== "undefined" && attr !== false) {
                     $("form").removeAttr("action")
                 }
-                temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
+                temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).attr("old_name").split("<br>")
                 $("#id_name").val("")
                 $("#id_phone_number").val("")
                 $("#id_phone_number").removeAttr("readonly")
@@ -437,7 +316,7 @@
                     type: "POST",
                     data : {
                         csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                        date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
+                        date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).attr("old_name"),
                         time: $(this).parent().children(":first-child").text(),
                     },
                 }).always(function(result) {
@@ -450,6 +329,7 @@
                         $("#id_address").removeAttr("readonly")
                     }
                     $(".hidden-button > button")[0].click()
+                    $("input[name='appointment_id']").val(result.id)
                     temp = result.date.split("<br>")
                     time = result.time
                     text = ` ${temp[1]}, ${temp[0]}, ${time}`
@@ -484,10 +364,16 @@
                     })
                 })
             })
+        }
+        $.ajax({
+            url: "{% url 'dentx:test_table' %}",
+            dataType: "json"
+        }).done(function (result) {
+            tableCreate(result)
         })
         $(".fa-angle-left").on("click", function() {
             $.ajax({
-                url : "{% url 'dentx:table' %}",
+                url : "{% url 'dentx:test_table' %}",
                 type: "POST",
                 data : {
                     csrfmiddlewaretoken: $('{% csrf_token %}').val(),
@@ -496,92 +382,30 @@
                     year: today.getFullYear(),
                     direction: "left"
                 }
-            }).always(function(result) {
-                $(".overflow").html(result)
-                $(".overflow td.time").on("dblclick", function() {
-                    $(".hidden-button > button")[0].click()
-                    let attr = $("form").attr("action")
-                    if (typeof attr !== "undefined" && attr !== false) {
-                        $("form").removeAttr("action")
-                    }
-                    temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
-                    $("#id_name").val("")
-                    $("#id_phone_number").val("")
-                    $("#id_phone_number").removeAttr("readonly")
-                    $("#id_birthday").val("")
-                    $("#id_birthday").removeAttr("readonly")
-                    $(`#id_gender_0`).attr("checked", true)
-                    $("#id_address").val("")
-                    $("#id_address").removeAttr("readonly")
-                    $("#id_service").val($("#id_service option")[0].value).change()
-                    $("#id_begin_day").val(temp[0])
-                    time = $(this).parent().children(":first-child").text()
-                    text = ` ${temp[1]}, ${temp[0]}, ${time}`
-                    $("#id_begin_time").val(time).change()
-                    $(".form-title p").text(text)
-                    $("#id_duration").val(15).change()
-                    $("#id_comment").val("")
-                    $("#appointment-delete-button").addClass("d-none")
-                })
-                $(".overflow td.appointment").on("dblclick", function() {
-                    $.ajax({
-                        url: "{% url 'dentx:appointment' %}",
-                        type: "POST",
-                        data : {
-                            csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                            date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
-                            time: $(this).parent().children(":first-child").text(),
-                        },
-                    }).always(function(result) {
-                        function changeDetector() {
-                            $("#id_phone_number").val("")
-                            $("#id_phone_number").removeAttr("readonly")
-                            $("#id_birthday").val("")
-                            $("#id_birthday").removeAttr("readonly")
-                            $("#id_address").val("")
-                            $("#id_address").removeAttr("readonly")
-                        }
-                        $(".hidden-button > button")[0].click()
-                        temp = result.date.split("<br>")
-                        time = result.time
-                        text = ` ${temp[1]}, ${temp[0]}, ${time}`
-                        $(".form-title p").text(text)
-                        $("form").attr("action", "{% url 'dentx:appointments_update' %}")
-                        $("#id_name").val(result["name"])
-                        $("#id_name").on("input", changeDetector)
-                        $("#id_phone_number").val(result["phone_number"])
-                        $("#id_phone_number").attr("readonly", "readonly")
-                        $("#id_birthday").val(result["birthday"])
-                        $("#id_birthday").attr("readonly", "readonly")
-                        $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
-                        $("input[name='gender']").on("change", changeDetector)
-                        $("#id_address").val(result["address"])
-                        $("#id_address").attr("readonly", "readonly")
-                        $("#id_service").val(result["service"]).change()
-                        $("#id_begin_day").val(temp[0])
-                        $("#id_begin_time").val(time).change()
-                        $("#id_duration").val(result["duration"]).change()
-                        $("#id_comment").val(result["comment"])
-                        $("#appointment-delete-button").removeClass("d-none")
-                        $("#appointment-delete-button").on("click", function() {
-                            $("section .container-fluid").append(
-                                $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
-                                    $('{% csrf_token %}'),
-                                    $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
-                                    $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
-                                    $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
-                                )
-                            )
-                            $("#appointment-delete-form-button").click()
-                        })
-                    })
-                })
+            }).done(function (result) {
+                $(".overflow").empty()
+                tableCreate(result)
             })
             today.setTime(today.getTime() - 7 * 24 * 60 * 60 * 1000)
         })
+        $(".fa-circle").on("click", function() {
+            $.ajax({
+                url : "{% url 'dentx:test_table' %}",
+                type: "POST",
+                data : {
+                    csrfmiddlewaretoken: $('{% csrf_token %}').val(),
+                    direction: "current"
+                }
+            }).done(function (result) {
+                $(".overflow").empty()
+                tableCreate(result)
+            })
+            today = new Date()
+            today.setTime(today.getTime() - ((today.getDay() + 6) % 7) * 24 * 60 * 60 * 1000)
+        })
         $(".fa-angle-right").on("click", function() {
             $.ajax({
-                url : "{% url 'dentx:table' %}",
+                url : "{% url 'dentx:test_table' %}",
                 type: "POST",
                 data : {
                     csrfmiddlewaretoken: $('{% csrf_token %}').val(),
@@ -590,89 +414,12 @@
                     year: today.getFullYear(),
                     direction: "right"
                 }
-            }).always(function(result) {
-                $(".overflow").html(result)
-                $(".overflow td.time").on("dblclick", function() {
-                    $(".hidden-button > button")[0].click()
-                    let attr = $("form").attr("action")
-                    if (typeof attr !== "undefined" && attr !== false) {
-                        $("form").removeAttr("action")
-                    }
-                    temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html().split("<br>")
-                    $("#id_name").val("")
-                    $("#id_phone_number").val("")
-                    $("#id_phone_number").removeAttr("readonly")
-                    $("#id_birthday").val("")
-                    $("#id_birthday").removeAttr("readonly")
-                    $(`#id_gender_0`).attr("checked", true)
-                    $("#id_address").val("")
-                    $("#id_address").removeAttr("readonly")
-                    $("#id_service").val($("#id_service option")[0].value).change()
-                    $("#id_begin_day").val(temp[0])
-                    time = $(this).parent().children(":first-child").text()
-                    text = ` ${temp[1]}, ${temp[0]}, ${time}`
-                    $("#id_begin_time").val(time).change()
-                    $(".form-title p").text(text)
-                    $("#id_duration").val(15).change()
-                    $("#id_comment").val("")
-                    $("#appointment-delete-button").addClass("d-none")
-                })
-                $(".overflow td.appointment").on("dblclick", function() {
-                    $.ajax({
-                        url: "{% url 'dentx:appointment' %}",
-                        type: "POST",
-                        data : {
-                            csrfmiddlewaretoken: $('{% csrf_token %}').val(),
-                            date: $(`.time-table thead th:nth-child(${$(this).index() + 1})`).html(),
-                            time: $(this).parent().children(":first-child").text(),
-                        },
-                    }).always(function(result) {
-                        function changeDetector() {
-                            $("#id_phone_number").val("")
-                            $("#id_phone_number").removeAttr("readonly")
-                            $("#id_birthday").val("")
-                            $("#id_birthday").removeAttr("readonly")
-                            $("#id_address").val("")
-                            $("#id_address").removeAttr("readonly")
-                        }
-                        $(".hidden-button > button")[0].click()
-                        temp = result.date.split("<br>")
-                        time = result.time
-                        text = ` ${temp[1]}, ${temp[0]}, ${time}`
-                        $(".form-title p").text(text)
-                        $("form").attr("action", "{% url 'dentx:appointments_update' %}")
-                        $("#id_name").val(result["name"])
-                        $("#id_name").on("input", changeDetector)
-                        $("#id_phone_number").val(result["phone_number"])
-                        $("#id_phone_number").attr("readonly", "readonly")
-                        $("#id_birthday").val(result["birthday"])
-                        $("#id_birthday").attr("readonly", "readonly")
-                        $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
-                        $("input[name='gender']").on("change", changeDetector)
-                        $("#id_address").val(result["address"])
-                        $("#id_address").attr("readonly", "readonly")
-                        $("#id_service").val(result["service"]).change()
-                        $("#id_begin_day").val(temp[0])
-                        $("#id_begin_time").val(time).change()
-                        $("#id_duration").val(result["duration"]).change()
-                        $("#id_comment").val(result["comment"])
-                        $("#appointment-delete-button").removeClass("d-none")
-                        $("#appointment-delete-button").on("click", function() {
-                            $("section .container-fluid").append(
-                                $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
-                                    $('{% csrf_token %}'),
-                                    $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
-                                    $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
-                                    $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
-                                )
-                            )
-                            $("#appointment-delete-form-button").click()
-                        })
-                    })
-                })
+            }).done(function (result) {
+                $(".overflow").empty()
+                tableCreate(result)
             })
             today.setTime(today.getTime() + 7 * 24 * 60 * 60 * 1000)
-        }) {% endcomment %}
+        })
         $("#full-screen").on("click", function() {
             $("body > .container-fluid").removeClass("fixed-top")
             if ($("#full-screen-close").hasClass("d-none")) {
@@ -724,12 +471,28 @@
                             )
                         }
                         $(".input-group div.w-100 > div").on("click", function() {
+                            function changeDetector() {
+                                $("input[name='appointment_id']").val("")
+                                $("#id_name").val("")
+                                $("#id_phone_number").val("")
+                                $("#id_phone_number").removeAttr("readonly")
+                                $("#id_birthday").val("")
+                                $("#id_birthday").removeAttr("readonly")
+                                $("#id_address").val("")
+                                $("#id_address").removeAttr("readonly")
+                            }
+                            $("input[name='appointment_id']").val("")
                             $("#id_name").val(result[$(this).index()]["name"])
+                            $("#id_name").on("input", changeDetector)
                             $("#id_phone_number").val(result[$(this).index()]["phone_number"])
+                            $("#id_phone_number").attr("readonly", "readonly")
                             $("#id_birthday").val(result[$(this).index()]["birthday"])
+                            $("#id_birthday").attr("readonly", "readonly")
                             $(`#id_gender_${result[$(this).index()]["gender"] - 1}`).attr("checked", true)
+                            $("input[name='gender']").on("change", changeDetector)
                             $("#id_address").val(result[$(this).index()]["address"])
                             $(".input-group div.w-100").remove()
+                            $("#id_address").attr("readonly", "readonly")
                             $("#id_name").addClass("mb-3")
                         })
                     }
