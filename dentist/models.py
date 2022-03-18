@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -21,20 +20,22 @@ class Clinic(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        clinic_translation_uz = Clinic_translation.objects.create(
-            clinic=self,
-            name=self.name,
-            address="",
-            orientir="",
-            language=Language.objects.get(name="uz")
-        )
-        clinic_translation_ru = Clinic_translation.objects.create(
-            clinic=self,
-            name=self.name,
-            address="",
-            orientir="",
-            language=Language.objects.get(name="ru")
-        )
+        trans = Clinic_translation.objects.filter(clinic=self)
+        if len(trans) == 0:
+            clinic_translation_uz = Clinic_translation.objects.create(
+                clinic=self,
+                name=self.name,
+                address="",
+                orientir="",
+                language=Language.objects.get(name="uz")
+            )
+            clinic_translation_ru = Clinic_translation.objects.create(
+                clinic=self,
+                name=self.name,
+                address="",
+                orientir="",
+                language=Language.objects.get(name="ru")
+            )
 
 
 class Clinic_translation(models.Model):
@@ -78,18 +79,20 @@ class User(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        user_translation_uz = User_translation.objects.create(
-            dentist=self,
-            fullname=str(self),
-            speciality="",
-            language=Language.objects.get(name="uz")
-        )
-        user_translation_ru = User_translation.objects.create(
-            dentist=self,
-            fullname=str(self),
-            speciality="",
-            language=Language.objects.get(name="ru")
-        )
+        trans = User_translation.objects.filter(dentist=self)
+        if len(trans) == 0:
+            user_translation_uz = User_translation.objects.create(
+                dentist=self,
+                fullname=str(self),
+                speciality="",
+                language=Language.objects.get(name="uz")
+            )
+            user_translation_ru = User_translation.objects.create(
+                dentist=self,
+                fullname=str(self),
+                speciality="",
+                language=Language.objects.get(name="ru")
+            )
 
 
 class User_translation(models.Model):
@@ -112,7 +115,7 @@ class Service(models.Model):
     name = models.CharField(_("Xizmat nomi"), max_length=100)
     duration = models.IntegerField(_("Xizmat davomiyligi"))
     price = models.IntegerField(_("Xizmat narxi"))
-    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE)
+    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_service")
 
     class Meta:
         verbose_name = _("Xizmat")
@@ -123,16 +126,18 @@ class Service(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        service_translation_uz = Service_translation.objects.create(
-            service=self,
-            name=self.name,
-            language=Language.objects.get(name="uz")
-        )
-        service_translation_ru = Service_translation.objects.create(
-            service=self,
-            name=self.name,
-            language=Language.objects.get(name="ru")
-        )
+        trans = Service_translation.objects.filter(service=self)
+        if len(trans) == 0:
+            service_translation_uz = Service_translation.objects.create(
+                service=self,
+                name=self.name,
+                language=Language.objects.get(name="uz")
+            )
+            service_translation_ru = Service_translation.objects.create(
+                service=self,
+                name=self.name,
+                language=Language.objects.get(name="ru")
+            )
 
 
 class Service_translation(models.Model):

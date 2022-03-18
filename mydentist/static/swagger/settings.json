@@ -1,0 +1,242 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a API Documentation for MyDentist Platform",
+        "version": "1.0.0",
+        "title": "MyDentist API"
+    },
+    "host": "192.168.43.5:9000",
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "base",
+            "description": "Non-registration needed APIs"
+        },
+        {
+            "name": "auth",
+            "description": "Authorization"
+        },
+        {
+            "name": "user",
+            "description": "Registration needed APIs"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/index": {
+            "post": {
+                "tags": [
+                    "base"
+                ],
+                "summary": "Main page of MyDentist Platform",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/IndexResults"
+                        }
+                    },
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/results": {
+            "post": {
+                "tags": [
+                    "base"
+                ],
+                "summary": "Results page of MyDentist Platform",
+                "description": "",
+                "operationId": "results",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Results"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/dentist": {
+            "post": {
+                "tags": [
+                    "base"
+                ],
+                "summary": "Dentist page of MyDentist Platform",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Index": {
+            "type": "object",
+            "required": [
+                "language"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                }
+            }
+        },
+        "IndexResults": {
+            "type": "object",
+            "properties": {
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Services"
+                    }
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Regions"
+                    }
+                }
+            }
+        },
+        "Services": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                }
+            }
+        },
+        "Regions": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 5
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Andijon viloyati"
+                }
+            }
+        },
+        "Results": {
+            "type": "object",
+            "required": [
+                "language",
+                "region",
+                "service",
+                "sort_by"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                },
+                "region": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 5
+                },
+                "service": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "woman": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "hour_24": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "no_que": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "sort_by": {
+                    "type": "string",
+                    "example": "price",
+                    "enum": [
+                        "price",
+                        "near"
+                    ]
+                }
+            }
+        }
+    }
+}

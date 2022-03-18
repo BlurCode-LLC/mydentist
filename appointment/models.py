@@ -22,7 +22,7 @@ class Query(models.Model):
 
 class Appointment(models.Model):
     
-    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE)
+    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_appointment")
     patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE)
     service = models.ForeignKey("dentist.Service", verbose_name=_("Xizmat"), on_delete=models.CASCADE)
     begin = models.DateTimeField(_("Boshlanish vaqti"), default=None, auto_now=False, auto_now_add=False)

@@ -89,7 +89,7 @@ def register(request):
                 illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                 illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
                 illness.save()
-                otherillness = Illness.objects.get(patient=user_extra)
+                otherillness = Other_Illness.objects.get(patient=user_extra)
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
                 otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                 if otherillnessform.cleaned_data.get('medications') is not None:

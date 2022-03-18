@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
+from appointment.forms import AppointmentForm
 from appointment.models import Query, Appointment
 from baseapp.models import Language, Gender
 from dentist.models import User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
@@ -16,8 +17,9 @@ from illness.forms import *
 from login.forms import PasswordUpdateForm
 from mydentist.handler import *
 from mydentist.var import *
+from patient.tooth_handler import get_teeth
 from .forms import *
-from .models import Key, User as PatientUser, Illness, Other_Illness, Process_photo
+from .models import Key, Tooth, Tooth_status, User as PatientUser, Illness, Other_Illness, Process_photo
 
 
 def profile(request):
@@ -397,7 +399,7 @@ def patients(request):
     else:
         check_language(request, "dentist")
     if 'text' in request.session:
-        text = request.session['text']
+        text = mark_safe(request.session['text'])
         del request.session['text']
     else:
         text = None
@@ -499,7 +501,7 @@ def patients(request):
                     illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                     illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
                     illness.save()
-                    otherillness = Illness.objects.get(patient=new_patient)
+                    otherillness = Other_Illness.objects.get(patient=new_patient)
                     otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
                     otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                     if otherillnessform.cleaned_data.get('medications') is not None:
@@ -711,6 +713,16 @@ def patient(request, id, active_tab="profile"):
             )
         })
         number += 1
+    patientform = PatientForm({
+        'name': str(patient_extra),
+        'phone_number': patient_extra.phone_number,
+        'birthday': str(patient_extra.birthday),
+        'gender': patient_extra.gender_id,
+        'address': patient_extra.address
+    })
+    appointmentform = AppointmentForm()
+    teeth_upper, teeth_lower = get_teeth(patient_extra, Tooth)
+    teeth_status = Tooth_status.objects.all()
     process_photos = Process_photo.objects.filter(patient=patient_extra)
     if len(process_photos) > 1:
         counter = range(len(process_photos))
@@ -738,6 +750,11 @@ def patient(request, id, active_tab="profile"):
         'otherillnessform': otherillnessform,
         'upcoming': upcoming,
         'appointments': appointments,
+        'patientform': patientform,
+        'appointmentform': appointmentform,
+        'teeth_upper': teeth_upper,
+        'teeth_lower': teeth_lower,
+        'teeth_status': teeth_status,
         'process_photos': process_photos,
         'process_photo': process_photo,
         'counter': counter,
@@ -803,45 +820,51 @@ def update(request, id, form):
                 illness.save()
                 illnessform = IllnessForm(request.POST)
                 otherillness = Other_Illness.objects.get(patient=patient)
-                if otherillnessform.cleaned_data['medications'] == 2:
-                    try:
+                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
+                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
+                if otherillnessform.cleaned_data.get('medications') is not None:
+                    if otherillnessform.cleaned_data['medications'] == 2:
+                        try:
+                            medications = Medications.objects.get(
+                                value=otherillnessform.cleaned_data['medications'],
+                                desc=otherillnessform.cleaned_data['medications_detail'],
+                            )
+                        except:
+                            medications = Medications.objects.create(
+                                value=otherillnessform.cleaned_data['medications'],
+                                desc=otherillnessform.cleaned_data['medications_detail'],
+                            )
+                    else:
                         medications = Medications.objects.get(
                             value=otherillnessform.cleaned_data['medications'],
-                            desc=otherillnessform.cleaned_data['medications_detail'],
                         )
-                    except:
-                        medications = Medications.objects.create(
-                            value=otherillnessform.cleaned_data['medications'],
-                            desc=otherillnessform.cleaned_data['medications_detail'],
-                        )
+                    otherillness.medications_id = medications.id
                 else:
-                    medications = Medications.objects.get(
-                        value=otherillnessform.cleaned_data['medications'],
-                    )
-                if otherillnessform.cleaned_data['pregnancy'] == 2:
-                    try:
+                    otherillness.medications_id = None
+                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id if otherillnessform.cleaned_data.get('stroke') is not None else None
+                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id if otherillnessform.cleaned_data.get('heart_attack') is not None else None
+                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id if otherillnessform.cleaned_data.get('oncologic') is not None else None
+                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id if otherillnessform.cleaned_data.get('tuberculosis') is not None else None
+                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id if otherillnessform.cleaned_data.get('alcohol') is not None else None
+                if otherillnessform.cleaned_data.get('pregnancy') is not None:
+                    if otherillnessform.cleaned_data['pregnancy'] == 2:
+                        try:
+                            pregnancy = Pregnancy.objects.get(
+                                value=otherillnessform.cleaned_data['pregnancy'],
+                                desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                            )
+                        except:
+                            pregnancy = Pregnancy.objects.create(
+                                value=otherillnessform.cleaned_data['pregnancy'],
+                                desc=otherillnessform.cleaned_data['pregnancy_detail'],
+                            )
+                    else:
                         pregnancy = Pregnancy.objects.get(
                             value=otherillnessform.cleaned_data['pregnancy'],
-                            desc=otherillnessform.cleaned_data['pregnancy_detail'],
                         )
-                    except:
-                        pregnancy = Pregnancy.objects.create(
-                            value=otherillnessform.cleaned_data['pregnancy'],
-                            desc=otherillnessform.cleaned_data['pregnancy_detail'],
-                        )
+                    otherillness.pregnancy_id = pregnancy.id
                 else:
-                    pregnancy = Pregnancy.objects.get(
-                        value=otherillnessform.cleaned_data['pregnancy'],
-                    )
-                otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id
-                otherillness.medications_id = medications.id
-                otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id
-                otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id
-                otherillness.oncologic_id = Oncologic.objects.get(value=otherillnessform.cleaned_data['oncologic']).id
-                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id
-                otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id
-                otherillness.pregnancy_id = pregnancy.id
+                    otherillness.pregnancy_id = None
                 otherillness.save()
                 otherillnessform = OtherIllnessForm(request.POST)
                 return redirect("dentx:patient", id=id, active_tab="profile")
@@ -868,4 +891,13 @@ def update(request, id, form):
                 'process_photo': process_photo,
                 'counter': counter,
             }, safe=False)
+        elif form == "dental-map":
+            tooth = Tooth.objects.get(
+                code=int(request.POST.get('code')),
+                patient=patient
+            )
+            tooth.status_id = int(request.POST.get('status'))
+            tooth.comment = request.POST.get('comment')
+            tooth.save()
+            return redirect("dentx:patient", id=id, active_tab="dental-map")
         return redirect("dentx:patient", id=id, active_tab="profile")

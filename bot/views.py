@@ -12,11 +12,23 @@ bot = TeleBot(settings.TELEGRAM_BOT_TOKEN)
 @csrf_exempt
 def tgbot(request):
     if request.method == "POST":
+<<<<<<< HEAD
         result = request.body.decode("utf-8")
         update = types.Update.de_json(loads(result))
         bot.process_new_updates([update])
 
         return HttpResponse("")
+=======
+        result = request.body.decode("UTF-8")
+        # result = requests.get("https://api.telegram.org/bot%(token)s/getUpdates" % {
+        #     'token': bot.token
+        # }).json()
+        # print(result)
+        update = types.Update.de_json(result)
+        bot.process_new_updates([update])
+
+        return JsonResponse(loads(result), status=200)
+>>>>>>> origin/dev
     return JsonResponse(requests.get("https://api.telegram.org/bot%s/getMe" % bot.token).json(), status=200)
 
 
