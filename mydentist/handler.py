@@ -1,4 +1,5 @@
 from datetime import timedelta
+from time import time
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
@@ -6,6 +7,8 @@ from django.utils import translation, timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from geopy.distance import distance
+from jwt import encode, decode
+
 from appointment.models import Appointment
 from baseapp.models import Language
 from dentist.models import Patient, User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
@@ -334,6 +337,34 @@ def get_patients(request):
             'last_visit': last_visit,
         })
     return results
+
+
+def token_encode(data):
+    payload = {}
+    for key, value in data.items():
+        payload[key] = value
+    payload['exp'] = time() + 900
+    return encode(payload, settings.SECRET_KEY)
+
+
+def token_decode(token):
+    payload = decode(token, settings.SECRET_KEY, ["HS256"])
+    data = {}
+    for key, value in payload.items():
+        if key != 'exp':
+            data[key] = value
+    return data
+
+
+def token_decode_expired(token):
+    payload = decode(token, settings.SECRET_KEY, ["HS256"], options={
+        'verify_exp': False
+    })
+    data = {}
+    for key, value in payload.items():
+        if key != 'exp':
+            data[key] = value
+    return data
 
 
 # def sort_by_distance(dentists, location):

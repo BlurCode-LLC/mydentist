@@ -1046,12 +1046,7 @@ div.my_accaunt {
 @media (max-width: 1400px) {
   .my_select {
     padding: 10px 0px;
-    width: 100%;
-    overflow-x: scroll;
-    position: static;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    justify-content: center;
   }
 }
 
@@ -1069,11 +1064,7 @@ div.my_accaunt {
 @media (max-width: 1200px) {
   .my_select {
     padding: 10px 0px;
-    width: 100%;
-    overflow-x: scroll;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    justify-content: center;
   }
   .checker {
     overflow-x: scroll;

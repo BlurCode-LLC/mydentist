@@ -115,7 +115,7 @@ class Service(models.Model):
     name = models.CharField(_("Xizmat nomi"), max_length=100)
     duration = models.IntegerField(_("Xizmat davomiyligi"))
     price = models.IntegerField(_("Xizmat narxi"))
-    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE)
+    dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_service")
 
     class Meta:
         verbose_name = _("Xizmat")

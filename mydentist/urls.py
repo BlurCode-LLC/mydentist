@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 from django.views.generic.base import RedirectView
+
 from . import handler
 
 
@@ -12,6 +13,7 @@ urlpatterns = [
     path('', include(('baseapp.urls', 'baseapp'), namespace='baseapp')),
     path('admin/', admin.site.urls, name='admin'),
     path('auth/', include(('login.urls', 'login'), namespace='login')),
+    path('api/', include(('api.urls', 'api'), namespace='api')),
     path('dentist/', include(('dentist.urls', 'dentist'), namespace='dentist')),
     path('dentx/', include(('dentx.urls', 'dentx'), namespace='dentx')),
     path('my/', include(('patient.urls', 'patient'), namespace='patient')),
