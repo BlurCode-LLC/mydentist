@@ -16,8 +16,7 @@ from mydentist.handler import get_results, sort_by_distance
 #     language = body.get('language')
 #     translation.activate(language)
 #     request.session[translation.LANGUAGE_SESSION_KEY] = language
-    
-    
+
 
 #     return JsonResponse({
 #         'services': services,
@@ -45,8 +44,6 @@ def index(request):
         'services': services,
         'regions': REGIONS
     })
-
-
 
 
 def results(request):
@@ -131,7 +128,7 @@ def results(request):
             begin__year=today.year
         )) == 0]
         services_obj = Service_translation.objects.filter(pk__in=services_obj)
-    
+
     else:
         services_obj = Service_translation.objects.filter(
             name=service,
@@ -151,21 +148,34 @@ def results(request):
             )
         )
     return JsonResponse({
-        'dentists': result
+        'dentists': result,
+        "language": language
     })
+
 
 def dentist_page(request):
     body = loads(request.body.decode("utf-8"))
     language = body.get('language') or "uz"
     dentist_slug = body.get("slug")
     print(dentist_slug)
-    dentist = Service_translation.objects.filter(service__dentist__slug = dentist_slug).first()
+    dentist = Service_translation.objects.filter(
+        service__dentist__slug=dentist_slug,
+        language__name=language
+    ).first()
     return JsonResponse({
         'dentist': {
-            "name" : Service_translation.dentist.name,
-            "" : Service_translation.dentist.name,
-            "name" : Service_translation.dentist.name,
-            "name" : Service_translation.dentist.name,
-            "name" : Service_translation.dentist.name,
+            "name": dentist.service.dentist.dentist_user_translation.filter(language__name=language).first().fullname,
+            "worktime_begin": dentist.service.dentist.worktime_begin,
+            "worktime_end": dentist.service.dentist.worktime_end,
+            "clinic": dentist.service.dentist.clinic.dentist_clinic_translation.filter(language__name=language).first().name,
+            "lat": dentist.service.dentist.clinic.latitude,
+            "long": dentist.service.dentist.clinic.longitude,
+            "orientir": dentist.service.dentist.clinic.dentist_clinic_translation.filter(language__name=language).first().orientir,
+            "phone": dentist.service.dentist.phone_number,
+            "services": [{
+                'name': service.dentist_service_translation.filter(language__name=language).first().name,
+                'price': service.price,
+                'duration': service.duration,
+            } for service in dentist.service.dentist.dentist_service.all()],
         }
     })
