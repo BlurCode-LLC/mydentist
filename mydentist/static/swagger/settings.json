@@ -5,12 +5,12 @@
         "version": "1.0.0",
         "title": "MyDentist API"
     },
-    "host": "192.168.43.5:9000",
-    "basePath": "/api",
+    "host": "localhost:8000",
+    "basePath": "/api/",
     "tags": [
         {
             "name": "base",
-            "description": "Non-registration needed APIs"
+            "description": "Non-authorization needed APIs"
         },
         {
             "name": "auth",
@@ -18,14 +18,15 @@
         },
         {
             "name": "user",
-            "description": "Registration needed APIs"
+            "description": "Authorization needed APIs"
         }
     ],
     "schemes": [
+        "https",
         "http"
     ],
     "paths": {
-        "/index": {
+        "/index/": {
             "post": {
                 "tags": [
                     "base"
@@ -52,7 +53,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
+                        "description": "Successful operation",
                         "schema": {
                             "$ref": "#/definitions/IndexResults"
                         }
@@ -66,7 +67,7 @@
                 }
             }
         },
-        "/results": {
+        "/results/": {
             "post": {
                 "tags": [
                     "base"
@@ -92,6 +93,12 @@
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ResultsResults"
+                        }
+                    },
                     "400": {
                         "description": "No data in request.body"
                     },
@@ -101,14 +108,14 @@
                 }
             }
         },
-        "/dentist": {
+        "/dentist/": {
             "post": {
                 "tags": [
                     "base"
                 ],
                 "summary": "Dentist page of MyDentist Platform",
                 "description": "",
-                "operationId": "index",
+                "operationId": "dentist",
                 "consumes": [
                     "application/json"
                 ],
@@ -122,8 +129,176 @@
                         "description": "Parameters",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Index"
+                            "$ref": "#/definitions/Dentist"
                         }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/DentistResult"
+                        }
+                    },
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/query/": {
+            "post": {
+                "tags": [
+                    "base"
+                ],
+                "summary": "Query API of MyDentist Platform",
+                "description": "",
+                "operationId": "query",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/register/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Registration page of MyDentist Platform",
+                "description": "",
+                "operationId": "register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/token/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Token API of MyDentist Platform",
+                "description": "",
+                "operationId": "token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Auth"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/token/refresh/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Refresh token API of MyDentist Platform",
+                "description": "",
+                "operationId": "tokenRefresh",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/profile/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Profile page of MyDentist Platform",
+                "description": "",
+                "operationId": "profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "security": [
+                    {
+                        "bearerAuth": []
                     }
                 ],
                 "responses": {
@@ -135,6 +310,73 @@
                     }
                 }
             }
+        },
+        "/settings/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings page of MyDentist Platform",
+                "description": "",
+                "operationId": "settings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/update/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings update API of MyDentist Platform",
+                "description": "",
+                "operationId": "update",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "No data in request.body"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "bearerAuth",
+            "in": "header"
         }
     },
     "definitions": {
@@ -156,7 +398,7 @@
                 "services": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Services"
+                        "$ref": "#/definitions/IndexService"
                     }
                 },
                 "regions": {
@@ -164,33 +406,12 @@
                     "items": {
                         "$ref": "#/definitions/Regions"
                     }
-                }
-            }
-        },
-        "Services": {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "string",
-                    "example": "Konsultatsiya"
                 },
-                "name": {
-                    "type": "string",
-                    "example": "Konsultatsiya"
-                }
-            }
-        },
-        "Regions": {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 5
-                },
-                "name": {
-                    "type": "string",
-                    "example": "Andijon viloyati"
+                "illnesses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Illnesses"
+                    }
                 }
             }
         },
@@ -228,6 +449,14 @@
                     "type": "boolean",
                     "default": false
                 },
+                "lat": {
+                    "type": "number",
+                    "default": 40.808288
+                },
+                "long": {
+                    "type": "number",
+                    "default": 72.344401
+                },
                 "sort_by": {
                     "type": "string",
                     "example": "price",
@@ -235,6 +464,264 @@
                         "price",
                         "near"
                     ]
+                }
+            }
+        },
+        "ResultsResults": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/ResultsResult"
+            }
+        },
+        "Dentist": {
+            "type": "object",
+            "required": [
+                "language",
+                "slug"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                },
+                "slug": {
+                    "type": "string",
+                    "example": "qodirov-muhammadali-mahammadsoli-ogli"
+                }
+            }
+        },
+        "DentistResult": {
+            "type": "object",
+            "properties": {
+                "fullname": {
+                    "type": "string",
+                    "example": "Qodirov Muhammadali Mahammadsoli o'g'li"
+                },
+                "image": {
+                    "type": "string",
+                    "example": "/media/dentists/photos/qodirov-muhammadali-mahammadsoli-ogli.jpg"
+                },
+                "phone_number": {
+                    "type": "string",
+                    "example": "+998901709993"
+                },
+                "clinic_name": {
+                    "type": "string",
+                    "example": "Sog'lom tabassum"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Bobur shoh ko'chasi, 109-b uy"
+                },
+                "orientir": {
+                    "type": "string",
+                    "example": "Hamkor biznes markazi"
+                },
+                "latitude": {
+                    "type": "number",
+                    "example": 40.784638
+                },
+                "longitude": {
+                    "type": "number",
+                    "example": 72.332524
+                },
+                "worktime_begin": {
+                    "type": "string",
+                    "example": "8:00"
+                },
+                "worktime_end": {
+                    "type": "string",
+                    "example": "17:15"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DentistService"
+                    }
+                },
+                "cabinet_images": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CabinetImage"
+                    }
+                },
+                "reasons": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Reason"
+                    }
+                }
+            }
+        },
+        "Auth": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string",
+                    "example": "(90) 346-26-04"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "qwas0129"
+                }
+            }
+        },
+        "Token": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0MCwiZXhwIjoxNjQ3NzAyODQ5LjkyNjk5Mn0.epspxarS2mEhZIT5yylqG7ZVKiYa6k0hBS3HJNrh99Q"
+                }
+            }
+        },
+        "IndexService": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                }
+            }
+        },
+        "Regions": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 5
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Andijon viloyati"
+                }
+            }
+        },
+        "Illness": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "example": "1"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Erkak"
+                }
+            }
+        },
+        "Illnesses": {
+            "type": "object",
+            "properties": {
+                "illness": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Illness"
+                    }
+                }
+            }
+        },
+        "ResultsResult": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "string",
+                    "example": "/media/dentists/photos/qodirov-muhammadali-mahammadsoli-ogli.jpg"
+                },
+                "clinic_name": {
+                    "type": "string",
+                    "example": "Sog'lom tabassum"
+                },
+                "fullname": {
+                    "type": "string",
+                    "example": "Qodirov Muhammadali Mahammadsoli o'g'li"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Bobur shoh ko'chasi, 109-b uy"
+                },
+                "orientir": {
+                    "type": "string",
+                    "example": "Hamkor biznes markazi"
+                },
+                "latitude": {
+                    "type": "number",
+                    "example": 40.784638
+                },
+                "longitude": {
+                    "type": "number",
+                    "example": 72.332524
+                },
+                "worktime_begin": {
+                    "type": "string",
+                    "example": "8:00"
+                },
+                "worktime_end": {
+                    "type": "string",
+                    "example": "17:15"
+                },
+                "is_fullday": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "phone_number": {
+                    "type": "string",
+                    "example": "+998901709993"
+                },
+                "service_name": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "service_price": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 50000
+                },
+                "slug": {
+                    "type": "string",
+                    "example": "qodirov-muhammadali-mahammadsoli-ogli"
+                }
+            }
+        },
+        "DentistService": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "price": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 50000
+                },
+                "duration": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 15
+                }
+            }
+        },
+        "CabinetImage": {
+            "type": "string",
+            "example": "/media/dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-1.jpg"
+        },
+        "Reason": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
                 }
             }
         }
