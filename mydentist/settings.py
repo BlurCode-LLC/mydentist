@@ -20,7 +20,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 #     "mydentist.pythonanywhere.com"
 # ]
 
-APPEND_SLASH = False
+APPEND_SLASH = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',

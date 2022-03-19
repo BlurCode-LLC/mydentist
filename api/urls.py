@@ -17,7 +17,10 @@ urlpatterns = [
     path('index/', views.index, name='api_index'),
     path("results/", views.results, name="api_results"),
     path("dentist/", views.dentist, name="api_dentist"),
+    path("query/", views.query, name="api_query"),
+    path("register/", views.register, name="api_register"),
     path("token/", views.token, name="api_token"),
     path("token/refresh/", views.refresh, name="api_token_refresh"),
     path("profile/", views.profile, name="api_profile"),
+    path("settings/", views.settings, name="api_settings"),
 ]

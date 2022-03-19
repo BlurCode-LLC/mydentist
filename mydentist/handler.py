@@ -2,6 +2,7 @@ from datetime import timedelta
 from time import time
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.utils import translation, timezone
 from django.utils.safestring import mark_safe
@@ -365,6 +366,29 @@ def token_decode_expired(token):
         if key != 'exp':
             data[key] = value
     return data
+
+def token_required(function):
+    def wrapper(request, *args, **kwargs):
+        if request.headers:
+            try:
+                token = request.headers.get('Authorization').split(" ")[1]
+            except:
+                return JsonResponse({
+                    'message': "Token is passed wrongly"
+                })
+            if token:
+                data = token_decode(token)
+                user = User.objects.filter(pk=data['user_id']).first()
+                return function(request, user, *args, **kwargs)
+            else:
+                return JsonResponse({
+                    'message': "Token is missing"
+                }, status=401)
+        else:
+            return JsonResponse({
+                'message': "No data in request.headers"
+            }, status=400)
+    return wrapper
 
 
 # def sort_by_distance(dentists, location):

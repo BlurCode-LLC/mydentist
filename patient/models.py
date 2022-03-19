@@ -59,7 +59,7 @@ class User(models.Model):
 
 class Illness(models.Model):
 
-    patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE)
+    patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_illness")
     diabet = models.ForeignKey("illness.Diabet", verbose_name=_("Qandli diabet"), on_delete=models.CASCADE)
     anesthesia = models.ForeignKey("illness.Anesthesia", verbose_name=_("Narkoz"), on_delete=models.CASCADE)
     hepatitis = models.ForeignKey("illness.Hepatitis", verbose_name=_("Gepatit B"), on_delete=models.CASCADE)
@@ -79,7 +79,7 @@ class Illness(models.Model):
 
 class Other_Illness(models.Model):
 
-    patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE)
+    patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_otherillness")
     epilepsy = models.ForeignKey("illness.Epilepsy", verbose_name=_("Epilepsiya"), on_delete=models.CASCADE, blank=True, null=True)
     blood_disease = models.ForeignKey("illness.Blood_disease", verbose_name=_("Qon kasali"), on_delete=models.CASCADE, blank=True, null=True)
     medications = models.ForeignKey("illness.Medications", verbose_name=_("Doimiy dorilar"), on_delete=models.CASCADE, blank=True, null=True)
