@@ -2,7 +2,6 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a API Documentation for MyDentist Platform",
-        "version": "1.0.0",
         "title": "MyDentist API"
     },
     "host": "localhost:8000",
