@@ -539,7 +539,8 @@ def profile(request, user):
         'phone_number': patient.phone_number,
         'address': patient.address,
         'code': patient.patient_user_id.key,
-        'language': patient.language.name
+        'language': patient.language.name,
+        'image': patient.image.url
     }
     query = Query.objects.filter(patient=patient).first()
     if query:
@@ -584,7 +585,8 @@ def settings(request, user):
         'email': patient.user.email,
         'phone_number': patient.phone_number,
         'address': patient.address,
-        'language': patient.language.name
+        'language': patient.language.name,
+        'image': patient.image.url
     }
     illness = patient.patient_illness
     patient_illness = {
@@ -874,3 +876,16 @@ def update_other_illness(request, user):
         return JsonResponse({
             'message': "Method not allowed"
         }, status=405)
+
+
+@csrf_exempt
+@token_required
+def update_photo(request, user):
+    if request.method == "POST":
+        photo = request.FILES.get("file")
+        patient = PatientUser.objects.get(user=user)
+        patient.image = photo
+        patient.save()
+        return JsonResponse({
+            'photo': patient.image.url
+        }, safe=False)

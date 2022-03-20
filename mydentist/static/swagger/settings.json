@@ -676,6 +676,53 @@
                     }
                 }
             }
+        },
+        "/update/photo/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings update API (photo) of MyDentist Platform",
+                "description": "",
+                "operationId": "update-photo",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "Parameters",
+                        "required": true
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
         }
     },
     "securityDefinitions": {
