@@ -28,7 +28,7 @@
                     <span>{% trans "Doska" %}</span>
                 </a>
                 <a href="{% url 'dentx:patients' %}" class="my-header-item{% if "/patients/" in request.path %} active-item{% endif %}">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user-plus"></i>
                     <span>{% trans "Bemorlar" %}</span>
                 </a>
                 <div id="waiting-list" class="my-header-item" data-bs-toggle="modal" data-bs-target="#waitingListModal">
@@ -381,6 +381,11 @@
                     addReminder(this, "buy")
                 })
             })
+            if ($(window).width() <= 768) {
+                $(".nav-space").removeAttr("style")
+            } else {
+                $(".nav-space").css("height", "0 !important")
+            }
         </script>
         {% block javascript %}{% endblock %}
     </body>

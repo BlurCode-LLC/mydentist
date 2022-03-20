@@ -1,18 +1,22 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from django.db.models import Count
 from django.http import JsonResponse
 from django.utils import translation, timezone
 from django.views.decorators.csrf import csrf_exempt
 from json import loads
 from appointment.models import Appointment, Query
+from baseapp.models import Gender, Language
 
 from dentist.models import Cabinet_Image, User as DentistUser, Patient, Reason, Service_translation
+from illness.models import *
 from mydentist.var import ILLNESSES, NEW_LINE, REGIONS
 from mydentist.handler import get_results, sort_by_distance, token_encode, token_decode_expired, token_required
 from notification.models import Patient2dentist
-from patient.models import User as PatientUser
+from patient.models import Illness, Key, Other_Illness, User as PatientUser
 
 
 @csrf_exempt
@@ -267,8 +271,190 @@ def query(request, user):
 
 
 @csrf_exempt
-def register(request):
-    pass
+def register_user(request):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            language = body.get('language') or "uz"
+            file_path = global_settings.PROJECT_DIR / "last_id.txt"
+            with open(file_path, "r") as file:
+                id = int(file.read()) + 1
+            with open(file_path, "w") as file:
+                file.write(str(id))
+            id = f"{id:07d}"
+            password = body.get('password')
+            password_confirm = body.get('password_confirm')
+            if password != password_confirm:
+                return JsonResponse({
+                    'message': "Passwords do not match"
+                })
+            first_name = body.get('first_name')
+            last_name = body.get('last_name')
+            phone = body.get('phone')
+            email = body.get('email') or ""
+            if PatientUser.objects.filter(phone_number=phone).first():
+                return JsonResponse({
+                    'message': "User with this phone number already exists"
+                })
+            address = body.get('address')
+            birthday = body.get('birthday')
+            birthday = datetime.strptime(birthday, "%d-%m-%Y")
+            gender = body.get('gender')
+            new_user = User.objects.create_user(
+                f"user{id}",
+                password=password,
+                last_name=last_name,
+                first_name=first_name,
+                email=email
+            )
+            new_patient = PatientUser.objects.create(
+                user=new_user,
+                phone_number=phone,
+                address=address,
+                birthday=birthday,
+                image="patients/photos/default.png",
+                language=Language.objects.get(name=language),
+                gender=Gender.objects.get(pk=gender)
+            )
+            key = Key.objects.create(
+                patient=new_patient,
+                key=randint(100000, 999999)
+            )
+            return JsonResponse({
+                'message': "Success"
+            })
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+def register_illness(request):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            illness = Illness.objects.filter(patient__phone_number=body.get('phone')).first()
+            if illness:
+                illness.diabet_id = Diabet.objects.get(value=int(body.get('diabet'))).id
+                illness.anesthesia_id = Anesthesia.objects.get(value=int(body.get('anesthesia'))).id
+                illness.hepatitis_id = Hepatitis.objects.get(value=int(body.get('hepatitis'))).id
+                illness.aids_id = AIDS.objects.get(value=int(body.get('aids'))).id
+                illness.pressure_id = Pressure.objects.get(value=int(body.get('pressure'))).id
+                allergy = int(body.get('allergy'))
+                if allergy == 2:
+                    allergy_detail = body.get('allergy_detail')
+                    try:
+                        allergy = Allergy.objects.get(
+                            value=allergy,
+                            desc=allergy_detail,
+                        )
+                    except:
+                        allergy = Allergy.objects.create(
+                            value=allergy,
+                            desc=allergy_detail,
+                        )
+                else:
+                    allergy = Allergy.objects.get(
+                        value=allergy,
+                    )
+                illness.allergy_id = allergy.id
+                illness.asthma_id = Asthma.objects.get(value=int(body.get('asthma'))).id
+                illness.dizziness_id = Dizziness.objects.get(value=int(body.get('dizziness'))).id
+                illness.save()
+                return JsonResponse({
+                    'message': "Success"
+                })
+            else:
+                return JsonResponse({
+                    'message': "No user data in request.body"
+                }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+def register_other_illness(request):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            otherillness = Other_Illness.objects.get(patient__phone_number=body.get('phone'))
+            if otherillness:
+                otherillness.epilepsy_id = Epilepsy.objects.get(value=int(body.get('epilepsy'))).id if body.get('epilepsy') is not None else None
+                otherillness.blood_disease_id = Blood_disease.objects.get(value=int(body.get('blood_disease'))).id if body.get('blood_disease') is not None else None
+                if body.get('medications') is not None:
+                    medications = int(body.get('medications'))
+                    if medications == 2:
+                        medications_detail = body.get('medications_detail')
+                        try:
+                            medications = Medications.objects.get(
+                                value=medications,
+                                desc=medications_detail,
+                            )
+                        except:
+                            medications = Medications.objects.create(
+                                value=medications,
+                                desc=medications_detail,
+                            )
+                    else:
+                        medications = Medications.objects.get(
+                            value=medications,
+                        )
+                    otherillness.medications_id = medications.id
+                else:
+                    otherillness.medications_id = None
+                otherillness.stroke_id = Stroke.objects.get(value=int(body.get('stroke'))).id if body.get('stroke') is not None else None
+                otherillness.heart_attack_id = Heart_attack.objects.get(value=int(body.get('heart_attack'))).id if body.get('heart_attack') is not None else None
+                otherillness.oncologic_id = Oncologic.objects.get(value=int(body.get('oncologic'))).id if body.get('oncologic') is not None else None
+                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=int(body.get('tuberculosis'))).id if body.get('tuberculosis') is not None else None
+                otherillness.alcohol_id = Alcohol.objects.get(value=int(body.get('alcohol'))).id if body.get('alcohol') is not None else None
+                if body.get('pregnancy') is not None:
+                    pregnancy = int(body.get('pregnancy'))
+                    if pregnancy == 2:
+                        pregnancy_detail = body.get('pregnancy_detail')
+                        try:
+                            pregnancy = Pregnancy.objects.get(
+                                value=pregnancy,
+                                desc=pregnancy_detail,
+                            )
+                        except:
+                            pregnancy = Pregnancy.objects.create(
+                                value=pregnancy,
+                                desc=pregnancy_detail,
+                            )
+                    else:
+                        pregnancy = Pregnancy.objects.get(
+                            value=pregnancy,
+                        )
+                    otherillness.pregnancy_id = pregnancy.id
+                else:
+                    otherillness.pregnancy_id = None
+                otherillness.save()
+                return JsonResponse({
+                    'message': "Success"
+                })
+            else:
+                return JsonResponse({
+                    'message': "No user data in request.body"
+                }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
 
 
 @csrf_exempt
@@ -352,7 +538,8 @@ def profile(request, user):
         'email': patient.user.email,
         'phone_number': patient.phone_number,
         'address': patient.address,
-        'code': patient.patient_user_id.key
+        'code': patient.patient_user_id.key,
+        'language': patient.language.name
     }
     query = Query.objects.filter(patient=patient).first()
     if query:
@@ -362,12 +549,14 @@ def profile(request, user):
                 'dentist': query.dentist.dentist_user_translation.filter(language=patient.language).first().fullname,
                 'reason': query.reason,
                 'comment': query.comment,
-            }
+            },
+            'appointment': None
         })
     appointment = Appointment.objects.filter(patient=patient).first()
     if appointment:
         return JsonResponse({
             'patient': patient_result,
+            'query': None,
             'appointment': {
                 'dentist': appointment.dentist.dentist_user_translation.filter(language=patient.language).first().fullname,
                 'status': appointment.status,
@@ -377,7 +566,9 @@ def profile(request, user):
             }
         })
     return JsonResponse({
-        'patient': patient_result
+        'patient': patient_result,
+        'query': None,
+        'appointment': None
     })
 
 
@@ -388,7 +579,7 @@ def settings(request, user):
     patient_result = {
         'first_name': patient.user.first_name,
         'last_name': patient.user.last_name,
-        'gender': patient.gender.name,
+        'gender': patient.gender.id,
         'birthday': patient.birthday.strftime("%d.%m.%Y"),
         'email': patient.user.email,
         'phone_number': patient.phone_number,
@@ -478,5 +669,208 @@ def settings(request, user):
 
 @csrf_exempt
 @token_required
-def update(request, user):
-    pass
+def update_user(request, user):
+    if request.method == "POST":
+        if request.body:
+            patient = PatientUser.objects.filter(user=user).first()
+            body = loads(request.body.decode("utf-8"))
+            first_name = body.get('first_name')
+            last_name = body.get('last_name')
+            gender = int(body.get('gender'))
+            birthday = body.get('birthday')
+            birthday = datetime.strptime(birthday, "%d-%m-%Y")
+            email = body.get('email')
+            phone = body.get('phone')
+            address = body.get('address')
+            language = body.get('language')
+            if user.first_name != first_name:
+                user.first_name = first_name
+            if user.last_name != last_name:
+                user.last_name = last_name
+            if user.email != email:
+                user.email = email
+            if patient.gender_id != gender:
+                patient.gender_id = gender
+            if datetime.strptime(patient.birthday.strftime("%d-%m-%Y"), "%d-%m-%Y") - birthday != timedelta():
+                patient.birthday = birthday
+            if patient.phone_number != phone:
+                if PatientUser.objects.filter(phone_number=phone).first():
+                    return JsonResponse({
+                        'message': "User with this phone number already exists"
+                    })
+                patient.phone_number = phone
+            if patient.address != address:
+                patient.address = address
+            if patient.language.name != language:
+                patient.language_id = Language.objects.get(name=language).id
+            user.save()
+            patient.save()
+            return JsonResponse({
+                'message': "Success"
+            })
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+@token_required
+def update_password(request, user):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            old_password = body.get('password')
+            password = body.get('password')
+            password_confirm = body.get('password_confirm')
+            if authenticate(request, username=user.username, password=old_password):
+                return JsonResponse({
+                    'message': "Old password is not correct"
+                })
+            if password != password_confirm:
+                return JsonResponse({
+                    'message': "Passwords do not match"
+                })
+            user.set_password(password)
+            user.save()
+            return JsonResponse({
+                'message': "Success"
+            })
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+@token_required
+def update_illness(request, user):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            illness = Illness.objects.filter(patient__user=user).first()
+            if illness:
+                illness.diabet_id = Diabet.objects.get(value=int(body.get('diabet'))).id
+                illness.anesthesia_id = Anesthesia.objects.get(value=int(body.get('anesthesia'))).id
+                illness.hepatitis_id = Hepatitis.objects.get(value=int(body.get('hepatitis'))).id
+                illness.aids_id = AIDS.objects.get(value=int(body.get('aids'))).id
+                illness.pressure_id = Pressure.objects.get(value=int(body.get('pressure'))).id
+                allergy = int(body.get('allergy'))
+                if allergy == 2:
+                    allergy_detail = body.get('allergy_detail')
+                    try:
+                        allergy = Allergy.objects.get(
+                            value=allergy,
+                            desc=allergy_detail,
+                        )
+                    except:
+                        allergy = Allergy.objects.create(
+                            value=allergy,
+                            desc=allergy_detail,
+                        )
+                else:
+                    allergy = Allergy.objects.get(
+                        value=allergy,
+                    )
+                illness.allergy_id = allergy.id
+                illness.asthma_id = Asthma.objects.get(value=int(body.get('asthma'))).id
+                illness.dizziness_id = Dizziness.objects.get(value=int(body.get('dizziness'))).id
+                illness.save()
+                return JsonResponse({
+                    'message': "Success"
+                })
+            else:
+                return JsonResponse({
+                    'message': "No user data in request.body"
+                }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+@token_required
+def update_other_illness(request, user):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            otherillness = Other_Illness.objects.get(patient__user=user)
+            if otherillness:
+                otherillness.epilepsy_id = Epilepsy.objects.get(value=int(body.get('epilepsy'))).id if body.get('epilepsy') is not None else None
+                otherillness.blood_disease_id = Blood_disease.objects.get(value=int(body.get('blood_disease'))).id if body.get('blood_disease') is not None else None
+                if body.get('medications') is not None:
+                    medications = int(body.get('medications'))
+                    if medications == 2:
+                        medications_detail = body.get('medications_detail')
+                        try:
+                            medications = Medications.objects.get(
+                                value=medications,
+                                desc=medications_detail,
+                            )
+                        except:
+                            medications = Medications.objects.create(
+                                value=medications,
+                                desc=medications_detail,
+                            )
+                    else:
+                        medications = Medications.objects.get(
+                            value=medications,
+                        )
+                    otherillness.medications_id = medications.id
+                else:
+                    otherillness.medications_id = None
+                otherillness.stroke_id = Stroke.objects.get(value=int(body.get('stroke'))).id if body.get('stroke') is not None else None
+                otherillness.heart_attack_id = Heart_attack.objects.get(value=int(body.get('heart_attack'))).id if body.get('heart_attack') is not None else None
+                otherillness.oncologic_id = Oncologic.objects.get(value=int(body.get('oncologic'))).id if body.get('oncologic') is not None else None
+                otherillness.tuberculosis_id = Tuberculosis.objects.get(value=int(body.get('tuberculosis'))).id if body.get('tuberculosis') is not None else None
+                otherillness.alcohol_id = Alcohol.objects.get(value=int(body.get('alcohol'))).id if body.get('alcohol') is not None else None
+                if body.get('pregnancy') is not None:
+                    pregnancy = int(body.get('pregnancy'))
+                    if pregnancy == 2:
+                        pregnancy_detail = body.get('pregnancy_detail')
+                        try:
+                            pregnancy = Pregnancy.objects.get(
+                                value=pregnancy,
+                                desc=pregnancy_detail,
+                            )
+                        except:
+                            pregnancy = Pregnancy.objects.create(
+                                value=pregnancy,
+                                desc=pregnancy_detail,
+                            )
+                    else:
+                        pregnancy = Pregnancy.objects.get(
+                            value=pregnancy,
+                        )
+                    otherillness.pregnancy_id = pregnancy.id
+                else:
+                    otherillness.pregnancy_id = None
+                otherillness.save()
+                return JsonResponse({
+                    'message': "Success"
+                })
+            else:
+                return JsonResponse({
+                    'message': "No user data in request.body"
+                }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)

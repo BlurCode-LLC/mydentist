@@ -59,7 +59,7 @@
                         }
                     },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -100,7 +100,7 @@
                         }
                     },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -141,7 +141,7 @@
                         }
                     },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -163,10 +163,34 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Query"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -174,24 +198,122 @@
                 }
             }
         },
-        "/register/": {
+        "/register/user/": {
             "post": {
                 "tags": [
                     "auth"
                 ],
-                "summary": "Registration page of MyDentist Platform",
+                "summary": "Registration page (user) of MyDentist Platform",
                 "description": "",
-                "operationId": "register",
+                "operationId": "register-user",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RegisterUser"
+                        }
+                    }
+                ],
                 "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/register/illness/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Registration page (illness) of MyDentist Platform",
+                "description": "",
+                "operationId": "register-illness",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RegisterIllness"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/register/other-illness/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Registration page (other-illness) of MyDentist Platform",
+                "description": "",
+                "operationId": "register-other-illness",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RegisterOtherIllness"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -232,7 +354,10 @@
                         }
                     },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Credentals Error"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -273,7 +398,10 @@
                         }
                     },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -298,15 +426,21 @@
                 "parameters": [],
                 "security": [
                     {
-                        "bearerAuth": []
+                        "Bearer": []
                     }
                 ],
                 "responses": {
-                    "400": {
-                        "description": "No data in request.body"
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ProfileResult"
+                        }
                     },
-                    "405": {
-                        "description": "Method not allowed"
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
                     }
                 }
             }
@@ -328,12 +462,67 @@
                 "parameters": [],
                 "security": [
                     {
-                        "bearerAuth": []
+                        "Bearer": []
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/SettingsResult"
+                        }
+                    },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    }
+                }
+            }
+        },
+        "/update/user/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings update API (user) of MyDentist Platform",
+                "description": "",
+                "operationId": "update-user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUser"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -341,29 +530,146 @@
                 }
             }
         },
-        "/update/": {
+        "/update/password/": {
             "post": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Settings update API of MyDentist Platform",
+                "summary": "Settings update API (password) of MyDentist Platform",
                 "description": "",
-                "operationId": "update",
+                "operationId": "update-password",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdatePassword"
+                        }
+                    }
+                ],
                 "security": [
                     {
-                        "bearerAuth": []
+                        "Bearer": []
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
                     "400": {
-                        "description": "No data in request.body"
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/update/illness/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings update API (illness) of MyDentist Platform",
+                "description": "",
+                "operationId": "update-illness",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateIllness"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/update/other-illness/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Settings update API (other-illness) of MyDentist Platform",
+                "description": "",
+                "operationId": "update-other-illness",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateOtherIllness"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
                     },
                     "405": {
                         "description": "Method not allowed"
@@ -373,9 +679,9 @@
         }
     },
     "securityDefinitions": {
-        "bearerAuth": {
+        "Bearer": {
             "type": "apiKey",
-            "name": "bearerAuth",
+            "name": "Authorization",
             "in": "header"
         }
     },
@@ -553,8 +859,422 @@
                 }
             }
         },
+        "Query": {
+            "type": "object",
+            "required": [
+                "language",
+                "slug",
+                "reason"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                },
+                "slug": {
+                    "type": "string",
+                    "example": "qodirov-muhammadali-mahammadsoli-ogli"
+                },
+                "reason": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "reason_detail": {
+                    "type": "string",
+                    "example": "Konsultatsiya"
+                },
+                "comment": {
+                    "type": "string",
+                    "example": ""
+                }
+            }
+        },
+        "Success": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Success"
+                }
+            }
+        },
+        "RegisterUser": {
+            "type": "object",
+            "required": [
+                "language",
+                "first_name",
+                "last_name",
+                "phone",
+                "address",
+                "birthday",
+                "gender"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                },
+                "first_name": {
+                    "type": "string",
+                    "example": "Ulug'bek"
+                },
+                "last_name": {
+                    "type": "string",
+                    "example": "Abdusamatov"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "(93) 884-81-00"
+                },
+                "email": {
+                    "type": "string",
+                    "example": ""
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Qibray"
+                },
+                "birthday": {
+                    "type": "string",
+                    "example": "07-08-2005",
+                    "enum": [
+                        "dd-mm-YYYY"
+                    ]
+                },
+                "gender": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1,
+                    "enum": [1,2]
+                }
+            }
+        },
+        "RegisterIllness": {
+            "type": "object",
+            "required": [
+                "phone",
+                "diabet",
+                "anesthesia",
+                "hepatitis",
+                "aids",
+                "pressure",
+                "allergy",
+                "asthma",
+                "dizziness"
+            ],
+            "properties": {
+                "phone": {
+                    "type": "string",
+                    "example": "(93) 884-81-00"
+                },
+                "diabet": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "anesthesia": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 4
+                },
+                "hepatitis": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "aids": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pressure": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "allergy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "allergy_detail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "asthma": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "dizziness": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                }
+            }
+        },
+        "RegisterOtherIllness": {
+            "type": "object",
+            "required": [
+                "phone"
+            ],
+            "properties": {
+                "phone": {
+                    "type": "string",
+                    "example": "(93) 884-81-00"
+                },
+                "epilepsy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "blood_disease": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "medications": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "medications_detail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "stroke": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "heart_attack": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "oncologic": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "tuberculosis": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "alcohol": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pregnancy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pregnancy_detail": {
+                    "type": "string",
+                    "example": ""
+                }
+            }
+        },
+        "UpdateUser": {
+            "type": "object",
+            "required": [
+                "language",
+                "first_name",
+                "last_name",
+                "phone",
+                "address",
+                "birthday",
+                "gender"
+            ],
+            "properties": {
+                "language": {
+                    "type": "string",
+                    "example": "uz"
+                },
+                "first_name": {
+                    "type": "string",
+                    "example": "Ulug'bek"
+                },
+                "last_name": {
+                    "type": "string",
+                    "example": "Abdusamatov"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "(93) 884-81-00"
+                },
+                "email": {
+                    "type": "string",
+                    "example": ""
+                },
+                "address": {
+                    "type": "string",
+                    "example": "Qibray"
+                },
+                "birthday": {
+                    "type": "string",
+                    "example": "07-08-2005",
+                    "enum": [
+                        "dd-mm-YYYY"
+                    ]
+                },
+                "gender": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1,
+                    "enum": [1,2]
+                }
+            }
+        },
+        "UpdatePassword": {
+            "type": "object",
+            "required": [
+                "old_password",
+                "password",
+                "password_confirm"
+            ],
+            "properties": {
+                "old_password": {
+                    "type": "string",
+                    "example": ""
+                },
+                "password": {
+                    "type": "string",
+                    "example": ""
+                },
+                "password_confirm": {
+                    "type": "string",
+                    "example": ""
+                }
+            }
+        },
+        "UpdateIllness": {
+            "type": "object",
+            "required": [
+                "diabet",
+                "anesthesia",
+                "hepatitis",
+                "aids",
+                "pressure",
+                "allergy",
+                "asthma",
+                "dizziness"
+            ],
+            "properties": {
+                "diabet": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "anesthesia": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 4
+                },
+                "hepatitis": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "aids": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pressure": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "allergy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "allergy_detail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "asthma": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "dizziness": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                }
+            }
+        },
+        "UpdateOtherIllness": {
+            "type": "object",
+            "properties": {
+                "epilepsy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "blood_disease": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "medications": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "medications_detail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "stroke": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "heart_attack": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "oncologic": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "tuberculosis": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "alcohol": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pregnancy": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "pregnancy_detail": {
+                    "type": "string",
+                    "example": ""
+                }
+            }
+        },
         "Auth": {
             "type": "object",
+            "required": [
+                "phone",
+                "password"
+            ],
             "properties": {
                 "phone": {
                     "type": "string",
@@ -572,6 +1292,172 @@
                 "token": {
                     "type": "string",
                     "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0MCwiZXhwIjoxNjQ3NzAyODQ5LjkyNjk5Mn0.epspxarS2mEhZIT5yylqG7ZVKiYa6k0hBS3HJNrh99Q"
+                }
+            }
+        },
+        "ProfileResult": {
+            "type": "object",
+            "properties": {
+                "services": {
+                    "type": "object",
+                    "properties": {
+                        "first_name": {
+                            "type": "string",
+                            "example": "Abror"
+                        },
+                        "last_name": {
+                            "type": "string",
+                            "example": "Mamataliev"
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "example": "26.04.2002",
+                            "enum": [
+                                "dd.mm.YYYY"
+                            ]
+                        },
+                        "email": {
+                            "type": "string",
+                            "example": ""
+                        },
+                        "phone_number": {
+                            "type": "string",
+                            "example": "(90) 346-26-04"
+                        },
+                        "address": {
+                            "type": "string",
+                            "example": "Toshkent"
+                        },
+                        "code": {
+                            "type": "integer",
+                            "format": "int64",
+                            "example": 469460
+                        },
+                        "language": {
+                            "type": "string",
+                            "example": "uz"
+                        }
+                    }
+                },
+                "query": {
+                    "type": "object",
+                    "properties": {
+                        "dentist": {
+                            "type": "string",
+                            "example": "Qodirov Muhammadali Mahammadsoli o'g'li"
+                        },
+                        "reason": {
+                            "type": "string",
+                            "example": "Isitma"
+                        },
+                        "comment": {
+                            "type": "string",
+                            "example": ""
+                        }
+                    }
+                },
+                "appointment": {
+                    "type": "object",
+                    "properties": {
+                        "first_name": {
+                            "type": "string",
+                            "example": "Qodirov Muhammadali Mahammadsoli o'g'li"
+                        },
+                        "status": {
+                            "type": "string",
+                            "example": "waiting"
+                        },
+                        "service": {
+                            "type": "string",
+                            "example": "Konsultatsiya"
+                        },
+                        "begin_date": {
+                            "type": "string",
+                            "example": "17.03.2022 08:45",
+                            "enum": [
+                                "dd.mm.YYYY hh:mm"
+                            ]
+                        },
+                        "comment": {
+                            "type": "string",
+                            "example": ""
+                        }
+                    }
+                }
+            }
+        },
+        "SettingsResult": {
+            "type": "object",
+            "properties": {
+                "services": {
+                    "type": "object",
+                    "properties": {
+                        "first_name": {
+                            "type": "string",
+                            "example": "Abror"
+                        },
+                        "last_name": {
+                            "type": "string",
+                            "example": "Mamataliev"
+                        },
+                        "gender": {
+                            "type": "integer",
+                            "format": "int64",
+                            "example": 1,
+                            "enum": [1,2]
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "example": "26.04.2002",
+                            "enum": [
+                                "dd.mm.YYYY"
+                            ]
+                        },
+                        "email": {
+                            "type": "string",
+                            "example": ""
+                        },
+                        "phone_number": {
+                            "type": "string",
+                            "example": "(90) 346-26-04"
+                        },
+                        "address": {
+                            "type": "string",
+                            "example": "Toshkent"
+                        },
+                        "language": {
+                            "type": "string",
+                            "example": "uz"
+                        }
+                    }
+                },
+                "illness": {
+                    "type": "object",
+                    "properties": {
+                        "diabet": {
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "example": 1
+                                },
+                                "desc": {
+                                    "type": "string",
+                                    "example": "Yo'q"
+                                }
+                            }
+                        }
+                    }
+                },
+                "otherillness": {
+                    "type": "object",
+                    "properties": {
+                        "epilepsy": {
+                            "type": "object",
+                            "example": null
+                        }
+                    }
                 }
             }
         },

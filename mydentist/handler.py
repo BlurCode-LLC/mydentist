@@ -373,9 +373,7 @@ def token_required(function):
             try:
                 token = request.headers.get('Authorization').split(" ")[1]
             except:
-                return JsonResponse({
-                    'message': "Token is passed wrongly"
-                })
+                token = request.headers.get('Authorization')
             if token:
                 data = token_decode(token)
                 user = User.objects.filter(pk=data['user_id']).first()
