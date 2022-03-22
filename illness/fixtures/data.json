@@ -1,0 +1,346 @@
+[
+{
+    "model": "illness.diabet",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.diabet",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.diabet",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Bilmadim"
+    }
+},
+{
+    "model": "illness.anesthesia",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "1"
+    }
+},
+{
+    "model": "illness.anesthesia",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "2"
+    }
+},
+{
+    "model": "illness.anesthesia",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "3 va undan ko'proq"
+    }
+},
+{
+    "model": "illness.anesthesia",
+    "pk": 4,
+    "fields": {
+        "value": 4,
+        "desc": "Qo'llanilmagan"
+    }
+},
+{
+    "model": "illness.hepatitis",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.hepatitis",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.hepatitis",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Bilmadim"
+    }
+},
+{
+    "model": "illness.aids",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.aids",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.aids",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Bilmadim"
+    }
+},
+{
+    "model": "illness.pressure",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Normal"
+    }
+},
+{
+    "model": "illness.pressure",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Past"
+    }
+},
+{
+    "model": "illness.pressure",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Baland"
+    }
+},
+{
+    "model": "illness.allergy",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.allergy",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Gulga"
+    }
+},
+{
+    "model": "illness.allergy",
+    "pk": 3,
+    "fields": {
+        "value": 2,
+        "desc": null
+    }
+},
+{
+    "model": "illness.allergy",
+    "pk": 4,
+    "fields": {
+        "value": 2,
+        "desc": "Abrorga"
+    }
+},
+{
+    "model": "illness.asthma",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.asthma",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.asthma",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Bilmadim"
+    }
+},
+{
+    "model": "illness.dizziness",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.dizziness",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Ko'pincha"
+    }
+},
+{
+    "model": "illness.dizziness",
+    "pk": 3,
+    "fields": {
+        "value": 3,
+        "desc": "Ba'zida"
+    }
+},
+{
+    "model": "illness.epilepsy",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.epilepsy",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.blood_disease",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.blood_disease",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.medications",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.medications",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Sitr"
+    }
+},
+{
+    "model": "illness.stroke",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.stroke",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Ha"
+    }
+},
+{
+    "model": "illness.heart_attack",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.heart_attack",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Ha"
+    }
+},
+{
+    "model": "illness.oncologic",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.oncologic",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.tuberculosis",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.tuberculosis",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.alcohol",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+},
+{
+    "model": "illness.alcohol",
+    "pk": 2,
+    "fields": {
+        "value": 2,
+        "desc": "Bor"
+    }
+},
+{
+    "model": "illness.pregnancy",
+    "pk": 1,
+    "fields": {
+        "value": 1,
+        "desc": "Yo'q"
+    }
+}
+]

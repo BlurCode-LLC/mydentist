@@ -136,10 +136,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-# STATIC_ROOT = PROJECT_DIR / 'static'
+STATIC_ROOT = PROJECT_DIR / 'static'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    PROJECT_DIR / 'static'
+    # PROJECT_DIR / 'static'
 ]
 
 MEDIA_URL = '/media/'
@@ -164,3 +164,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
+
+FIXTURES_DIRS = [
+    BASE_DIR / 'baseapp'
+]

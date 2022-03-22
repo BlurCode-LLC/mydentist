@@ -1,0 +1,128 @@
+[
+    {
+        "model": "baseapp.language",
+        "pk": 1,
+        "fields": {
+            "name": "uz"
+        }
+    },
+    {
+        "model": "baseapp.language",
+        "pk": 2,
+        "fields": {
+            "name": "ru"
+        }
+    },
+    {
+        "model": "baseapp.gender",
+        "pk": 1,
+        "fields": {
+            "name": "Erkak"
+        }
+    },
+    {
+        "model": "baseapp.gender",
+        "pk": 2,
+        "fields": {
+            "name": "Ayol"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 1,
+        "fields": {
+            "name": "Toshkent"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 2,
+        "fields": {
+            "name": "Toshkent viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 3,
+        "fields": {
+            "name": "Samarqand viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 4,
+        "fields": {
+            "name": "Buxoro viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 5,
+        "fields": {
+            "name": "Andijon viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 6,
+        "fields": {
+            "name": "Farg'ona viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 7,
+        "fields": {
+            "name": "Namangan viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 8,
+        "fields": {
+            "name": "Qashqadaryo viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 9,
+        "fields": {
+            "name": "Surhondaryo viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 10,
+        "fields": {
+            "name": "Sirdaryo viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 11,
+        "fields": {
+            "name": "Jizzax viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 12,
+        "fields": {
+            "name": "Xorazm viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 13,
+        "fields": {
+            "name": "Navoiy viloyati"
+        }
+    },
+    {
+        "model": "baseapp.region",
+        "pk": 14,
+        "fields": {
+            "name": "Qoraqalpog'iston Respublikasi"
+        }
+    }
+]

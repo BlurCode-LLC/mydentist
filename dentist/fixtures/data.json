@@ -1,0 +1,3618 @@
+[
+{
+    "model": "dentist.clinic",
+    "pk": 1,
+    "fields": {
+        "name": "Sog'lom tabassum",
+        "region": 5,
+        "latitude": 40.784638,
+        "longitude": 72.332524
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 3,
+    "fields": {
+        "name": "Biostomadent",
+        "region": 5,
+        "latitude": 40.808288,
+        "longitude": 72.344401
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 4,
+    "fields": {
+        "name": "Musaffo Stoma Servis",
+        "region": 5,
+        "latitude": 40.778628,
+        "longitude": 72.355082
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 5,
+    "fields": {
+        "name": "\"Xurshid\" davolash muassasasi",
+        "region": 5,
+        "latitude": 40.761752,
+        "longitude": 72.349655
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 6,
+    "fields": {
+        "name": "Family Dent",
+        "region": 5,
+        "latitude": 40.77452,
+        "longitude": 72.357308
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 7,
+    "fields": {
+        "name": "Medical Pro klinikasi",
+        "region": 5,
+        "latitude": 40.746311,
+        "longitude": 72.320613
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 8,
+    "fields": {
+        "name": "Red-White Dental Clinic",
+        "region": 5,
+        "latitude": 40.770132,
+        "longitude": 72.340377
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 9,
+    "fields": {
+        "name": "Neodent Clinic",
+        "region": 5,
+        "latitude": 40.810443,
+        "longitude": 72.323543
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 10,
+    "fields": {
+        "name": "Andijon viloyat stomatologiya poliklinikasi",
+        "region": 5,
+        "latitude": 40.790022,
+        "longitude": 72.333112
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 11,
+    "fields": {
+        "name": "Stomatologiya",
+        "region": 5,
+        "latitude": 40.646161,
+        "longitude": 72.244197
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 12,
+    "fields": {
+        "name": "Viloyat bolalar stomatologiya poliklinikasi",
+        "region": 5,
+        "latitude": 40.795181,
+        "longitude": 72.348533
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 13,
+    "fields": {
+        "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
+        "region": 5,
+        "latitude": 40.751179,
+        "longitude": 72.354252
+    }
+},
+{
+    "model": "dentist.clinic",
+    "pk": 14,
+    "fields": {
+        "name": "Oila-dent klinikasi",
+        "region": 5,
+        "latitude": 40.762634,
+        "longitude": 72.366836
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 1,
+    "fields": {
+        "clinic": 1,
+        "name": "Sog'lom tabassum",
+        "address": "Bobur shoh ko'chasi, 109-b uy",
+        "orientir": "Hamkor biznes markazi",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 2,
+    "fields": {
+        "clinic": 1,
+        "name": "Sog'lom tabassum",
+        "address": "Проспект Бабура, 109-б",
+        "orientir": "Бизнес-центр Хамкор",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 3,
+    "fields": {
+        "clinic": 3,
+        "name": "Biostomadent",
+        "address": "Pirmuhammedov ko'chasi",
+        "orientir": "Trikotaj",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 4,
+    "fields": {
+        "clinic": 3,
+        "name": "Biostomadent",
+        "address": "Улица Пирмухаммедова",
+        "orientir": "Трикотаж",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 5,
+    "fields": {
+        "clinic": 4,
+        "name": "Musaffo Stoma Servis",
+        "address": "Navoiy shoh ko'chasi",
+        "orientir": "Andijon viloyati hokimiyati",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 6,
+    "fields": {
+        "clinic": 4,
+        "name": "Musaffo Stoma Servis",
+        "address": "Проспект Навои",
+        "orientir": "Хокимият Андижанской области",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 7,
+    "fields": {
+        "clinic": 5,
+        "name": "\"Xurshid\" davolash muassasasi",
+        "address": "Dalvarzin dahasi, Sarbon ko'chasi, 12-uy",
+        "orientir": null,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 8,
+    "fields": {
+        "clinic": 5,
+        "name": "Медицинское учреждение \"Xurshid\"",
+        "address": "Квартал Далварзин, улица Сарбон, 12",
+        "orientir": null,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 9,
+    "fields": {
+        "clinic": 6,
+        "name": "Family Dent",
+        "address": "Navoiy shoh ko'chasi",
+        "orientir": null,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 10,
+    "fields": {
+        "clinic": 6,
+        "name": "Family Dent",
+        "address": "Проспект Навои",
+        "orientir": null,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 11,
+    "fields": {
+        "clinic": 7,
+        "name": "Medical Pro klinikasi",
+        "address": "A. Yo'ldashev ko'chasi",
+        "orientir": "Visus ko'z klinikasi yonida",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 12,
+    "fields": {
+        "clinic": 7,
+        "name": "Клиника Medical Pro",
+        "address": "Улица А.Юлдашева",
+        "orientir": "Глазная клиника",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 13,
+    "fields": {
+        "clinic": 8,
+        "name": "Red-White Dental Clinic",
+        "address": "Bobur shoh ko'chasi",
+        "orientir": "Hamkorbank bosh ofisi",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 14,
+    "fields": {
+        "clinic": 8,
+        "name": "Red-White Dental Clinic",
+        "address": "Проспект Бабура",
+        "orientir": "Главный офис Хамкорбанк",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 15,
+    "fields": {
+        "clinic": 9,
+        "name": "Neodent Clinic",
+        "address": "Shimoliy kichik daha, Bobur shoh ko'chasi",
+        "orientir": "Gumbaz parhez taomlari",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 16,
+    "fields": {
+        "clinic": 9,
+        "name": "Neodent Clinic",
+        "address": "Северный малый квартал, проспект Бабура",
+        "orientir": "Диетические блюда Гумбаз",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 17,
+    "fields": {
+        "clinic": 10,
+        "name": "Andijon viloyat stomatologiya poliklinikasi",
+        "address": "Bobur shoh ko'chasi 87-uy",
+        "orientir": "1-tug'ruqxona",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 18,
+    "fields": {
+        "clinic": 10,
+        "name": "Андижанская областная стоматологическая поликлиника",
+        "address": "Проспект Бабура, 87",
+        "orientir": "1-роддом",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 19,
+    "fields": {
+        "clinic": 11,
+        "name": "Stomatologiya",
+        "address": "Asaka shahar",
+        "orientir": null,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 20,
+    "fields": {
+        "clinic": 11,
+        "name": "Стоматология",
+        "address": "Город Асака",
+        "orientir": null,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 21,
+    "fields": {
+        "clinic": 12,
+        "name": "Viloyat bolalar stomatologiya poliklinikasi",
+        "address": "Baynalmilal ko'chasi (Cho'lpon)",
+        "orientir": "Yoshlar markazi",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 22,
+    "fields": {
+        "clinic": 12,
+        "name": "Областная детская стоматологическая поликлиника",
+        "address": "Улица Байналминал (Чулпана)",
+        "orientir": "Центр молодёжи",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 23,
+    "fields": {
+        "clinic": 13,
+        "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
+        "address": "3-Mikrorayon",
+        "orientir": null,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 24,
+    "fields": {
+        "clinic": 13,
+        "name": "Клиника \"Стоматолог\" (Городская)",
+        "address": "3-Микрорайон",
+        "orientir": null,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 25,
+    "fields": {
+        "clinic": 14,
+        "name": "Oila-dent klinikasi",
+        "address": "Prospekt. Dukchi eshon ko'chasi 24-b uy",
+        "orientir": "Tashkent Premium to'yxonasi",
+        "language": 1
+    }
+},
+{
+    "model": "dentist.clinic_translation",
+    "pk": 26,
+    "fields": {
+        "clinic": 14,
+        "name": "Клиника Oila-dent",
+        "address": "Проспект. Улица Дукчи Эшон 24-б",
+        "orientir": "Tashkent Premium",
+        "language": 2
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "phone_number": "+998901709993",
+        "gender": 1,
+        "birthday": "1987-08-19",
+        "image": "dentists/photos/qodirov-muhammadali-mahammadsoli-ogli.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:15:00",
+        "work_days": 6,
+        "is_fullday": false,
+        "slug": "qodirov-muhammadali-mahammadsoli-ogli",
+        "clinic": 1
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 3,
+    "fields": {
+        "user": 7,
+        "phone_number": "+998952020150",
+        "gender": 2,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "muydinova-barnoxon-asqarovna",
+        "clinic": 1
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 4,
+    "fields": {
+        "user": 8,
+        "phone_number": "+998916185071",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/tojiboyev-rozijon-abdujabborovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "tojiboyev-rozijon-abdujabborovich",
+        "clinic": 3
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 5,
+    "fields": {
+        "user": 9,
+        "phone_number": "+998914908333",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/ibragimov-dilmurodjon-zakirjanovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "ibragimov-dilmurodjon-zakirjanovich",
+        "clinic": 4
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 6,
+    "fields": {
+        "user": 10,
+        "phone_number": "+998941030047",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "shokirov-xurshidbek-usmonjonovich",
+        "clinic": 5
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 7,
+    "fields": {
+        "user": 11,
+        "phone_number": "+998990300025 +998916050025",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "00:00:00",
+        "worktime_end": "00:00:00",
+        "work_days": 7,
+        "is_fullday": true,
+        "slug": "ibrohimov-muhammadaziz-abdurasul-ogli",
+        "clinic": 6
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 8,
+    "fields": {
+        "user": 12,
+        "phone_number": "+998905475977",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "15:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "pulatov-nosirullo-xosiljonovich",
+        "clinic": 7
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 9,
+    "fields": {
+        "user": 13,
+        "phone_number": "+998903744740",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "18:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "karimqulov-nodirbek-abdujalilovich",
+        "clinic": 8
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 10,
+    "fields": {
+        "user": 14,
+        "phone_number": "+998914821519",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "usmonov-baxtiyor-arobidin-ogli",
+        "clinic": 9
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 11,
+    "fields": {
+        "user": 15,
+        "phone_number": "+998914821519",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "qurbonov-egamberdi-mominovich",
+        "clinic": 10
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 12,
+    "fields": {
+        "user": 16,
+        "phone_number": "+998916070055",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "ahmedov-muzaffarbek-ulugbek-ogli",
+        "clinic": 10
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 13,
+    "fields": {
+        "user": 17,
+        "phone_number": "+998999088688",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:30:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "tojiboev-azizbek-alisher-ogli",
+        "clinic": 11
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 14,
+    "fields": {
+        "user": 18,
+        "phone_number": "+998934299984 +998905402425",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "20:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "mamajonov-baxtiyor-abdullayevich",
+        "clinic": 12
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 15,
+    "fields": {
+        "user": 20,
+        "phone_number": "+998916061881",
+        "gender": 2,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 28,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "sadikova-irodaxon-yangiboyevna",
+        "clinic": 12
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 16,
+    "fields": {
+        "user": 21,
+        "phone_number": "+998914780707",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "12:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "valiyev-zaynobiddin-nizomiddinovich",
+        "clinic": 12
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 17,
+    "fields": {
+        "user": 22,
+        "phone_number": "+998742261005 +998944311005 +998952001005",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "16:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "xurboyev-durbek-kabuljonovich",
+        "clinic": 13
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 18,
+    "fields": {
+        "user": 23,
+        "phone_number": "+998990971000",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "slug": "jaxongirov-saidbek-lutfulloxon-ogli",
+        "clinic": 13
+    }
+},
+{
+    "model": "dentist.user",
+    "pk": 19,
+    "fields": {
+        "user": 24,
+        "phone_number": "+998911700986",
+        "gender": 2,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 30,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "13:00:00",
+        "work_days": 7,
+        "is_fullday": true,
+        "slug": "jorayeva-nigoraxon-iminjanovna",
+        "clinic": 14
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 1,
+    "fields": {
+        "dentist": 1,
+        "language": 1,
+        "fullname": "Qodirov Muhammadali Mahammadsoli o'g'li",
+        "speciality": "Stomatolog, ortodont"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 2,
+    "fields": {
+        "dentist": 1,
+        "language": 2,
+        "fullname": "Кодиров Мухаммадали Махаммадсоли угли",
+        "speciality": "Стоматолог, Ортодонт"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 3,
+    "fields": {
+        "dentist": 3,
+        "language": 1,
+        "fullname": "Muydinova Barnoxon Asqarovna",
+        "speciality": "Oliy toifali stomatolog, Terapevt, Ortoped, Jarroh"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 4,
+    "fields": {
+        "dentist": 3,
+        "language": 2,
+        "fullname": "Муйдинова Барнохон Аскаровна",
+        "speciality": "Стоматолог высшего уровня, Терапевт, Ортопед, Хирург"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 5,
+    "fields": {
+        "dentist": 4,
+        "language": 1,
+        "fullname": "Tojiboyev Rozijon Abdujabborovich",
+        "speciality": "Oliy toifali stomatolog. Ortoped"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 6,
+    "fields": {
+        "dentist": 4,
+        "language": 2,
+        "fullname": "Тожибоев Розижон Адбужабборович",
+        "speciality": "Стоматолог высшего уровня, Ортопед"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 7,
+    "fields": {
+        "dentist": 5,
+        "language": 1,
+        "fullname": "Ibragimov Dilmurodjon Zakirjanovich",
+        "speciality": "Stomatolog, Ortoped, Terapevt, Xirurg, Implantolog"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 8,
+    "fields": {
+        "dentist": 5,
+        "language": 2,
+        "fullname": "Ибрагимов Дилмуроджон Закиржанович",
+        "speciality": "Стоматолог, Ортопед, Терапевт, Хирург, Имплантолог"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 9,
+    "fields": {
+        "dentist": 6,
+        "language": 1,
+        "fullname": "Shokirov Xurshidbek Usmonjonovich",
+        "speciality": "Ortodont, Terapevt, Ortoped, Implantolog"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 10,
+    "fields": {
+        "dentist": 6,
+        "language": 2,
+        "fullname": "Шокиров Хуршидбек Усмонжонович",
+        "speciality": "Ортодонт, Терапевт, Ортопед, Хирург"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 11,
+    "fields": {
+        "dentist": 7,
+        "language": 1,
+        "fullname": "Ibrohimov Muhammadaziz Abdurasul o'g'li",
+        "speciality": "Stomatolog"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 12,
+    "fields": {
+        "dentist": 7,
+        "language": 2,
+        "fullname": "Иброхимов Мухаммадазиз Абдурасул угли",
+        "speciality": "Ортодонт, Терапевт, Ортопед, Имплантолог"
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 13,
+    "fields": {
+        "dentist": 8,
+        "language": 1,
+        "fullname": "Pulatov Nosirullo",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 14,
+    "fields": {
+        "dentist": 8,
+        "language": 2,
+        "fullname": "Pulatov Nosirullo",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 15,
+    "fields": {
+        "dentist": 9,
+        "language": 1,
+        "fullname": "Karimqulov Nodirbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 16,
+    "fields": {
+        "dentist": 9,
+        "language": 2,
+        "fullname": "Karimqulov Nodirbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 17,
+    "fields": {
+        "dentist": 10,
+        "language": 1,
+        "fullname": "Usmonov Baxtiyor",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 18,
+    "fields": {
+        "dentist": 10,
+        "language": 2,
+        "fullname": "Usmonov Baxtiyor",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 19,
+    "fields": {
+        "dentist": 11,
+        "language": 1,
+        "fullname": "Qurbonov Egamberdi",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 20,
+    "fields": {
+        "dentist": 11,
+        "language": 2,
+        "fullname": "Qurbonov Egamberdi",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 21,
+    "fields": {
+        "dentist": 12,
+        "language": 1,
+        "fullname": "Ahmedov Muzaffarbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 22,
+    "fields": {
+        "dentist": 12,
+        "language": 2,
+        "fullname": "Ahmedov Muzaffarbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 23,
+    "fields": {
+        "dentist": 13,
+        "language": 1,
+        "fullname": "Tojiboyev Azizbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 24,
+    "fields": {
+        "dentist": 13,
+        "language": 2,
+        "fullname": "Tojiboyev Azizbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 25,
+    "fields": {
+        "dentist": 14,
+        "language": 1,
+        "fullname": "Mamajonov Baxtiyor",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 26,
+    "fields": {
+        "dentist": 14,
+        "language": 2,
+        "fullname": "Mamajonov Baxtiyor",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 27,
+    "fields": {
+        "dentist": 15,
+        "language": 1,
+        "fullname": "Sadikova Irodaxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 28,
+    "fields": {
+        "dentist": 15,
+        "language": 2,
+        "fullname": "Sadikova Irodaxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 29,
+    "fields": {
+        "dentist": 15,
+        "language": 1,
+        "fullname": "Sadikova Irodaxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 30,
+    "fields": {
+        "dentist": 15,
+        "language": 2,
+        "fullname": "Sadikova Irodaxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 31,
+    "fields": {
+        "dentist": 16,
+        "language": 1,
+        "fullname": "Valiyev Zaynobiddin",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 32,
+    "fields": {
+        "dentist": 16,
+        "language": 2,
+        "fullname": "Valiyev Zaynobiddin",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 33,
+    "fields": {
+        "dentist": 17,
+        "language": 1,
+        "fullname": "Xurboyev Durbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 34,
+    "fields": {
+        "dentist": 17,
+        "language": 2,
+        "fullname": "Xurboyev Durbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 35,
+    "fields": {
+        "dentist": 18,
+        "language": 1,
+        "fullname": "Jaxongirov Saidbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 36,
+    "fields": {
+        "dentist": 18,
+        "language": 2,
+        "fullname": "Jaxongirov Saidbek",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 37,
+    "fields": {
+        "dentist": 19,
+        "language": 1,
+        "fullname": "Jo'rayeva Nigoraxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.user_translation",
+    "pk": 38,
+    "fields": {
+        "dentist": 19,
+        "language": 2,
+        "fullname": "Jo'rayeva Nigoraxon",
+        "speciality": ""
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 1,
+    "fields": {
+        "name": "Konsultatsiya",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 2,
+    "fields": {
+        "name": "Protez. Oddiy",
+        "duration": 15,
+        "price": 500000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 3,
+    "fields": {
+        "name": "Protez. Yumshoq",
+        "duration": 15,
+        "price": 1500000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 4,
+    "fields": {
+        "name": "Protez. Byugel",
+        "duration": 15,
+        "price": 3000000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 5,
+    "fields": {
+        "name": "Metall tishlar. Sariq",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 6,
+    "fields": {
+        "name": "Metall tishlar. Quyma",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 7,
+    "fields": {
+        "name": "Metallokeramik tishlar",
+        "duration": 15,
+        "price": 500000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 8,
+    "fields": {
+        "name": "Metalloplastmassa tishlar",
+        "duration": 15,
+        "price": 200000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 9,
+    "fields": {
+        "name": "Sirkoniy tishlar",
+        "duration": 15,
+        "price": 1500000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 10,
+    "fields": {
+        "name": "Plombalash. Svetoplomba",
+        "duration": 15,
+        "price": 150000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 11,
+    "fields": {
+        "name": "Plombalash. Kimyoviy qotuvchi",
+        "duration": 15,
+        "price": 80000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 12,
+    "fields": {
+        "name": "Plombalash. Oddiy",
+        "duration": 15,
+        "price": 35000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 13,
+    "fields": {
+        "name": "Tishlarni professional tozalash",
+        "duration": 15,
+        "price": 15000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 14,
+    "fields": {
+        "name": "Tish olish. Oddiy",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 15,
+    "fields": {
+        "name": "Tish olish. Murakkab",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 16,
+    "fields": {
+        "name": "Breket (sim) qo'yish. Oddiy",
+        "duration": 15,
+        "price": 1500000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 17,
+    "fields": {
+        "name": "Breket (sim) qo'yish. Keramik",
+        "duration": 15,
+        "price": 2000000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 18,
+    "fields": {
+        "name": "Implant. Premium",
+        "duration": 15,
+        "price": 3200000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 19,
+    "fields": {
+        "name": "Implant. Econom",
+        "duration": 15,
+        "price": 2300000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 25,
+    "fields": {
+        "name": "Konsultatsiya",
+        "duration": 15,
+        "price": 10000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 26,
+    "fields": {
+        "name": "Protez. Oddiy",
+        "duration": 15,
+        "price": 500000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 27,
+    "fields": {
+        "name": "Metallokeramik tishlar",
+        "duration": 15,
+        "price": 300000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 28,
+    "fields": {
+        "name": "Plombalash. Svetoplomba",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 29,
+    "fields": {
+        "name": "Plombalash. Kimyoviy qotuvchi",
+        "duration": 15,
+        "price": 75000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 30,
+    "fields": {
+        "name": "Tishlarni professional tozalash",
+        "duration": 15,
+        "price": 200000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 31,
+    "fields": {
+        "name": "Tish olish. Oddiy",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 3
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 32,
+    "fields": {
+        "name": "Konsultatsiya",
+        "duration": 15,
+        "price": 0,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 33,
+    "fields": {
+        "name": "Protez. Oddiy",
+        "duration": 15,
+        "price": 400000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 34,
+    "fields": {
+        "name": "Protez. Yumshoq",
+        "duration": 15,
+        "price": 1000000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 35,
+    "fields": {
+        "name": "Metall tishlar. Sariq",
+        "duration": 15,
+        "price": 70000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 36,
+    "fields": {
+        "name": "Metall tishlar. Tilla",
+        "duration": 15,
+        "price": 630000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 37,
+    "fields": {
+        "name": "Metallokeramik tishlar",
+        "duration": 15,
+        "price": 300000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 38,
+    "fields": {
+        "name": "Metalloplastmassa tishlar",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 39,
+    "fields": {
+        "name": "Plombalash. Svetoplomba",
+        "duration": 15,
+        "price": 80000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 40,
+    "fields": {
+        "name": "Plombalash. Kimyoviy qotuvchi",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 41,
+    "fields": {
+        "name": "Tishlarni professional tozalash",
+        "duration": 15,
+        "price": 55000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 42,
+    "fields": {
+        "name": "Tish olish. Oddiy",
+        "duration": 15,
+        "price": 25000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 43,
+    "fields": {
+        "name": "Tish olish. Murakkab",
+        "duration": 15,
+        "price": 25000,
+        "dentist": 4
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 44,
+    "fields": {
+        "name": "Konsultatsiya",
+        "duration": 15,
+        "price": 0,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 45,
+    "fields": {
+        "name": "Plombalash. Svetoplomba",
+        "duration": 15,
+        "price": 90000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 46,
+    "fields": {
+        "name": "Plombalash. Kimyoviy qotuvchi",
+        "duration": 15,
+        "price": 60000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 47,
+    "fields": {
+        "name": "Plombalash. Oddiy",
+        "duration": 15,
+        "price": 40000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 48,
+    "fields": {
+        "name": "Tish olish. Oddiy",
+        "duration": 15,
+        "price": 40000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 49,
+    "fields": {
+        "name": "Tish olish. Murakkab",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 50,
+    "fields": {
+        "name": "Metall tishlar. Sariq",
+        "duration": 15,
+        "price": 80000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 51,
+    "fields": {
+        "name": "Metall tishlar. Quyma",
+        "duration": 15,
+        "price": 50000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 52,
+    "fields": {
+        "name": "Metallokeramik tishlar",
+        "duration": 15,
+        "price": 500000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 53,
+    "fields": {
+        "name": "Metalloplastmassa tishlar",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 54,
+    "fields": {
+        "name": "Tishlarni professional tozalash",
+        "duration": 15,
+        "price": 150000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 55,
+    "fields": {
+        "name": "Breket (sim) qo'yish. Oddiy",
+        "duration": 15,
+        "price": 600000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 56,
+    "fields": {
+        "name": "Implant. Premium",
+        "duration": 15,
+        "price": 1000000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 57,
+    "fields": {
+        "name": "Implant. Econom",
+        "duration": 15,
+        "price": 700000,
+        "dentist": 6
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 58,
+    "fields": {
+        "name": "Tishlarni oqartirish",
+        "duration": 15,
+        "price": 600000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 59,
+    "fields": {
+        "name": "Konsultatsiya",
+        "duration": 15,
+        "price": 15000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 60,
+    "fields": {
+        "name": "Protez. Oddiy",
+        "duration": 15,
+        "price": 600000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 61,
+    "fields": {
+        "name": "Protez. Yumshoq",
+        "duration": 15,
+        "price": 1000000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 62,
+    "fields": {
+        "name": "Protez. Byugel",
+        "duration": 15,
+        "price": 2200000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 63,
+    "fields": {
+        "name": "Metall tishlar. Sariq",
+        "duration": 15,
+        "price": 120000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 64,
+    "fields": {
+        "name": "Metall tishlar. Tilla",
+        "duration": 15,
+        "price": 600000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 65,
+    "fields": {
+        "name": "Metallokeramik tishlar",
+        "duration": 15,
+        "price": 500000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 66,
+    "fields": {
+        "name": "Metalloplastmassa tishlar",
+        "duration": 15,
+        "price": 150000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 67,
+    "fields": {
+        "name": "Sirkoniy tishlar",
+        "duration": 15,
+        "price": 1500000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 68,
+    "fields": {
+        "name": "Plombalash. Svetoplomba",
+        "duration": 15,
+        "price": 90000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 69,
+    "fields": {
+        "name": "Plombalash. Kimyoviy qotuvchi",
+        "duration": 15,
+        "price": 90000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 70,
+    "fields": {
+        "name": "Plombalash. Oddiy",
+        "duration": 15,
+        "price": 60000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 71,
+    "fields": {
+        "name": "Tishlarni professional tozalash",
+        "duration": 15,
+        "price": 100000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 72,
+    "fields": {
+        "name": "Tish olish. Oddiy",
+        "duration": 15,
+        "price": 60000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 73,
+    "fields": {
+        "name": "Tish olish. Murakkab",
+        "duration": 15,
+        "price": 80000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 74,
+    "fields": {
+        "name": "Breket (sim) qo'yish. Oddiy",
+        "duration": 15,
+        "price": 2500000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 75,
+    "fields": {
+        "name": "Breket (sim) qo'yish. Keramik",
+        "duration": 15,
+        "price": 3000000,
+        "dentist": 7
+    }
+},
+{
+    "model": "dentist.service",
+    "pk": 76,
+    "fields": {
+        "name": "Zoom",
+        "duration": 60,
+        "price": 300000,
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 1,
+    "fields": {
+        "service": 1,
+        "language": 1,
+        "name": "Konsultatsiya"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 2,
+    "fields": {
+        "service": 2,
+        "language": 1,
+        "name": "Protez. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 3,
+    "fields": {
+        "service": 3,
+        "language": 1,
+        "name": "Protez. Yumshoq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 4,
+    "fields": {
+        "service": 4,
+        "language": 1,
+        "name": "Protez. Byugel"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 5,
+    "fields": {
+        "service": 5,
+        "language": 1,
+        "name": "Metall tishlar. Sariq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 6,
+    "fields": {
+        "service": 6,
+        "language": 1,
+        "name": "Metall tishlar. Quyma"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 7,
+    "fields": {
+        "service": 7,
+        "language": 1,
+        "name": "Metallokeramik tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 8,
+    "fields": {
+        "service": 8,
+        "language": 1,
+        "name": "Metalloplastmassa tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 9,
+    "fields": {
+        "service": 9,
+        "language": 1,
+        "name": "Sirkoniy tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 10,
+    "fields": {
+        "service": 10,
+        "language": 1,
+        "name": "Plombalash. Svetoplomba"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 11,
+    "fields": {
+        "service": 11,
+        "language": 1,
+        "name": "Plombalash. Kimyoviy qotuvchi"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 12,
+    "fields": {
+        "service": 12,
+        "language": 1,
+        "name": "Plombalash. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 13,
+    "fields": {
+        "service": 13,
+        "language": 1,
+        "name": "Tishlarni professional tozalash"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 14,
+    "fields": {
+        "service": 14,
+        "language": 1,
+        "name": "Tish olish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 15,
+    "fields": {
+        "service": 15,
+        "language": 1,
+        "name": "Tish olish. Murakkab"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 16,
+    "fields": {
+        "service": 16,
+        "language": 1,
+        "name": "Breket (sim) qo'yish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 17,
+    "fields": {
+        "service": 17,
+        "language": 1,
+        "name": "Breket (sim) qo'yish. Keramik"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 18,
+    "fields": {
+        "service": 18,
+        "language": 1,
+        "name": "Implant. Premium"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 19,
+    "fields": {
+        "service": 19,
+        "language": 1,
+        "name": "Implant. Econom"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 20,
+    "fields": {
+        "service": 1,
+        "language": 2,
+        "name": "Консултация"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 21,
+    "fields": {
+        "service": 2,
+        "language": 2,
+        "name": "Протез. Простой"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 22,
+    "fields": {
+        "service": 3,
+        "language": 2,
+        "name": "Протез. Мягкий"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 23,
+    "fields": {
+        "service": 4,
+        "language": 2,
+        "name": "Протез. Бюгельный"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 24,
+    "fields": {
+        "service": 5,
+        "language": 2,
+        "name": "Металлические зубы. Жёлтые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 25,
+    "fields": {
+        "service": 6,
+        "language": 2,
+        "name": "Металлические зубы. Литые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 26,
+    "fields": {
+        "service": 7,
+        "language": 2,
+        "name": "Металлокерамические зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 27,
+    "fields": {
+        "service": 8,
+        "language": 2,
+        "name": "Металлопластиковые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 28,
+    "fields": {
+        "service": 9,
+        "language": 2,
+        "name": "Цирконовые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 29,
+    "fields": {
+        "service": 10,
+        "language": 2,
+        "name": "Пломба. Светопломба"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 30,
+    "fields": {
+        "service": 11,
+        "language": 2,
+        "name": "Пломба. Химически отвердевающая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 31,
+    "fields": {
+        "service": 12,
+        "language": 2,
+        "name": "Пломба. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 32,
+    "fields": {
+        "service": 13,
+        "language": 2,
+        "name": "Профессиональная чистка зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 33,
+    "fields": {
+        "service": 14,
+        "language": 2,
+        "name": "Удаление зуба. Простое"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 34,
+    "fields": {
+        "service": 15,
+        "language": 2,
+        "name": "Удаление зуба. Сложное"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 35,
+    "fields": {
+        "service": 16,
+        "language": 2,
+        "name": "Укладка брикетов. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 36,
+    "fields": {
+        "service": 17,
+        "language": 2,
+        "name": "Укладка брикетов. Керамическая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 37,
+    "fields": {
+        "service": 18,
+        "language": 2,
+        "name": "Имплант. Премиум"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 38,
+    "fields": {
+        "service": 19,
+        "language": 2,
+        "name": "Имплант. Эконом"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 39,
+    "fields": {
+        "service": 25,
+        "language": 1,
+        "name": "Konsultatsiya"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 40,
+    "fields": {
+        "service": 26,
+        "language": 1,
+        "name": "Protez. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 41,
+    "fields": {
+        "service": 27,
+        "language": 1,
+        "name": "Metallokeramik tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 42,
+    "fields": {
+        "service": 28,
+        "language": 1,
+        "name": "Plombalash. Svetoplomba"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 43,
+    "fields": {
+        "service": 29,
+        "language": 1,
+        "name": "Plombalash. Kimyoviy qotuvchi"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 44,
+    "fields": {
+        "service": 30,
+        "language": 1,
+        "name": "Tishlarni professional tozalash"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 45,
+    "fields": {
+        "service": 31,
+        "language": 1,
+        "name": "Tish olish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 46,
+    "fields": {
+        "service": 25,
+        "language": 2,
+        "name": "Консултация"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 47,
+    "fields": {
+        "service": 26,
+        "language": 2,
+        "name": "Протез. Простой"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 48,
+    "fields": {
+        "service": 27,
+        "language": 2,
+        "name": "Металлокерамические зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 49,
+    "fields": {
+        "service": 28,
+        "language": 2,
+        "name": "Пломба. Светопломба"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 50,
+    "fields": {
+        "service": 29,
+        "language": 2,
+        "name": "Пломба. Химически отвердевающая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 51,
+    "fields": {
+        "service": 30,
+        "language": 2,
+        "name": "Профессиональная чистка зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 52,
+    "fields": {
+        "service": 31,
+        "language": 2,
+        "name": "Удаление зуба. Простое"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 53,
+    "fields": {
+        "service": 32,
+        "language": 1,
+        "name": "Konsultatsiya"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 54,
+    "fields": {
+        "service": 33,
+        "language": 1,
+        "name": "Protez. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 55,
+    "fields": {
+        "service": 34,
+        "language": 1,
+        "name": "Protez. Yumshoq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 56,
+    "fields": {
+        "service": 35,
+        "language": 1,
+        "name": "Metall tishlar. Sariq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 57,
+    "fields": {
+        "service": 36,
+        "language": 1,
+        "name": "Metall tishlar. Tilla"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 58,
+    "fields": {
+        "service": 37,
+        "language": 1,
+        "name": "Metallokeramik tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 59,
+    "fields": {
+        "service": 38,
+        "language": 1,
+        "name": "Metalloplastmassa tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 60,
+    "fields": {
+        "service": 39,
+        "language": 1,
+        "name": "Plombalash. Svetoplomba"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 61,
+    "fields": {
+        "service": 40,
+        "language": 1,
+        "name": "Plombalash. Kimyoviy qotuvchi"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 62,
+    "fields": {
+        "service": 41,
+        "language": 1,
+        "name": "Tishlarni professional tozalash"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 63,
+    "fields": {
+        "service": 42,
+        "language": 1,
+        "name": "Tish olish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 64,
+    "fields": {
+        "service": 43,
+        "language": 1,
+        "name": "Tish olish. Murakkab"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 65,
+    "fields": {
+        "service": 32,
+        "language": 2,
+        "name": "Консултация"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 66,
+    "fields": {
+        "service": 33,
+        "language": 2,
+        "name": "Протез. Простой"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 67,
+    "fields": {
+        "service": 34,
+        "language": 2,
+        "name": "Протез. Мягкий"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 68,
+    "fields": {
+        "service": 35,
+        "language": 2,
+        "name": "Металлические зубы. Жёлтые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 69,
+    "fields": {
+        "service": 36,
+        "language": 2,
+        "name": "Металлические зубы. Золотые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 70,
+    "fields": {
+        "service": 37,
+        "language": 2,
+        "name": "Металлокерамические зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 71,
+    "fields": {
+        "service": 38,
+        "language": 2,
+        "name": "Металлопластиковые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 72,
+    "fields": {
+        "service": 39,
+        "language": 2,
+        "name": "Пломба. Светопломба"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 73,
+    "fields": {
+        "service": 40,
+        "language": 2,
+        "name": "Пломба. Химически отвердевающая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 74,
+    "fields": {
+        "service": 41,
+        "language": 2,
+        "name": "Профессиональная чистка зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 75,
+    "fields": {
+        "service": 42,
+        "language": 2,
+        "name": "Удаление зуба. Простое"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 76,
+    "fields": {
+        "service": 43,
+        "language": 2,
+        "name": "Удаление зуба. Сложное"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 77,
+    "fields": {
+        "service": 44,
+        "language": 1,
+        "name": "Konsultatsiya"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 78,
+    "fields": {
+        "service": 45,
+        "language": 1,
+        "name": "Plombalash. Svetoplomba"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 79,
+    "fields": {
+        "service": 46,
+        "language": 1,
+        "name": "Plombalash. Kimyoviy qotuvchi"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 80,
+    "fields": {
+        "service": 47,
+        "language": 1,
+        "name": "Plombalash. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 81,
+    "fields": {
+        "service": 48,
+        "language": 1,
+        "name": "Tish olish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 82,
+    "fields": {
+        "service": 49,
+        "language": 1,
+        "name": "Tish olish. Murakkab"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 83,
+    "fields": {
+        "service": 50,
+        "language": 1,
+        "name": "Metall tishlar. Sariq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 84,
+    "fields": {
+        "service": 51,
+        "language": 1,
+        "name": "Metall tishlar. Quyma"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 85,
+    "fields": {
+        "service": 52,
+        "language": 1,
+        "name": "Metallokeramik tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 86,
+    "fields": {
+        "service": 53,
+        "language": 1,
+        "name": "Metalloplastmassa tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 87,
+    "fields": {
+        "service": 54,
+        "language": 1,
+        "name": "Tishlarni professional tozalash"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 88,
+    "fields": {
+        "service": 55,
+        "language": 1,
+        "name": "Breket (sim) qo'yish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 89,
+    "fields": {
+        "service": 56,
+        "language": 1,
+        "name": "Implant. Premium"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 90,
+    "fields": {
+        "service": 57,
+        "language": 1,
+        "name": "Implant. Econom"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 91,
+    "fields": {
+        "service": 44,
+        "language": 2,
+        "name": "Консултация"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 92,
+    "fields": {
+        "service": 45,
+        "language": 2,
+        "name": "Пломба. Светопломба"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 93,
+    "fields": {
+        "service": 46,
+        "language": 2,
+        "name": "Пломба. Химически отвердевающая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 94,
+    "fields": {
+        "service": 47,
+        "language": 2,
+        "name": "Пломба. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 95,
+    "fields": {
+        "service": 48,
+        "language": 2,
+        "name": "Удаление зуба. Простое"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 96,
+    "fields": {
+        "service": 49,
+        "language": 2,
+        "name": "Удаление зуба. Сложное"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 97,
+    "fields": {
+        "service": 50,
+        "language": 2,
+        "name": "Металлические зубы. Жёлтые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 98,
+    "fields": {
+        "service": 51,
+        "language": 2,
+        "name": "Металлические зубы. Литые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 99,
+    "fields": {
+        "service": 52,
+        "language": 2,
+        "name": "Металлокерамические зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 100,
+    "fields": {
+        "service": 53,
+        "language": 2,
+        "name": "Металлопластиковые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 101,
+    "fields": {
+        "service": 54,
+        "language": 2,
+        "name": "Профессиональная чистка зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 102,
+    "fields": {
+        "service": 55,
+        "language": 2,
+        "name": "Укладка брикетов. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 103,
+    "fields": {
+        "service": 56,
+        "language": 2,
+        "name": "Имплант. Премиум"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 104,
+    "fields": {
+        "service": 57,
+        "language": 2,
+        "name": "Имплант. Эконом"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 105,
+    "fields": {
+        "service": 58,
+        "language": 1,
+        "name": "Tishlarni oqartirish"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 106,
+    "fields": {
+        "service": 59,
+        "language": 1,
+        "name": "Konsultatsiya"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 107,
+    "fields": {
+        "service": 60,
+        "language": 1,
+        "name": "Protez. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 108,
+    "fields": {
+        "service": 61,
+        "language": 1,
+        "name": "Protez. Yumshoq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 109,
+    "fields": {
+        "service": 62,
+        "language": 1,
+        "name": "Protez. Byugel"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 110,
+    "fields": {
+        "service": 63,
+        "language": 1,
+        "name": "Metall tishlar. Sariq"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 111,
+    "fields": {
+        "service": 64,
+        "language": 1,
+        "name": "Metall tishlar. Tilla"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 112,
+    "fields": {
+        "service": 65,
+        "language": 1,
+        "name": "Metallokeramik tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 113,
+    "fields": {
+        "service": 66,
+        "language": 1,
+        "name": "Metalloplastmassa tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 114,
+    "fields": {
+        "service": 67,
+        "language": 1,
+        "name": "Sirkoniy tishlar"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 115,
+    "fields": {
+        "service": 68,
+        "language": 1,
+        "name": "Plombalash. Svetoplomba"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 116,
+    "fields": {
+        "service": 69,
+        "language": 1,
+        "name": "Plombalash. Kimyoviy qotuvchi"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 117,
+    "fields": {
+        "service": 70,
+        "language": 1,
+        "name": "Plombalash. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 118,
+    "fields": {
+        "service": 71,
+        "language": 1,
+        "name": "Tishlarni professional tozalash"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 119,
+    "fields": {
+        "service": 72,
+        "language": 1,
+        "name": "Tish olish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 120,
+    "fields": {
+        "service": 73,
+        "language": 1,
+        "name": "Tish olish. Murakkab"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 121,
+    "fields": {
+        "service": 74,
+        "language": 1,
+        "name": "Breket (sim) qo'yish. Oddiy"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 122,
+    "fields": {
+        "service": 75,
+        "language": 1,
+        "name": "Breket (sim) qo'yish. Keramik"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 123,
+    "fields": {
+        "service": 58,
+        "language": 2,
+        "name": "Отбеливание зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 124,
+    "fields": {
+        "service": 59,
+        "language": 2,
+        "name": "Консултация"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 125,
+    "fields": {
+        "service": 60,
+        "language": 2,
+        "name": "Протез. Простой"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 126,
+    "fields": {
+        "service": 61,
+        "language": 2,
+        "name": "Протез. Мягкий"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 127,
+    "fields": {
+        "service": 62,
+        "language": 2,
+        "name": "Протез. Бюгельный"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 128,
+    "fields": {
+        "service": 63,
+        "language": 2,
+        "name": "Металлические зубы. Жёлтые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 129,
+    "fields": {
+        "service": 64,
+        "language": 2,
+        "name": "Металлические зубы. Золотые"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 130,
+    "fields": {
+        "service": 65,
+        "language": 2,
+        "name": "Металлокерамические зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 131,
+    "fields": {
+        "service": 66,
+        "language": 2,
+        "name": "Металлопластиковые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 132,
+    "fields": {
+        "service": 67,
+        "language": 2,
+        "name": "Цирконовые зубы"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 133,
+    "fields": {
+        "service": 68,
+        "language": 2,
+        "name": "Пломба. Светопломба"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 134,
+    "fields": {
+        "service": 69,
+        "language": 2,
+        "name": "Пломба. Химически отвердевающая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 135,
+    "fields": {
+        "service": 70,
+        "language": 2,
+        "name": "Пломба. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 136,
+    "fields": {
+        "service": 71,
+        "language": 2,
+        "name": "Профессиональная чистка зубов"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 137,
+    "fields": {
+        "service": 72,
+        "language": 2,
+        "name": "Удаление зуба. Простое"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 138,
+    "fields": {
+        "service": 73,
+        "language": 2,
+        "name": "Удаление зуба. Сложное"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 139,
+    "fields": {
+        "service": 74,
+        "language": 2,
+        "name": "Укладка брикетов. Простая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 140,
+    "fields": {
+        "service": 75,
+        "language": 2,
+        "name": "Укладка брикетов. Керамическая"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 141,
+    "fields": {
+        "service": 76,
+        "language": 1,
+        "name": "Zoom"
+    }
+},
+{
+    "model": "dentist.service_translation",
+    "pk": 142,
+    "fields": {
+        "service": 76,
+        "language": 2,
+        "name": "Zoom"
+    }
+},
+{
+    "model": "dentist.cabinet_image",
+    "pk": 1,
+    "fields": {
+        "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-1.jpg",
+        "dentist": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 1,
+    "fields": {
+        "name": "Konsultatsiya",
+        "value": 1,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 2,
+    "fields": {
+        "name": "Konsultatsiya",
+        "value": 1,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 3,
+    "fields": {
+        "name": "Tish og‘rig‘i (doimiy)",
+        "value": 2,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 4,
+    "fields": {
+        "name": "Tish og‘rig‘i (doimiy)",
+        "value": 2,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 5,
+    "fields": {
+        "name": "Tish og‘rig‘i (tunda)",
+        "value": 3,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 6,
+    "fields": {
+        "name": "Tish og‘rig‘i (tunda)",
+        "value": 3,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 7,
+    "fields": {
+        "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+        "value": 4,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 8,
+    "fields": {
+        "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+        "value": 4,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 9,
+    "fields": {
+        "name": "Tish og‘rig‘i (faqat sovuqqa)",
+        "value": 5,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 10,
+    "fields": {
+        "name": "Tish og‘rig‘i (faqat sovuqqa)",
+        "value": 5,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 11,
+    "fields": {
+        "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+        "value": 6,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 12,
+    "fields": {
+        "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+        "value": 6,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 13,
+    "fields": {
+        "name": "Tish og‘rig‘i (tishlaganda)",
+        "value": 7,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 14,
+    "fields": {
+        "name": "Tish og‘rig‘i (tishlaganda)",
+        "value": 7,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 15,
+    "fields": {
+        "name": "Tish og‘rig‘i (shirinlikda)",
+        "value": 8,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 16,
+    "fields": {
+        "name": "Tish og‘rig‘i (shirinlikda)",
+        "value": 8,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 17,
+    "fields": {
+        "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+        "value": 9,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 18,
+    "fields": {
+        "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+        "value": 9,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 19,
+    "fields": {
+        "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+        "value": 10,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 20,
+    "fields": {
+        "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+        "value": 10,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 21,
+    "fields": {
+        "name": "Tish qimirlashi",
+        "value": 11,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 22,
+    "fields": {
+        "name": "Tish qimirlashi",
+        "value": 11,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 23,
+    "fields": {
+        "name": "Milk qonashi",
+        "value": 12,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 24,
+    "fields": {
+        "name": "Milk qonashi",
+        "value": 12,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 25,
+    "fields": {
+        "name": "Milk shishishi",
+        "value": 13,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 26,
+    "fields": {
+        "name": "Milk shishishi",
+        "value": 13,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 27,
+    "fields": {
+        "name": "Isitma",
+        "value": 14,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 28,
+    "fields": {
+        "name": "Isitma",
+        "value": 14,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 29,
+    "fields": {
+        "name": "Tish ildiz",
+        "value": 15,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 30,
+    "fields": {
+        "name": "Tish ildiz",
+        "value": 15,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 31,
+    "fields": {
+        "name": "Estetik nuqson (ko‘rinishi yomon)",
+        "value": 16,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 32,
+    "fields": {
+        "name": "Estetik nuqson (ko‘rinishi yomon)",
+        "value": 16,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 33,
+    "fields": {
+        "name": "Kovak",
+        "value": 17,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 34,
+    "fields": {
+        "name": "Kovak",
+        "value": 17,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 35,
+    "fields": {
+        "name": "Tish qo‘ydirish",
+        "value": 18,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 36,
+    "fields": {
+        "name": "Tish qo‘ydirish",
+        "value": 18,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 37,
+    "fields": {
+        "name": "Tishni oldirish",
+        "value": 19,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 38,
+    "fields": {
+        "name": "Tishni oldirish",
+        "value": 19,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 39,
+    "fields": {
+        "name": "Tishlarni tozalatish",
+        "value": 20,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 40,
+    "fields": {
+        "name": "Tishlarni tozalatish",
+        "value": 20,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 41,
+    "fields": {
+        "name": "Implant qo‘ydirish",
+        "value": 21,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 42,
+    "fields": {
+        "name": "Implant qo‘ydirish",
+        "value": 21,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 43,
+    "fields": {
+        "name": "Breket qo'ydirish",
+        "value": 22,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 44,
+    "fields": {
+        "name": "Breket qo'ydirish",
+        "value": 22,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 45,
+    "fields": {
+        "name": "Protez qildirish",
+        "value": 23,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 46,
+    "fields": {
+        "name": "Protez qildirish",
+        "value": 23,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 47,
+    "fields": {
+        "name": "Plombalash",
+        "value": 24,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 48,
+    "fields": {
+        "name": "Plombalash",
+        "value": 24,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 49,
+    "fields": {
+        "name": "Boshqa sabab",
+        "value": 25,
+        "language": 1
+    }
+},
+{
+    "model": "dentist.reason",
+    "pk": 50,
+    "fields": {
+        "name": "Boshqa sabab",
+        "value": 25,
+        "language": 2
+    }
+},
+{
+    "model": "dentist.patient",
+    "pk": 7,
+    "fields": {
+        "dentist": 1,
+        "patient": 16
+    }
+},
+{
+    "model": "dentist.patient",
+    "pk": 8,
+    "fields": {
+        "dentist": 1,
+        "patient": 17
+    }
+},
+{
+    "model": "dentist.patient",
+    "pk": 9,
+    "fields": {
+        "dentist": 1,
+        "patient": 18
+    }
+},
+{
+    "model": "dentist.patient",
+    "pk": 10,
+    "fields": {
+        "dentist": 1,
+        "patient": 19
+    }
+}
+]

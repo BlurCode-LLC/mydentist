@@ -1,0 +1,74 @@
+[
+{
+    "model": "patient.tooth_status",
+    "pk": 1,
+    "fields": {
+        "name": "Oddiy tish",
+        "prefix": "default"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 2,
+    "fields": {
+        "name": "Davolangan tish",
+        "prefix": "treated"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 3,
+    "fields": {
+        "name": "Jarayondagi tish",
+        "prefix": "process"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 4,
+    "fields": {
+        "name": "Mavjud bo'lmagan tish",
+        "prefix": "no"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 5,
+    "fields": {
+        "name": "Qoplamali tish",
+        "prefix": "crown"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 6,
+    "fields": {
+        "name": "Qoplamali davolangan tish",
+        "prefix": "crown-treated"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 7,
+    "fields": {
+        "name": "Sun'iy tish",
+        "prefix": "artificial"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 8,
+    "fields": {
+        "name": "Implant tish",
+        "prefix": "implant"
+    }
+},
+{
+    "model": "patient.tooth_status",
+    "pk": 9,
+    "fields": {
+        "name": "Olingan tish",
+        "prefix": "removed"
+    }
+}
+]

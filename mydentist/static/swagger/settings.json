@@ -4,7 +4,7 @@
         "description": "This is a API Documentation for MyDentist Platform",
         "title": "MyDentist API"
     },
-    "host": "localhost:8000",
+    "host": "www.mydentist.uz",
     "basePath": "/api/",
     "tags": [
         {
@@ -954,7 +954,9 @@
                 "phone",
                 "address",
                 "birthday",
-                "gender"
+                "gender",
+                "password",
+                "password_confirm"
             ],
             "properties": {
                 "language": {
@@ -993,6 +995,14 @@
                     "format": "int64",
                     "example": 1,
                     "enum": [1,2]
+                },
+                "password": {
+                    "type": "string",
+                    "example": "qwas0129"
+                },
+                "password_confirm": {
+                    "type": "string",
+                    "example": "qwas0129"
                 }
             }
         },

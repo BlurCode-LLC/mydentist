@@ -253,7 +253,7 @@ def query(request, user):
                 datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                 is_read=False
             )
-            dp = Patient.objects.create(
+            dp = Patient.objects.get_or_create(
                 dentist=dentist,
                 patient=patient
             )
