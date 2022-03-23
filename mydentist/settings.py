@@ -166,5 +166,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
 
 FIXTURES_DIRS = [
-    BASE_DIR / 'baseapp'
+    BASE_DIR / 'baseapp',
+    BASE_DIR / 'dentist',
+    BASE_DIR / 'illness',
+    BASE_DIR / 'mydentist',
+    BASE_DIR / 'patient',
 ]

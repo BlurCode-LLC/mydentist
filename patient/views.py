@@ -459,11 +459,14 @@ def patients(request):
                             password=f"user{id}",
                             first_name=name
                         )
+                    year = int(patientform.cleaned_data['birth_year'])
+                    month = MONTHS.index(patientform.cleaned_data['birth_month']) + 1
+                    day = int(patientform.cleaned_data['birth_day'])
                     new_patient = PatientUser.objects.create(
                         user=new_user,
                         phone_number=patientform.cleaned_data['phone_number'],
                         address=patientform.cleaned_data['address'],
-                        birthday=patientform.cleaned_data['birthday'],
+                        birthday=datetime(year, month, day),
                         image="patients/photos/default.png",
                         language=Language.objects.get(pk=languageform.cleaned_data['language']),
                         gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])

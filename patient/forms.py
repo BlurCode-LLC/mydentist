@@ -145,12 +145,29 @@ class PatientForm(forms.Form):
         ),
         localize=True
     )
-    birthday = forms.CharField(
-        label=_("Tugilgan sana"),
-        widget=forms.DateInput(
+    birth_year = forms.CharField(
+        widget=forms.TextInput(
             attrs={
-                'class': "form-control wid",
-                'type': "date",
+                'id': "year_holder",
+                'value': datetime.today().year
+            }
+        ),
+        localize=True
+    )
+    birth_month = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'id': "month_holder",
+                'value': MONTHS[datetime.today().month - 1]
+            }
+        ),
+        localize=True
+    )
+    birth_day = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'id': "day_holder",
+                'value': datetime.today().day
             }
         ),
         localize=True
