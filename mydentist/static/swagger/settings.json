@@ -4,7 +4,7 @@
         "description": "This is a API Documentation for MyDentist Platform",
         "title": "MyDentist API"
     },
-    "host": "www.mydentist.uz",
+    "host": "127.0.0.1:9000",
     "basePath": "/api/",
     "tags": [
         {

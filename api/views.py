@@ -729,13 +729,17 @@ def update_password(request, user):
             old_password = body.get('password')
             password = body.get('password')
             password_confirm = body.get('password_confirm')
-            if authenticate(request, username=user.username, password=old_password):
+            if authenticate(request, username=user.username, password=old_password) is None:
                 return JsonResponse({
                     'message': "Old password is not correct"
                 })
             if password != password_confirm:
                 return JsonResponse({
                     'message': "Passwords do not match"
+                })
+            if password == "":
+                return JsonResponse({
+                    'message': "Password can not be empty"
                 })
             user.set_password(password)
             user.save()

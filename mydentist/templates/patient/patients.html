@@ -161,7 +161,18 @@
                 {% endif %}
                 <ul class="d-flex justify-content-end list-group-horizontal me-auto my-2 my-lg-0 offset-lg-6" style="--bs-scroll-height: 100px;">
                     <li class="nav-item dropdown list-group-item">
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Qarz" %}</a>
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if 'sort_by' in request.GET %}
+                                {% if request.GET.sort_by == "debt-up" %}
+                                    {% trans "Eng kami" %}
+                                {% elif request.GET.sort_by == "debt-down" %}
+                                    {% trans "Eng ko'pi" %}
+                                {% else %}
+                                    {% trans "Qarz" %}
+                                {% endif %}
+                            {% else %}
+                                {% trans "Qarz" %}
+                            {% endif %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li>
                                 <a class="dropdown-item" href="?sort_by=debt-up">{% trans "Eng kami" %}</a>
@@ -195,7 +206,20 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-group-item">
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Oxirgi tashrifi" %}</a>
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if 'sort_by' in request.GET %}
+                                {% if request.GET.sort_by == "last-today" %}
+                                    {% trans "Kecha" %}
+                                {% elif request.GET.sort_by == "last-thweek" %}
+                                    {% trans "Eng ko'pi" %}
+                                {% elif request.GET.sort_by == "last-thmonth" %}
+                                    {% trans "Eng ko'pi" %}
+                                {% else %}
+                                    {% trans "Oxirgi tashrifi" %}
+                                {% endif %}
+                            {% else %}
+                                {% trans "Oxirgi tashrifi" %}
+                            {% endif %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown3">
                             <li>
                                 <a class="dropdown-item" href="?sort_by=last-today">{% trans "Kecha" %}</a>
