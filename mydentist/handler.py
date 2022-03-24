@@ -304,7 +304,7 @@ def get_notifications(request, status):
         return notifications
 
 
-def get_patients(request):
+def get_patients(request, sort_by):
     patients = [ PatientUser.objects.get(pk=patient.patient_id) for patient in Patient.objects.filter(dentist__user=request.user) ]
     results = []
     for patient in patients:
@@ -318,7 +318,7 @@ def get_patients(request):
         total_sum = sum([Service.objects.get(
             pk=appointment.service_id
         ).price for appointment in appointments.filter(status="done")])
-        coming = "-"
+        coming = None
         for appointment in appointments.filter(status="waiting").order_by("begin"):
             if appointment.upcoming():
                 coming = Service_translation.objects.get(
@@ -327,12 +327,12 @@ def get_patients(request):
                 ).name
                 break
         last = appointments.filter(status="done").order_by("-begin").first()
-        last_visit = last.begin if last else "-"
+        last_visit = last.begin if last else None
         results.append({
             'patient': User.objects.get(pk=patient.user_id),
             'patient_extra': patient,
             'gender': GENDERS[patient.gender_id - 1],
-            'done': done if done != "" else "-",
+            'done': done if done != "" else None,
             'total_sum': total_sum,
             'coming': coming,
             'last_visit': last_visit,
@@ -344,7 +344,7 @@ def token_encode(data):
     payload = {}
     for key, value in data.items():
         payload[key] = value
-    payload['exp'] = time() + 900
+    payload['exp'] = time() + 86400
     return encode(payload, settings.SECRET_KEY)
 
 

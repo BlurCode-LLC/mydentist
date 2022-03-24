@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -79,6 +80,9 @@ class User(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        expire = Expire.objects.get_or_create(
+            dentist=self
+        )
         trans = User_translation.objects.filter(dentist=self)
         if len(trans) == 0:
             user_translation_uz = User_translation.objects.create(
@@ -207,3 +211,21 @@ class Patient(models.Model):
     
     def __str__(self):
         return f"{self.dentist.__str__()} - {self.patient.__str__()}"
+
+
+class Expire(models.Model):
+
+    dentist = models.ForeignKey("dentist.User", verbose_name=_("Aktivlangan"), on_delete=models.CASCADE, related_name="dentist_expire")
+    expire_date = models.DateTimeField(_("Tugash muddati"), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _("Shifokor aktivligi ")
+        verbose_name_plural = _("Shifokor aktivliglari")
+
+    def __str__(self):
+        return str(self.dentist)
+    
+    def save(self, *args, **kwargs):
+        if self.expire_date is None:
+            self.expire_date = datetime.today() + timedelta(days=30)
+        super().save(*args, **kwargs)
