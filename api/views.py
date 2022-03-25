@@ -3,16 +3,21 @@ from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.db.models import Count
 from django.http import JsonResponse
 from django.utils import translation, timezone
+from django.utils.encoding import force_bytes, force_str
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.decorators.csrf import csrf_exempt
 from json import loads
+
 from appointment.models import Appointment, Query
 from baseapp.models import Gender, Language
-
 from dentist.models import Cabinet_Image, User as DentistUser, Patient, Reason, Service_translation
 from illness.models import *
+from login.models import PasswordReset
+from login.tokens import reset_password_token
 from mydentist.var import ILLNESSES, NEW_LINE, REGIONS
 from mydentist.handler import get_results, sort_by_distance, token_encode, token_decode_expired, token_required
 from notification.models import Patient2dentist
@@ -813,7 +818,7 @@ def update_other_illness(request, user):
     if request.method == "POST":
         if request.body:
             body = loads(request.body.decode("utf-8"))
-            otherillness = Other_Illness.objects.get(patient__user=user)
+            otherillness = Other_Illness.objects.filter(patient__user=user).first()
             if otherillness:
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=int(body.get('epilepsy'))).id if body.get('epilepsy') is not None else None
                 otherillness.blood_disease_id = Blood_disease.objects.get(value=int(body.get('blood_disease'))).id if body.get('blood_disease') is not None else None
@@ -885,7 +890,7 @@ def update_other_illness(request, user):
 @csrf_exempt
 @token_required
 def update_photo(request, user):
-    if request.method == "POST":
+    if request.method == "POST" and 'file' in request.FILES:
         photo = request.FILES.get("file")
         patient = PatientUser.objects.get(user=user)
         patient.image = photo
@@ -893,3 +898,44 @@ def update_photo(request, user):
         return JsonResponse({
             'photo': patient.image.url
         }, safe=False)
+
+
+@csrf_exempt
+def password_reset(request):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            email = body.get('email')
+            if email:
+                user = User.objects.filter(email=email).first()
+                if user:
+                    uidb64 = urlsafe_base64_encode(force_bytes(user.username))
+                    token = reset_password_token.make_token(user)
+                    password_reset = PasswordReset.objects.create(
+                        email=email,
+                        uidb64=uidb64,
+                        token=token,
+                        is_active=True
+                    )
+                    text = f"You're receiving this email because you requested a password reset for your user account at {request.META.get('HTTP_HOST')}.\n\nPlease go to the following page and choose a new password: {request.META.get('HTTP_ORIGIN')}/auth/reset/{uidb64}/{token}\n\nThanks for using our site!"
+                    result_email = send_mail(_("Parolni tiklash"), text, global_settings.EMAIL_HOST_USER, [email])
+                    if result_email:
+                        return JsonResponse({
+                            'message': "Password reset sent"
+                        })
+                else:
+                    return JsonResponse({
+                        'message': "No user with given email"
+                    }, status=404)
+            else:
+                return JsonResponse({
+                    'message': "No email provided"
+                }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
