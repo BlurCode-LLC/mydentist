@@ -511,8 +511,8 @@
                     "400": {
                         "description": "No data"
                     },
-                    "401": {
-                        "description": "Token Error"
+                    "404": {
+                        "description": "User not found"
                     },
                     "405": {
                         "description": "Method not allowed"
