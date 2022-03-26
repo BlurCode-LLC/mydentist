@@ -4,7 +4,7 @@
         "description": "This is a API Documentation for MyDentist Platform",
         "title": "MyDentist API"
     },
-    "host": "127.0.0.1:9000",
+    "host": "127.0.0.1:8000",
     "basePath": "/api/",
     "tags": [
         {
@@ -408,6 +408,118 @@
                 }
             }
         },
+        "/password/reset/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Password reset request API of MyDentist Platform",
+                "description": "",
+                "operationId": "password-reset-request",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PasswordResetRequest"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/reset/{uidb64}/{token}/": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Password reset API of MyDentist Platform",
+                "description": "",
+                "operationId": "password-reset",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PasswordReset"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "uidb64",
+                        "type": "string",
+                        "description": "Parameters",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "token",
+                        "type": "string",
+                        "description": "Parameters",
+                        "required": true
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
         "/profile/": {
             "get": {
                 "tags": [
@@ -433,6 +545,42 @@
                         "description": "Successful operation",
                         "schema": {
                             "$ref": "#/definitions/ProfileResult"
+                        }
+                    },
+                    "400": {
+                        "description": "No data"
+                    },
+                    "401": {
+                        "description": "Token Error"
+                    }
+                }
+            }
+        },
+        "/notifications/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Notifications API of MyDentist Platform",
+                "description": "",
+                "operationId": "notifications",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
                         }
                     },
                     "400": {
@@ -1132,6 +1280,35 @@
                 "pregnancy_detail": {
                     "type": "string",
                     "example": ""
+                }
+            }
+        },
+        "PasswordResetRequest": {
+            "type": "object",
+            "required": [
+                "email"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "abrornomos2018@gmail.com"
+                }
+            }
+        },
+        "PasswordReset": {
+            "type": "object",
+            "required": [
+                "password",
+                "password_confirm"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "example": "qwas0120"
+                },
+                "password_confirm": {
+                    "type": "string",
+                    "example": "qwas0120"
                 }
             }
         },

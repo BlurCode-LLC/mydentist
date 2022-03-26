@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.utils import translation, timezone
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from json import loads
 
@@ -90,7 +91,7 @@ def results(request):
                     begin__month=today.month,
                     begin__year=today.year
                 )) == 0]
-            if is_woman and no_que:
+            elif is_woman and no_que:
                 today = date.today()
                 services_obj = [service.id for service in Service_translation.objects.filter(
                     name=service,
@@ -102,7 +103,7 @@ def results(request):
                     begin__month=today.month,
                     begin__year=today.year
                 )) == 0]
-            if hour_24 and no_que:
+            elif hour_24 and no_que:
                 today = date.today()
                 services_obj = [service.id for service in Service_translation.objects.filter(
                     name=service,
@@ -114,7 +115,7 @@ def results(request):
                     begin__month=today.month,
                     begin__year=today.year
                 )) == 0]
-            if is_woman and hour_24:
+            elif is_woman and hour_24:
                 services_obj = Service_translation.objects.filter(
                     name=service,
                     service__dentist__clinic__region__pk=int(region),
@@ -122,21 +123,21 @@ def results(request):
                     service__dentist__gender__pk=2,
                     service__dentist__is_fullday=True
                 )
-            if hour_24:
+            elif hour_24:
                 services_obj = Service_translation.objects.filter(
                     name=service,
                     service__dentist__clinic__region__pk=int(region),
                     language__name=language,
                     service__dentist__is_fullday=True
                 )
-            if is_woman:
+            elif is_woman:
                 services_obj = Service_translation.objects.filter(
                     name=service,
                     service__dentist__clinic__region__pk=int(region),
                     language__name=language,
                     service__dentist__gender__pk=2
                 )
-            if no_que:
+            elif no_que:
                 today = date.today()
                 services_obj = [service.id for service in Service_translation.objects.filter(
                     name=service,
@@ -935,7 +936,7 @@ def password_reset(request):
                     result_email = send_mail(_("Parolni tiklash"), text, global_settings.EMAIL_HOST_USER, [email])
                     if result_email:
                         return JsonResponse({
-                            'message': "Password reset sent"
+                            'message': "Success"
                         })
                 else:
                     return JsonResponse({
@@ -959,6 +960,8 @@ def password_reset(request):
 def reset(request, uidb64, token):
     if request.method == "POST":
         if request.body:
+            print(request.body.decode("utf-8"))
+            print(request.POST)
             body = loads(request.body.decode("utf-8"))
             user = User.objects.filter(username=force_str(urlsafe_base64_decode(uidb64))).first()
             if user:
@@ -978,7 +981,7 @@ def reset(request, uidb64, token):
                             password_reset.is_active = False
                             password_reset.save()
                             return JsonResponse({
-                                'message': "Password is updated"
+                                'message': "Success"
                             })
                         else:
                             return JsonResponse({
