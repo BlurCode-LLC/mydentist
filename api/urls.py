@@ -24,10 +24,13 @@ urlpatterns = [
     path("token/", views.token, name="api_token"),
     path("token/refresh/", views.refresh, name="api_token_refresh"),
     path("profile/", views.profile, name="api_profile"),
+    path("notifications/", views.notifications, name="api_notifications"),
     path("settings/", views.settings, name="api_settings"),
     path("update/user/", views.update_user, name="api_update_user"),
     path("update/password/", views.update_password, name="api_update_password"),
     path("update/illness/", views.update_illness, name="api_update_illness"),
     path("update/other-illness/", views.update_other_illness, name="api_update_other_illness"),
     path("update/photo/", views.update_photo, name="api_update_photo"),
+    path("password/reset/", views.password_reset, name="api_password_reset"),
+    path("reset/<uidb64>/<token>/", views.reset, name="api_reset"),
 ]

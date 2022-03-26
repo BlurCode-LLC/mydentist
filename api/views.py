@@ -20,7 +20,7 @@ from login.models import PasswordReset
 from login.tokens import reset_password_token
 from mydentist.var import ILLNESSES, NEW_LINE, REGIONS
 from mydentist.handler import get_results, sort_by_distance, token_encode, token_decode_expired, token_required
-from notification.models import Patient2dentist
+from notification.models import Dentist2patient, Patient2dentist
 from patient.models import Illness, Key, Other_Illness, User as PatientUser
 
 
@@ -580,6 +580,20 @@ def profile(request, user):
 
 @csrf_exempt
 @token_required
+def notifications(request, user):
+    notifications_obj = list(Dentist2patient.objects.filter(recipient__user=user))[::-1]
+    notifications = []
+    for notification_obj in notifications_obj:
+        notifications.append({
+            'sender': str(notification_obj.sender),
+            'text': notification_obj.message,
+            'datetime': notification_obj.datetime.strftime("%B %d, %Y")
+        })
+    return JsonResponse(notifications, safe=False)
+
+
+@csrf_exempt
+@token_required
 def settings(request, user):
     patient = PatientUser.objects.filter(user=user).first()
     patient_result = {
@@ -931,6 +945,57 @@ def password_reset(request):
                 return JsonResponse({
                     'message': "No email provided"
                 }, status=400)
+        else:
+            return JsonResponse({
+                'message': "No data in request.body"
+            }, status=400)
+    else:
+        return JsonResponse({
+            'message': "Method not allowed"
+        }, status=405)
+
+
+@csrf_exempt
+def reset(request, uidb64, token):
+    if request.method == "POST":
+        if request.body:
+            body = loads(request.body.decode("utf-8"))
+            user = User.objects.filter(username=force_str(urlsafe_base64_decode(uidb64))).first()
+            if user:
+                is_token_correct = reset_password_token.check_token(user, token)
+                if is_token_correct:
+                    password_reset = PasswordReset.objects.filter(
+                        email=user.email,
+                        uidb64=uidb64,
+                        token=token
+                    ).first()
+                    if password_reset.is_active:
+                        password = body.get('password')
+                        password_confirm = body.get('password_confirm')
+                        if password == password_confirm:
+                            user.set_password(password)
+                            user.save()
+                            password_reset.is_active = False
+                            password_reset.save()
+                            return JsonResponse({
+                                'message': "Password is updated"
+                            })
+                        else:
+                            return JsonResponse({
+                                'message': "Passwords do not match"
+                            }, status=400)
+                    else:
+                        return JsonResponse({
+                            'message': "Link is invalid"
+                        }, status=404)
+                else:
+                    return JsonResponse({
+                        'message': "Token isn't verified"
+                    }, status=400)
+            else:
+                return JsonResponse({
+                    'message': "No user with given uidb64"
+                }, status=404)
         else:
             return JsonResponse({
                 'message': "No data in request.body"
