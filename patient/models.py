@@ -29,29 +29,29 @@ class User(models.Model):
         except:
             illness = Illness.objects.create(
                 patient=self,
-                diabet=Diabet.objects.get(pk=1),
-                anesthesia=Anesthesia.objects.get(pk=4),
-                hepatitis=Hepatitis.objects.get(pk=1),
-                aids=AIDS.objects.get(pk=1),
-                pressure=Pressure.objects.get(pk=1),
-                allergy=Allergy.objects.get(pk=1),
-                asthma=Asthma.objects.get(pk=1),
-                dizziness=Dizziness.objects.get(pk=1),
+                diabet=None,
+                anesthesia=None,
+                hepatitis=None,
+                aids=None,
+                pressure=None,
+                allergy=None,
+                asthma=None,
+                dizziness=None,
             )
         try:
             other_illness = Other_Illness.objects.get(patient=self)
         except:
             other_illness = Other_Illness.objects.create(
                 patient=self,
-                epilepsy=Epilepsy.objects.get(pk=1),
-                blood_disease=Blood_disease.objects.get(pk=1),
-                medications=Medications.objects.get(pk=1),
-                stroke=Stroke.objects.get(pk=1),
-                heart_attack=Heart_attack.objects.get(pk=1),
-                oncologic=Oncologic.objects.get(pk=1),
-                tuberculosis=Tuberculosis.objects.get(pk=1),
-                alcohol=Alcohol.objects.get(pk=1),
-                pregnancy=Pregnancy.objects.get(pk=1),
+                epilepsy=None,
+                blood_disease=None,
+                medications=None,
+                stroke=None,
+                heart_attack=None,
+                oncologic=None,
+                tuberculosis=None,
+                alcohol=None,
+                pregnancy=None,
             )
         if len(Tooth.objects.filter(patient=self)) == 0:
             teeth_creator(self, Tooth, Tooth_status)
@@ -60,14 +60,14 @@ class User(models.Model):
 class Illness(models.Model):
 
     patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_illness")
-    diabet = models.ForeignKey("illness.Diabet", verbose_name=_("Qandli diabet"), on_delete=models.CASCADE)
-    anesthesia = models.ForeignKey("illness.Anesthesia", verbose_name=_("Narkoz"), on_delete=models.CASCADE)
-    hepatitis = models.ForeignKey("illness.Hepatitis", verbose_name=_("Gepatit B"), on_delete=models.CASCADE)
-    aids = models.ForeignKey("illness.AIDS", verbose_name=_("OITS"), on_delete=models.CASCADE)
-    pressure = models.ForeignKey("illness.Pressure", verbose_name=_("Qon bosimi"), on_delete=models.CASCADE)
-    allergy = models.ForeignKey("illness.Allergy", verbose_name=_("Allergiya"), on_delete=models.CASCADE)
-    asthma = models.ForeignKey("illness.Asthma", verbose_name=_("Bronxial astma"), on_delete=models.CASCADE)
-    dizziness = models.ForeignKey("illness.Dizziness", verbose_name=_("Bosh aylanishi"), on_delete=models.CASCADE)
+    diabet = models.ForeignKey("illness.Diabet", verbose_name=_("Qandli diabet"), on_delete=models.CASCADE, null=True)
+    anesthesia = models.ForeignKey("illness.Anesthesia", verbose_name=_("Narkoz"), on_delete=models.CASCADE, null=True)
+    hepatitis = models.ForeignKey("illness.Hepatitis", verbose_name=_("Gepatit B"), on_delete=models.CASCADE, null=True)
+    aids = models.ForeignKey("illness.AIDS", verbose_name=_("OITS"), on_delete=models.CASCADE, null=True)
+    pressure = models.ForeignKey("illness.Pressure", verbose_name=_("Qon bosimi"), on_delete=models.CASCADE, null=True)
+    allergy = models.ForeignKey("illness.Allergy", verbose_name=_("Allergiya"), on_delete=models.CASCADE, null=True)
+    asthma = models.ForeignKey("illness.Asthma", verbose_name=_("Bronxial astma"), on_delete=models.CASCADE, null=True)
+    dizziness = models.ForeignKey("illness.Dizziness", verbose_name=_("Bosh aylanishi"), on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = _("Bemor kasalligi")

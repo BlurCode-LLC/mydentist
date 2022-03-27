@@ -47,9 +47,7 @@ def index(request):
         language = Language.objects.get(name=get_language())
         services_obj = Service_translation.objects.filter(
             language__pk=language.id
-        ).values('name').annotate(
-            name_count=Count('name')
-        )
+        ).distinct('name').values('name')
         services = []
         for i in range(len(services_obj)):
             services.append({

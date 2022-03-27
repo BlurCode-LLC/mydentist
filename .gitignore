@@ -1,5 +1,15 @@
 __pycache__/
 env/
+log/*
+mydentist/media/dentists/cabinet_photos/*
+mydentist/media/dentists/photos/*
+mydentist/media/patients/process_photos/*
+mydentist/media/patients/photos/*
 
 .env
-venv/
+
+!log/.gitkeep
+!mydentist/media/dentists/cabinet_photos/.gitkeep
+!mydentist/media/dentists/photos/.gitkeep
+!mydentist/media/patients/process_photos/.gitkeep
+!mydentist/media/patients/photos/.gitkeep

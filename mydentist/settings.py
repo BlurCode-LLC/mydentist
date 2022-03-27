@@ -143,7 +143,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = GLOBAL_DIR / 'media'
+MEDIA_ROOT = PROJECT_DIR / 'media'
 
 LOGIN_URL = "/auth/login/"
 LOGIN_URL_DENTX = "/dentx/auth/login/"

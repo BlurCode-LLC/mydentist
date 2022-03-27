@@ -183,37 +183,58 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-group-item">
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Ishi" %}</a>
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if 'sort_by' in request.GET %}
+                                {% if request.GET.sort_by == "plan-done" %}
+                                    {% trans "Yakunlangan" %}
+                                {% elif request.GET.sort_by == "plan-not-done" %}
+                                    {% trans "Yakunlanmagan" %}
+                                {% else %}
+                                    {% trans "Ishi" %}
+                                {% endif %}
+                            {% else %}
+                                {% trans "Ishi" %}
+                            {% endif %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown1">
                             <li>
                                 <a class="dropdown-item" href="?sort_by=plan-done">{% trans "Yakunlangan" %}</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="?sort_by=plan-ndone">{% trans "Yakunlanmagan" %}</a>
+                                <a class="dropdown-item" href="?sort_by=plan-not-done">{% trans "Yakunlanmagan" %}</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-group-item">
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Jinsi" %}</a>
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if 'sort_by' in request.GET %}
+                                {% if request.GET.sort_by == "sex-male" %}
+                                    {% trans "Erkak" %}
+                                {% elif request.GET.sort_by == "sex-female" %}
+                                    {% trans "Ayol" %}
+                                {% else %}
+                                    {% trans "Jinsi" %}
+                                {% endif %}
+                            {% else %}
+                                {% trans "Jinsi" %}
+                            {% endif %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown2">
                             <li>
-                                <a class="dropdown-item" href="?sort_by=sex-m">{% trans "Erkak" %}</a>
+                                <a class="dropdown-item" href="?sort_by=sex-male">{% trans "Erkak" %}</a>
                             </li>
-                            <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="?sort_by=sex-f">{% trans "Ayol" %}</a>
+                                <a class="dropdown-item" href="?sort_by=sex-female">{% trans "Ayol" %}</a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-group-item">
                         <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if 'sort_by' in request.GET %}
-                                {% if request.GET.sort_by == "last-today" %}
+                                {% if request.GET.sort_by == "last-yesterday" %}
                                     {% trans "Kecha" %}
-                                {% elif request.GET.sort_by == "last-thweek" %}
-                                    {% trans "Eng ko'pi" %}
-                                {% elif request.GET.sort_by == "last-thmonth" %}
-                                    {% trans "Eng ko'pi" %}
+                                {% elif request.GET.sort_by == "last-this-week" %}
+                                    {% trans "Shu hafta" %}
+                                {% elif request.GET.sort_by == "last-this-month" %}
+                                    {% trans "Shu oyda" %}
                                 {% else %}
                                     {% trans "Oxirgi tashrifi" %}
                                 {% endif %}
@@ -222,14 +243,13 @@
                             {% endif %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown3">
                             <li>
-                                <a class="dropdown-item" href="?sort_by=last-today">{% trans "Kecha" %}</a>
+                                <a class="dropdown-item" href="?sort_by=last-yesterday">{% trans "Kecha" %}</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="?sort_by=last-thweek">{% trans "Shu hafta" %}</a>
+                                <a class="dropdown-item" href="?sort_by=last-this-week">{% trans "Shu hafta" %}</a>
                             </li>
-                            <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="?sort_by=last-thmonth">{% trans "Shu oyda" %}</a>
+                                <a class="dropdown-item" href="?sort_by=last-this-month">{% trans "Shu oyda" %}</a>
                             </li>
                         </ul>
                     </li>
@@ -267,10 +287,10 @@
                             </td>
                             <td>{{ result.gender }}</td>
                             <td>{{ result.patient_extra.address }}</td>
-                            <td>{{ result.done }}</td>
+                            <td>{% if result.done %}{{ result.done }}{% else %}-{% endif %}</td>
                             <td>{{ result.total_sum }} {% trans "so'm" %}</td>
-                            <td>{{ result.coming }}</td>
-                            <td>{% last_visit_format result.last_visit %}</td>
+                            <td>{% if result.coming %}{{ result.coming }}{% else %}-{% endif %}</td>
+                            <td>{% if result.last_visit %}{% last_visit_format result.last_visit %}{% else %}-{% endif %}</td>
                         </tr>
                         {% endfor %}
                         {% else %}
