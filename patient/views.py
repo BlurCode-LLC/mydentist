@@ -554,9 +554,7 @@ def patients(request):
                     success = _("Yangi bemor qo'shildi")
                     request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
                     return redirect("dentx:patients")
-    sort_by = None
-    if 'sort_by' in request.GET:
-        sort_by = request.GET['sort_by']
+    sort_by = request.GET.get('sort_by')
     results = get_patients(request, sort_by)
     patient_codeform = CodeForm()
     patientform = PatientForm()

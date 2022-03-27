@@ -5,6 +5,7 @@ mydentist/media/dentists/cabinet_photos/*
 mydentist/media/dentists/photos/*
 mydentist/media/patients/process_photos/*
 mydentist/media/patients/photos/*
+mydentist/media/animations/*
 
 .env
 
@@ -13,3 +14,4 @@ mydentist/media/patients/photos/*
 !mydentist/media/dentists/photos/.gitkeep
 !mydentist/media/patients/process_photos/.gitkeep
 !mydentist/media/patients/photos/.gitkeep
+!mydentist/media/animations/.gitkeep

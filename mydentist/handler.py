@@ -337,7 +337,50 @@ def get_patients(request, sort_by):
             'coming': coming,
             'last_visit': last_visit,
         })
+    if sort_by is not None:
+        if sort_by.split("-")[0] == "debt":
+            results = sort_patients(results, "debt")
+            if sort_by.split("-")[1] == "down":
+                results = results[::-1]
+        elif sort_by.split("-")[0] == "plan":
+            if "-".join(sort_by.split("-")[1:]) == "done":
+                results = [item for item in results if item['done'] is not None]
+            elif "-".join(sort_by.split("-")[1:]) == "not-done":
+                results = [item for item in results if item['done'] is None]
+            else:
+                results = results
+        elif sort_by.split("-")[0] == "sex":
+            if sort_by.split("-")[1] == "male":
+                results = [item for item in results if item['gender'] in ["Erkak", "Мужчина"]]
+            elif sort_by.split("-")[1] == "female":
+                results = [item for item in results if item['gender'] in ["Ayol", "Женщина"]]
+            else:
+                results = results
+        elif sort_by.split("-")[0] == "last":
+            if "-".join(sort_by.split("-")[1:]) == "yesterday":
+                results = [item for item in results if item['last_visit'].day - timezone.now().day in [1, -30, -29, -28, -27]]
+            elif "-".join(sort_by.split("-")[1:]) == "this-week":
+                results = [item for item in results if item['last_visit'].day - timezone.now().day in [7, -24, -23, -22, -21]]
+            elif "-".join(sort_by.split("-")[1:]) == "this-month":
+                results = [item for item in results if item['last_visit'].month - timezone.now().month in [1, -11]]
+            else:
+                results = results
+        else:
+            return 
     return results
+
+
+def sort_patients(array, sort_by):
+    if sort_by == "debt":
+        if len(array) < 2:
+            return array
+        else:
+            middle = array[0]
+            less = [item for item in array[1:] if item['total_sum'] <= middle['total_sum']]
+            greater = [item for item in array[1:] if item['total_sum'] > middle['total_sum']]
+            return sort_patients(less, sort_by) + [middle] + sort_patients(greater, sort_by)
+    else:
+        return array
 
 
 def token_encode(data):
