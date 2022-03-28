@@ -36,7 +36,7 @@ def appointments(request):
     notifications = get_notifications(request, "dentist")
     queries = get_queries(Query.objects.filter(dentist=dentist))
     if request.method == "POST":
-        patientform = PatientForm(request.POST)
+        patientform = AppointmentPatientForm(request.POST)
         appointmentform = AppointmentForm(request.POST)
         if patientform.is_valid() and appointmentform.is_valid():
             name = patientform.cleaned_data['name']
@@ -149,7 +149,7 @@ def appointments(request):
     while day_begin < day_end:
         times.append(day_begin.strftime('%H:%M'))
         day_begin += timedelta(minutes=15)
-    patientform = PatientForm()
+    patientform = AppointmentPatientForm()
     appointmentform = AppointmentForm()
     return render(request, "appointment/appointments.html", {
         'patientform': patientform,

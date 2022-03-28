@@ -3,6 +3,63 @@ from django.utils.translation import ugettext_lazy as _
 from mydentist.var import CHOICES
 
 
+class AppointmentPatientForm(forms.Form):
+
+    name = forms.CharField(
+        label=_("Bemor"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Bemor FIOsi"),
+            }
+        ),
+        localize=True
+    )
+    phone_number = forms.CharField(
+        label=_("Telefon raqami"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control wid",
+                'type': "tel",
+                'pattern': "[(]{1}[\d]{2})[)]{1} [\d]{3}-[\d]{2}-[\d]{2}]",
+                'placeholder': _("(XX) XXX-XX-XX"),
+                'min-length': "14",
+                'max-length': "14"
+            }
+        ),
+        localize=True
+    )
+    birthday = forms.CharField(
+        label=_("Tugilgan sana"),
+        widget=forms.DateInput(
+            attrs={
+                'class': "form-control wid",
+                'type': "date",
+            }
+        ),
+        localize=True
+    )
+    gender = forms.CharField(
+        label=_("Jins"),
+        widget=forms.RadioSelect(
+            attrs={
+                'class': "form-switch m-1",
+            },
+            choices=CHOICES['gender']
+        )
+    )
+    address = forms.CharField(
+        label=_("Manzil"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control w-100",
+                'placeholder': _("Manzilni kiriting"),
+            }
+        ),
+        localize=True
+    )
+
+
 class AppointmentForm(forms.Form):
     
     service = forms.CharField(

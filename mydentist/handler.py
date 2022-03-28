@@ -358,11 +358,11 @@ def get_patients(request, sort_by):
                 results = results
         elif sort_by.split("-")[0] == "last":
             if "-".join(sort_by.split("-")[1:]) == "yesterday":
-                results = [item for item in results if item['last_visit'].day - timezone.now().day in [1, -30, -29, -28, -27]]
+                results = [item for item in results if item['last_visit'] and item['last_visit'].day - timezone.now().day in [1, -30, -29, -28, -27]]
             elif "-".join(sort_by.split("-")[1:]) == "this-week":
-                results = [item for item in results if item['last_visit'].day - timezone.now().day in [7, -24, -23, -22, -21]]
+                results = [item for item in results if item['last_visit'] and item['last_visit'].day - timezone.now().day in [7, -24, -23, -22, -21]]
             elif "-".join(sort_by.split("-")[1:]) == "this-month":
-                results = [item for item in results if item['last_visit'].month - timezone.now().month in [1, -11]]
+                results = [item for item in results if item['last_visit'] and item['last_visit'].month - timezone.now().month in [1, -11]]
             else:
                 results = results
         else:
