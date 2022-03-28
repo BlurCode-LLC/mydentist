@@ -1,3 +1,4 @@
+from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponse
@@ -10,7 +11,7 @@ from baseapp.models import *
 from dentist.models import User as DentistUser, User_translation as DentistUserTranslation, Service, Service_translation
 from illness.models import *
 from patient.forms import PatientForm
-from patient.models import User as PatientUser
+from patient.models import Key, User as PatientUser
 from mydentist.handler import *
 from mydentist.var import *
 from .forms import *
@@ -43,6 +44,7 @@ def appointments(request):
             try:
                 phone_number = patientform.cleaned_data['phone_number']
                 patient = PatientUser.objects.get(phone_number=phone_number)
+                print(patient)
                 patient_user = User.objects.get(pk=patient.user_id)
                 if not (name.split(" ")[0] == patient_user.last_name and name.split(" ")[1] == patient_user.first_name and phone_number == patient.phone_number and str(patient.birthday) == patientform.cleaned_data['birthday'] and patient.gender_id == int(patientform.cleaned_data['gender']) and patient.address == patientform.cleaned_data['address']):
                     is_success = False
@@ -75,6 +77,14 @@ def appointments(request):
                     image="patients/photos/default.png",
                     language=Language.objects.get(name="ru"),
                     gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
+                )
+                key = Key.objects.create(
+                    patient=patient,
+                    key=randint(100000, 999999)
+                )
+                dp = Patient.objects.create(
+                    dentist=dentist,
+                    patient=patient
                 )
                 success = _("Yangi bemor qo'shildi")
                 text = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")

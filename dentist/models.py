@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from baseapp.models import Language
@@ -63,12 +64,12 @@ class User(models.Model):
     birthday = models.DateField(_("Tug'ilgan sanasi"), auto_now=False, auto_now_add=False)
     image = models.ImageField(_("Rasmi"), upload_to="dentists/photos/", default="dentists/photos/default.png")
     language = models.ForeignKey("baseapp.Language", verbose_name=_("Tili"), on_delete=models.CASCADE, related_name="dentist_language")
-    experience = models.IntegerField(_("Tajriba"))
+    experience = models.IntegerField(_("Tajriba"), blank=True, null=True)
     worktime_begin = models.TimeField(_("Ish vaqti boshlanishi"), auto_now=False, auto_now_add=False)
     worktime_end = models.TimeField(_("Ish vaqti tugashi"), auto_now=False, auto_now_add=False)
     work_days = models.IntegerField(_("Ish kunlari soni (6 yoki 7)"))
     is_fullday = models.BooleanField(_("24 soat rejimi"))
-    slug = models.CharField(_("Slug"), max_length=255)
+    slug = models.CharField(_("Slug"), max_length=255, blank=True, null=True)
     clinic = models.ForeignKey("dentist.Clinic", verbose_name=_("Shifoxona"), on_delete=models.CASCADE, related_name="dentist_clinic")
 
     class Meta:
@@ -79,10 +80,15 @@ class User(models.Model):
         return f"{self.user.last_name} {self.user.first_name}"
 
     def save(self, *args, **kwargs):
+        name = f"{self.user.last_name} {self.user.first_name}"
+        self.slug = name.replace(" ", "-").replace("'", "")
         super().save(*args, **kwargs)
-        expire = Expire.objects.get_or_create(
-            dentist=self
-        )
+        expire = Expire.objects.filter(dentist=self).first()
+        if expire is None:
+            expire = Expire.objects.create(
+                dentist=self,
+                expire_date=timezone.now() + timedelta(days=7)
+            )
         trans = User_translation.objects.filter(dentist=self)
         if len(trans) == 0:
             user_translation_uz = User_translation.objects.create(
@@ -227,5 +233,9 @@ class Expire(models.Model):
     
     def save(self, *args, **kwargs):
         if self.expire_date is None:
-            self.expire_date = datetime.today() + timedelta(days=30)
+            expiring = Expire.objects.filter(dentist=self.dentist).last()
+            if expiring is not None:
+                self.expire_date = expiring.expire_date + timedelta(days=30)
+            else:
+                self.expire_date = datetime.today() + timedelta(days=30)
         super().save(*args, **kwargs)
