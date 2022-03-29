@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
-from appointment.forms import AppointmentForm
+from appointment.forms import AppointmentForm, AppointmentPatientForm
 from appointment.models import Query, Appointment
 from baseapp.models import Language, Gender
 from dentist.models import User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
@@ -717,7 +717,7 @@ def patient(request, id, active_tab="profile"):
             )
         })
         number += 1
-    patientform = PatientForm({
+    patientform = AppointmentPatientForm({
         'name': str(patient_extra),
         'phone_number': patient_extra.phone_number,
         'birthday': str(patient_extra.birthday),
