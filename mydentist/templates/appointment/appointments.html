@@ -218,7 +218,7 @@
                     tr = $("<tr class='text-center'></tr>")
                     for (let j = 0; j < (len == 8 ? 5 : 4); j++) {
                         $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            $(`<td ${result[i][j].class == "appointment" ? `rowspan="${result[i][j].rowspan}"` : ""}></td>`).addClass(result[i][j].class).html(result[i][j].name)
                         )
                     }
                     $(tbody).append($(tr))
@@ -246,7 +246,7 @@
                     tr = $("<tr class='text-center'></tr>")
                     for (let j = 0; j < result[i].length; j++) {
                         $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            $(`<td ${result[i][j].class == "appointment" ? `rowspan="${result[i][j].rowspan}"` : ""}></td>`).addClass(result[i][j].class).html(result[i][j].name)
                         )
                         if (j == 0) {
                             j += 3
@@ -275,7 +275,7 @@
                     tr = $("<tr class='text-center'></tr>")
                     for (let j = 0; j < result[i].length; j++) {
                         $(tr).append(
-                            $("<td></td>").addClass(result[i][j].class).html(result[i][j].name)
+                            $(`<td ${result[i][j].class == "appointment" ? `rowspan="${result[i][j].rowspan}"` : ""}></td>`).addClass(result[i][j].class).html(result[i][j].name)
                             )
                     }
                     $(tbody).append($(tr))
@@ -482,6 +482,7 @@
                                 $("#id_phone_number").removeAttr("readonly")
                                 $("#id_birthday").val("")
                                 $("#id_birthday").removeAttr("readonly")
+                                $("#id_gender_0, #id_gender_1").removeAttr("disabled")
                                 $("#id_address").val("")
                                 $("#id_address").removeAttr("readonly")
                             }
@@ -494,6 +495,7 @@
                             $("#id_birthday").attr("readonly", "readonly")
                             $(`#id_gender_${result[$(this).index()]["gender"] - 1}`).attr("checked", true)
                             $("input[name='gender']").on("change", changeDetector)
+                            $("#id_gender_0, #id_gender_1").attr("disabled", "disabled")
                             $("#id_address").val(result[$(this).index()]["address"])
                             $(".input-group div.w-100").remove()
                             $("#id_address").attr("readonly", "readonly")
