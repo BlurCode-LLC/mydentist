@@ -717,6 +717,29 @@ def patient(request, id, active_tab="profile"):
             )
         })
         number += 1
+    services = get_services(
+        Service.objects.filter(dentist=dentist),
+        dentist.language_id
+    )
+    today = date.today()
+    times = []
+    day_begin = datetime(
+        today.year,
+        today.month,
+        today.day,
+        dentist.worktime_begin.hour,
+        dentist.worktime_begin.minute
+    )
+    day_end = datetime(
+        today.year,
+        today.month,
+        today.day,
+        dentist.worktime_end.hour,
+        dentist.worktime_end.minute
+    )
+    while day_begin < day_end:
+        times.append(day_begin.strftime('%H:%M'))
+        day_begin += timedelta(minutes=15)
     patientform = AppointmentPatientForm({
         'name': str(patient_extra),
         'phone_number': patient_extra.phone_number,
@@ -754,6 +777,8 @@ def patient(request, id, active_tab="profile"):
         'otherillnessform': otherillnessform,
         'upcoming': upcoming,
         'appointments': appointments,
+        'services': services,
+        'times': times,
         'patientform': patientform,
         'appointmentform': appointmentform,
         'teeth_upper': teeth_upper,

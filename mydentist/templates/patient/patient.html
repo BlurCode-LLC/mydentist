@@ -358,6 +358,11 @@
                 </div>
                 <div class="tab-pane fade {% if active_tab == "process" %}show active{% endif %}" id="pills-process" role="tabpanel" aria-labelledby="pills-process-tab">
                     <div class="container">
+                        {% if text is not None %}
+                            <div class="alert alert-{% if is_success %}success{% else %}danger{% endif %}">
+                                {{ text }}
+                            </div>
+                        {% endif %}
                         <div class="row align-items-center mb-3">
                             <div class="col"></div>
                             <div class="col-auto">
@@ -372,9 +377,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="form-group" method="POST">
+                                        <form class="form-group" method="POST" action="{% url 'dentx:appointment_plan' %}">
                                             {% csrf_token %}
-                                            <input type="hidden" name="appointment_id"/>
                                             <div class="pats">
                                                 <div class="mb-1 d-flex justify-content-between">
                                                     <label for="id_name">{{ patientform.name.label }}</label>
@@ -385,7 +389,11 @@
                                                 <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
                                                     <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
                                                         <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
-                                                        {{ patientform.phone_number }}
+                                                        {% comment %} {{ patientform.phone_number }} {% endcomment %}
+                                                        <div class="input-group wid">
+                                                            <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
+                                                            {{ patientform.phone_number }}
+                                                        </div>
                                                     </div> 
                                                     <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
                                                         <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
@@ -407,7 +415,7 @@
                                             </div>
                                             <div class="work-time">
                                                 <div class="form-title">
-                                                    <div class="input-group mb-3" style="width: 200px">
+                                                    <div class="input-group mb-3" style="width: 250px">
                                                         <span class="input-group-text" style="border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;">
                                                             <p>
                                                                 <i class="fal fa-calendar-week"></i>
@@ -438,7 +446,6 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Saqlash" %}</button>
-                                                <button class="btn btn-danger mt-2 d-none" type="button" id="appointment-delete-button">{% trans "O'chirish" %}</button>
                                                 <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
                                             </div>
                                         </form>
@@ -482,6 +489,9 @@
                 </div>
                 <div class="tab-pane fade {% if active_tab == "dental-map" %}show active{% endif %}" id="pills-dental-map" role="tabpanel" aria-labelledby="pills-dental-map-tab">
                     <div class="tab-pane fade show active">
+                        <div class="row">
+                            <button id="first-check" on="0" class="btn w-auto rounded-pill px-4" style="border: 1px solid #289cd7; font-weight: 600">{% trans "Birlamchi ko'rik" %}</button>
+                        </div>
                         <div class="row mt-5">
                             {% static 'svg' as path %}
                             <div class="col-12">
@@ -586,6 +596,56 @@
 
 {% block javascript %}
     <script type="text/javascript">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'uz' %}
+        days = [
+            "Dushanba",
+            "Seshanba",
+            "Chorshanba",
+            "Payshanba",
+            "Juma",
+            "Shanba",
+            "Yakshanba"
+        ]
+        months = [
+            "yanvar",
+            "fevral",
+            "mart",
+            "aprel",
+            "may",
+            "iyun",
+            "iyul",
+            "avgust",
+            "sentyabr",
+            "oktyabr",
+            "noyabr",
+            "dekabr"
+        ]
+        {% elif LANGUAGE_CODE == 'ru' %}
+        days = [
+            "Понедельник",
+            "Вторник",
+            "Среда",
+            "Четверг",
+            "Пятница",
+            "Суббота",
+            "Воскресенье"
+        ]
+        months = [
+            "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря"
+        ]
+        {% endif %}
         {% for field in illnessform %}
             {% if field.name == "allergy" %}
                 {% if not field.value %}
@@ -757,9 +817,40 @@
             $("#appointmentModal #id_phone_number").attr("readonly", "readonly")
             $("#appointmentModal #id_birthday").attr("readonly", "readonly")
             $("#appointmentModal input[name='gender']").attr("disabled", "disabled")
+            $("#appointmentModal input[name='gender']:checked").removeAttr("disabled")
             $("#appointmentModal #id_address").attr("readonly", "readonly")
         })
-        console.log($(".tooth > object"))
+        $("#id_service"){% for service in services %}.append(
+            $("<option></option>").html("{{ service.service_name.name }}")
+        )
+        {% endfor %}
+        $("#id_service").on("change", function() {
+            {% for service in services %}
+            if ($("#id_service").val() == "{{ service.service_name.name }}") {
+                $("#id_duration").val("{{ service.service.duration }}").change()
+            }
+            {% endfor %}
+        })
+        $("#id_begin_time"){% for time in times %}.append(
+            $("<option></option>").html("{{ time }}")
+        )
+        {% endfor %}
+        $("input[name='appointment_date']").on("change", function () {
+            let temp = $("input[name='appointment_date']").val()
+            let day = temp.split("-")[2]
+            let month = temp.split("-")[1]
+            let year = temp.split("-")[0]
+            $("#id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
+        })
+        $("#first-check").on("click", function () {
+            if ($("#first-check").attr("on") === "1") {
+                $("#first-check").attr("style", "border: 1px solid #289cd7; font-weight: 600")
+                $("#first-check").attr("on", "0")
+            } else if ($("#first-check").attr("on") === "0") {
+                $("#first-check").attr("style", "background-color: #289cd7; color: white; font-weight: 600")
+                $("#first-check").attr("on", "1")
+            }
+        })
         $(".tooth").on("click", function() {
             $(".hidden-button > button")[0].click()
             $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
