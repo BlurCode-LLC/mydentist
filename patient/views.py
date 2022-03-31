@@ -921,12 +921,56 @@ def update(request, id, form):
                 'counter': counter,
             }, safe=False)
         elif form == "dental-map":
-            tooth = Tooth.objects.get(
-                code=int(request.POST.get('code')),
-                patient=patient
-            )
-            tooth.status_id = int(request.POST.get('status'))
-            tooth.comment = request.POST.get('comment')
-            tooth.save()
-            return redirect("dentx:patient", id=id, active_tab="dental-map")
+            if request.POST['on'] == "1":
+                tooth = Tooth.objects.get(
+                    code=int(request.POST.get('code')),
+                    patient=patient
+                )
+                tooth.status_id = int(request.POST.get('status'))
+                tooth.comment = request.POST.get('comment')
+                tooth.save()
+                return redirect("dentx:patient", id=id, active_tab="dental-map")
+            elif request.POST['on'] == "0":
+                dentist = DentistUser.objects.get(user=request.user)
+                appointmentform = AppointmentForm(request.POST)
+                if appointmentform.is_valid():
+                    service_translation = Service_translation.objects.filter(
+                        name=appointmentform.cleaned_data['service'],
+                        language__pk=dentist.language_id
+                    )[0]
+                    service = Service.objects.get(pk=service_translation.service_id)
+                    begin = appointmentform.cleaned_data['begin_day']
+                    begin_day = int(begin.split("-")[0])
+                    begin_month = MONTHS.index(begin.split("-")[1].split(" ")[0].capitalize()) + 1
+                    begin_year = int(begin.split(" ")[1])
+                    begin_hour = int(appointmentform.cleaned_data['begin_time'].split(":")[0])
+                    begin_minute = int(appointmentform.cleaned_data['begin_time'].split(":")[1])
+                    begin = datetime(begin_year, begin_month, begin_day, begin_hour, begin_minute, tzinfo=timezone.now().tzinfo)
+                    duration = int(appointmentform.cleaned_data['duration'])
+                    duration = timedelta(hours=duration // 60, minutes=duration % 60)
+                    end = begin + duration
+                    if compare_appointment(begin, end, Appointment.objects.filter(
+                        dentist=dentist,
+                        begin__year=begin_year,
+                        begin__month=begin_month,
+                        begin__day=begin_day
+                    )):
+                        appointment = Appointment.objects.create(
+                            dentist=dentist,
+                            patient=patient,
+                            service=service,
+                            begin=begin,
+                            end=end,
+                            comment=f"{request.POST['code']}-{_('tish')}{appointmentform.cleaned_data['comment']}",
+                            status="waiting"
+                        )
+                        notification = Dentist2patient.objects.create(
+                            sender=dentist,
+                            recipient=patient,
+                            type="appointment",
+                            message=f"{service.name}{NEW_LINE}{dentist.id}",
+                            datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
+                            is_read=False
+                        )
+                return redirect("dentx:patient", id=id, active_tab="dental-map")
         return redirect("dentx:patient", id=id, active_tab="profile")

@@ -531,12 +531,9 @@ def appointment_plan(request):
     dentist = DentistUser.objects.get(user=request.user)
     text = None
     if request.method == "POST":
-        print(request.POST)
         patientform = AppointmentPatientForm(request.POST)
         appointmentform = AppointmentForm(request.POST)
         if patientform.is_valid() and appointmentform.is_valid():
-            print(patientform.cleaned_data)
-            print(appointmentform.cleaned_data)
             phone_number = patientform.cleaned_data['phone_number']
             patient = PatientUser.objects.get(phone_number=phone_number)
             service_translation = Service_translation.objects.filter(

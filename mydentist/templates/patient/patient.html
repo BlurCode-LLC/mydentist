@@ -530,18 +530,13 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action={% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %} method="POST">
+                                    <form action="{% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %}" method="POST">
                                         {% csrf_token %}
+                                        <input type="number" id="id_on" name="on" class="d-none" required/>
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="d-flex flex-wrap justify-content-around">
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
-                                                <input type="number" id="id_code" name="code" class="form-control d-none" required/>
-                                                <input type="number" id="id_status" name="status" class="form-control d-none" required/>
-                                                <label for="id_comment" class="mb-1">Izoh</label>
-                                                <input type="text" id="id_comment" name="comment" class="form-control mb-3"/>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -820,27 +815,27 @@
             $("#appointmentModal input[name='gender']:checked").removeAttr("disabled")
             $("#appointmentModal #id_address").attr("readonly", "readonly")
         })
-        $("#id_service"){% for service in services %}.append(
+        $("#appointmentModal #id_service"){% for service in services %}.append(
             $("<option></option>").html("{{ service.service_name.name }}")
         )
         {% endfor %}
-        $("#id_service").on("change", function() {
+        $("#appointmentModal #id_service").on("change", function() {
             {% for service in services %}
             if ($("#id_service").val() == "{{ service.service_name.name }}") {
                 $("#id_duration").val("{{ service.service.duration }}").change()
             }
             {% endfor %}
         })
-        $("#id_begin_time"){% for time in times %}.append(
+        $("#appointmentModal #id_begin_time"){% for time in times %}.append(
             $("<option></option>").html("{{ time }}")
         )
         {% endfor %}
-        $("input[name='appointment_date']").on("change", function () {
-            let temp = $("input[name='appointment_date']").val()
+        $("#appointmentModal input[name='appointment_date']").on("change", function () {
+            let temp = $("#appointmentModal input[name='appointment_date']").val()
             let day = temp.split("-")[2]
             let month = temp.split("-")[1]
             let year = temp.split("-")[0]
-            $("#id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
+            $("#appointmentModal #id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
         })
         $("#first-check").on("click", function () {
             if ($("#first-check").attr("on") === "1") {
@@ -854,30 +849,112 @@
         $(".tooth").on("click", function() {
             $(".hidden-button > button")[0].click()
             $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
-            let code = $(this).attr("code")
-            {% static 'svg' as path %}
-            {% for status in teeth_status %}
-            if ($(this).attr("status") != "{{ status.prefix }}") {
-                $("#toothModal .modal-body .row > .col-12 > .d-flex").append(
-                    $("<div class='d-flex flex-column align-items-center justify-content-end pb-3 px-3' style='border: 2px solid transparent' status='{{ status.id }}'></div>").append(
-                        $(`<img src='{{ path }}/{{ status.prefix }}-${code}.svg' width='40' />`),
-                        $("<span class='badge bg-secondary mt-3'></span>").html(code),
-                        $("<span></span>").html("{{ status.name }}")
+            if ($("#first-check").attr("on") === "1") {
+                $("#id_on").val(1)
+                if ($(".details").length != 0) {
+                    $(".details").remove()
+                }
+                let code = $(this).attr("code")
+                {% static 'svg' as path %}
+                {% for status in teeth_status %}
+                if ($(this).attr("status") != "{{ status.prefix }}") {
+                    $("#toothModal .modal-body .row > .col-12 > .d-flex").append(
+                        $("<div class='d-flex flex-column align-items-center justify-content-end pb-3 px-3' style='border: 2px solid transparent' status='{{ status.id }}'></div>").append(
+                            $(`<img src='{{ path }}/{{ status.prefix }}-${code}.svg' width='40' />`),
+                            $("<span class='badge bg-secondary mt-3'></span>").html(code),
+                            $("<span></span>").html("{{ status.name }}")
+                        )
+                    )
+                }
+                {% endfor %}
+                $("#toothModal .modal-body .row").append(
+                    $("<div class=\"details col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12\"></div>").append(
+                        $("<input type=\"number\" id=\"id_code\" name=\"code\" class=\"form-control d-none\" required/>"),
+                        $("<input type=\"number\" id=\"id_status\" name=\"status\" class=\"form-control d-none\" required/>"),
+                        $("<label for=\"id_comment\" class=\"mb-1\"></label>").html("Izoh"),
+                        $("<input type=\"text\" id=\"id_comment\" name=\"comment\" class=\"form-control mb-3\"/>")
                     )
                 )
+                $("#id_code").val(code)
+                $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").on("click", function () {
+                    $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").css({
+                        "border": "2px solid transparent",
+                    })
+                    $(this).css({
+                        "border": "2px solid #0d6efd",
+                        "border-radius": "5px",
+                    })
+                    $("#id_status").val($(this).attr("status"))
+                })
+            } else if ($("#first-check").attr("on") === "0") {
+                $("#id_on").val(0)
+                if ($(".details").length != 0) {
+                    $(".details").remove()
+                }
+                $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
+                $("#toothModal .modal-body .row").append(
+                    $("<div class=\"details px-4\"></div>").append(
+                        $("<input type=\"number\" id=\"id_code\" name=\"code\" class=\"form-control d-none\" required/>"),
+                        $("<div class=\"form-title\"></div>").append(
+                            $("<div class=\"input-group mb-3\" style=\"width: 250px\"></div>").append(
+                                $("<span class=\"input-group-text\" style=\"border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;\"></span>").append(
+                                    $("<p></p>").append(
+                                        $("<i class=\"fal fa-calendar-week\"></i>")
+                                    )
+                                ),
+                                $("<input type=\"date\" name=\"appointment_date\" class=\"form-control\" required/>")
+                            )
+                        ),
+                        $("<div class=\"bottom-inputs d-flex justify-content-between flex-wrap my-4\"></div>").append(
+                            $('<div class="left col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_service\"></label>").html("{{ appointmentform.service.label }}"),
+                                $("<select name='service' class='form-select wid' id='id_service'></select>")
+                            ),
+                            $('{{ appointmentform.begin_day }}'),
+                            $('<div class="center col-12 col-lg-3 d-flex flex-column align-items-start"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_begin_time\"></label>").html("{{ appointmentform.begin_time.label }}"),
+                                $("<select name='begin_time' class='form-select wid' id='id_begin_time'></select>")
+                            ),
+                            $('<div class="end col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_duration\"></label>").html("{{ appointmentform.duration.label }}"),
+                                $("<select name='duration' class='form-select wid' id='id_duration'></select>")
+                            ),
+                            $('<div class="end col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_comment\"></label>").html("{{ appointmentform.comment.label }}"),
+                                $('<textarea name="comment" cols="30" rows="10" class="form-control w-100" id="id_comment"></textarea>')
+                            ),
+                        )
+                    )
+                )
+                let code = $(this).attr("code")
+                $("#id_code").val(code)
+                $("#toothModal #id_duration"){% for option in appointmentform.duration %}.append(
+                    $('{{ option }}')
+                )
+                {% endfor %}
+                $("#toothModal #id_service"){% for service in services %}.append(
+                    $("<option></option>").html("{{ service.service_name.name }}")
+                )
+                {% endfor %}
+                $("#toothModal #id_service").on("change", function() {
+                    {% for service in services %}
+                    if ($("#id_service").val() == "{{ service.service_name.name }}") {
+                        $("#id_duration").val("{{ service.service.duration }}").change()
+                    }
+                    {% endfor %}
+                })
+                $("#toothModal #id_begin_time"){% for time in times %}.append(
+                    $("<option></option>").html("{{ time }}")
+                )
+                {% endfor %}
+                $("#toothModal input[name='appointment_date']").on("change", function () {
+                    let temp = $("#toothModal input[name='appointment_date']").val()
+                    let day = temp.split("-")[2]
+                    let month = temp.split("-")[1]
+                    let year = temp.split("-")[0]
+                    $("#toothModal #id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
+                })
             }
-            {% endfor %}
-            $("#id_code").val(code)
-            $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").on("click", function () {
-                $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").css({
-                    "border": "2px solid transparent",
-                })
-                $(this).css({
-                    "border": "2px solid #0d6efd",
-                    "border-radius": "5px",
-                })
-                $("#id_status").val($(this).attr("status"))
-            })
         })
         let intervalFunc
         $("#process-photo-upload-button").on("click", function() {
