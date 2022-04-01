@@ -167,8 +167,6 @@
 
         <script type="text/javascript">
             function addReminder(element, category, id=null) {
-                console.log()
-                console.log($(element).prev().prev().html())
                 if ($(element).attr("id") == `add-${category}`) {   
                     $(element).after(
                         $(`<div id="add-${category}" class="input-group w-25" key=></div>`).append(
@@ -274,19 +272,21 @@
                 }
             }
             function deleteReminder(element, type, category, id=null) {
-                $.ajax({
-                    url: "{% url 'dentx:reminders' %}",
-                    method: "POST",
-                    data: {
-                        csrfmiddlewaretoken: "{{ csrf_token }}",
-                        type: type,
-                        id: id
-                    }
-                }).always(function(result) {
-                    $("#do-reminders .mb-2").empty()
-                    $("#buy-reminders .mb-2").empty()
-                    reminders(result)
-                })
+                if (confirm("{% trans "Eslatmani o'chirishni tasdiqlaysizmi?" %}") === true) {
+                    $.ajax({
+                        url: "{% url 'dentx:reminders' %}",
+                        method: "POST",
+                        data: {
+                            csrfmiddlewaretoken: "{{ csrf_token }}",
+                            type: type,
+                            id: id
+                        }
+                    }).always(function(result) {
+                        $("#do-reminders .mb-2").empty()
+                        $("#buy-reminders .mb-2").empty()
+                        reminders(result)
+                    })
+                }
             }
             function reminders(result) {
                 for (let i = 0; i < result["do"].length; i++) {

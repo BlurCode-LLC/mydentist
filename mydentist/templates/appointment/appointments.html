@@ -356,15 +356,17 @@
                     $("#id_comment").val(result["comment"])
                     $("#appointment-delete-button").removeClass("d-none")
                     $("#appointment-delete-button").on("click", function() {
-                        $("section .container-fluid").append(
-                            $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
-                                $('{% csrf_token %}'),
-                                $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
-                                $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
-                                $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
+                        if (confirm("{% trans "Yozuvni o'chirishni tasdiqlaysizmi?" %}") === true) {
+                            $("section .container-fluid").append(
+                                $("<form method=\"POST\" class=\"d-none\" action=\"{% url 'dentx:appointments_delete' %}\"></form>").append(
+                                    $('{% csrf_token %}'),
+                                    $("<button id=\"appointment-delete-form-button\" type=\"submit\"></button>"),
+                                    $(`<input type="text" name="delete_date" value="${result.date}"></button>`),
+                                    $(`<input type="text" name="delete_time" value="${result.time}"></button>`)
+                                )
                             )
-                        )
-                        $("#appointment-delete-form-button").click()
+                            $("#appointment-delete-form-button").click()
+                        }
                     })
                 })
             })
