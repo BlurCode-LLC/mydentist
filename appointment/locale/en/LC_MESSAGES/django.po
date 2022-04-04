@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-03 14:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\appointment\apps.py:8
+msgid "Qabullar va so'rovlar"
+msgstr ""
+
+#: .\appointment\forms.py:9 .\appointment\models.py:11
+#: .\appointment\models.py:26
+msgid "Bemor"
+msgstr ""
+
+#: .\appointment\forms.py:13
+msgid "Bemor FIOsi"
+msgstr ""
+
+#: .\appointment\forms.py:19
+msgid "Telefon raqami"
+msgstr ""
+
+#: .\appointment\forms.py:25
+msgid "(XX) XXX-XX-XX"
+msgstr ""
+
+#: .\appointment\forms.py:33
+msgid "Tugilgan sana"
+msgstr ""
+
+#: .\appointment\forms.py:43
+msgid "Jins"
+msgstr ""
+
+#: .\appointment\forms.py:52
+msgid "Manzil"
+msgstr ""
+
+#: .\appointment\forms.py:56
+msgid "Manzilni kiriting"
+msgstr ""
+
+#: .\appointment\forms.py:66 .\appointment\models.py:27
+msgid "Xizmat"
+msgstr ""
+
+#: .\appointment\forms.py:78 .\appointment\models.py:28
+msgid "Boshlanish vaqti"
+msgstr ""
+
+#: .\appointment\forms.py:86
+msgid "Davomiyligi"
+msgstr ""
+
+#: .\appointment\forms.py:95
+msgid "Eslatma"
+msgstr ""
+
+#: .\appointment\models.py:10 .\appointment\models.py:25
+msgid "Tish shifokori"
+msgstr ""
+
+#: .\appointment\models.py:12
+msgid "Sabab"
+msgstr ""
+
+#: .\appointment\models.py:13 .\appointment\models.py:30
+msgid "Izohlar"
+msgstr ""
+
+#: .\appointment\models.py:16
+msgid "So'rov"
+msgstr ""
+
+#: .\appointment\models.py:17
+msgid "So'rovlar"
+msgstr ""
+
+#: .\appointment\models.py:29
+msgid "Tugash vaqti"
+msgstr ""
+
+#: .\appointment\models.py:31
+msgid "Qabul holati"
+msgstr ""
+
+#: .\appointment\models.py:34
+msgid "Qabul"
+msgstr ""
+
+#: .\appointment\models.py:35
+msgid "Qabullar"
+msgstr ""
+
+#: .\appointment\views.py:51
+msgid "Bemor ma'lumotlari to'g'ri kelmayapti"
+msgstr ""
+
+#: .\appointment\views.py:89
+msgid "Yangi bemor qo'shildi"
+msgstr ""
+
+#: .\appointment\views.py:137 .\appointment\views.py:578
+msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
+msgstr ""
+
+#: .\appointment\views.py:254
+msgid "Kutilmoqda"
+msgstr ""
+
+#: .\appointment\views.py:256
+msgid "Kelgan"
+msgstr ""
+
+#: .\appointment\views.py:258
+msgid "Kelmagan"
+msgstr ""

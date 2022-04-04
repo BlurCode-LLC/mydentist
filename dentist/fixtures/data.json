@@ -155,6 +155,17 @@
         "model": "dentist.clinic_translation",
         "pk": 3,
         "fields": {
+            "clinic": 1,
+            "name": "Sog'lom tabassum",
+            "address": "Проспект Бабура, 109-б",
+            "orientir": "Бизнес-центр Хамкор",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 4,
+        "fields": {
             "clinic": 2,
             "name": "Biostomadent",
             "address": "Pirmuhammedov ko'chasi",
@@ -164,7 +175,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 4,
+        "pk": 5,
         "fields": {
             "clinic": 2,
             "name": "Biostomadent",
@@ -175,7 +186,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 5,
+        "pk": 6,
+        "fields": {
+            "clinic": 2,
+            "name": "Biostomadent",
+            "address": "Улица Пирмухаммедова",
+            "orientir": "Трикотаж",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 7,
         "fields": {
             "clinic": 3,
             "name": "Musaffo Stoma Servis",
@@ -186,7 +208,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 6,
+        "pk": 8,
         "fields": {
             "clinic": 3,
             "name": "Musaffo Stoma Servis",
@@ -197,7 +219,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 7,
+        "pk": 9,
+        "fields": {
+            "clinic": 3,
+            "name": "Musaffo Stoma Servis",
+            "address": "Проспект Навои",
+            "orientir": "Хокимият Андижанской области",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 10,
         "fields": {
             "clinic": 4,
             "name": "\"Xurshid\" davolash muassasasi",
@@ -208,7 +241,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 8,
+        "pk": 11,
         "fields": {
             "clinic": 4,
             "name": "Медицинское учреждение \"Xurshid\"",
@@ -219,7 +252,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 9,
+        "pk": 12,
+        "fields": {
+            "clinic": 4,
+            "name": "Медицинское учреждение \"Xurshid\"",
+            "address": "Квартал Далварзин, улица Сарбон, 12",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 13,
         "fields": {
             "clinic": 5,
             "name": "Family Dent",
@@ -230,7 +274,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 10,
+        "pk": 14,
         "fields": {
             "clinic": 5,
             "name": "Family Dent",
@@ -241,7 +285,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 11,
+        "pk": 15,
+        "fields": {
+            "clinic": 5,
+            "name": "Family Dent",
+            "address": "Проспект Навои",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 16,
         "fields": {
             "clinic": 6,
             "name": "Medical Pro klinikasi",
@@ -252,7 +307,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 12,
+        "pk": 17,
         "fields": {
             "clinic": 6,
             "name": "Клиника Medical Pro",
@@ -263,7 +318,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 13,
+        "pk": 18,
+        "fields": {
+            "clinic": 6,
+            "name": "Клиника Medical Pro",
+            "address": "Улица А.Юлдашева",
+            "orientir": "Глазная клиника",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 19,
         "fields": {
             "clinic": 7,
             "name": "Red-White Dental Clinic",
@@ -274,7 +340,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 14,
+        "pk": 20,
         "fields": {
             "clinic": 7,
             "name": "Red-White Dental Clinic",
@@ -285,7 +351,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 15,
+        "pk": 21,
+        "fields": {
+            "clinic": 7,
+            "name": "Red-White Dental Clinic",
+            "address": "Проспект Бабура",
+            "orientir": "Главный офис Хамкорбанк",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 22,
         "fields": {
             "clinic": 8,
             "name": "Neodent Clinic",
@@ -296,7 +373,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 16,
+        "pk": 23,
         "fields": {
             "clinic": 8,
             "name": "Neodent Clinic",
@@ -307,7 +384,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 17,
+        "pk": 24,
+        "fields": {
+            "clinic": 8,
+            "name": "Neodent Clinic",
+            "address": "Северный малый квартал, проспект Бабура",
+            "orientir": "Диетические блюда Гумбаз",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 25,
         "fields": {
             "clinic": 9,
             "name": "Andijon viloyat stomatologiya poliklinikasi",
@@ -318,7 +406,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 18,
+        "pk": 26,
         "fields": {
             "clinic": 9,
             "name": "Андижанская областная стоматологическая поликлиника",
@@ -329,7 +417,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 19,
+        "pk": 27,
+        "fields": {
+            "clinic": 9,
+            "name": "Андижанская областная стоматологическая поликлиника",
+            "address": "Проспект Бабура, 87",
+            "orientir": "1-роддом",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 28,
         "fields": {
             "clinic": 10,
             "name": "Stomatologiya",
@@ -340,7 +439,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 20,
+        "pk": 29,
         "fields": {
             "clinic": 10,
             "name": "Стоматология",
@@ -351,7 +450,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 21,
+        "pk": 30,
+        "fields": {
+            "clinic": 10,
+            "name": "Стоматология",
+            "address": "Город Асака",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 31,
         "fields": {
             "clinic": 11,
             "name": "Viloyat bolalar stomatologiya poliklinikasi",
@@ -362,7 +472,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 22,
+        "pk": 32,
         "fields": {
             "clinic": 11,
             "name": "Областная детская стоматологическая поликлиника",
@@ -373,7 +483,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 23,
+        "pk": 33,
+        "fields": {
+            "clinic": 11,
+            "name": "Областная детская стоматологическая поликлиника",
+            "address": "Улица Байналминал (Чулпана)",
+            "orientir": "Центр молодёжи",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 32,
         "fields": {
             "clinic": 12,
             "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
@@ -384,7 +505,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 24,
+        "pk": 33,
         "fields": {
             "clinic": 12,
             "name": "Клиника \"Стоматолог\" (Городская)",
@@ -395,7 +516,18 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 25,
+        "pk": 36,
+        "fields": {
+            "clinic": 12,
+            "name": "Клиника \"Стоматолог\" (Городская)",
+            "address": "3-Микрорайон",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 37,
         "fields": {
             "clinic": 13,
             "name": "Oila-dent klinikasi",
@@ -406,13 +538,24 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 26,
+        "pk": 38,
         "fields": {
             "clinic": 13,
             "name": "Клиника Oila-dent",
             "address": "Проспект. Улица Дукчи Эшон 24-б",
             "orientir": "Tashkent Premium",
             "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 39,
+        "fields": {
+            "clinic": 13,
+            "name": "Клиника Oila-dent",
+            "address": "Проспект. Улица Дукчи Эшон 24-б",
+            "orientir": "Tashkent Premium",
+            "language": 3
         }
     },
     {
@@ -781,6 +924,16 @@
         "model": "dentist.user_translation",
         "pk": 3,
         "fields": {
+            "dentist": 1,
+            "language": 3,
+            "fullname": "Муйдинова Барнохон Аскаровна",
+            "speciality": "Стоматолог высшего уровня, Терапевт, Ортопед, Хирург"
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 4,
+        "fields": {
             "dentist": 2,
             "language": 1,
             "fullname": "Qodirov Muhammadali Mahammadsoli o'g'li",
@@ -789,7 +942,7 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 4,
+        "pk": 5,
         "fields": {
             "dentist": 2,
             "language": 2,
@@ -799,7 +952,17 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 5,
+        "pk": 6,
+        "fields": {
+            "dentist": 2,
+            "language": 3,
+            "fullname": "Кодиров Мухаммадали Махаммадсоли угли",
+            "speciality": "Стоматолог, Ортодонт"
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 7,
         "fields": {
             "dentist": 3,
             "language": 1,
@@ -809,7 +972,7 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 6,
+        "pk": 8,
         "fields": {
             "dentist": 3,
             "language": 2,
@@ -819,7 +982,17 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 7,
+        "pk": 9,
+        "fields": {
+            "dentist": 3,
+            "language": 3,
+            "fullname": "Тожибоев Розижон Адбужабборович",
+            "speciality": "Стоматолог высшего уровня, Ортопед"
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 10,
         "fields": {
             "dentist": 4,
             "language": 1,
@@ -829,7 +1002,7 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 8,
+        "pk": 11,
         "fields": {
             "dentist": 4,
             "language": 2,
@@ -839,7 +1012,17 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 9,
+        "pk": 12,
+        "fields": {
+            "dentist": 4,
+            "language": 3,
+            "fullname": "Ибрагимов Дилмуроджон Закиржанович",
+            "speciality": "Стоматолог, Ортопед, Терапевт, Хирург, Имплантолог"
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 13,
         "fields": {
             "dentist": 5,
             "language": 1,
@@ -849,7 +1032,7 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 10,
+        "pk": 14,
         "fields": {
             "dentist": 5,
             "language": 2,
@@ -859,17 +1042,27 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 11,
+        "pk": 15,
         "fields": {
-            "dentist": 6,
-            "language": 1,
-            "fullname": "Ibrohimov Muhammadaziz Abdurasul o'g'li",
-            "speciality": "Stomatolog"
+            "dentist": 5,
+            "language": 3,
+            "fullname": "Shokirov Khurshidbek Usmonovich",
+            "speciality": "Orthodontist, Therapist, Orthopedist, Surgeon"
         }
     },
     {
         "model": "dentist.user_translation",
-        "pk": 12,
+        "pk": 16,
+        "fields": {
+            "dentist": 6,
+            "language": 1,
+            "fullname": "Ibrohimov Muhammadaziz Abdurasul o'g'li",
+            "speciality": "Ortodont, Terapevt, Ortoped, Implantolog"
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 17,
         "fields": {
             "dentist": 6,
             "language": 2,
@@ -879,71 +1072,21 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 13,
-        "fields": {
-            "dentist": 7,
-            "language": 1,
-            "fullname": "Pulatov Nosirullo",
-            "speciality": ""
-        }
-    },
-    {
-        "model": "dentist.user_translation",
-        "pk": 14,
-        "fields": {
-            "dentist": 7,
-            "language": 2,
-            "fullname": "Pulatov Nosirullo",
-            "speciality": ""
-        }
-    },
-    {
-        "model": "dentist.user_translation",
-        "pk": 15,
-        "fields": {
-            "dentist": 8,
-            "language": 1,
-            "fullname": "Karimqulov Nodirbek",
-            "speciality": ""
-        }
-    },
-    {
-        "model": "dentist.user_translation",
-        "pk": 16,
-        "fields": {
-            "dentist": 8,
-            "language": 2,
-            "fullname": "Karimqulov Nodirbek",
-            "speciality": ""
-        }
-    },
-    {
-        "model": "dentist.user_translation",
-        "pk": 17,
-        "fields": {
-            "dentist": 9,
-            "language": 1,
-            "fullname": "Usmonov Baxtiyor",
-            "speciality": ""
-        }
-    },
-    {
-        "model": "dentist.user_translation",
         "pk": 18,
         "fields": {
-            "dentist": 9,
-            "language": 2,
-            "fullname": "Usmonov Baxtiyor",
-            "speciality": ""
+            "dentist": 6,
+            "language": 3,
+            "fullname": "Ibrokhimov Mukhammadaziz Abdurasul ugli",
+            "speciality": "Orthodontist, Therapist, Orthopedist, Implantologist"
         }
     },
     {
         "model": "dentist.user_translation",
         "pk": 19,
         "fields": {
-            "dentist": 10,
+            "dentist": 7,
             "language": 1,
-            "fullname": "Qurbonov Egamberdi",
+            "fullname": "Pulatov Nosirullo",
             "speciality": ""
         }
     },
@@ -951,9 +1094,9 @@
         "model": "dentist.user_translation",
         "pk": 20,
         "fields": {
-            "dentist": 10,
+            "dentist": 7,
             "language": 2,
-            "fullname": "Qurbonov Egamberdi",
+            "fullname": "Пулатов Носирулло",
             "speciality": ""
         }
     },
@@ -961,9 +1104,9 @@
         "model": "dentist.user_translation",
         "pk": 21,
         "fields": {
-            "dentist": 11,
-            "language": 1,
-            "fullname": "Ahmedov Muzaffarbek",
+            "dentist": 7,
+            "language": 3,
+            "fullname": "Pulatov Nosirullo",
             "speciality": ""
         }
     },
@@ -971,9 +1114,9 @@
         "model": "dentist.user_translation",
         "pk": 22,
         "fields": {
-            "dentist": 11,
-            "language": 2,
-            "fullname": "Ahmedov Muzaffarbek",
+            "dentist": 8,
+            "language": 1,
+            "fullname": "Karimqulov Nodirbek",
             "speciality": ""
         }
     },
@@ -981,9 +1124,9 @@
         "model": "dentist.user_translation",
         "pk": 23,
         "fields": {
-            "dentist": 12,
-            "language": 1,
-            "fullname": "Tojiboyev Azizbek",
+            "dentist": 8,
+            "language": 2,
+            "fullname": "Каримкулов Нодирбек",
             "speciality": ""
         }
     },
@@ -991,9 +1134,9 @@
         "model": "dentist.user_translation",
         "pk": 24,
         "fields": {
-            "dentist": 12,
-            "language": 2,
-            "fullname": "Tojiboyev Azizbek",
+            "dentist": 8,
+            "language": 3,
+            "fullname": "Karimqulov Nodirbek",
             "speciality": ""
         }
     },
@@ -1001,9 +1144,9 @@
         "model": "dentist.user_translation",
         "pk": 25,
         "fields": {
-            "dentist": 13,
+            "dentist": 9,
             "language": 1,
-            "fullname": "Mamajonov Baxtiyor",
+            "fullname": "Usmonov Baxtiyor",
             "speciality": ""
         }
     },
@@ -1011,9 +1154,9 @@
         "model": "dentist.user_translation",
         "pk": 26,
         "fields": {
-            "dentist": 13,
+            "dentist": 9,
             "language": 2,
-            "fullname": "Mamajonov Baxtiyor",
+            "fullname": "Усмонов Бахтиёр",
             "speciality": ""
         }
     },
@@ -1021,9 +1164,9 @@
         "model": "dentist.user_translation",
         "pk": 27,
         "fields": {
-            "dentist": 14,
-            "language": 1,
-            "fullname": "Sadikova Irodaxon",
+            "dentist": 9,
+            "language": 3,
+            "fullname": "Usmonov Bakhtiyor",
             "speciality": ""
         }
     },
@@ -1031,9 +1174,9 @@
         "model": "dentist.user_translation",
         "pk": 28,
         "fields": {
-            "dentist": 14,
-            "language": 2,
-            "fullname": "Sadikova Irodaxon",
+            "dentist": 10,
+            "language": 1,
+            "fullname": "Qurbonov Egamberdi",
             "speciality": ""
         }
     },
@@ -1041,9 +1184,9 @@
         "model": "dentist.user_translation",
         "pk": 29,
         "fields": {
-            "dentist": 15,
-            "language": 1,
-            "fullname": "Valiyev Zaynobiddin",
+            "dentist": 10,
+            "language": 2,
+            "fullname": "Курбонов Эгамберди",
             "speciality": ""
         }
     },
@@ -1051,9 +1194,9 @@
         "model": "dentist.user_translation",
         "pk": 30,
         "fields": {
-            "dentist": 15,
-            "language": 2,
-            "fullname": "Valiyev Zaynobiddin",
+            "dentist": 10,
+            "language": 3,
+            "fullname": "Qurbonov Egamberdi",
             "speciality": ""
         }
     },
@@ -1061,9 +1204,9 @@
         "model": "dentist.user_translation",
         "pk": 31,
         "fields": {
-            "dentist": 16,
+            "dentist": 11,
             "language": 1,
-            "fullname": "Xurboyev Durbek",
+            "fullname": "Ahmedov Muzaffarbek",
             "speciality": ""
         }
     },
@@ -1071,9 +1214,9 @@
         "model": "dentist.user_translation",
         "pk": 32,
         "fields": {
-            "dentist": 16,
+            "dentist": 11,
             "language": 2,
-            "fullname": "Xurboyev Durbek",
+            "fullname": "Ахмедов Музаффарбек",
             "speciality": ""
         }
     },
@@ -1081,9 +1224,9 @@
         "model": "dentist.user_translation",
         "pk": 33,
         "fields": {
-            "dentist": 17,
-            "language": 1,
-            "fullname": "Jaxongirov Saidbek",
+            "dentist": 11,
+            "language": 3,
+            "fullname": "Akhmedov Muzaffarbek",
             "speciality": ""
         }
     },
@@ -1091,15 +1234,185 @@
         "model": "dentist.user_translation",
         "pk": 34,
         "fields": {
-            "dentist": 17,
-            "language": 2,
-            "fullname": "Jaxongirov Saidbek",
+            "dentist": 12,
+            "language": 1,
+            "fullname": "Tojiboyev Azizbek",
             "speciality": ""
         }
     },
     {
         "model": "dentist.user_translation",
         "pk": 35,
+        "fields": {
+            "dentist": 12,
+            "language": 2,
+            "fullname": "Тоджибоев Азизбек",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 36,
+        "fields": {
+            "dentist": 12,
+            "language": 3,
+            "fullname": "Todjiboev Azizbek",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 37,
+        "fields": {
+            "dentist": 13,
+            "language": 1,
+            "fullname": "Mamajonov Baxtiyor",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 38,
+        "fields": {
+            "dentist": 13,
+            "language": 2,
+            "fullname": "Мамаджонов Бахтиёр",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 39,
+        "fields": {
+            "dentist": 13,
+            "language": 3,
+            "fullname": "Mamadjonov Bakhtiyor",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 40,
+        "fields": {
+            "dentist": 14,
+            "language": 1,
+            "fullname": "Sadikova Irodaxon",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 41,
+        "fields": {
+            "dentist": 14,
+            "language": 2,
+            "fullname": "Садикова Иродахон",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 42,
+        "fields": {
+            "dentist": 14,
+            "language": 3,
+            "fullname": "Sadikova Irodakhon",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 43,
+        "fields": {
+            "dentist": 15,
+            "language": 1,
+            "fullname": "Valiyev Zaynobiddin",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 44,
+        "fields": {
+            "dentist": 15,
+            "language": 2,
+            "fullname": "Валиев Зайнобиддин",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 45,
+        "fields": {
+            "dentist": 15,
+            "language": 3,
+            "fullname": "Valiev Zaynobiddin",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 46,
+        "fields": {
+            "dentist": 16,
+            "language": 1,
+            "fullname": "Xurboyev Durbek",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 47,
+        "fields": {
+            "dentist": 16,
+            "language": 2,
+            "fullname": "Хурбоев Дурбек",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 48,
+        "fields": {
+            "dentist": 16,
+            "language": 3,
+            "fullname": "Khurboev Durbek",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 49,
+        "fields": {
+            "dentist": 17,
+            "language": 1,
+            "fullname": "Jaxongirov Saidbek",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 50,
+        "fields": {
+            "dentist": 17,
+            "language": 2,
+            "fullname": "Джахонгиров Саидбек",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 51,
+        "fields": {
+            "dentist": 17,
+            "language": 3,
+            "fullname": "Djakhongirov Saidbek",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 52,
         "fields": {
             "dentist": 18,
             "language": 1,
@@ -1109,11 +1422,21 @@
     },
     {
         "model": "dentist.user_translation",
-        "pk": 36,
+        "pk": 53,
         "fields": {
             "dentist": 18,
             "language": 2,
-            "fullname": "Jo'rayeva Nigoraxon",
+            "fullname": "Джураева Нигорахон",
+            "speciality": ""
+        }
+    },
+    {
+        "model": "dentist.user_translation",
+        "pk": 54,
+        "fields": {
+            "dentist": 18,
+            "language": 3,
+            "fullname": "Djuraeva Nigorakhon",
             "speciality": ""
         }
     },

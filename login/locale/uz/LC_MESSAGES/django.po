@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 18:40+0500\n"
+"POT-Creation-Date: 2022-04-03 14:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,10 @@ msgid "Kirish ma'lumotlari"
 msgstr ""
 
 #: .\login\forms.py:8
-msgid "E-mail yoki telefon raqam"
+msgid "Telefon raqam"
 msgstr ""
 
-#: .\login\forms.py:17 .\login\forms.py:39 .\login\forms.py:96
+#: .\login\forms.py:17 .\login\forms.py:39 .\login\forms.py:97
 msgid "Parol"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Yangi parol"
 msgstr ""
 
-#: .\login\forms.py:70 .\login\forms.py:105
+#: .\login\forms.py:70 .\login\forms.py:106
 msgid "Parolni tasdiqlang"
 msgstr ""
 
@@ -70,31 +70,31 @@ msgstr ""
 msgid "Parol tiklanishlari"
 msgstr ""
 
-#: .\login\views.py:134
+#: .\login\views.py:146
 msgid "Parollar to'g'ri kemayapti"
 msgstr ""
 
-#: .\login\views.py:185 .\login\views.py:210
+#: .\login\views.py:197 .\login\views.py:222
 msgid "Xato parol"
 msgstr ""
 
-#: .\login\views.py:215
+#: .\login\views.py:227
 msgid "Xato e-mail"
 msgstr ""
 
-#: .\login\views.py:256
+#: .\login\views.py:268
 msgid "Parolni tiklash"
 msgstr ""
 
-#: .\login\views.py:297
+#: .\login\views.py:309
 msgid "Parollar mos kelmayapti"
 msgstr ""
 
-#: .\login\views.py:312 .\login\views.py:314 .\login\views.py:316
-#: .\login\views.py:318
+#: .\login\views.py:324 .\login\views.py:326 .\login\views.py:328
+#: .\login\views.py:330
 msgid "Havolani muddati yakunlandi"
 msgstr ""
 
-#: .\login\views.py:367
+#: .\login\views.py:379
 msgid "Noto'g'ri login yoki parol"
 msgstr ""

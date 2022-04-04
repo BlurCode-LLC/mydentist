@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 18:41+0500\n"
+"POT-Creation-Date: 2022-04-03 14:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,259 +29,336 @@ msgid "Borish sababi"
 msgstr "Причина посещения"
 
 #: .\dentist\forms.py:14
+#, fuzzy
+#| msgid "Sababini kiriting"
+msgid "Sababini tanlang"
+msgstr "Введите причину"
+
+#: .\dentist\forms.py:24
 msgid "Sababini kiriting"
 msgstr "Введите причину"
 
-#: .\dentist\forms.py:21
+#: .\dentist\forms.py:30
 msgid "Tish shifokoriga izohlar"
 msgstr "Комментарии стоматологам"
 
-#: .\dentist\forms.py:25
+#: .\dentist\forms.py:34
 msgid "Izohlaringizni kiriting"
 msgstr "Введите свои комментарии"
 
-#: .\dentist\forms.py:35
+#: .\dentist\forms.py:45
 msgid "Ism"
 msgstr "Имя"
 
-#: .\dentist\forms.py:39
+#: .\dentist\forms.py:49
 msgid "Ismingiz"
 msgstr "Ваше имя"
 
-#: .\dentist\forms.py:46
+#: .\dentist\forms.py:56
 msgid "Familiya"
 msgstr "Фамилия"
 
-#: .\dentist\forms.py:50
+#: .\dentist\forms.py:60
 msgid "Familiyangiz"
 msgstr "Ваша фамилия"
 
-#: .\dentist\forms.py:57 .\dentist\models.py:59
+#: .\dentist\forms.py:67 .\dentist\models.py:63
 msgid "Jins"
 msgstr "Пол"
 
-#: .\dentist\forms.py:93
+#: .\dentist\forms.py:103
 msgid "Telefon raqam"
 msgstr "Номер телефона"
 
-#: .\dentist\forms.py:97
+#: .\dentist\forms.py:107
 msgid "Telefon raqamingiz"
 msgstr "Ваш номер телефона"
 
-#: .\dentist\forms.py:104
+#: .\dentist\forms.py:114
 msgid "Elektron manzil"
 msgstr "Электронная почта"
 
-#: .\dentist\forms.py:108
+#: .\dentist\forms.py:118
 msgid "Elektron pochtangiz"
 msgstr "Электронная почта"
 
-#: .\dentist\forms.py:119
+#: .\dentist\forms.py:129
 msgid "Shifoxona nomi (o'zbekchada)"
 msgstr "Название клиники (на узбекском)"
 
-#: .\dentist\forms.py:123 .\dentist\forms.py:134
+#: .\dentist\forms.py:133 .\dentist\forms.py:144
 msgid "Shifoxona nomi"
 msgstr "Название клиники"
 
-#: .\dentist\forms.py:130
+#: .\dentist\forms.py:140
 msgid "Shifoxona nomi (ruschada)"
 msgstr "Название клиники (на русском)"
 
-#: .\dentist\forms.py:141
+#: .\dentist\forms.py:151
 msgid "Manzil (o'zbekchada)"
 msgstr "Адрес (на узбекском)"
 
-#: .\dentist\forms.py:145 .\dentist\forms.py:156 .\dentist\models.py:43
+#: .\dentist\forms.py:155 .\dentist\forms.py:166 .\dentist\models.py:47
 msgid "Manzil"
 msgstr "Адрес"
 
-#: .\dentist\forms.py:152
+#: .\dentist\forms.py:162
 msgid "Manzil (ruschada)"
 msgstr "Адрес (на русском)"
 
-#: .\dentist\forms.py:163
+#: .\dentist\forms.py:173
 msgid "Mo'ljal (o'zbekchada)"
 msgstr "Ориентир (на узбекском)"
 
-#: .\dentist\forms.py:167 .\dentist\forms.py:179 .\dentist\models.py:44
+#: .\dentist\forms.py:177 .\dentist\forms.py:189 .\dentist\models.py:48
 msgid "Mo'ljal"
 msgstr "Ориентир"
 
-#: .\dentist\forms.py:175
+#: .\dentist\forms.py:185
 msgid "Mo'ljal (ruschada)"
 msgstr "Ориентир (на русском)"
 
-#: .\dentist\forms.py:187 .\dentist\models.py:11
+#: .\dentist\forms.py:197 .\dentist\models.py:13
 msgid "Kenglik"
 msgstr "Широта"
 
-#: .\dentist\forms.py:196 .\dentist\models.py:12
+#: .\dentist\forms.py:206 .\dentist\models.py:14
 msgid "Uzunlik"
 msgstr "Долгота"
 
-#: .\dentist\forms.py:205 .\dentist\models.py:10
+#: .\dentist\forms.py:215 .\dentist\models.py:12
 msgid "Hudud"
 msgstr "Регион"
 
-#: .\dentist\forms.py:236
+#: .\dentist\forms.py:227
+msgid "Ish kuni"
+msgstr ""
+
+#: .\dentist\forms.py:234
+msgid "6-kunlik ish"
+msgstr ""
+
+#: .\dentist\forms.py:235
+msgid "7-kunlik ish"
+msgstr ""
+
+#: .\dentist\forms.py:261
 msgid "Xizmat nomi (o'zbekchada)"
 msgstr "Название услуги (на узбекском)"
 
-#: .\dentist\forms.py:240 .\dentist\forms.py:251 .\dentist\models.py:110
-#: .\dentist\models.py:140
+#: .\dentist\forms.py:265 .\dentist\forms.py:276 .\dentist\models.py:125
+#: .\dentist\models.py:157
 msgid "Xizmat nomi"
 msgstr "Название услуги"
 
-#: .\dentist\forms.py:247
+#: .\dentist\forms.py:272
 msgid "Xizmat nomi (ruschada)"
 msgstr "Название услуги (на русском)"
 
-#: .\dentist\forms.py:258 .\dentist\models.py:111
+#: .\dentist\forms.py:283 .\dentist\models.py:126
 msgid "Xizmat davomiyligi"
 msgstr "Длительность услуги"
 
-#: .\dentist\forms.py:267 .\dentist\models.py:112
+#: .\dentist\forms.py:292 .\dentist\models.py:127
 msgid "Xizmat narxi"
 msgstr "Цена услуги"
 
-#: .\dentist\models.py:9 .\dentist\models.py:42
+#: .\dentist\models.py:11 .\dentist\models.py:46
 msgid "Nomi"
 msgstr "Название"
 
-#: .\dentist\models.py:15 .\dentist\models.py:41 .\dentist\models.py:68
+#: .\dentist\models.py:17 .\dentist\models.py:45 .\dentist\models.py:73
 msgid "Shifoxona"
 msgstr "Клиника"
 
-#: .\dentist\models.py:16
+#: .\dentist\models.py:18
 msgid "Shifoxonalar"
 msgstr "Клиники"
 
-#: .\dentist\models.py:45
+#: .\dentist\models.py:49
 msgid "Til"
 msgstr "Язык"
 
-#: .\dentist\models.py:48
+#: .\dentist\models.py:52
 msgid "Shifoxonaning ma'lumoti"
 msgstr "Данные клиники"
 
-#: .\dentist\models.py:49
+#: .\dentist\models.py:53
 msgid "Shifoxonaning ma'lumotlari"
 msgstr "Данные клиник"
 
-#: .\dentist\models.py:57 .\dentist\models.py:71 .\dentist\models.py:95
-#: .\dentist\models.py:113 .\dentist\models.py:153 .\dentist\models.py:165
+#: .\dentist\models.py:61 .\dentist\models.py:76 .\dentist\models.py:110
+#: .\dentist\models.py:128 .\dentist\models.py:170 .\dentist\models.py:182
+#: .\dentist\models.py:211
 msgid "Tish shifokori"
 msgstr "Стоматолог"
 
-#: .\dentist\models.py:58
+#: .\dentist\models.py:62
 msgid "Telefon raqami"
 msgstr "Номер телефона"
 
-#: .\dentist\models.py:60
+#: .\dentist\models.py:64
 msgid "Tug'ilgan sanasi"
 msgstr "Дата рождения"
 
-#: .\dentist\models.py:61
+#: .\dentist\models.py:65
 msgid "Rasmi"
 msgstr "Фото"
 
-#: .\dentist\models.py:62 .\dentist\models.py:96 .\dentist\models.py:139
+#: .\dentist\models.py:66 .\dentist\models.py:111 .\dentist\models.py:156
+#: .\dentist\models.py:199
 msgid "Tili"
 msgstr "Язык"
 
-#: .\dentist\models.py:63
+#: .\dentist\models.py:67
 msgid "Tajriba"
 msgstr "Опыт работы"
 
-#: .\dentist\models.py:64
+#: .\dentist\models.py:68
 msgid "Ish vaqti boshlanishi"
 msgstr "Время начала работы"
 
-#: .\dentist\models.py:65
+#: .\dentist\models.py:69
 msgid "Ish vaqti tugashi"
 msgstr "Время конца работы"
 
-#: .\dentist\models.py:66
+#: .\dentist\models.py:70
+msgid "Ish kunlari soni (6 yoki 7)"
+msgstr ""
+
+#: .\dentist\models.py:71
 msgid "24 soat rejimi"
 msgstr "Режим 24 часа"
 
-#: .\dentist\models.py:67
+#: .\dentist\models.py:72
 msgid "Slug"
 msgstr ""
 
-#: .\dentist\models.py:72
+#: .\dentist\models.py:77
 msgid "Tish shifokorlari"
 msgstr "Стоматологи"
 
-#: .\dentist\models.py:97
+#: .\dentist\models.py:112
 msgid "MyDentist dagi FIShi"
 msgstr "ФИО в MyDentist"
 
-#: .\dentist\models.py:98
+#: .\dentist\models.py:113
 msgid "Soha"
 msgstr "Специальность"
 
-#: .\dentist\models.py:101
+#: .\dentist\models.py:116
 msgid "Tish shifokorining ma'lumoti"
 msgstr "Данные стоматолога"
 
-#: .\dentist\models.py:102
+#: .\dentist\models.py:117
 msgid "Tish shifokorining ma'lumotlari"
 msgstr "Данные стоматологов"
 
-#: .\dentist\models.py:116 .\dentist\models.py:138
+#: .\dentist\models.py:131 .\dentist\models.py:155
 msgid "Xizmat"
 msgstr "Услуга"
 
-#: .\dentist\models.py:117
+#: .\dentist\models.py:132
 msgid "Xizmatlar"
 msgstr "Услуги"
 
-#: .\dentist\models.py:143
+#: .\dentist\models.py:160
 msgid "Xizmatning ma'lumoti"
 msgstr "Данные услуги"
 
-#: .\dentist\models.py:144
+#: .\dentist\models.py:161
 msgid "Xizmatning ma'lumotlari"
 msgstr "Данные услуг"
 
-#: .\dentist\models.py:152
+#: .\dentist\models.py:169
 msgid "Rasm"
 msgstr "Фото"
 
-#: .\dentist\models.py:156
+#: .\dentist\models.py:173
 msgid "Kabinet rasmi"
 msgstr "Фото кабинета"
 
-#: .\dentist\models.py:157
+#: .\dentist\models.py:174
 msgid "Kabinet rasmlari"
 msgstr "Фото кабинета"
 
-#: .\dentist\models.py:166 .\dentist\models.py:171
+#: .\dentist\models.py:183 .\dentist\models.py:188
 msgid "Eslatma"
 msgstr "Напоминание"
 
-#: .\dentist\models.py:167
+#: .\dentist\models.py:184
 msgid "Eslatma turi"
 msgstr "Тип напоминания"
 
-#: .\dentist\models.py:168
+#: .\dentist\models.py:185
 msgid "Bajarilganmi?"
 msgstr "Выполнен?"
 
-#: .\dentist\models.py:172
+#: .\dentist\models.py:189
 msgid "Eslatmalar"
 msgstr "Напоминания"
+
+#: .\dentist\models.py:197
+#, fuzzy
+#| msgid "Sabab"
+msgid "Sabab nomi"
+msgstr "Причина"
+
+#: .\dentist\models.py:198
+msgid "Raqami"
+msgstr ""
+
+#: .\dentist\models.py:202
+#, fuzzy
+#| msgid "Sabab"
+msgid "Sabab "
+msgstr "Причина"
+
+#: .\dentist\models.py:203
+#, fuzzy
+#| msgid "Sabab"
+msgid "Sabablar"
+msgstr "Причина"
+
+#: .\dentist\models.py:212
+msgid "Bemor"
+msgstr ""
+
+#: .\dentist\models.py:215
+#, fuzzy
+#| msgid "Tish shifokorining ma'lumoti"
+msgid "Tish shifokorining bemori "
+msgstr "Данные стоматолога"
+
+#: .\dentist\models.py:216
+#, fuzzy
+#| msgid "Tish shifokorining ma'lumotlari"
+msgid "Tish shifokorining bemorlari"
+msgstr "Данные стоматологов"
+
+#: .\dentist\models.py:224
+msgid "Aktivlangan"
+msgstr ""
+
+#: .\dentist\models.py:225
+msgid "Tugash muddati"
+msgstr ""
+
+#: .\dentist\models.py:228
+msgid "Shifokor aktivligi "
+msgstr ""
+
+#: .\dentist\models.py:229
+#, fuzzy
+#| msgid "Shifoxonalar"
+msgid "Shifokor aktivliglari"
+msgstr "Клиники"
 
 #~ msgid "FISh"
 #~ msgstr "ФИО"
 
 #~ msgid "Foydalanuvchi"
 #~ msgstr "Пользователь"
-
-#~ msgid "Sabab"
-#~ msgstr "Причина"
 
 #~ msgid "Izohlar"
 #~ msgstr "Комментарии"

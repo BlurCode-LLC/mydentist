@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-03 14:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\login\apps.py:8
+msgid "Kirish ma'lumotlari"
+msgstr ""
+
+#: .\login\forms.py:8
+msgid "Telefon raqam"
+msgstr ""
+
+#: .\login\forms.py:17 .\login\forms.py:39 .\login\forms.py:97
+msgid "Parol"
+msgstr ""
+
+#: .\login\forms.py:30
+msgid "Login"
+msgstr ""
+
+#: .\login\forms.py:52
+msgid "Eski parol"
+msgstr ""
+
+#: .\login\forms.py:61
+msgid "Yangi parol"
+msgstr ""
+
+#: .\login\forms.py:70 .\login\forms.py:106
+msgid "Parolni tasdiqlang"
+msgstr ""
+
+#: .\login\forms.py:83 .\login\models.py:7
+msgid "E-mail"
+msgstr ""
+
+#: .\login\models.py:8
+msgid "uidb64"
+msgstr ""
+
+#: .\login\models.py:9
+msgid "Token"
+msgstr ""
+
+#: .\login\models.py:10
+msgid "Faolligi"
+msgstr ""
+
+#: .\login\models.py:13
+msgid "Parol tiklanishi"
+msgstr ""
+
+#: .\login\models.py:14
+msgid "Parol tiklanishlari"
+msgstr ""
+
+#: .\login\views.py:146
+msgid "Parollar to'g'ri kemayapti"
+msgstr ""
+
+#: .\login\views.py:197 .\login\views.py:222
+msgid "Xato parol"
+msgstr ""
+
+#: .\login\views.py:227
+msgid "Xato e-mail"
+msgstr ""
+
+#: .\login\views.py:268
+msgid "Parolni tiklash"
+msgstr ""
+
+#: .\login\views.py:309
+msgid "Parollar mos kelmayapti"
+msgstr ""
+
+#: .\login\views.py:324 .\login\views.py:326 .\login\views.py:328
+#: .\login\views.py:330
+msgid "Havolani muddati yakunlandi"
+msgstr ""
+
+#: .\login\views.py:379
+msgid "Noto'g'ri login yoki parol"
+msgstr ""

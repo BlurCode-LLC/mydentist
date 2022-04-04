@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 18:41+0500\n"
+"POT-Creation-Date: 2022-04-03 14:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,43 +64,43 @@ msgstr "Головокружение"
 msgid "Epilepsiya"
 msgstr "Эпилепсия"
 
-#: .\illness\forms.py:113 .\illness\models.py:128 .\illness\models.py:129
+#: .\illness\forms.py:114 .\illness\models.py:128 .\illness\models.py:129
 msgid "Qon kasali"
 msgstr "Заболевание крови"
 
-#: .\illness\forms.py:123 .\illness\models.py:141 .\illness\models.py:142
+#: .\illness\forms.py:125 .\illness\models.py:141 .\illness\models.py:142
 msgid "Doimiy dorilar"
 msgstr "Постоянные лекарства"
 
-#: .\illness\forms.py:136
+#: .\illness\forms.py:139
 msgid "Doimiy dorilaringizni yozing"
 msgstr "Напишите какие лекарства"
 
-#: .\illness\forms.py:143 .\illness\models.py:154 .\illness\models.py:155
+#: .\illness\forms.py:146 .\illness\models.py:154 .\illness\models.py:155
 msgid "Insultga uchraganmisiz?"
 msgstr "Болели инсультом?"
 
-#: .\illness\forms.py:153 .\illness\models.py:167 .\illness\models.py:168
+#: .\illness\forms.py:157 .\illness\models.py:167 .\illness\models.py:168
 msgid "Yurak xurujiga uchraganmisiz?"
 msgstr "Болели инфарктом?"
 
-#: .\illness\forms.py:163 .\illness\models.py:180 .\illness\models.py:181
+#: .\illness\forms.py:168 .\illness\models.py:180 .\illness\models.py:181
 msgid "Onkologik kasalliklar"
 msgstr "Онкологические заболевания"
 
-#: .\illness\forms.py:173 .\illness\models.py:193 .\illness\models.py:194
+#: .\illness\forms.py:179 .\illness\models.py:193 .\illness\models.py:194
 msgid "Sil kasalligi"
 msgstr "Туберкулёз"
 
-#: .\illness\forms.py:183 .\illness\models.py:206 .\illness\models.py:207
+#: .\illness\forms.py:190 .\illness\models.py:206 .\illness\models.py:207
 msgid "Spirtli ichimlik ichasizmi?"
 msgstr "Принимаете ли алкоголь?"
 
-#: .\illness\forms.py:193 .\illness\models.py:219 .\illness\models.py:220
+#: .\illness\forms.py:201 .\illness\models.py:219 .\illness\models.py:220
 msgid "Homiladorlik"
 msgstr "Беременность"
 
-#: .\illness\forms.py:206
+#: .\illness\forms.py:215
 msgid "Nechi oyligini yozing"
 msgstr "Напишите сколько месяцев"
 

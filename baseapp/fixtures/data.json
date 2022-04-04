@@ -14,6 +14,13 @@
         }
     },
     {
+        "model": "baseapp.language",
+        "pk": 3,
+        "fields": {
+            "name": "en"
+        }
+    },
+    {
         "model": "baseapp.gender",
         "pk": 1,
         "fields": {

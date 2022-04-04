@@ -116,11 +116,13 @@ LANGUAGE_CODE = 'uz'
 
 LANGUAGES = [
     ('uz', "O'zbek"),
+    ('en', "English"),
     ('ru', "Русский")
 ]
 
 EXTRA_LANGUAGES = [
-    ('ru', "Русский")
+    ('en', "English"),
+    ('ru', "Русский"),
 ]
 
 LOCALE_PATHS = [
