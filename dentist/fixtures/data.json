@@ -1462,9 +1462,9 @@
         "model": "dentist.reason",
         "pk": 3,
         "fields": {
-            "name": "Tish og‘rig‘i (doimiy)",
-            "value": 2,
-            "language": 1
+            "name": "Konsultatsiya",
+            "value": 1,
+            "language": 3
         }
     },
     {
@@ -1473,33 +1473,33 @@
         "fields": {
             "name": "Tish og‘rig‘i (doimiy)",
             "value": 2,
-            "language": 2
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 5,
         "fields": {
-            "name": "Tish og‘rig‘i (tunda)",
-            "value": 3,
-            "language": 1
+            "name": "Tish og‘rig‘i (doimiy)",
+            "value": 2,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 6,
         "fields": {
-            "name": "Tish og‘rig‘i (tunda)",
-            "value": 3,
-            "language": 2
+            "name": "Tish og‘rig‘i (doimiy)",
+            "value": 2,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 7,
         "fields": {
-            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
-            "value": 4,
+            "name": "Tish og‘rig‘i (tunda)",
+            "value": 3,
             "language": 1
         }
     },
@@ -1507,8 +1507,8 @@
         "model": "dentist.reason",
         "pk": 8,
         "fields": {
-            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
-            "value": 4,
+            "name": "Tish og‘rig‘i (tunda)",
+            "value": 3,
             "language": 2
         }
     },
@@ -1516,44 +1516,44 @@
         "model": "dentist.reason",
         "pk": 9,
         "fields": {
-            "name": "Tish og‘rig‘i (faqat sovuqqa)",
-            "value": 5,
-            "language": 1
+            "name": "Tish og‘rig‘i (tunda)",
+            "value": 3,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 10,
         "fields": {
-            "name": "Tish og‘rig‘i (faqat sovuqqa)",
-            "value": 5,
-            "language": 2
+            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+            "value": 4,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 11,
         "fields": {
-            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "value": 6,
-            "language": 1
+            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+            "value": 4,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 12,
         "fields": {
-            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "value": 6,
-            "language": 2
+            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+            "value": 4,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 13,
         "fields": {
-            "name": "Tish og‘rig‘i (tishlaganda)",
-            "value": 7,
+            "name": "Tish og‘rig‘i (faqat sovuqqa)",
+            "value": 5,
             "language": 1
         }
     },
@@ -1561,8 +1561,8 @@
         "model": "dentist.reason",
         "pk": 14,
         "fields": {
-            "name": "Tish og‘rig‘i (tishlaganda)",
-            "value": 7,
+            "name": "Tish og‘rig‘i (faqat sovuqqa)",
+            "value": 5,
             "language": 2
         }
     },
@@ -1570,44 +1570,44 @@
         "model": "dentist.reason",
         "pk": 15,
         "fields": {
-            "name": "Tish og‘rig‘i (shirinlikda)",
-            "value": 8,
-            "language": 1
+            "name": "Tish og‘rig‘i (faqat sovuqqa)",
+            "value": 5,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 16,
         "fields": {
-            "name": "Tish og‘rig‘i (shirinlikda)",
-            "value": 8,
-            "language": 2
+            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+            "value": 6,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 17,
         "fields": {
-            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "value": 9,
-            "language": 1
+            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+            "value": 6,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 18,
         "fields": {
-            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "value": 9,
-            "language": 2
+            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+            "value": 6,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 19,
         "fields": {
-            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
-            "value": 10,
+            "name": "Tish og‘rig‘i (tishlaganda)",
+            "value": 7,
             "language": 1
         }
     },
@@ -1615,8 +1615,8 @@
         "model": "dentist.reason",
         "pk": 20,
         "fields": {
-            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
-            "value": 10,
+            "name": "Tish og‘rig‘i (tishlaganda)",
+            "value": 7,
             "language": 2
         }
     },
@@ -1624,44 +1624,44 @@
         "model": "dentist.reason",
         "pk": 21,
         "fields": {
-            "name": "Tish qimirlashi",
-            "value": 11,
-            "language": 1
+            "name": "Tish og‘rig‘i (tishlaganda)",
+            "value": 7,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 22,
         "fields": {
-            "name": "Tish qimirlashi",
-            "value": 11,
-            "language": 2
+            "name": "Tish og‘rig‘i (shirinlikda)",
+            "value": 8,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 23,
         "fields": {
-            "name": "Milk qonashi",
-            "value": 12,
-            "language": 1
+            "name": "Tish og‘rig‘i (shirinlikda)",
+            "value": 8,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 24,
         "fields": {
-            "name": "Milk qonashi",
-            "value": 12,
-            "language": 2
+            "name": "Tish og‘rig‘i (shirinlikda)",
+            "value": 8,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 25,
         "fields": {
-            "name": "Milk shishishi",
-            "value": 13,
+            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+            "value": 9,
             "language": 1
         }
     },
@@ -1669,8 +1669,8 @@
         "model": "dentist.reason",
         "pk": 26,
         "fields": {
-            "name": "Milk shishishi",
-            "value": 13,
+            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+            "value": 9,
             "language": 2
         }
     },
@@ -1678,44 +1678,44 @@
         "model": "dentist.reason",
         "pk": 27,
         "fields": {
-            "name": "Isitma",
-            "value": 14,
-            "language": 1
+            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+            "value": 9,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 28,
         "fields": {
-            "name": "Isitma",
-            "value": 14,
-            "language": 2
+            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+            "value": 10,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 29,
         "fields": {
-            "name": "Tish ildiz",
-            "value": 15,
-            "language": 1
+            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+            "value": 10,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 30,
         "fields": {
-            "name": "Tish ildiz",
-            "value": 15,
-            "language": 2
+            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+            "value": 10,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 31,
         "fields": {
-            "name": "Estetik nuqson (ko‘rinishi yomon)",
-            "value": 16,
+            "name": "Tish qimirlashi",
+            "value": 11,
             "language": 1
         }
     },
@@ -1723,8 +1723,8 @@
         "model": "dentist.reason",
         "pk": 32,
         "fields": {
-            "name": "Estetik nuqson (ko‘rinishi yomon)",
-            "value": 16,
+            "name": "Tish qimirlashi",
+            "value": 11,
             "language": 2
         }
     },
@@ -1732,44 +1732,44 @@
         "model": "dentist.reason",
         "pk": 33,
         "fields": {
-            "name": "Kovak",
-            "value": 17,
-            "language": 1
+            "name": "Tish qimirlashi",
+            "value": 11,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 34,
         "fields": {
-            "name": "Kovak",
-            "value": 17,
-            "language": 2
+            "name": "Milk qonashi",
+            "value": 12,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 35,
         "fields": {
-            "name": "Tish qo‘ydirish",
-            "value": 18,
-            "language": 1
+            "name": "Milk qonashi",
+            "value": 12,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 36,
         "fields": {
-            "name": "Tish qo‘ydirish",
-            "value": 18,
-            "language": 2
+            "name": "Milk qonashi",
+            "value": 12,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 37,
         "fields": {
-            "name": "Tishni oldirish",
-            "value": 19,
+            "name": "Milk shishishi",
+            "value": 13,
             "language": 1
         }
     },
@@ -1777,8 +1777,8 @@
         "model": "dentist.reason",
         "pk": 38,
         "fields": {
-            "name": "Tishni oldirish",
-            "value": 19,
+            "name": "Milk shishishi",
+            "value": 13,
             "language": 2
         }
     },
@@ -1786,44 +1786,44 @@
         "model": "dentist.reason",
         "pk": 39,
         "fields": {
-            "name": "Tishlarni tozalatish",
-            "value": 20,
-            "language": 1
+            "name": "Milk shishishi",
+            "value": 13,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 40,
         "fields": {
-            "name": "Tishlarni tozalatish",
-            "value": 20,
-            "language": 2
+            "name": "Isitma",
+            "value": 14,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 41,
         "fields": {
-            "name": "Implant qo‘ydirish",
-            "value": 21,
-            "language": 1
+            "name": "Isitma",
+            "value": 14,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 42,
         "fields": {
-            "name": "Implant qo‘ydirish",
-            "value": 21,
-            "language": 2
+            "name": "Isitma",
+            "value": 14,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 43,
         "fields": {
-            "name": "Breket qo'ydirish",
-            "value": 22,
+            "name": "Tish ildiz",
+            "value": 15,
             "language": 1
         }
     },
@@ -1831,8 +1831,8 @@
         "model": "dentist.reason",
         "pk": 44,
         "fields": {
-            "name": "Breket qo'ydirish",
-            "value": 22,
+            "name": "Tish ildiz",
+            "value": 15,
             "language": 2
         }
     },
@@ -1840,44 +1840,44 @@
         "model": "dentist.reason",
         "pk": 45,
         "fields": {
-            "name": "Protez qildirish",
-            "value": 23,
-            "language": 1
+            "name": "Tish ildiz",
+            "value": 15,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 46,
         "fields": {
-            "name": "Protez qildirish",
-            "value": 23,
-            "language": 2
+            "name": "Estetik nuqson (ko‘rinishi yomon)",
+            "value": 16,
+            "language": 1
         }
     },
     {
         "model": "dentist.reason",
         "pk": 47,
         "fields": {
-            "name": "Plombalash",
-            "value": 24,
-            "language": 1
+            "name": "Estetik nuqson (ko‘rinishi yomon)",
+            "value": 16,
+            "language": 2
         }
     },
     {
         "model": "dentist.reason",
         "pk": 48,
         "fields": {
-            "name": "Plombalash",
-            "value": 24,
-            "language": 2
+            "name": "Estetik nuqson (ko‘rinishi yomon)",
+            "value": 16,
+            "language": 3
         }
     },
     {
         "model": "dentist.reason",
         "pk": 49,
         "fields": {
-            "name": "Boshqa sabab",
-            "value": 25,
+            "name": "Kovak",
+            "value": 17,
             "language": 1
         }
     },
@@ -1885,9 +1885,234 @@
         "model": "dentist.reason",
         "pk": 50,
         "fields": {
+            "name": "Kovak",
+            "value": 17,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 51,
+        "fields": {
+            "name": "Kovak",
+            "value": 17,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 52,
+        "fields": {
+            "name": "Tish qo‘ydirish",
+            "value": 18,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 53,
+        "fields": {
+            "name": "Tish qo‘ydirish",
+            "value": 18,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 54,
+        "fields": {
+            "name": "Tish qo‘ydirish",
+            "value": 18,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 55,
+        "fields": {
+            "name": "Tishni oldirish",
+            "value": 19,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 56,
+        "fields": {
+            "name": "Tishni oldirish",
+            "value": 19,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 57,
+        "fields": {
+            "name": "Tishni oldirish",
+            "value": 19,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 58,
+        "fields": {
+            "name": "Tishlarni tozalatish",
+            "value": 20,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 59,
+        "fields": {
+            "name": "Tishlarni tozalatish",
+            "value": 20,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 60,
+        "fields": {
+            "name": "Tishlarni tozalatish",
+            "value": 20,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 61,
+        "fields": {
+            "name": "Implant qo‘ydirish",
+            "value": 21,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 62,
+        "fields": {
+            "name": "Implant qo‘ydirish",
+            "value": 21,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 63,
+        "fields": {
+            "name": "Implant qo‘ydirish",
+            "value": 21,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 64,
+        "fields": {
+            "name": "Breket qo'ydirish",
+            "value": 22,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 65,
+        "fields": {
+            "name": "Breket qo'ydirish",
+            "value": 22,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 66,
+        "fields": {
+            "name": "Breket qo'ydirish",
+            "value": 22,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 67,
+        "fields": {
+            "name": "Protez qildirish",
+            "value": 23,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 68,
+        "fields": {
+            "name": "Protez qildirish",
+            "value": 23,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 69,
+        "fields": {
+            "name": "Protez qildirish",
+            "value": 23,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 70,
+        "fields": {
+            "name": "Plombalash",
+            "value": 24,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 71,
+        "fields": {
+            "name": "Plombalash",
+            "value": 24,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 72,
+        "fields": {
+            "name": "Plombalash",
+            "value": 24,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 73,
+        "fields": {
+            "name": "Boshqa sabab",
+            "value": 25,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 74,
+        "fields": {
             "name": "Boshqa sabab",
             "value": 25,
             "language": 2
+        }
+    },
+    {
+        "model": "dentist.reason",
+        "pk": 75,
+        "fields": {
+            "name": "Boshqa sabab",
+            "value": 25,
+            "language": 3
         }
     },
     {
@@ -3962,6 +4187,15 @@
         "model": "dentist.service_translation",
         "pk": 3,
         "fields": {
+            "service": 1,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 4,
+        "fields": {
             "service": 2,
             "language": 1,
             "name": "Protez. Oddiy"
@@ -3969,7 +4203,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 4,
+        "pk": 5,
         "fields": {
             "service": 2,
             "language": 2,
@@ -3978,7 +4212,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 5,
+        "pk": 6,
+        "fields": {
+            "service": 2,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 7,
         "fields": {
             "service": 3,
             "language": 1,
@@ -3987,7 +4230,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 6,
+        "pk": 8,
         "fields": {
             "service": 3,
             "language": 2,
@@ -3996,7 +4239,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 7,
+        "pk": 9,
+        "fields": {
+            "service": 3,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 10,
         "fields": {
             "service": 4,
             "language": 1,
@@ -4005,7 +4257,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 8,
+        "pk": 11,
         "fields": {
             "service": 4,
             "language": 2,
@@ -4014,7 +4266,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 9,
+        "pk": 12,
+        "fields": {
+            "service": 4,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 13,
         "fields": {
             "service": 5,
             "language": 1,
@@ -4023,7 +4284,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 10,
+        "pk": 14,
         "fields": {
             "service": 5,
             "language": 2,
@@ -4032,7 +4293,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 11,
+        "pk": 15,
+        "fields": {
+            "service": 5,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 16,
         "fields": {
             "service": 6,
             "language": 1,
@@ -4041,7 +4311,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 12,
+        "pk": 17,
         "fields": {
             "service": 6,
             "language": 2,
@@ -4050,7 +4320,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 13,
+        "pk": 18,
+        "fields": {
+            "service": 6,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 19,
         "fields": {
             "service": 7,
             "language": 1,
@@ -4059,7 +4338,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 14,
+        "pk": 20,
         "fields": {
             "service": 7,
             "language": 2,
@@ -4068,7 +4347,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 15,
+        "pk": 21,
+        "fields": {
+            "service": 7,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 22,
         "fields": {
             "service": 8,
             "language": 1,
@@ -4077,7 +4365,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 16,
+        "pk": 23,
         "fields": {
             "service": 8,
             "language": 2,
@@ -4086,7 +4374,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 17,
+        "pk": 24,
+        "fields": {
+            "service": 8,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 25,
         "fields": {
             "service": 9,
             "language": 1,
@@ -4095,7 +4392,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 18,
+        "pk": 26,
         "fields": {
             "service": 9,
             "language": 2,
@@ -4104,7 +4401,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 19,
+        "pk": 27,
+        "fields": {
+            "service": 9,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 28,
         "fields": {
             "service": 10,
             "language": 1,
@@ -4113,7 +4419,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 20,
+        "pk": 29,
         "fields": {
             "service": 10,
             "language": 2,
@@ -4122,7 +4428,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 21,
+        "pk": 30,
+        "fields": {
+            "service": 10,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 31,
         "fields": {
             "service": 11,
             "language": 1,
@@ -4131,7 +4446,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 22,
+        "pk": 32,
         "fields": {
             "service": 11,
             "language": 2,
@@ -4140,7 +4455,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 23,
+        "pk": 33,
+        "fields": {
+            "service": 11,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 34,
         "fields": {
             "service": 12,
             "language": 1,
@@ -4149,7 +4473,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 24,
+        "pk": 35,
         "fields": {
             "service": 12,
             "language": 2,
@@ -4158,7 +4482,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 25,
+        "pk": 36,
+        "fields": {
+            "service": 12,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 37,
         "fields": {
             "service": 13,
             "language": 1,
@@ -4167,7 +4500,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 26,
+        "pk": 38,
         "fields": {
             "service": 13,
             "language": 2,
@@ -4176,7 +4509,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 27,
+        "pk": 39,
+        "fields": {
+            "service": 13,
+            "language": 3,
+            "name": "Metall tishlar. Quyma"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 40,
         "fields": {
             "service": 14,
             "language": 1,
@@ -4185,7 +4527,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 28,
+        "pk": 41,
         "fields": {
             "service": 14,
             "language": 2,
@@ -4194,7 +4536,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 29,
+        "pk": 42,
+        "fields": {
+            "service": 14,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 43,
         "fields": {
             "service": 15,
             "language": 1,
@@ -4203,7 +4554,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 30,
+        "pk": 44,
         "fields": {
             "service": 15,
             "language": 2,
@@ -4212,7 +4563,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 31,
+        "pk": 45,
+        "fields": {
+            "service": 15,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 46,
         "fields": {
             "service": 16,
             "language": 1,
@@ -4221,7 +4581,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 32,
+        "pk": 47,
         "fields": {
             "service": 16,
             "language": 2,
@@ -4230,7 +4590,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 33,
+        "pk": 48,
+        "fields": {
+            "service": 16,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 49,
         "fields": {
             "service": 17,
             "language": 1,
@@ -4239,7 +4608,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 34,
+        "pk": 50,
         "fields": {
             "service": 17,
             "language": 2,
@@ -4248,7 +4617,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 35,
+        "pk": 51,
+        "fields": {
+            "service": 17,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 52,
         "fields": {
             "service": 18,
             "language": 1,
@@ -4257,7 +4635,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 36,
+        "pk": 53,
         "fields": {
             "service": 18,
             "language": 2,
@@ -4266,7 +4644,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 37,
+        "pk": 54,
+        "fields": {
+            "service": 18,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 55,
         "fields": {
             "service": 19,
             "language": 1,
@@ -4275,7 +4662,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 38,
+        "pk": 56,
         "fields": {
             "service": 19,
             "language": 2,
@@ -4284,7 +4671,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 39,
+        "pk": 57,
+        "fields": {
+            "service": 19,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 58,
         "fields": {
             "service": 20,
             "language": 1,
@@ -4293,7 +4689,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 40,
+        "pk": 59,
         "fields": {
             "service": 20,
             "language": 2,
@@ -4302,7 +4698,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 41,
+        "pk": 60,
+        "fields": {
+            "service": 20,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 61,
         "fields": {
             "service": 21,
             "language": 1,
@@ -4311,7 +4716,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 42,
+        "pk": 62,
         "fields": {
             "service": 21,
             "language": 2,
@@ -4320,7 +4725,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 43,
+        "pk": 63,
+        "fields": {
+            "service": 21,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 64,
         "fields": {
             "service": 22,
             "language": 1,
@@ -4329,7 +4743,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 44,
+        "pk": 65,
         "fields": {
             "service": 22,
             "language": 2,
@@ -4338,7 +4752,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 45,
+        "pk": 66,
+        "fields": {
+            "service": 22,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 67,
         "fields": {
             "service": 23,
             "language": 1,
@@ -4347,7 +4770,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 46,
+        "pk": 68,
         "fields": {
             "service": 23,
             "language": 2,
@@ -4356,7 +4779,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 47,
+        "pk": 69,
+        "fields": {
+            "service": 23,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 70,
         "fields": {
             "service": 24,
             "language": 1,
@@ -4365,7 +4797,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 48,
+        "pk": 71,
         "fields": {
             "service": 24,
             "language": 2,
@@ -4374,7 +4806,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 49,
+        "pk": 72,
+        "fields": {
+            "service": 24,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Keramik"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 73,
         "fields": {
             "service": 25,
             "language": 1,
@@ -4383,7 +4824,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 50,
+        "pk": 74,
         "fields": {
             "service": 25,
             "language": 2,
@@ -4392,7 +4833,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 51,
+        "pk": 75,
+        "fields": {
+            "service": 25,
+            "language": 3,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 76,
         "fields": {
             "service": 26,
             "language": 1,
@@ -4401,7 +4851,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 52,
+        "pk": 77,
         "fields": {
             "service": 26,
             "language": 2,
@@ -4410,7 +4860,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 53,
+        "pk": 78,
+        "fields": {
+            "service": 26,
+            "language": 3,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 79,
         "fields": {
             "service": 27,
             "language": 1,
@@ -4419,7 +4878,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 54,
+        "pk": 80,
         "fields": {
             "service": 27,
             "language": 2,
@@ -4428,7 +4887,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 55,
+        "pk": 81,
+        "fields": {
+            "service": 27,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 82,
         "fields": {
             "service": 28,
             "language": 1,
@@ -4437,7 +4905,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 56,
+        "pk": 83,
         "fields": {
             "service": 28,
             "language": 2,
@@ -4446,7 +4914,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 57,
+        "pk": 84,
+        "fields": {
+            "service": 28,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 85,
         "fields": {
             "service": 29,
             "language": 1,
@@ -4455,7 +4932,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 58,
+        "pk": 86,
         "fields": {
             "service": 29,
             "language": 2,
@@ -4464,7 +4941,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 59,
+        "pk": 87,
+        "fields": {
+            "service": 29,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 88,
         "fields": {
             "service": 30,
             "language": 1,
@@ -4473,7 +4959,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 60,
+        "pk": 89,
         "fields": {
             "service": 30,
             "language": 2,
@@ -4482,7 +4968,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 61,
+        "pk": 90,
+        "fields": {
+            "service": 30,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 91,
         "fields": {
             "service": 31,
             "language": 1,
@@ -4491,7 +4986,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 62,
+        "pk": 92,
         "fields": {
             "service": 31,
             "language": 2,
@@ -4500,315 +4995,45 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 63,
-        "fields": {
-            "service": 32,
-            "language": 1,
-            "name": "Metallokeramik tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 64,
-        "fields": {
-            "service": 32,
-            "language": 2,
-            "name": "Металлокерамические зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 65,
-        "fields": {
-            "service": 33,
-            "language": 1,
-            "name": "Metalloplastmassa tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 66,
-        "fields": {
-            "service": 33,
-            "language": 2,
-            "name": "Металлопластиковые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 67,
-        "fields": {
-            "service": 34,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 68,
-        "fields": {
-            "service": 34,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 69,
-        "fields": {
-            "service": 35,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 70,
-        "fields": {
-            "service": 35,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 71,
-        "fields": {
-            "service": 36,
-            "language": 1,
-            "name": "Tishlarni professional tozalash"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 72,
-        "fields": {
-            "service": 36,
-            "language": 2,
-            "name": "Профессиональная чистка зубов"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 73,
-        "fields": {
-            "service": 37,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 74,
-        "fields": {
-            "service": 37,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 75,
-        "fields": {
-            "service": 38,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 76,
-        "fields": {
-            "service": 38,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 77,
-        "fields": {
-            "service": 39,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 78,
-        "fields": {
-            "service": 39,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 79,
-        "fields": {
-            "service": 40,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 80,
-        "fields": {
-            "service": 40,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 81,
-        "fields": {
-            "service": 41,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 82,
-        "fields": {
-            "service": 41,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 83,
-        "fields": {
-            "service": 42,
-            "language": 1,
-            "name": "Plombalash. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 84,
-        "fields": {
-            "service": 42,
-            "language": 2,
-            "name": "Пломба. Простая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 85,
-        "fields": {
-            "service": 43,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 86,
-        "fields": {
-            "service": 43,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 87,
-        "fields": {
-            "service": 44,
-            "language": 1,
-            "name": "Tishlarni oqartirish"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 88,
-        "fields": {
-            "service": 44,
-            "language": 2,
-            "name": "Отбеливание зубов"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 89,
-        "fields": {
-            "service": 45,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 90,
-        "fields": {
-            "service": 45,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 91,
-        "fields": {
-            "service": 46,
-            "language": 1,
-            "name": "Metall tishlar. Sariq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 92,
-        "fields": {
-            "service": 46,
-            "language": 2,
-            "name": "Металлические зубы. Жёлтые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
         "pk": 93,
         "fields": {
-            "service": 47,
-            "language": 1,
-            "name": "Metall tishlar. Quyma"
+            "service": 31,
+            "language": 3,
+            "name": "Metall tishlar. Tilla"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 94,
         "fields": {
-            "service": 47,
-            "language": 2,
-            "name": "Металлические зубы. Литые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 95,
-        "fields": {
-            "service": 48,
+            "service": 32,
             "language": 1,
             "name": "Metallokeramik tishlar"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 96,
+        "pk": 95,
         "fields": {
-            "service": 48,
+            "service": 32,
             "language": 2,
             "name": "Металлокерамические зубы"
         }
     },
     {
         "model": "dentist.service_translation",
+        "pk": 96,
+        "fields": {
+            "service": 32,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
         "pk": 97,
         "fields": {
-            "service": 49,
+            "service": 33,
             "language": 1,
             "name": "Metalloplastmassa tishlar"
         }
@@ -4817,7 +5042,7 @@
         "model": "dentist.service_translation",
         "pk": 98,
         "fields": {
-            "service": 49,
+            "service": 33,
             "language": 2,
             "name": "Металлопластиковые зубы"
         }
@@ -4826,332 +5051,332 @@
         "model": "dentist.service_translation",
         "pk": 99,
         "fields": {
-            "service": 50,
-            "language": 1,
-            "name": "Tishlarni professional tozalash"
+            "service": 33,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 100,
         "fields": {
-            "service": 50,
-            "language": 2,
-            "name": "Профессиональная чистка зубов"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 101,
-        "fields": {
-            "service": 51,
-            "language": 1,
-            "name": "Breket (sim) qo'yish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 102,
-        "fields": {
-            "service": 51,
-            "language": 2,
-            "name": "Укладка брикетов. Простая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 103,
-        "fields": {
-            "service": 52,
-            "language": 1,
-            "name": "Implant. Premium"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 104,
-        "fields": {
-            "service": 52,
-            "language": 2,
-            "name": "Имплант. Премиум"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 105,
-        "fields": {
-            "service": 53,
-            "language": 1,
-            "name": "Implant. Econom"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 106,
-        "fields": {
-            "service": 53,
-            "language": 2,
-            "name": "Имплант. Эконом"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 107,
-        "fields": {
-            "service": 54,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 108,
-        "fields": {
-            "service": 54,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 109,
-        "fields": {
-            "service": 55,
-            "language": 1,
-            "name": "Protez. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 110,
-        "fields": {
-            "service": 55,
-            "language": 2,
-            "name": "Протез. Простой"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 111,
-        "fields": {
-            "service": 56,
-            "language": 1,
-            "name": "Protez. Yumshoq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 112,
-        "fields": {
-            "service": 56,
-            "language": 2,
-            "name": "Протез. Мягкий"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 113,
-        "fields": {
-            "service": 57,
-            "language": 1,
-            "name": "Protez. Byugel"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 114,
-        "fields": {
-            "service": 57,
-            "language": 2,
-            "name": "Протез. Бюгельный"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 115,
-        "fields": {
-            "service": 58,
-            "language": 1,
-            "name": "Metall tishlar. Sariq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 116,
-        "fields": {
-            "service": 58,
-            "language": 2,
-            "name": "Металлические зубы. Жёлтые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 117,
-        "fields": {
-            "service": 59,
-            "language": 1,
-            "name": "Metall tishlar. Tilla"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 118,
-        "fields": {
-            "service": 59,
-            "language": 2,
-            "name": "Металлические зубы. Золотые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 119,
-        "fields": {
-            "service": 60,
-            "language": 1,
-            "name": "Metallokeramik tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 120,
-        "fields": {
-            "service": 60,
-            "language": 2,
-            "name": "Металлокерамические зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 121,
-        "fields": {
-            "service": 61,
-            "language": 1,
-            "name": "Metalloplastmassa tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 122,
-        "fields": {
-            "service": 61,
-            "language": 2,
-            "name": "Металлопластиковые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 123,
-        "fields": {
-            "service": 62,
-            "language": 1,
-            "name": "Sirkoniy tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 124,
-        "fields": {
-            "service": 62,
-            "language": 2,
-            "name": "Цирконовые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 125,
-        "fields": {
-            "service": 63,
+            "service": 34,
             "language": 1,
             "name": "Plombalash. Svetoplomba"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 126,
+        "pk": 101,
         "fields": {
-            "service": 63,
+            "service": 34,
             "language": 2,
             "name": "Пломба. Светопломба"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 127,
+        "pk": 102,
         "fields": {
-            "service": 64,
+            "service": 34,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 103,
+        "fields": {
+            "service": 35,
             "language": 1,
             "name": "Plombalash. Kimyoviy qotuvchi"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 128,
+        "pk": 104,
         "fields": {
-            "service": 64,
+            "service": 35,
             "language": 2,
             "name": "Пломба. Химически отвердевающая"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 129,
+        "pk": 105,
         "fields": {
-            "service": 65,
-            "language": 1,
-            "name": "Plombalash. Oddiy"
+            "service": 35,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 130,
+        "pk": 106,
         "fields": {
-            "service": 65,
-            "language": 2,
-            "name": "Пломба. Простая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 131,
-        "fields": {
-            "service": 66,
+            "service": 36,
             "language": 1,
             "name": "Tishlarni professional tozalash"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 132,
+        "pk": 107,
         "fields": {
-            "service": 66,
+            "service": 36,
             "language": 2,
             "name": "Профессиональная чистка зубов"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 133,
+        "pk": 108,
         "fields": {
-            "service": 67,
+            "service": 36,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 109,
+        "fields": {
+            "service": 37,
             "language": 1,
             "name": "Tish olish. Oddiy"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 134,
+        "pk": 110,
         "fields": {
-            "service": 67,
+            "service": 37,
             "language": 2,
             "name": "Удаление зуба. Простое"
         }
     },
     {
         "model": "dentist.service_translation",
+        "pk": 111,
+        "fields": {
+            "service": 37,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 112,
+        "fields": {
+            "service": 38,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 113,
+        "fields": {
+            "service": 38,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 114,
+        "fields": {
+            "service": 38,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 115,
+        "fields": {
+            "service": 39,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 116,
+        "fields": {
+            "service": 39,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 117,
+        "fields": {
+            "service": 39,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 118,
+        "fields": {
+            "service": 40,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 119,
+        "fields": {
+            "service": 40,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 120,
+        "fields": {
+            "service": 40,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 121,
+        "fields": {
+            "service": 41,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 122,
+        "fields": {
+            "service": 41,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 123,
+        "fields": {
+            "service": 41,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 124,
+        "fields": {
+            "service": 42,
+            "language": 1,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 125,
+        "fields": {
+            "service": 42,
+            "language": 2,
+            "name": "Пломба. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 126,
+        "fields": {
+            "service": 42,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 127,
+        "fields": {
+            "service": 43,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 128,
+        "fields": {
+            "service": 43,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 129,
+        "fields": {
+            "service": 43,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 130,
+        "fields": {
+            "service": 44,
+            "language": 1,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 131,
+        "fields": {
+            "service": 44,
+            "language": 2,
+            "name": "Отбеливание зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 132,
+        "fields": {
+            "service": 44,
+            "language": 3,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 133,
+        "fields": {
+            "service": 45,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 134,
+        "fields": {
+            "service": 45,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
         "pk": 135,
         "fields": {
-            "service": 68,
-            "language": 1,
+            "service": 45,
+            "language": 3,
             "name": "Tish olish. Murakkab"
         }
     },
@@ -5159,215 +5384,215 @@
         "model": "dentist.service_translation",
         "pk": 136,
         "fields": {
-            "service": 68,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
+            "service": 46,
+            "language": 1,
+            "name": "Metall tishlar. Sariq"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 137,
         "fields": {
-            "service": 69,
-            "language": 1,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "service": 46,
+            "language": 2,
+            "name": "Металлические зубы. Жёлтые"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 138,
         "fields": {
-            "service": 69,
-            "language": 2,
-            "name": "Укладка брикетов. Простая"
+            "service": 46,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 139,
         "fields": {
-            "service": 70,
+            "service": 47,
             "language": 1,
-            "name": "Breket (sim) qo'yish. Keramik"
+            "name": "Metall tishlar. Quyma"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 140,
         "fields": {
-            "service": 70,
+            "service": 47,
             "language": 2,
-            "name": "Укладка брикетов. Керамическая"
+            "name": "Металлические зубы. Литые"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 141,
         "fields": {
-            "service": 71,
-            "language": 1,
-            "name": "Konsultatsiya"
+            "service": 47,
+            "language": 3,
+            "name": "Metall tishlar. Quyma"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 142,
         "fields": {
-            "service": 71,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 143,
-        "fields": {
-            "service": 72,
+            "service": 48,
             "language": 1,
             "name": "Metallokeramik tishlar"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 144,
+        "pk": 143,
         "fields": {
-            "service": 72,
+            "service": 48,
             "language": 2,
             "name": "Металлокерамические зубы"
         }
     },
     {
         "model": "dentist.service_translation",
+        "pk": 144,
+        "fields": {
+            "service": 48,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
         "pk": 145,
         "fields": {
-            "service": 73,
+            "service": 49,
             "language": 1,
-            "name": "Sirkoniy tishlar"
+            "name": "Metalloplastmassa tishlar"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 146,
         "fields": {
-            "service": 73,
+            "service": 49,
             "language": 2,
-            "name": "Цирконовые зубы"
+            "name": "Металлопластиковые зубы"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 147,
         "fields": {
-            "service": 74,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
+            "service": 49,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 148,
         "fields": {
-            "service": 74,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 149,
-        "fields": {
-            "service": 75,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 150,
-        "fields": {
-            "service": 75,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 151,
-        "fields": {
-            "service": 76,
+            "service": 50,
             "language": 1,
             "name": "Tishlarni professional tozalash"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 152,
+        "pk": 149,
         "fields": {
-            "service": 76,
+            "service": 50,
             "language": 2,
             "name": "Профессиональная чистка зубов"
         }
     },
     {
         "model": "dentist.service_translation",
+        "pk": 150,
+        "fields": {
+            "service": 50,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 151,
+        "fields": {
+            "service": 51,
+            "language": 1,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 152,
+        "fields": {
+            "service": 51,
+            "language": 2,
+            "name": "Укладка брикетов. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
         "pk": 153,
         "fields": {
-            "service": 77,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
+            "service": 51,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 154,
         "fields": {
-            "service": 77,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 155,
-        "fields": {
-            "service": 78,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 156,
-        "fields": {
-            "service": 78,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 157,
-        "fields": {
-            "service": 79,
+            "service": 52,
             "language": 1,
             "name": "Implant. Premium"
         }
     },
     {
         "model": "dentist.service_translation",
-        "pk": 158,
+        "pk": 155,
         "fields": {
-            "service": 79,
+            "service": 52,
             "language": 2,
             "name": "Имплант. Премиум"
         }
     },
     {
         "model": "dentist.service_translation",
+        "pk": 156,
+        "fields": {
+            "service": 52,
+            "language": 3,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 157,
+        "fields": {
+            "service": 53,
+            "language": 1,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 158,
+        "fields": {
+            "service": 53,
+            "language": 2,
+            "name": "Имплант. Эконом"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
         "pk": 159,
         "fields": {
-            "service": 80,
-            "language": 1,
+            "service": 53,
+            "language": 3,
             "name": "Implant. Econom"
         }
     },
@@ -5375,6 +5600,717 @@
         "model": "dentist.service_translation",
         "pk": 160,
         "fields": {
+            "service": 54,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 161,
+        "fields": {
+            "service": 54,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 162,
+        "fields": {
+            "service": 54,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 163,
+        "fields": {
+            "service": 55,
+            "language": 1,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 164,
+        "fields": {
+            "service": 55,
+            "language": 2,
+            "name": "Протез. Простой"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 165,
+        "fields": {
+            "service": 55,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 166,
+        "fields": {
+            "service": 56,
+            "language": 1,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 167,
+        "fields": {
+            "service": 56,
+            "language": 2,
+            "name": "Протез. Мягкий"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 168,
+        "fields": {
+            "service": 56,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 169,
+        "fields": {
+            "service": 57,
+            "language": 1,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 170,
+        "fields": {
+            "service": 57,
+            "language": 2,
+            "name": "Протез. Бюгельный"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 171,
+        "fields": {
+            "service": 57,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 172,
+        "fields": {
+            "service": 58,
+            "language": 1,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 173,
+        "fields": {
+            "service": 58,
+            "language": 2,
+            "name": "Металлические зубы. Жёлтые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 174,
+        "fields": {
+            "service": 58,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 175,
+        "fields": {
+            "service": 59,
+            "language": 1,
+            "name": "Metall tishlar. Tilla"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 176,
+        "fields": {
+            "service": 59,
+            "language": 2,
+            "name": "Металлические зубы. Золотые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 177,
+        "fields": {
+            "service": 59,
+            "language": 3,
+            "name": "Metall tishlar. Tilla"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 178,
+        "fields": {
+            "service": 60,
+            "language": 1,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 179,
+        "fields": {
+            "service": 60,
+            "language": 2,
+            "name": "Металлокерамические зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 180,
+        "fields": {
+            "service": 60,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 181,
+        "fields": {
+            "service": 61,
+            "language": 1,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 182,
+        "fields": {
+            "service": 61,
+            "language": 2,
+            "name": "Металлопластиковые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 183,
+        "fields": {
+            "service": 61,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 184,
+        "fields": {
+            "service": 62,
+            "language": 1,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 185,
+        "fields": {
+            "service": 62,
+            "language": 2,
+            "name": "Цирконовые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 186,
+        "fields": {
+            "service": 62,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 187,
+        "fields": {
+            "service": 63,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 188,
+        "fields": {
+            "service": 63,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 189,
+        "fields": {
+            "service": 63,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 190,
+        "fields": {
+            "service": 64,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 191,
+        "fields": {
+            "service": 64,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 192,
+        "fields": {
+            "service": 64,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 193,
+        "fields": {
+            "service": 65,
+            "language": 1,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 194,
+        "fields": {
+            "service": 65,
+            "language": 2,
+            "name": "Пломба. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 195,
+        "fields": {
+            "service": 65,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 196,
+        "fields": {
+            "service": 66,
+            "language": 1,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 197,
+        "fields": {
+            "service": 66,
+            "language": 2,
+            "name": "Профессиональная чистка зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 198,
+        "fields": {
+            "service": 66,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 199,
+        "fields": {
+            "service": 67,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 200,
+        "fields": {
+            "service": 67,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 201,
+        "fields": {
+            "service": 67,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 202,
+        "fields": {
+            "service": 68,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 203,
+        "fields": {
+            "service": 68,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 204,
+        "fields": {
+            "service": 68,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 205,
+        "fields": {
+            "service": 69,
+            "language": 1,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 206,
+        "fields": {
+            "service": 69,
+            "language": 2,
+            "name": "Укладка брикетов. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 207,
+        "fields": {
+            "service": 69,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 208,
+        "fields": {
+            "service": 70,
+            "language": 1,
+            "name": "Breket (sim) qo'yish. Keramik"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 209,
+        "fields": {
+            "service": 70,
+            "language": 2,
+            "name": "Укладка брикетов. Керамическая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 210,
+        "fields": {
+            "service": 70,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Keramik"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 211,
+        "fields": {
+            "service": 71,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 212,
+        "fields": {
+            "service": 71,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 213,
+        "fields": {
+            "service": 71,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 214,
+        "fields": {
+            "service": 72,
+            "language": 1,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 215,
+        "fields": {
+            "service": 72,
+            "language": 2,
+            "name": "Металлокерамические зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 216,
+        "fields": {
+            "service": 72,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 217,
+        "fields": {
+            "service": 73,
+            "language": 1,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 218,
+        "fields": {
+            "service": 73,
+            "language": 2,
+            "name": "Цирконовые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 219,
+        "fields": {
+            "service": 73,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 220,
+        "fields": {
+            "service": 74,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 221,
+        "fields": {
+            "service": 74,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 222,
+        "fields": {
+            "service": 74,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 223,
+        "fields": {
+            "service": 75,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 224,
+        "fields": {
+            "service": 75,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 225,
+        "fields": {
+            "service": 75,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 226,
+        "fields": {
+            "service": 76,
+            "language": 1,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 227,
+        "fields": {
+            "service": 76,
+            "language": 2,
+            "name": "Профессиональная чистка зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 228,
+        "fields": {
+            "service": 76,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 229,
+        "fields": {
+            "service": 77,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 230,
+        "fields": {
+            "service": 77,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 231,
+        "fields": {
+            "service": 77,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 232,
+        "fields": {
+            "service": 78,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 233,
+        "fields": {
+            "service": 78,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 234,
+        "fields": {
+            "service": 78,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 235,
+        "fields": {
+            "service": 79,
+            "language": 1,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 236,
+        "fields": {
+            "service": 79,
+            "language": 2,
+            "name": "Имплант. Премиум"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 237,
+        "fields": {
+            "service": 79,
+            "language": 3,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 238,
+        "fields": {
+            "service": 80,
+            "language": 1,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 239,
+        "fields": {
             "service": 80,
             "language": 2,
             "name": "Имплант. Эконом"
@@ -5382,7 +6318,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 161,
+        "pk": 240,
+        "fields": {
+            "service": 80,
+            "language": 3,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 241,
         "fields": {
             "service": 81,
             "language": 1,
@@ -5391,7 +6336,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 162,
+        "pk": 242,
         "fields": {
             "service": 81,
             "language": 2,
@@ -5400,7 +6345,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 163,
+        "pk": 243,
+        "fields": {
+            "service": 81,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 244,
         "fields": {
             "service": 82,
             "language": 1,
@@ -5409,7 +6363,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 164,
+        "pk": 245,
         "fields": {
             "service": 82,
             "language": 2,
@@ -5418,7 +6372,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 165,
+        "pk": 246,
+        "fields": {
+            "service": 82,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 247,
         "fields": {
             "service": 83,
             "language": 1,
@@ -5427,7 +6390,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 166,
+        "pk": 248,
         "fields": {
             "service": 83,
             "language": 2,
@@ -5436,7 +6399,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 167,
+        "pk": 249,
+        "fields": {
+            "service": 83,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 250,
         "fields": {
             "service": 84,
             "language": 1,
@@ -5445,7 +6417,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 168,
+        "pk": 251,
         "fields": {
             "service": 84,
             "language": 2,
@@ -5454,7 +6426,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 169,
+        "pk": 252,
+        "fields": {
+            "service": 84,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 253,
         "fields": {
             "service": 85,
             "language": 1,
@@ -5463,7 +6444,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 170,
+        "pk": 254,
         "fields": {
             "service": 85,
             "language": 2,
@@ -5472,7 +6453,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 171,
+        "pk": 255,
+        "fields": {
+            "service": 85,
+            "language": 3,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 256,
         "fields": {
             "service": 86,
             "language": 1,
@@ -5481,7 +6471,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 172,
+        "pk": 257,
         "fields": {
             "service": 86,
             "language": 2,
@@ -5490,7 +6480,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 173,
+        "pk": 258,
+        "fields": {
+            "service": 86,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 259,
         "fields": {
             "service": 87,
             "language": 1,
@@ -5499,7 +6498,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 174,
+        "pk": 260,
         "fields": {
             "service": 87,
             "language": 2,
@@ -5508,7 +6507,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 175,
+        "pk": 261,
+        "fields": {
+            "service": 87,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 262,
         "fields": {
             "service": 88,
             "language": 1,
@@ -5517,7 +6525,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 176,
+        "pk": 263,
         "fields": {
             "service": 88,
             "language": 2,
@@ -5526,7 +6534,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 177,
+        "pk": 264,
+        "fields": {
+            "service": 88,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 265,
         "fields": {
             "service": 89,
             "language": 1,
@@ -5535,7 +6552,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 178,
+        "pk": 266,
         "fields": {
             "service": 89,
             "language": 2,
@@ -5544,7 +6561,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 179,
+        "pk": 267,
+        "fields": {
+            "service": 89,
+            "language": 3,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 268,
         "fields": {
             "service": 90,
             "language": 1,
@@ -5553,7 +6579,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 180,
+        "pk": 269,
         "fields": {
             "service": 90,
             "language": 2,
@@ -5562,7 +6588,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 181,
+        "pk": 270,
+        "fields": {
+            "service": 90,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 271,
         "fields": {
             "service": 91,
             "language": 1,
@@ -5571,7 +6606,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 182,
+        "pk": 272,
         "fields": {
             "service": 91,
             "language": 2,
@@ -5580,7 +6615,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 183,
+        "pk": 273,
+        "fields": {
+            "service": 91,
+            "language": 3,
+            "name": "Metall tishlar. Quyma"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 274,
         "fields": {
             "service": 92,
             "language": 1,
@@ -5589,7 +6633,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 184,
+        "pk": 275,
         "fields": {
             "service": 92,
             "language": 2,
@@ -5598,7 +6642,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 185,
+        "pk": 276,
+        "fields": {
+            "service": 92,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 277,
         "fields": {
             "service": 93,
             "language": 1,
@@ -5607,7 +6660,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 186,
+        "pk": 278,
         "fields": {
             "service": 93,
             "language": 2,
@@ -5616,7 +6669,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 187,
+        "pk": 279,
+        "fields": {
+            "service": 93,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 280,
         "fields": {
             "service": 94,
             "language": 1,
@@ -5625,7 +6687,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 188,
+        "pk": 281,
         "fields": {
             "service": 94,
             "language": 2,
@@ -5634,7 +6696,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 189,
+        "pk": 282,
+        "fields": {
+            "service": 94,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 283,
         "fields": {
             "service": 95,
             "language": 1,
@@ -5643,7 +6714,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 190,
+        "pk": 284,
         "fields": {
             "service": 95,
             "language": 2,
@@ -5652,7 +6723,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 191,
+        "pk": 285,
+        "fields": {
+            "service": 95,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 286,
         "fields": {
             "service": 96,
             "language": 1,
@@ -5661,7 +6741,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 192,
+        "pk": 287,
         "fields": {
             "service": 96,
             "language": 2,
@@ -5670,981 +6750,126 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 193,
-        "fields": {
-            "service": 97,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 194,
-        "fields": {
-            "service": 97,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 195,
-        "fields": {
-            "service": 98,
-            "language": 1,
-            "name": "Protez. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 196,
-        "fields": {
-            "service": 98,
-            "language": 2,
-            "name": "Протез. Простой"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 197,
-        "fields": {
-            "service": 99,
-            "language": 1,
-            "name": "Protez. Yumshoq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 198,
-        "fields": {
-            "service": 99,
-            "language": 2,
-            "name": "Протез. Мягкий"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 199,
-        "fields": {
-            "service": 100,
-            "language": 1,
-            "name": "Protez. Byugel"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 200,
-        "fields": {
-            "service": 100,
-            "language": 2,
-            "name": "Протез. Бюгельный"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 201,
-        "fields": {
-            "service": 101,
-            "language": 1,
-            "name": "Metall tishlar. Sariq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 202,
-        "fields": {
-            "service": 101,
-            "language": 2,
-            "name": "Металлические зубы. Жёлтые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 203,
-        "fields": {
-            "service": 102,
-            "language": 1,
-            "name": "Metall tishlar. Tilla"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 204,
-        "fields": {
-            "service": 102,
-            "language": 2,
-            "name": "Металлические зубы. Золотые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 205,
-        "fields": {
-            "service": 103,
-            "language": 1,
-            "name": "Metall tishlar. Quyma"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 206,
-        "fields": {
-            "service": 103,
-            "language": 2,
-            "name": "Металлические зубы. Литые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 207,
-        "fields": {
-            "service": 104,
-            "language": 1,
-            "name": "Metallokeramik tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 208,
-        "fields": {
-            "service": 104,
-            "language": 2,
-            "name": "Металлокерамические зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 209,
-        "fields": {
-            "service": 105,
-            "language": 1,
-            "name": "Metalloplastmassa tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 210,
-        "fields": {
-            "service": 105,
-            "language": 2,
-            "name": "Металлопластиковые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 211,
-        "fields": {
-            "service": 106,
-            "language": 1,
-            "name": "Sirkoniy tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 212,
-        "fields": {
-            "service": 106,
-            "language": 2,
-            "name": "Цирконовые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 213,
-        "fields": {
-            "service": 107,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 214,
-        "fields": {
-            "service": 107,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 215,
-        "fields": {
-            "service": 108,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 216,
-        "fields": {
-            "service": 108,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 217,
-        "fields": {
-            "service": 109,
-            "language": 1,
-            "name": "Plombalash. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 218,
-        "fields": {
-            "service": 109,
-            "language": 2,
-            "name": "Пломба. Простая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 219,
-        "fields": {
-            "service": 110,
-            "language": 1,
-            "name": "Tishlarni professional tozalash"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 220,
-        "fields": {
-            "service": 110,
-            "language": 2,
-            "name": "Профессиональная чистка зубов"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 221,
-        "fields": {
-            "service": 111,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 222,
-        "fields": {
-            "service": 111,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 223,
-        "fields": {
-            "service": 112,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 224,
-        "fields": {
-            "service": 112,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 225,
-        "fields": {
-            "service": 113,
-            "language": 1,
-            "name": "Implant. Premium"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 226,
-        "fields": {
-            "service": 113,
-            "language": 2,
-            "name": "Имплант. Премиум"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 227,
-        "fields": {
-            "service": 114,
-            "language": 1,
-            "name": "Implant. Econom"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 228,
-        "fields": {
-            "service": 114,
-            "language": 2,
-            "name": "Имплант. Эконом"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 229,
-        "fields": {
-            "service": 115,
-            "language": 1,
-            "name": "Plombalash. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 230,
-        "fields": {
-            "service": 115,
-            "language": 2,
-            "name": "Пломба. Простая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 231,
-        "fields": {
-            "service": 116,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 232,
-        "fields": {
-            "service": 116,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 233,
-        "fields": {
-            "service": 117,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 234,
-        "fields": {
-            "service": 117,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 235,
-        "fields": {
-            "service": 118,
-            "language": 1,
-            "name": "Protez. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 236,
-        "fields": {
-            "service": 118,
-            "language": 2,
-            "name": "Протез. Простой"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 237,
-        "fields": {
-            "service": 119,
-            "language": 1,
-            "name": "Protez. Yumshoq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 238,
-        "fields": {
-            "service": 119,
-            "language": 2,
-            "name": "Протез. Мягкий"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 239,
-        "fields": {
-            "service": 120,
-            "language": 1,
-            "name": "Protez. Byugel"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 240,
-        "fields": {
-            "service": 120,
-            "language": 2,
-            "name": "Протез. Бюгельный"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 241,
-        "fields": {
-            "service": 121,
-            "language": 1,
-            "name": "Tishlarni toshini terish"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 242,
-        "fields": {
-            "service": 121,
-            "language": 2,
-            "name": "Чистка камней в зубах"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 243,
-        "fields": {
-            "service": 122,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 244,
-        "fields": {
-            "service": 122,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 245,
-        "fields": {
-            "service": 123,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 246,
-        "fields": {
-            "service": 123,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 247,
-        "fields": {
-            "service": 124,
-            "language": 1,
-            "name": "Metall tishlar. Sariq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 248,
-        "fields": {
-            "service": 124,
-            "language": 2,
-            "name": "Металлические зубы. Жёлтые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 249,
-        "fields": {
-            "service": 125,
-            "language": 1,
-            "name": "Sirkoniy tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 250,
-        "fields": {
-            "service": 125,
-            "language": 2,
-            "name": "Цирконовые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 251,
-        "fields": {
-            "service": 126,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 252,
-        "fields": {
-            "service": 126,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 253,
-        "fields": {
-            "service": 127,
-            "language": 1,
-            "name": "Protez. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 254,
-        "fields": {
-            "service": 127,
-            "language": 2,
-            "name": "Протез. Простой"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 255,
-        "fields": {
-            "service": 128,
-            "language": 1,
-            "name": "Protez. Yumshoq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 256,
-        "fields": {
-            "service": 128,
-            "language": 2,
-            "name": "Протез. Мягкий"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 257,
-        "fields": {
-            "service": 129,
-            "language": 1,
-            "name": "Metallokeramik tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 258,
-        "fields": {
-            "service": 129,
-            "language": 2,
-            "name": "Металлокерамические зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 259,
-        "fields": {
-            "service": 130,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 260,
-        "fields": {
-            "service": 130,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 261,
-        "fields": {
-            "service": 131,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 262,
-        "fields": {
-            "service": 131,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 263,
-        "fields": {
-            "service": 132,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 264,
-        "fields": {
-            "service": 132,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 265,
-        "fields": {
-            "service": 133,
-            "language": 1,
-            "name": "Protez. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 266,
-        "fields": {
-            "service": 133,
-            "language": 2,
-            "name": "Протез. Простой"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 267,
-        "fields": {
-            "service": 134,
-            "language": 1,
-            "name": "Protez. Yumshoq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 268,
-        "fields": {
-            "service": 134,
-            "language": 2,
-            "name": "Протез. Мягкий"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 269,
-        "fields": {
-            "service": 135,
-            "language": 1,
-            "name": "Protez. Byugel"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 270,
-        "fields": {
-            "service": 135,
-            "language": 2,
-            "name": "Протез. Бюгельный"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 271,
-        "fields": {
-            "service": 136,
-            "language": 1,
-            "name": "Tishlarni professional tozalash"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 272,
-        "fields": {
-            "service": 136,
-            "language": 2,
-            "name": "Профессиональная чистка зубов"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 273,
-        "fields": {
-            "service": 137,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 274,
-        "fields": {
-            "service": 137,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 275,
-        "fields": {
-            "service": 138,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 276,
-        "fields": {
-            "service": 138,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 277,
-        "fields": {
-            "service": 139,
-            "language": 1,
-            "name": "Metall tishlar. Sariq"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 278,
-        "fields": {
-            "service": 139,
-            "language": 2,
-            "name": "Металлические зубы. Жёлтые"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 279,
-        "fields": {
-            "service": 140,
-            "language": 1,
-            "name": "Metallokeramik tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 280,
-        "fields": {
-            "service": 140,
-            "language": 2,
-            "name": "Металлокерамические зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 281,
-        "fields": {
-            "service": 141,
-            "language": 1,
-            "name": "Sirkoniy tishlar"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 282,
-        "fields": {
-            "service": 141,
-            "language": 2,
-            "name": "Цирконовые зубы"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 283,
-        "fields": {
-            "service": 142,
-            "language": 1,
-            "name": "Konsultatsiya"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 284,
-        "fields": {
-            "service": 142,
-            "language": 2,
-            "name": "Консултация"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 285,
-        "fields": {
-            "service": 143,
-            "language": 1,
-            "name": "Plombalash. Svetoplomba"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 286,
-        "fields": {
-            "service": 143,
-            "language": 2,
-            "name": "Пломба. Светопломба"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
-        "pk": 287,
-        "fields": {
-            "service": 144,
-            "language": 1,
-            "name": "Plombalash. Kimyoviy qotuvchi"
-        }
-    },
-    {
-        "model": "dentist.service_translation",
         "pk": 288,
         "fields": {
-            "service": 144,
-            "language": 2,
-            "name": "Пломба. Химически отвердевающая"
+            "service": 96,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Keramik"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 289,
         "fields": {
-            "service": 145,
+            "service": 97,
             "language": 1,
-            "name": "Plombalash. Oddiy"
+            "name": "Konsultatsiya"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 290,
         "fields": {
-            "service": 145,
+            "service": 97,
             "language": 2,
-            "name": "Пломба. Простая"
+            "name": "Консултация"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 291,
         "fields": {
-            "service": 146,
-            "language": 1,
-            "name": "Protez. Oddiy"
+            "service": 97,
+            "language": 3,
+            "name": "Konsultatsiya"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 292,
         "fields": {
-            "service": 146,
-            "language": 2,
-            "name": "Протез. Простой"
+            "service": 98,
+            "language": 1,
+            "name": "Protez. Oddiy"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 293,
         "fields": {
-            "service": 147,
-            "language": 1,
-            "name": "Protez. Yumshoq"
+            "service": 98,
+            "language": 2,
+            "name": "Протез. Простой"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 294,
         "fields": {
-            "service": 147,
-            "language": 2,
-            "name": "Протез. Мягкий"
+            "service": 98,
+            "language": 3,
+            "name": "Protez. Oddiy"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 295,
         "fields": {
-            "service": 148,
+            "service": 99,
             "language": 1,
-            "name": "Tishlarni oqartirish"
+            "name": "Protez. Yumshoq"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 296,
         "fields": {
-            "service": 148,
+            "service": 99,
             "language": 2,
-            "name": "Отбеливание зубов"
+            "name": "Протез. Мягкий"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 297,
         "fields": {
-            "service": 149,
-            "language": 1,
-            "name": "Tish olish. Oddiy"
+            "service": 99,
+            "language": 3,
+            "name": "Protez. Yumshoq"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 298,
         "fields": {
-            "service": 149,
-            "language": 2,
-            "name": "Удаление зуба. Простое"
+            "service": 100,
+            "language": 1,
+            "name": "Protez. Byugel"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 299,
         "fields": {
-            "service": 150,
-            "language": 1,
-            "name": "Tish olish. Murakkab"
+            "service": 100,
+            "language": 2,
+            "name": "Протез. Бюгельный"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 300,
         "fields": {
-            "service": 150,
-            "language": 2,
-            "name": "Удаление зуба. Сложное"
+            "service": 100,
+            "language": 3,
+            "name": "Protez. Byugel"
         }
     },
     {
         "model": "dentist.service_translation",
         "pk": 301,
         "fields": {
-            "service": 151,
+            "service": 101,
             "language": 1,
             "name": "Metall tishlar. Sariq"
         }
@@ -6653,7 +6878,7 @@
         "model": "dentist.service_translation",
         "pk": 302,
         "fields": {
-            "service": 151,
+            "service": 101,
             "language": 2,
             "name": "Металлические зубы. Жёлтые"
         }
@@ -6662,6 +6887,1365 @@
         "model": "dentist.service_translation",
         "pk": 303,
         "fields": {
+            "service": 101,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 304,
+        "fields": {
+            "service": 102,
+            "language": 1,
+            "name": "Metall tishlar. Tilla"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 305,
+        "fields": {
+            "service": 102,
+            "language": 2,
+            "name": "Металлические зубы. Золотые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 306,
+        "fields": {
+            "service": 102,
+            "language": 3,
+            "name": "Metall tishlar. Tilla"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 307,
+        "fields": {
+            "service": 103,
+            "language": 1,
+            "name": "Metall tishlar. Quyma"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 308,
+        "fields": {
+            "service": 103,
+            "language": 2,
+            "name": "Металлические зубы. Литые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 309,
+        "fields": {
+            "service": 103,
+            "language": 3,
+            "name": "Metall tishlar. Quyma"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 310,
+        "fields": {
+            "service": 104,
+            "language": 1,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 311,
+        "fields": {
+            "service": 104,
+            "language": 2,
+            "name": "Металлокерамические зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 312,
+        "fields": {
+            "service": 104,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 313,
+        "fields": {
+            "service": 105,
+            "language": 1,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 314,
+        "fields": {
+            "service": 105,
+            "language": 2,
+            "name": "Металлопластиковые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 315,
+        "fields": {
+            "service": 105,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 316,
+        "fields": {
+            "service": 106,
+            "language": 1,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 317,
+        "fields": {
+            "service": 106,
+            "language": 2,
+            "name": "Цирконовые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 318,
+        "fields": {
+            "service": 106,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 319,
+        "fields": {
+            "service": 107,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 320,
+        "fields": {
+            "service": 107,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 321,
+        "fields": {
+            "service": 107,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 322,
+        "fields": {
+            "service": 108,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 323,
+        "fields": {
+            "service": 108,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 324,
+        "fields": {
+            "service": 108,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 325,
+        "fields": {
+            "service": 109,
+            "language": 1,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 326,
+        "fields": {
+            "service": 109,
+            "language": 2,
+            "name": "Пломба. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 327,
+        "fields": {
+            "service": 109,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 328,
+        "fields": {
+            "service": 110,
+            "language": 1,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 329,
+        "fields": {
+            "service": 110,
+            "language": 2,
+            "name": "Профессиональная чистка зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 330,
+        "fields": {
+            "service": 110,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 331,
+        "fields": {
+            "service": 111,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 332,
+        "fields": {
+            "service": 111,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 333,
+        "fields": {
+            "service": 111,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 334,
+        "fields": {
+            "service": 112,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 335,
+        "fields": {
+            "service": 112,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 336,
+        "fields": {
+            "service": 112,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 337,
+        "fields": {
+            "service": 113,
+            "language": 1,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 338,
+        "fields": {
+            "service": 113,
+            "language": 2,
+            "name": "Имплант. Премиум"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 339,
+        "fields": {
+            "service": 113,
+            "language": 3,
+            "name": "Implant. Premium"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 340,
+        "fields": {
+            "service": 114,
+            "language": 1,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 341,
+        "fields": {
+            "service": 114,
+            "language": 2,
+            "name": "Имплант. Эконом"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 342,
+        "fields": {
+            "service": 114,
+            "language": 3,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 343,
+        "fields": {
+            "service": 115,
+            "language": 1,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 344,
+        "fields": {
+            "service": 115,
+            "language": 2,
+            "name": "Пломба. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 345,
+        "fields": {
+            "service": 115,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 346,
+        "fields": {
+            "service": 116,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 347,
+        "fields": {
+            "service": 116,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 348,
+        "fields": {
+            "service": 116,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 349,
+        "fields": {
+            "service": 117,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 350,
+        "fields": {
+            "service": 117,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 351,
+        "fields": {
+            "service": 117,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 352,
+        "fields": {
+            "service": 118,
+            "language": 1,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 353,
+        "fields": {
+            "service": 118,
+            "language": 2,
+            "name": "Протез. Простой"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 354,
+        "fields": {
+            "service": 118,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 355,
+        "fields": {
+            "service": 119,
+            "language": 1,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 356,
+        "fields": {
+            "service": 119,
+            "language": 2,
+            "name": "Протез. Мягкий"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 357,
+        "fields": {
+            "service": 119,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 358,
+        "fields": {
+            "service": 120,
+            "language": 1,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 359,
+        "fields": {
+            "service": 120,
+            "language": 2,
+            "name": "Протез. Бюгельный"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 360,
+        "fields": {
+            "service": 120,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 361,
+        "fields": {
+            "service": 121,
+            "language": 1,
+            "name": "Tishlarni toshini terish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 362,
+        "fields": {
+            "service": 121,
+            "language": 2,
+            "name": "Чистка камней в зубах"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 363,
+        "fields": {
+            "service": 121,
+            "language": 3,
+            "name": "Tishlarni toshini terish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 364,
+        "fields": {
+            "service": 122,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 365,
+        "fields": {
+            "service": 122,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 366,
+        "fields": {
+            "service": 122,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 367,
+        "fields": {
+            "service": 123,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 368,
+        "fields": {
+            "service": 123,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 369,
+        "fields": {
+            "service": 123,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 370,
+        "fields": {
+            "service": 124,
+            "language": 1,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 371,
+        "fields": {
+            "service": 124,
+            "language": 2,
+            "name": "Металлические зубы. Жёлтые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 372,
+        "fields": {
+            "service": 124,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 373,
+        "fields": {
+            "service": 125,
+            "language": 1,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 374,
+        "fields": {
+            "service": 125,
+            "language": 2,
+            "name": "Цирконовые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 375,
+        "fields": {
+            "service": 125,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 376,
+        "fields": {
+            "service": 126,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 377,
+        "fields": {
+            "service": 126,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 378,
+        "fields": {
+            "service": 126,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 379,
+        "fields": {
+            "service": 127,
+            "language": 1,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 380,
+        "fields": {
+            "service": 127,
+            "language": 2,
+            "name": "Протез. Простой"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 381,
+        "fields": {
+            "service": 127,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 382,
+        "fields": {
+            "service": 128,
+            "language": 1,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 383,
+        "fields": {
+            "service": 128,
+            "language": 2,
+            "name": "Протез. Мягкий"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 384,
+        "fields": {
+            "service": 128,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 385,
+        "fields": {
+            "service": 129,
+            "language": 1,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 386,
+        "fields": {
+            "service": 129,
+            "language": 2,
+            "name": "Металлокерамические зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 387,
+        "fields": {
+            "service": 129,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 388,
+        "fields": {
+            "service": 130,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 389,
+        "fields": {
+            "service": 130,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 390,
+        "fields": {
+            "service": 130,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 391,
+        "fields": {
+            "service": 131,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 392,
+        "fields": {
+            "service": 131,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 393,
+        "fields": {
+            "service": 131,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 394,
+        "fields": {
+            "service": 132,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 395,
+        "fields": {
+            "service": 132,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 396,
+        "fields": {
+            "service": 132,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 397,
+        "fields": {
+            "service": 133,
+            "language": 1,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 398,
+        "fields": {
+            "service": 133,
+            "language": 2,
+            "name": "Протез. Простой"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 399,
+        "fields": {
+            "service": 133,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 400,
+        "fields": {
+            "service": 134,
+            "language": 1,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 401,
+        "fields": {
+            "service": 134,
+            "language": 2,
+            "name": "Протез. Мягкий"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 402,
+        "fields": {
+            "service": 134,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 403,
+        "fields": {
+            "service": 135,
+            "language": 1,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 404,
+        "fields": {
+            "service": 135,
+            "language": 2,
+            "name": "Протез. Бюгельный"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 405,
+        "fields": {
+            "service": 135,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 406,
+        "fields": {
+            "service": 136,
+            "language": 1,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 407,
+        "fields": {
+            "service": 136,
+            "language": 2,
+            "name": "Профессиональная чистка зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 408,
+        "fields": {
+            "service": 136,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 409,
+        "fields": {
+            "service": 137,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 410,
+        "fields": {
+            "service": 137,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 411,
+        "fields": {
+            "service": 137,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 412,
+        "fields": {
+            "service": 138,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 413,
+        "fields": {
+            "service": 138,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 414,
+        "fields": {
+            "service": 138,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 415,
+        "fields": {
+            "service": 139,
+            "language": 1,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 416,
+        "fields": {
+            "service": 139,
+            "language": 2,
+            "name": "Металлические зубы. Жёлтые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 417,
+        "fields": {
+            "service": 139,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 418,
+        "fields": {
+            "service": 140,
+            "language": 1,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 419,
+        "fields": {
+            "service": 140,
+            "language": 2,
+            "name": "Металлокерамические зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 420,
+        "fields": {
+            "service": 140,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 421,
+        "fields": {
+            "service": 141,
+            "language": 1,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 422,
+        "fields": {
+            "service": 141,
+            "language": 2,
+            "name": "Цирконовые зубы"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 423,
+        "fields": {
+            "service": 141,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 424,
+        "fields": {
+            "service": 142,
+            "language": 1,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 425,
+        "fields": {
+            "service": 142,
+            "language": 2,
+            "name": "Консултация"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 426,
+        "fields": {
+            "service": 142,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 427,
+        "fields": {
+            "service": 143,
+            "language": 1,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 428,
+        "fields": {
+            "service": 143,
+            "language": 2,
+            "name": "Пломба. Светопломба"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 429,
+        "fields": {
+            "service": 143,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 430,
+        "fields": {
+            "service": 144,
+            "language": 1,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 431,
+        "fields": {
+            "service": 144,
+            "language": 2,
+            "name": "Пломба. Химически отвердевающая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 432,
+        "fields": {
+            "service": 144,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 433,
+        "fields": {
+            "service": 145,
+            "language": 1,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 434,
+        "fields": {
+            "service": 145,
+            "language": 2,
+            "name": "Пломба. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 435,
+        "fields": {
+            "service": 145,
+            "language": 3,
+            "name": "Plombalash. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 436,
+        "fields": {
+            "service": 146,
+            "language": 1,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 437,
+        "fields": {
+            "service": 146,
+            "language": 2,
+            "name": "Протез. Простой"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 438,
+        "fields": {
+            "service": 146,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 439,
+        "fields": {
+            "service": 147,
+            "language": 1,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 440,
+        "fields": {
+            "service": 147,
+            "language": 2,
+            "name": "Протез. Мягкий"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 441,
+        "fields": {
+            "service": 147,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 442,
+        "fields": {
+            "service": 148,
+            "language": 1,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 443,
+        "fields": {
+            "service": 148,
+            "language": 2,
+            "name": "Отбеливание зубов"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 444,
+        "fields": {
+            "service": 148,
+            "language": 3,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 445,
+        "fields": {
+            "service": 149,
+            "language": 1,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 446,
+        "fields": {
+            "service": 149,
+            "language": 2,
+            "name": "Удаление зуба. Простое"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 447,
+        "fields": {
+            "service": 149,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 448,
+        "fields": {
+            "service": 150,
+            "language": 1,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 449,
+        "fields": {
+            "service": 150,
+            "language": 2,
+            "name": "Удаление зуба. Сложное"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 450,
+        "fields": {
+            "service": 150,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 451,
+        "fields": {
+            "service": 151,
+            "language": 1,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 452,
+        "fields": {
+            "service": 151,
+            "language": 2,
+            "name": "Металлические зубы. Жёлтые"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 453,
+        "fields": {
+            "service": 151,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 454,
+        "fields": {
             "service": 152,
             "language": 1,
             "name": "Metallokeramik tishlar"
@@ -6669,7 +8253,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 304,
+        "pk": 455,
         "fields": {
             "service": 152,
             "language": 2,
@@ -6678,7 +8262,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 305,
+        "pk": 456,
+        "fields": {
+            "service": 152,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 457,
         "fields": {
             "service": 153,
             "language": 1,
@@ -6687,7 +8280,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 306,
+        "pk": 458,
         "fields": {
             "service": 153,
             "language": 2,
@@ -6696,7 +8289,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 307,
+        "pk": 459,
+        "fields": {
+            "service": 153,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 460,
         "fields": {
             "service": 154,
             "language": 1,
@@ -6705,7 +8307,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 308,
+        "pk": 461,
         "fields": {
             "service": 154,
             "language": 2,
@@ -6714,7 +8316,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 309,
+        "pk": 462,
+        "fields": {
+            "service": 154,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 463,
         "fields": {
             "service": 155,
             "language": 1,
@@ -6723,7 +8334,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 310,
+        "pk": 464,
         "fields": {
             "service": 155,
             "language": 2,
@@ -6732,7 +8343,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 311,
+        "pk": 465,
+        "fields": {
+            "service": 155,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 466,
         "fields": {
             "service": 156,
             "language": 1,
@@ -6741,7 +8361,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 312,
+        "pk": 467,
         "fields": {
             "service": 156,
             "language": 2,
@@ -6750,7 +8370,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 313,
+        "pk": 468,
+        "fields": {
+            "service": 156,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 469,
         "fields": {
             "service": 157,
             "language": 1,
@@ -6759,7 +8388,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 314,
+        "pk": 470,
         "fields": {
             "service": 157,
             "language": 2,
@@ -6768,7 +8397,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 315,
+        "pk": 471,
+        "fields": {
+            "service": 157,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 472,
         "fields": {
             "service": 158,
             "language": 1,
@@ -6777,7 +8415,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 316,
+        "pk": 473,
         "fields": {
             "service": 158,
             "language": 2,
@@ -6786,7 +8424,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 317,
+        "pk": 474,
+        "fields": {
+            "service": 158,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 475,
         "fields": {
             "service": 159,
             "language": 1,
@@ -6795,7 +8442,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 318,
+        "pk": 476,
         "fields": {
             "service": 159,
             "language": 2,
@@ -6804,7 +8451,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 319,
+        "pk": 477,
+        "fields": {
+            "service": 159,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 478,
         "fields": {
             "service": 160,
             "language": 1,
@@ -6813,7 +8469,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 320,
+        "pk": 479,
         "fields": {
             "service": 160,
             "language": 2,
@@ -6822,7 +8478,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 321,
+        "pk": 480,
+        "fields": {
+            "service": 160,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 481,
         "fields": {
             "service": 161,
             "language": 1,
@@ -6831,7 +8496,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 322,
+        "pk": 482,
         "fields": {
             "service": 161,
             "language": 2,
@@ -6840,7 +8505,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 323,
+        "pk": 483,
+        "fields": {
+            "service": 161,
+            "language": 3,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 484,
         "fields": {
             "service": 162,
             "language": 1,
@@ -6849,7 +8523,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 324,
+        "pk": 485,
         "fields": {
             "service": 162,
             "language": 2,
@@ -6858,7 +8532,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 325,
+        "pk": 486,
+        "fields": {
+            "service": 162,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 487,
         "fields": {
             "service": 163,
             "language": 1,
@@ -6867,7 +8550,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 326,
+        "pk": 488,
         "fields": {
             "service": 163,
             "language": 2,
@@ -6876,7 +8559,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 327,
+        "pk": 489,
+        "fields": {
+            "service": 163,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 490,
         "fields": {
             "service": 164,
             "language": 1,
@@ -6885,7 +8577,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 328,
+        "pk": 491,
         "fields": {
             "service": 164,
             "language": 2,
@@ -6894,7 +8586,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 329,
+        "pk": 492,
+        "fields": {
+            "service": 164,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 493,
         "fields": {
             "service": 165,
             "language": 1,
@@ -6903,7 +8604,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 330,
+        "pk": 494,
         "fields": {
             "service": 165,
             "language": 2,
@@ -6912,7 +8613,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 331,
+        "pk": 495,
+        "fields": {
+            "service": 165,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 496,
         "fields": {
             "service": 166,
             "language": 1,
@@ -6921,7 +8631,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 332,
+        "pk": 497,
         "fields": {
             "service": 166,
             "language": 2,
@@ -6930,7 +8640,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 333,
+        "pk": 498,
+        "fields": {
+            "service": 166,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 499,
         "fields": {
             "service": 167,
             "language": 1,
@@ -6939,7 +8658,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 334,
+        "pk": 500,
         "fields": {
             "service": 167,
             "language": 2,
@@ -6948,7 +8667,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 335,
+        "pk": 501,
+        "fields": {
+            "service": 167,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 502,
         "fields": {
             "service": 168,
             "language": 1,
@@ -6957,7 +8685,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 336,
+        "pk": 503,
         "fields": {
             "service": 168,
             "language": 2,
@@ -6966,7 +8694,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 337,
+        "pk": 504,
+        "fields": {
+            "service": 168,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 505,
         "fields": {
             "service": 169,
             "language": 1,
@@ -6975,7 +8712,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 338,
+        "pk": 506,
         "fields": {
             "service": 169,
             "language": 2,
@@ -6984,7 +8721,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 339,
+        "pk": 507,
+        "fields": {
+            "service": 169,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 508,
         "fields": {
             "service": 170,
             "language": 1,
@@ -6993,7 +8739,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 340,
+        "pk": 509,
         "fields": {
             "service": 170,
             "language": 2,
@@ -7002,7 +8748,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 341,
+        "pk": 510,
+        "fields": {
+            "service": 170,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 511,
         "fields": {
             "service": 171,
             "language": 1,
@@ -7011,7 +8766,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 342,
+        "pk": 512,
         "fields": {
             "service": 171,
             "language": 2,
@@ -7020,7 +8775,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 343,
+        "pk": 513,
+        "fields": {
+            "service": 171,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 514,
         "fields": {
             "service": 172,
             "language": 1,
@@ -7029,7 +8793,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 344,
+        "pk": 515,
         "fields": {
             "service": 172,
             "language": 2,
@@ -7038,7 +8802,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 345,
+        "pk": 516,
+        "fields": {
+            "service": 172,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 517,
         "fields": {
             "service": 173,
             "language": 1,
@@ -7047,7 +8820,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 346,
+        "pk": 518,
         "fields": {
             "service": 173,
             "language": 2,
@@ -7056,7 +8829,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 347,
+        "pk": 519,
+        "fields": {
+            "service": 173,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 520,
         "fields": {
             "service": 174,
             "language": 1,
@@ -7065,7 +8847,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 348,
+        "pk": 521,
         "fields": {
             "service": 174,
             "language": 2,
@@ -7074,7 +8856,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 349,
+        "pk": 522,
+        "fields": {
+            "service": 174,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 523,
         "fields": {
             "service": 175,
             "language": 1,
@@ -7083,7 +8874,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 350,
+        "pk": 524,
         "fields": {
             "service": 175,
             "language": 2,
@@ -7092,7 +8883,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 351,
+        "pk": 525,
+        "fields": {
+            "service": 175,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 526,
         "fields": {
             "service": 176,
             "language": 1,
@@ -7101,7 +8901,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 352,
+        "pk": 527,
         "fields": {
             "service": 176,
             "language": 2,
@@ -7110,7 +8910,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 353,
+        "pk": 528,
+        "fields": {
+            "service": 176,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 529,
         "fields": {
             "service": 177,
             "language": 1,
@@ -7119,7 +8928,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 354,
+        "pk": 530,
         "fields": {
             "service": 177,
             "language": 2,
@@ -7128,7 +8937,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 355,
+        "pk": 531,
+        "fields": {
+            "service": 177,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Keramik"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 532,
         "fields": {
             "service": 178,
             "language": 1,
@@ -7137,7 +8955,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 356,
+        "pk": 533,
         "fields": {
             "service": 178,
             "language": 2,
@@ -7146,7 +8964,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 357,
+        "pk": 534,
+        "fields": {
+            "service": 178,
+            "language": 3,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 535,
         "fields": {
             "service": 179,
             "language": 1,
@@ -7155,7 +8982,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 358,
+        "pk": 536,
         "fields": {
             "service": 179,
             "language": 2,
@@ -7164,7 +8991,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 359,
+        "pk": 537,
+        "fields": {
+            "service": 179,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 538,
         "fields": {
             "service": 180,
             "language": 1,
@@ -7173,7 +9009,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 360,
+        "pk": 539,
         "fields": {
             "service": 180,
             "language": 2,
@@ -7182,7 +9018,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 361,
+        "pk": 540,
+        "fields": {
+            "service": 180,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 541,
         "fields": {
             "service": 181,
             "language": 1,
@@ -7191,7 +9036,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 362,
+        "pk": 542,
         "fields": {
             "service": 181,
             "language": 2,
@@ -7200,7 +9045,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 363,
+        "pk": 543,
+        "fields": {
+            "service": 181,
+            "language": 3,
+            "name": "Plombalash. Kimyoviy qotuvchi"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 544,
         "fields": {
             "service": 182,
             "language": 1,
@@ -7209,7 +9063,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 364,
+        "pk": 545,
         "fields": {
             "service": 182,
             "language": 2,
@@ -7218,7 +9072,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 365,
+        "pk": 546,
+        "fields": {
+            "service": 182,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 547,
         "fields": {
             "service": 183,
             "language": 1,
@@ -7227,7 +9090,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 366,
+        "pk": 548,
         "fields": {
             "service": 183,
             "language": 2,
@@ -7236,7 +9099,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 367,
+        "pk": 549,
+        "fields": {
+            "service": 183,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 550,
         "fields": {
             "service": 184,
             "language": 1,
@@ -7245,7 +9117,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 368,
+        "pk": 551,
         "fields": {
             "service": 184,
             "language": 2,
@@ -7254,7 +9126,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 369,
+        "pk": 552,
+        "fields": {
+            "service": 184,
+            "language": 3,
+            "name": "Protez. Byugel"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 553,
         "fields": {
             "service": 185,
             "language": 1,
@@ -7263,7 +9144,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 370,
+        "pk": 554,
         "fields": {
             "service": 185,
             "language": 2,
@@ -7272,7 +9153,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 371,
+        "pk": 555,
+        "fields": {
+            "service": 185,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 556,
         "fields": {
             "service": 186,
             "language": 1,
@@ -7281,7 +9171,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 372,
+        "pk": 557,
         "fields": {
             "service": 186,
             "language": 2,
@@ -7290,7 +9180,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 373,
+        "pk": 558,
+        "fields": {
+            "service": 186,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 559,
         "fields": {
             "service": 187,
             "language": 1,
@@ -7299,7 +9198,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 374,
+        "pk": 560,
         "fields": {
             "service": 187,
             "language": 2,
@@ -7308,7 +9207,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 375,
+        "pk": 561,
+        "fields": {
+            "service": 187,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 562,
         "fields": {
             "service": 188,
             "language": 1,
@@ -7317,7 +9225,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 376,
+        "pk": 563,
         "fields": {
             "service": 188,
             "language": 2,
@@ -7326,7 +9234,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 377,
+        "pk": 564,
+        "fields": {
+            "service": 188,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 565,
         "fields": {
             "service": 189,
             "language": 1,
@@ -7335,7 +9252,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 378,
+        "pk": 566,
         "fields": {
             "service": 189,
             "language": 2,
@@ -7344,7 +9261,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 379,
+        "pk": 567,
+        "fields": {
+            "service": 189,
+            "language": 3,
+            "name": "Metalloplastmassa tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 568,
         "fields": {
             "service": 190,
             "language": 1,
@@ -7353,7 +9279,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 380,
+        "pk": 569,
         "fields": {
             "service": 190,
             "language": 2,
@@ -7362,7 +9288,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 381,
+        "pk": 570,
+        "fields": {
+            "service": 190,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 571,
         "fields": {
             "service": 191,
             "language": 1,
@@ -7371,7 +9306,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 382,
+        "pk": 572,
         "fields": {
             "service": 191,
             "language": 2,
@@ -7380,7 +9315,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 383,
+        "pk": 573,
+        "fields": {
+            "service": 191,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 574,
         "fields": {
             "service": 192,
             "language": 1,
@@ -7389,7 +9333,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 384,
+        "pk": 575,
         "fields": {
             "service": 192,
             "language": 2,
@@ -7398,7 +9342,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 385,
+        "pk": 576,
+        "fields": {
+            "service": 192,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 577,
         "fields": {
             "service": 193,
             "language": 1,
@@ -7407,7 +9360,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 386,
+        "pk": 578,
         "fields": {
             "service": 193,
             "language": 2,
@@ -7416,7 +9369,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 387,
+        "pk": 579,
+        "fields": {
+            "service": 193,
+            "language": 3,
+            "name": "Implant. Econom"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 580,
         "fields": {
             "service": 194,
             "language": 1,
@@ -7425,7 +9387,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 388,
+        "pk": 581,
         "fields": {
             "service": 194,
             "language": 2,
@@ -7434,7 +9396,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 389,
+        "pk": 582,
+        "fields": {
+            "service": 194,
+            "language": 3,
+            "name": "Konsultatsiya"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 583,
         "fields": {
             "service": 195,
             "language": 1,
@@ -7443,7 +9414,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 390,
+        "pk": 584,
         "fields": {
             "service": 195,
             "language": 2,
@@ -7452,7 +9423,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 391,
+        "pk": 585,
+        "fields": {
+            "service": 195,
+            "language": 3,
+            "name": "Plombalash. Svetoplomba"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 586,
         "fields": {
             "service": 196,
             "language": 1,
@@ -7461,7 +9441,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 392,
+        "pk": 587,
         "fields": {
             "service": 196,
             "language": 2,
@@ -7470,7 +9450,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 393,
+        "pk": 588,
+        "fields": {
+            "service": 196,
+            "language": 3,
+            "name": "Protez. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 589,
         "fields": {
             "service": 197,
             "language": 1,
@@ -7479,7 +9468,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 394,
+        "pk": 590,
         "fields": {
             "service": 197,
             "language": 2,
@@ -7488,7 +9477,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 395,
+        "pk": 591,
+        "fields": {
+            "service": 197,
+            "language": 3,
+            "name": "Protez. Yumshoq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 592,
         "fields": {
             "service": 198,
             "language": 1,
@@ -7497,7 +9495,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 396,
+        "pk": 593,
         "fields": {
             "service": 198,
             "language": 2,
@@ -7506,7 +9504,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 397,
+        "pk": 594,
+        "fields": {
+            "service": 198,
+            "language": 3,
+            "name": "Tishlarni oqartirish"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 595,
         "fields": {
             "service": 199,
             "language": 1,
@@ -7515,7 +9522,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 398,
+        "pk": 596,
         "fields": {
             "service": 199,
             "language": 2,
@@ -7524,7 +9531,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 399,
+        "pk": 597,
+        "fields": {
+            "service": 199,
+            "language": 3,
+            "name": "Tishlarni professional tozalash"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 598,
         "fields": {
             "service": 200,
             "language": 1,
@@ -7533,7 +9549,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 400,
+        "pk": 599,
         "fields": {
             "service": 200,
             "language": 2,
@@ -7542,7 +9558,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 401,
+        "pk": 600,
+        "fields": {
+            "service": 200,
+            "language": 3,
+            "name": "Tish olish. Oddiy"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 601,
         "fields": {
             "service": 201,
             "language": 1,
@@ -7551,7 +9576,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 402,
+        "pk": 602,
         "fields": {
             "service": 201,
             "language": 2,
@@ -7560,7 +9585,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 403,
+        "pk": 603,
+        "fields": {
+            "service": 201,
+            "language": 3,
+            "name": "Tish olish. Murakkab"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 604,
         "fields": {
             "service": 202,
             "language": 1,
@@ -7569,7 +9603,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 404,
+        "pk": 605,
         "fields": {
             "service": 202,
             "language": 2,
@@ -7578,7 +9612,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 405,
+        "pk": 606,
+        "fields": {
+            "service": 202,
+            "language": 3,
+            "name": "Metall tishlar. Sariq"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 607,
         "fields": {
             "service": 203,
             "language": 1,
@@ -7587,7 +9630,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 406,
+        "pk": 608,
         "fields": {
             "service": 203,
             "language": 2,
@@ -7596,7 +9639,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 407,
+        "pk": 609,
+        "fields": {
+            "service": 203,
+            "language": 3,
+            "name": "Metallokeramik tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 610,
         "fields": {
             "service": 204,
             "language": 1,
@@ -7605,7 +9657,7 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 408,
+        "pk": 611,
         "fields": {
             "service": 204,
             "language": 2,
@@ -7614,7 +9666,16 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 409,
+        "pk": 612,
+        "fields": {
+            "service": 204,
+            "language": 3,
+            "name": "Sirkoniy tishlar"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 613,
         "fields": {
             "service": 205,
             "language": 1,
@@ -7623,11 +9684,20 @@
     },
     {
         "model": "dentist.service_translation",
-        "pk": 410,
+        "pk": 614,
         "fields": {
             "service": 205,
             "language": 2,
             "name": "Укладка брикетов. Простая"
+        }
+    },
+    {
+        "model": "dentist.service_translation",
+        "pk": 615,
+        "fields": {
+            "service": 205,
+            "language": 3,
+            "name": "Breket (sim) qo'yish. Oddiy"
         }
     }
 ]

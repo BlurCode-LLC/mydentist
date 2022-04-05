@@ -136,7 +136,17 @@ def register(request):
                 else:
                     otherillness.pregnancy_id = None
                 otherillness.save()
-                return redirect("login:login")
+                user = authenticate(
+                    request,
+                    username=user.username,
+                    password=passwordform.cleaned_data['password']
+                )
+                login(request, user)
+                language = Language.objects.get(pk=user_extra.language_id).name
+                translation.activate(language)
+                request.session[translation.LANGUAGE_SESSION_KEY] = language
+                request.session[user.get_username()] = user.get_username()
+                return redirect("baseapp:index")
             else:
                 return render(request, "login/register.html", {
                     'userform': userform,
@@ -190,7 +200,7 @@ def sign_in(request):
                     if 'next' in request.POST:
                         return redirect(request.POST['next'])
                     else:
-                        return redirect("patient:profile")
+                        return redirect("baseapp:index")
                 else:
                     return render(request, "login/login.html", {
                         'loginform': loginform,
@@ -215,7 +225,7 @@ def sign_in(request):
                         if 'next' in request.POST:
                             return redirect(request.POST['next'])
                         else:
-                            return redirect("patient:profile")
+                            return redirect("baseapp:index")
                     else:
                         return render(request, "login/login.html", {
                             'loginform': loginform,

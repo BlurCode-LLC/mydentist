@@ -31,7 +31,7 @@
                                 <a class="nav-link" aria-current="page" href="{% url 'baseapp:index' %}#first_screen">{% trans "Dastur haqida" %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'baseapp:index' %}#second_screen">{% trans "Stomatolog uchun" %}</a>
+                                <a class="nav-link" href="http://mydentistx.wordpress.com" target="_blank">{% trans "Stomatolog uchun" %}</a>
                             </li>
                             <div class="dropdown lang_select nav-link">
                                 {% get_current_language as LANGUAGE_CODE %}
@@ -69,24 +69,18 @@
         <div class="footer mt-auto">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4">
                         <div class="footer_logo mb-2">
                             <a href="{% url 'baseapp:index' %}">
-                                <img src="{% static 'img/logo.png' %}">
+                                <img src="{% static 'img/logo-full.png' %}">
                             </a>
                         </div>
                         <div class="footer_text_2">{% trans "Bemor va stomatologlar uchun zamonaviy platforma" %}</div>
                     </div>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4">
                         <div class="footer_text_1 mb-2">{% trans "Sayt fayllari" %}</div>
                         <a href="#" class="footer_text_2">{% trans "Ommaviy oferta" %}</a>
                         <a href="#" class="footer_text_2">{% trans "Foydalanish shartlari" %}</a>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="footer_text_1 mb-2">{% trans "Hududlar" %}</div>
-                        <span class="footer_text_2">{% trans "Toshkent" %}</span>
-                        <span class="footer_text_2">{% trans "Andijon viloyati" %}</span>
-                        <span class="footer_text_2">{% trans "Samarqand viloyati" %}</span>
                     </div>
                 </div>
             </div>
