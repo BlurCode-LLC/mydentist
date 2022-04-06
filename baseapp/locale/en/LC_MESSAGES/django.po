@@ -23,32 +23,32 @@ msgstr ""
 
 #: .\baseapp\apps.py:8
 msgid "Asosiy ma'lumotlar"
-msgstr ""
+msgstr "Base data"
 
 #: .\baseapp\models.py:7
 msgid "Til nomi"
-msgstr ""
+msgstr "Language name"
 
 #: .\baseapp\models.py:10
 msgid "Til"
-msgstr ""
+msgstr "Language"
 
 #: .\baseapp\models.py:11
 msgid "Tillar"
-msgstr ""
+msgstr "Languages"
 
 #: .\baseapp\models.py:19 .\baseapp\models.py:22
 msgid "Hudud nomi"
-msgstr ""
+msgstr "Region name"
 
 #: .\baseapp\models.py:23
 msgid "Hudud nomlari"
-msgstr ""
+msgstr "Region names"
 
 #: .\baseapp\models.py:31 .\baseapp\models.py:34
 msgid "Jins"
-msgstr ""
+msgstr "Sex"
 
 #: .\baseapp\models.py:35
 msgid "Jinslar"
-msgstr ""
+msgstr "Sexes"

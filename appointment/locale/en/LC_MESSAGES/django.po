@@ -19,20 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: .\appointment\apps.py:8
 msgid "Qabullar va so'rovlar"
-msgstr ""
+msgstr "Receptions and requests"
 
 #: .\appointment\forms.py:9 .\appointment\models.py:11
 #: .\appointment\models.py:26
 msgid "Bemor"
-msgstr ""
+msgstr "Patient"
 
 #: .\appointment\forms.py:13
 msgid "Bemor FIOsi"
-msgstr ""
+msgstr "Patient's fullname"
 
 #: .\appointment\forms.py:19
 msgid "Telefon raqami"
-msgstr ""
+msgstr "Phone number"
 
 #: .\appointment\forms.py:25
 msgid "(XX) XXX-XX-XX"
@@ -40,92 +40,92 @@ msgstr ""
 
 #: .\appointment\forms.py:33
 msgid "Tugilgan sana"
-msgstr ""
+msgstr "Birth date"
 
 #: .\appointment\forms.py:43
 msgid "Jins"
-msgstr ""
+msgstr "Sex"
 
 #: .\appointment\forms.py:52
 msgid "Manzil"
-msgstr ""
+msgstr "Address"
 
 #: .\appointment\forms.py:56
 msgid "Manzilni kiriting"
-msgstr ""
+msgstr "Enter the address"
 
 #: .\appointment\forms.py:66 .\appointment\models.py:27
 msgid "Xizmat"
-msgstr ""
+msgstr "Service"
 
 #: .\appointment\forms.py:78 .\appointment\models.py:28
 msgid "Boshlanish vaqti"
-msgstr ""
+msgstr "Begin time"
 
 #: .\appointment\forms.py:86
 msgid "Davomiyligi"
-msgstr ""
+msgstr "Duration"
 
 #: .\appointment\forms.py:95
 msgid "Eslatma"
-msgstr ""
+msgstr "Reminder"
 
 #: .\appointment\models.py:10 .\appointment\models.py:25
 msgid "Tish shifokori"
-msgstr ""
+msgstr "Dentist"
 
 #: .\appointment\models.py:12
 msgid "Sabab"
-msgstr ""
+msgstr "Reason"
 
 #: .\appointment\models.py:13 .\appointment\models.py:30
 msgid "Izohlar"
-msgstr ""
+msgstr "Comments"
 
 #: .\appointment\models.py:16
 msgid "So'rov"
-msgstr ""
+msgstr "Request"
 
 #: .\appointment\models.py:17
 msgid "So'rovlar"
-msgstr ""
+msgstr "Requests"
 
 #: .\appointment\models.py:29
 msgid "Tugash vaqti"
-msgstr ""
+msgstr "End time"
 
 #: .\appointment\models.py:31
 msgid "Qabul holati"
-msgstr ""
+msgstr "Reception status"
 
 #: .\appointment\models.py:34
 msgid "Qabul"
-msgstr ""
+msgstr "Reception"
 
 #: .\appointment\models.py:35
 msgid "Qabullar"
-msgstr ""
+msgstr "Receptions"
 
 #: .\appointment\views.py:51
 msgid "Bemor ma'lumotlari to'g'ri kelmayapti"
-msgstr ""
+msgstr "Patient data doesn't match"
 
 #: .\appointment\views.py:89
 msgid "Yangi bemor qo'shildi"
-msgstr ""
+msgstr "New patient has been added"
 
 #: .\appointment\views.py:137 .\appointment\views.py:578
 msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
-msgstr ""
+msgstr "Cannot register this reception. Please choose another time"
 
 #: .\appointment\views.py:254
 msgid "Kutilmoqda"
-msgstr ""
+msgstr "Waiting"
 
 #: .\appointment\views.py:256
 msgid "Kelgan"
-msgstr ""
+msgstr "Done"
 
 #: .\appointment\views.py:258
 msgid "Kelmagan"
-msgstr ""
+msgstr "Missed"

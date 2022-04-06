@@ -19,63 +19,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: .\dentist\apps.py:8
 msgid "Tish shifokori ma'lumotlari"
-msgstr ""
+msgstr "Dentist data"
 
 #: .\dentist\forms.py:10
 msgid "Borish sababi"
-msgstr ""
+msgstr "Reason"
 
 #: .\dentist\forms.py:14
 msgid "Sababini tanlang"
-msgstr ""
+msgstr "Choose reason"
 
 #: .\dentist\forms.py:24
 msgid "Sababini kiriting"
-msgstr ""
+msgstr "Enter reason"
 
 #: .\dentist\forms.py:30
 msgid "Tish shifokoriga izohlar"
-msgstr ""
+msgstr "Comments to dentist"
 
 #: .\dentist\forms.py:34
 msgid "Izohlaringizni kiriting"
-msgstr ""
+msgstr "Enter your comments"
 
 #: .\dentist\forms.py:45
 msgid "Ism"
-msgstr ""
+msgstr "Name"
 
 #: .\dentist\forms.py:49
 msgid "Ismingiz"
-msgstr ""
+msgstr "Your name"
 
 #: .\dentist\forms.py:56
 msgid "Familiya"
-msgstr ""
+msgstr "Surname"
 
 #: .\dentist\forms.py:60
 msgid "Familiyangiz"
-msgstr ""
+msgstr "Your surname"
 
 #: .\dentist\forms.py:67 .\dentist\models.py:63
 msgid "Jins"
-msgstr ""
+msgstr "Sex"
 
 #: .\dentist\forms.py:103
 msgid "Telefon raqam"
-msgstr ""
+msgstr "Phone number"
 
 #: .\dentist\forms.py:107
 msgid "Telefon raqamingiz"
-msgstr ""
+msgstr "Your phone number"
 
 #: .\dentist\forms.py:114
 msgid "Elektron manzil"
-msgstr ""
+msgstr "E-mail"
 
 #: .\dentist\forms.py:118
 msgid "Elektron pochtangiz"
-msgstr ""
+msgstr "Your e-mail"
 
 #: .\dentist\forms.py:129
 msgid "Shifoxona nomi (o'zbekchada)"
