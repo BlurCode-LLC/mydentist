@@ -113,7 +113,8 @@ class LanguageForm(forms.Form):
             },
             choices=[
                 ('1', "O'zbekcha"),
-                ('2', "Русский")
+                ('2', "Русский"),
+                ('3', "English")
             ]
         )
     )

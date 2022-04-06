@@ -324,7 +324,7 @@
             "name": "Клиника Medical Pro",
             "address": "Улица А.Юлдашева",
             "orientir": "Глазная клиника",
-            "language": 2
+            "language": 3
         }
     },
     {
@@ -494,7 +494,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 32,
+        "pk": 34,
         "fields": {
             "clinic": 12,
             "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
@@ -505,7 +505,7 @@
     },
     {
         "model": "dentist.clinic_translation",
-        "pk": 33,
+        "pk": 35,
         "fields": {
             "clinic": 12,
             "name": "Клиника \"Стоматолог\" (Городская)",

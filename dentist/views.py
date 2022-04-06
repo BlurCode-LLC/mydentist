@@ -180,14 +180,20 @@ def settings(request, active_tab="profile"):
         clinic=clinic,
         language__name="ru"
     )
+    clinic_en = Clinic_translation.objects.get(
+        clinic=clinic,
+        language__name="en"
+    )
     services_obj = Service.objects.filter(dentist=dentist)
     services = []
     for service in services_obj:
         service_uz = Service_translation.objects.get(service=service, language__name="uz")
         service_ru = Service_translation.objects.get(service=service, language__name="ru")
+        service_en = Service_translation.objects.get(service=service, language__name="en")
         services.append({
             'name_uz': service_uz.name,
             'name_ru': service_ru.name,
+            'name_en': service_en.name,
             'duration': service.duration,
             'price': service.price
         })
@@ -231,10 +237,13 @@ def settings(request, active_tab="profile"):
     clinicform = ClinicForm({
         'clinic_name_uz': clinic_uz.name,
         'clinic_name_ru': clinic_ru.name,
+        'clinic_name_en': clinic_en.name,
         'address_uz': clinic_uz.address,
         'address_ru': clinic_ru.address,
+        'address_en': clinic_en.address,
         'orientir_uz': clinic_uz.orientir,
         'orientir_ru': clinic_ru.orientir,
+        'orientir_en': clinic_en.orientir,
         'region': clinic.region_id,
         'latitude': clinic.latitude,
         'longitude': clinic.longitude,
@@ -477,20 +486,41 @@ def get_clinic(request):
             clinic__pk=clinic_translation.clinic_id,
             language__pk=2
         )
+        clinic_en = Clinic_translation.objects.get(
+            clinic__pk=clinic_translation.clinic_id,
+            language__pk=3
+        )
     elif clinic_translation.language_id == 2:
         clinic_uz = Clinic_translation.objects.get(
             clinic__pk=clinic_translation.clinic_id,
             language__pk=1
         )
         clinic_ru = clinic_translation
+        clinic_en = Clinic_translation.objects.get(
+            clinic__pk=clinic_translation.clinic_id,
+            language__pk=3
+        )
+    elif clinic_translation.language_id == 3:
+        clinic_uz = Clinic_translation.objects.get(
+            clinic__pk=clinic_translation.clinic_id,
+            language__pk=1
+        )
+        clinic_ru = Clinic_translation.objects.get(
+            clinic__pk=clinic_translation.clinic_id,
+            language__pk=2
+        )
+        clinic_en = clinic_translation
     clinic = Clinic.objects.get(pk=clinic_translation.clinic_id)
     return JsonResponse({
         'name_uz': clinic_uz.name,
         'name_ru': clinic_ru.name,
+        'name_en': clinic_en.name,
         'address_uz': clinic_uz.address,
         'address_ru': clinic_ru.address,
+        'address_en': clinic_en.address,
         'orientir_uz': clinic_uz.orientir,
         'orientir_ru': clinic_ru.orientir,
+        'orientir_en': clinic_en.orientir,
         'region': clinic.region_id,
         'latitude': clinic.latitude,
         'longitude': clinic.longitude,

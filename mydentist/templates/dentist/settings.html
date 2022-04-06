@@ -247,10 +247,14 @@
                                                 <div class="left col-12 col-lg-6 d-flex flex-column align-items-start">
                                                     <label class="mb-1 left" for="id_name_uz">{{ serviceform.name_uz.label }}</label>
                                                     {{ serviceform.name_uz }}
-                                                </div> 
+                                                </div>
                                                 <div class="center col-12 col-lg-6 d-flex flex-column align-items-start">
                                                     <label class="mb-1 left" for="id_name_ru">{{ serviceform.name_ru.label }}</label>
                                                     {{ serviceform.name_ru }}
+                                                </div>
+                                                <div class="center col-12 col-lg-6 d-flex flex-column align-items-start">
+                                                    <label class="mt-3 mb-1 left" for="id_name_en">{{ serviceform.name_en.label }}</label>
+                                                    {{ serviceform.name_en }}
                                                 </div>
                                                 <div class="end col-12 col-lg-6">
                                                     <label class="mt-3 mb-1 left" for="id_duration">{{ serviceform.duration.label }}</label>
@@ -277,7 +281,7 @@
                         <table class="table table-hover border">
                             <thead class="table-light">
                                 <tr>
-                                    <th class="border" colspan="2">{% trans "Xizmat nomi" %}</th>
+                                    <th class="border" colspan="3">{% trans "Xizmat nomi" %}</th>
                                     <th class="border" rowspan="2">{% trans "Davomiyligi" %}</th>
                                     <th class="border" rowspan="2">{% trans "Narxi" %}</th>
                                     <th class="border" rowspan="2"></th>
@@ -286,6 +290,7 @@
                                 <tr>
                                     <th class="border">{% trans "O'zbekchada" %}</th>
                                     <th class="border">{% trans "Ruschada" %}</th>
+                                    <th class="border">{% trans "Inglizchada" %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -293,6 +298,7 @@
                                 <tr>
                                     <td class="border">{{ service.name_uz }}</td>
                                     <td class="border">{{ service.name_ru }}</td>
+                                    <td class="border">{{ service.name_en }}</td>
                                     <td class="border">{% convert_time service.duration %}</td>
                                     <td class="border">{{ service.price }} {% trans "so'm" %}</td>
                                     <td class="border">
@@ -551,10 +557,13 @@
         if ($("#id_clinic").val() != "other") {
             $("#id_clinic_name_uz").attr("readonly", true)
             $("#id_clinic_name_ru").attr("readonly", true)
+            $("#id_clinic_name_en").attr("readonly", true)
             $("#id_address_uz").attr("readonly", true)
             $("#id_address_ru").attr("readonly", true)
+            $("#id_address_en").attr("readonly", true)
             $("#id_orientir_uz").attr("readonly", true)
             $("#id_orientir_ru").attr("readonly", true)
+            $("#id_orientir_en").attr("readonly", true)
             $("#id_region").attr("readonly", true)
             $("#id_latitude").attr("readonly", true)
             $("#id_longitude").attr("readonly", true)
@@ -563,10 +572,13 @@
             if ($("#id_clinic").val() == "other") {
                 $("#id_clinic_name_uz").val("").removeAttr("readonly")
                 $("#id_clinic_name_ru").val("").removeAttr("readonly")
+                $("#id_clinic_name_en").val("").removeAttr("readonly")
                 $("#id_address_uz").val("").removeAttr("readonly")
                 $("#id_address_ru").val("").removeAttr("readonly")
+                $("#id_address_en").val("").removeAttr("readonly")
                 $("#id_orientir_uz").val("").removeAttr("readonly")
                 $("#id_orientir_ru").val("").removeAttr("readonly")
+                $("#id_orientir_en").val("").removeAttr("readonly")
                 $("#id_region").removeAttr("readonly")
                 $("#id_latitude").val("").removeAttr("readonly")
                 $("#id_longitude").val("").removeAttr("readonly")
@@ -581,10 +593,13 @@
                 }).always(function(result) {
                     $("#id_clinic_name_uz").val(result["name_uz"]).attr("readonly", true)
                     $("#id_clinic_name_ru").val(result["name_ru"]).attr("readonly", true)
+                    $("#id_clinic_name_en").val(result["name_en"]).attr("readonly", true)
                     $("#id_address_uz").val(result["address_uz"]).attr("readonly", true)
                     $("#id_address_ru").val(result["address_ru"]).attr("readonly", true)
+                    $("#id_address_en").val(result["address_en"]).attr("readonly", true)
                     $("#id_orientir_uz").val(result["orientir_uz"]).attr("readonly", true)
                     $("#id_orientir_ru").val(result["orientir_ru"]).attr("readonly", true)
+                    $("#id_orientir_en").val(result["orientir_en"]).attr("readonly", true)
                     $("#id_region").val(result["region"]).change().attr("readonly", true)
                     $("#id_latitude").val(result["latitude"]).attr("readonly", true)
                     $("#id_longitude").val(result["longitude"]).attr("readonly", true)

@@ -147,6 +147,17 @@ class ClinicForm(forms.Form):
         max_length=150,
         localize=True
     )
+    clinic_name_en = forms.CharField(
+        label=_("Shifoxona nomi (inglizchada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Shifoxona nomi")
+            }
+        ),
+        max_length=150,
+        localize=True
+    )
     address_uz = forms.CharField(
         label=_("Manzil (o'zbekchada)"),
         widget=forms.TextInput(
@@ -160,6 +171,17 @@ class ClinicForm(forms.Form):
     )
     address_ru = forms.CharField(
         label=_("Manzil (ruschada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Manzil")
+            }
+        ),
+        max_length=150,
+        localize=True
+    )
+    address_en = forms.CharField(
+        label=_("Manzil (inglizchada)"),
         widget=forms.TextInput(
             attrs={
                 'class': "form-control",
@@ -183,6 +205,18 @@ class ClinicForm(forms.Form):
     )
     orientir_ru = forms.CharField(
         label=_("Mo'ljal (ruschada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Mo'ljal")
+            }
+        ),
+        max_length=150,
+        localize=True,
+        required=False
+    )
+    orientir_en = forms.CharField(
+        label=_("Mo'ljal (inglizchada)"),
         widget=forms.TextInput(
             attrs={
                 'class': "form-control",
@@ -270,6 +304,17 @@ class ServiceForm(forms.Form):
     )
     name_ru = forms.CharField(
         label=_("Xizmat nomi (ruschada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control wid",
+                'placeholder': _("Xizmat nomi")
+            }
+        ),
+        max_length=150,
+        localize=True
+    )
+    name_en = forms.CharField(
+        label=_("Xizmat nomi (inglizchada)"),
         widget=forms.TextInput(
             attrs={
                 'class': "form-control wid",
