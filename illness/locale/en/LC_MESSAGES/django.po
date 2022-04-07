@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 14:12+0500\n"
+"POT-Creation-Date: 2022-04-07 10:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,89 +17,90 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\illness\apps.py:8
 msgid "Kasalliklar"
-msgstr ""
+msgstr "Illnesses"
 
 #: .\illness\forms.py:9 .\illness\models.py:11 .\illness\models.py:12
 msgid "Qandli diabet"
-msgstr ""
+msgstr "Diabet"
 
 #: .\illness\forms.py:19
 msgid "Nechi marta narkoz qo'llanilgan?"
-msgstr ""
+msgstr "How many times anesthesed?"
 
 #: .\illness\forms.py:29 .\illness\models.py:37 .\illness\models.py:38
 msgid "Gepatit B"
-msgstr ""
+msgstr "Hepatitis B"
 
 #: .\illness\forms.py:39 .\illness\models.py:50 .\illness\models.py:51
 msgid "OITS"
-msgstr ""
+msgstr "AIDS"
 
 #: .\illness\forms.py:49 .\illness\models.py:63 .\illness\models.py:64
 msgid "Qon bosimi"
-msgstr ""
+msgstr "Blood pressure"
 
 #: .\illness\forms.py:59 .\illness\models.py:76 .\illness\models.py:77
 msgid "Allergiya"
-msgstr ""
+msgstr "Allergy"
 
 #: .\illness\forms.py:72
 msgid "Nimaga allergiya borligini yozing"
-msgstr ""
+msgstr "Against"
 
 #: .\illness\forms.py:79 .\illness\models.py:89 .\illness\models.py:90
 msgid "Bronxial astma"
-msgstr ""
+msgstr "Bronchial asthma"
 
 #: .\illness\forms.py:89 .\illness\models.py:102 .\illness\models.py:103
 msgid "Bosh aylanishi"
-msgstr ""
+msgstr "Dizziness"
 
 #: .\illness\forms.py:103 .\illness\models.py:115 .\illness\models.py:116
 msgid "Epilepsiya"
-msgstr ""
+msgstr "Epilepsy"
 
 #: .\illness\forms.py:114 .\illness\models.py:128 .\illness\models.py:129
 msgid "Qon kasali"
-msgstr ""
+msgstr "Blood disease"
 
 #: .\illness\forms.py:125 .\illness\models.py:141 .\illness\models.py:142
 msgid "Doimiy dorilar"
-msgstr ""
+msgstr "Medications"
 
 #: .\illness\forms.py:139
 msgid "Doimiy dorilaringizni yozing"
-msgstr ""
+msgstr "Enter medications"
 
 #: .\illness\forms.py:146 .\illness\models.py:154 .\illness\models.py:155
 msgid "Insultga uchraganmisiz?"
-msgstr ""
+msgstr "Have you had a stroke?"
 
 #: .\illness\forms.py:157 .\illness\models.py:167 .\illness\models.py:168
 msgid "Yurak xurujiga uchraganmisiz?"
-msgstr ""
+msgstr "Have you had a heart attack?"
 
 #: .\illness\forms.py:168 .\illness\models.py:180 .\illness\models.py:181
 msgid "Onkologik kasalliklar"
-msgstr ""
+msgstr "Oncologic illnesses"
 
 #: .\illness\forms.py:179 .\illness\models.py:193 .\illness\models.py:194
 msgid "Sil kasalligi"
-msgstr ""
+msgstr "Tuberculosis"
 
 #: .\illness\forms.py:190 .\illness\models.py:206 .\illness\models.py:207
 msgid "Spirtli ichimlik ichasizmi?"
-msgstr ""
+msgstr "Do you drink alcohol?"
 
 #: .\illness\forms.py:201 .\illness\models.py:219 .\illness\models.py:220
 msgid "Homiladorlik"
-msgstr ""
+msgstr "Pregnancy"
 
 #: .\illness\forms.py:215
 msgid "Nechi oyligini yozing"
-msgstr ""
+msgstr "How many months?"
 
 #: .\illness\models.py:7 .\illness\models.py:20 .\illness\models.py:33
 #: .\illness\models.py:46 .\illness\models.py:59 .\illness\models.py:72
@@ -108,7 +109,7 @@ msgstr ""
 #: .\illness\models.py:163 .\illness\models.py:176 .\illness\models.py:189
 #: .\illness\models.py:202 .\illness\models.py:215
 msgid "Qiymat"
-msgstr ""
+msgstr "Value"
 
 #: .\illness\models.py:8 .\illness\models.py:21 .\illness\models.py:34
 #: .\illness\models.py:47 .\illness\models.py:60 .\illness\models.py:73
@@ -117,8 +118,8 @@ msgstr ""
 #: .\illness\models.py:164 .\illness\models.py:177 .\illness\models.py:190
 #: .\illness\models.py:203 .\illness\models.py:216
 msgid "Tavsif"
-msgstr ""
+msgstr "Description"
 
 #: .\illness\models.py:24 .\illness\models.py:25
 msgid "Narkoz"
-msgstr ""
+msgstr "Anesthesia"

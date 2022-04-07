@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 14:12+0500\n"
+"POT-Creation-Date: 2022-04-07 10:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\patient\apps.py:8
 msgid "Bemor ma'lumotlari"
 msgstr ""
@@ -37,7 +38,7 @@ msgstr ""
 msgid "Familiyangiz"
 msgstr ""
 
-#: .\patient\forms.py:32 .\patient\forms.py:176 .\patient\models.py:12
+#: .\patient\forms.py:32 .\patient\forms.py:177 .\patient\models.py:12
 msgid "Jins"
 msgstr ""
 
@@ -45,7 +46,7 @@ msgstr ""
 msgid "Telefon raqam"
 msgstr ""
 
-#: .\patient\forms.py:74 .\patient\forms.py:141
+#: .\patient\forms.py:74 .\patient\forms.py:142
 msgid "(XX) XXX-XX-XX"
 msgstr ""
 
@@ -57,7 +58,7 @@ msgstr ""
 msgid "Elektron pochtangiz"
 msgstr ""
 
-#: .\patient\forms.py:94 .\patient\forms.py:185 .\patient\models.py:13
+#: .\patient\forms.py:94 .\patient\forms.py:186 .\patient\models.py:13
 msgid "Manzil"
 msgstr ""
 
@@ -69,29 +70,29 @@ msgstr ""
 msgid "Til"
 msgstr ""
 
-#: .\patient\forms.py:125 .\patient\models.py:10 .\patient\models.py:19
+#: .\patient\forms.py:126 .\patient\models.py:10 .\patient\models.py:19
 #: .\patient\models.py:62 .\patient\models.py:82 .\patient\models.py:105
 #: .\patient\models.py:132 .\patient\models.py:144
 msgid "Bemor"
 msgstr ""
 
-#: .\patient\forms.py:129
+#: .\patient\forms.py:130
 msgid "Bemor FIOsi"
 msgstr ""
 
-#: .\patient\forms.py:135 .\patient\models.py:11
+#: .\patient\forms.py:136 .\patient\models.py:11
 msgid "Telefon raqami"
 msgstr ""
 
-#: .\patient\forms.py:189
+#: .\patient\forms.py:190
 msgid "Manzilni kiriting"
 msgstr ""
 
-#: .\patient\forms.py:199 .\patient\models.py:145
+#: .\patient\forms.py:200 .\patient\models.py:145
 msgid "Kod"
 msgstr ""
 
-#: .\patient\forms.py:203
+#: .\patient\forms.py:204
 msgid "Kodni kiriting"
 msgstr ""
 

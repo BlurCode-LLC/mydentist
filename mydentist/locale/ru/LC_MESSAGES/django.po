@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 14:13+0500\n"
+"POT-Creation-Date: 2022-04-07 10:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,45 +33,26 @@ msgstr "О программе"
 msgid "Stomatolog uchun"
 msgstr "Стоматологу"
 
-#: .\mydentist\templates\app.html:55
+#: .\mydentist\templates\app.html:60
 #: .\mydentist\templates\login\password_reset_done.html:14
 msgid "Kirish"
 msgstr "Вход"
 
-#: .\mydentist\templates\app.html:73 .\mydentist\templates\app_user.html:105
+#: .\mydentist\templates\app.html:78 .\mydentist\templates\app_user.html:105
 msgid "Bemor va stomatologlar uchun zamonaviy platforma"
 msgstr "Современная платформа для пациентов и стоматологов"
 
-#: .\mydentist\templates\app.html:76 .\mydentist\templates\app_user.html:108
+#: .\mydentist\templates\app.html:81 .\mydentist\templates\app_user.html:108
 msgid "Sayt fayllari"
 msgstr "Файлы сайта"
 
-#: .\mydentist\templates\app.html:77 .\mydentist\templates\app_user.html:109
+#: .\mydentist\templates\app.html:82 .\mydentist\templates\app_user.html:109
 msgid "Ommaviy oferta"
 msgstr "Публичная оферта"
 
-#: .\mydentist\templates\app.html:78 .\mydentist\templates\app_user.html:110
+#: .\mydentist\templates\app.html:83 .\mydentist\templates\app_user.html:110
 msgid "Foydalanish shartlari"
 msgstr "Правила пользования"
-
-#: .\mydentist\templates\app.html:81 .\mydentist\templates\app_user.html:113
-msgid "Hududlar"
-msgstr "Регионы"
-
-#: .\mydentist\templates\app.html:82 .\mydentist\templates\app_user.html:114
-#: .\mydentist\var.py:6 .\mydentist\var.py:235
-msgid "Toshkent"
-msgstr "Ташкент"
-
-#: .\mydentist\templates\app.html:83 .\mydentist\templates\app_user.html:115
-#: .\mydentist\var.py:10 .\mydentist\var.py:251
-msgid "Andijon viloyati"
-msgstr "Андижанская область"
-
-#: .\mydentist\templates\app.html:84 .\mydentist\templates\app_user.html:116
-#: .\mydentist\var.py:8 .\mydentist\var.py:243
-msgid "Samarqand viloyati"
-msgstr "Самаркандская область"
 
 #: .\mydentist\templates\app_user.html:64
 #: .\mydentist\templates\dentx\app.html:83
@@ -167,17 +148,17 @@ msgstr ""
 msgid "Turli stomatologik klinikalardagi narxlarni solishtirish imkoniyati"
 msgstr ""
 
-#: .\mydentist\templates\baseapp\index.html:67
+#: .\mydentist\templates\baseapp\index.html:68
 msgid "Agar siz tish shifokori bo'lsangiz"
 msgstr "А если вы стоматолог"
 
-#: .\mydentist\templates\baseapp\index.html:114
+#: .\mydentist\templates\baseapp\index.html:77
 msgid ""
 "Savol bormi? Ma'lumotlaringizni qoldiring va biz sizga qayta qo'ng'iroq "
 "qilamiz"
 msgstr "Есть вопрос? Оставте свои даные мы вам перезвоним"
 
-#: .\mydentist\templates\baseapp\index.html:123
+#: .\mydentist\templates\baseapp\index.html:86
 #: .\mydentist\templates\dentist\dentist.html:87
 #: .\mydentist\templates\login\dentx_login.html:48
 #: .\mydentist\templates\login\login.html:46
@@ -186,21 +167,21 @@ msgstr "Есть вопрос? Оставте свои даные мы вам п
 msgid "Jo'natish"
 msgstr "Отправить"
 
-#: .\mydentist\templates\baseapp\index.html:128
+#: .\mydentist\templates\baseapp\index.html:91
 msgid "Biz ijtimoiy tarmoqlarda"
 msgstr "Мы в социальных сетях"
 
-#: .\mydentist\templates\baseapp\index.html:136
+#: .\mydentist\templates\baseapp\index.html:99
 msgid "Biz bilan bog'laning"
 msgstr "Свяжитесь с нами"
 
-#: .\mydentist\templates\baseapp\index.html:146
+#: .\mydentist\templates\baseapp\index.html:109
 #, fuzzy
 #| msgid "Stomatologlarni ko'rish uchun bizning telegram botimiz"
 msgid "Stomatologlarni izlash uchun bizning telegram botimiz"
 msgstr "Наш телеграм бот для обзора стоматологов"
 
-#: .\mydentist\templates\baseapp\index.html:148
+#: .\mydentist\templates\baseapp\index.html:111
 msgid "Telegram botga o'tish"
 msgstr "Перейти к боту"
 
@@ -285,7 +266,7 @@ msgstr "Название услуги:"
 
 #: .\mydentist\templates\baseapp\results.html:131
 #: .\mydentist\templates\dentist\dentist.html:115
-#: .\mydentist\templates\dentist\settings.html:297
+#: .\mydentist\templates\dentist\settings.html:303
 #: .\mydentist\templates\patient\patient.html:478
 #: .\mydentist\templates\patient\patients.html:291
 #: .\mydentist\templates\patient\profile.html:171
@@ -342,21 +323,21 @@ msgid "Narxlar"
 msgstr "Цены"
 
 #: .\mydentist\templates\dentist\dentist.html:106
-#: .\mydentist\templates\dentist\settings.html:280
+#: .\mydentist\templates\dentist\settings.html:284
 #: .\mydentist\templates\patient\patient.html:465
 #: .\mydentist\templates\patient\profile.html:162
 msgid "Xizmat nomi"
 msgstr "Название услуги"
 
 #: .\mydentist\templates\dentist\dentist.html:107
-#: .\mydentist\templates\dentist\settings.html:282
+#: .\mydentist\templates\dentist\settings.html:286
 #: .\mydentist\templates\patient\patient.html:466
 #: .\mydentist\templates\patient\profile.html:163
 msgid "Narxi"
 msgstr "Цена"
 
 #: .\mydentist\templates\dentist\dentist.html:108
-#: .\mydentist\templates\dentist\settings.html:281
+#: .\mydentist\templates\dentist\settings.html:285
 #: .\mydentist\templates\patient\patient.html:467
 #: .\mydentist\templates\patient\profile.html:164
 msgid "Davomiyligi"
@@ -367,7 +348,7 @@ msgid "Kabinet rasmlari"
 msgstr "Фото кабинета"
 
 #: .\mydentist\templates\dentist\dentist.html:154
-#: .\mydentist\templates\dentist\settings.html:653
+#: .\mydentist\templates\dentist\settings.html:668
 #: .\mydentist\templates\patient\patient.html:1019
 msgid "Kabinet rasmi"
 msgstr "Фото кабинета"
@@ -451,13 +432,17 @@ msgstr "Загрузить изображение"
 msgid "Xizmat qo'shish"
 msgstr "Добавить услугу"
 
-#: .\mydentist\templates\dentist\settings.html:287
+#: .\mydentist\templates\dentist\settings.html:291
 msgid "O'zbekchada"
 msgstr "На узбекском"
 
-#: .\mydentist\templates\dentist\settings.html:288
+#: .\mydentist\templates\dentist\settings.html:292
 msgid "Ruschada"
 msgstr "На русском"
+
+#: .\mydentist\templates\dentist\settings.html:293
+msgid "Inglizchada"
+msgstr ""
 
 #: .\mydentist\templates\dentx\animations.html:5
 #: .\mydentist\templates\dentx\app.html:44
@@ -1048,13 +1033,25 @@ msgstr "Заболевания"
 msgid "kecha"
 msgstr "вчера"
 
+#: .\mydentist\var.py:6 .\mydentist\var.py:235
+msgid "Toshkent"
+msgstr "Ташкент"
+
 #: .\mydentist\var.py:7 .\mydentist\var.py:239
 msgid "Toshkent viloyati"
 msgstr "Ташкентская область"
 
+#: .\mydentist\var.py:8 .\mydentist\var.py:243
+msgid "Samarqand viloyati"
+msgstr "Самаркандская область"
+
 #: .\mydentist\var.py:9 .\mydentist\var.py:247
 msgid "Buxoro viloyati"
 msgstr "Бухарская область"
+
+#: .\mydentist\var.py:10 .\mydentist\var.py:251
+msgid "Andijon viloyati"
+msgstr "Андижанская область"
 
 #: .\mydentist\var.py:11 .\mydentist\var.py:255
 msgid "Farg'ona viloyati"
@@ -1308,6 +1305,9 @@ msgstr "Суббота"
 #: .\mydentist\var.py:313
 msgid "Yakshanba"
 msgstr "Воскресенье"
+
+#~ msgid "Hududlar"
+#~ msgstr "Регионы"
 
 #~ msgid "Yengilroq, arzonroq, yaqinroq!"
 #~ msgstr "Легче, дешевле, ближе!"
