@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,13 +92,11 @@ msgstr "Введите адрес"
 
 #: .\patient\forms.py:200 .\patient\models.py:145
 msgid "Kod"
-msgstr ""
+msgstr "Код"
 
 #: .\patient\forms.py:204
-#, fuzzy
-#| msgid "Manzilni kiriting"
 msgid "Kodni kiriting"
-msgstr "Введите адрес"
+msgstr "Введите код"
 
 #: .\patient\models.py:14
 msgid "Tug'ilgan sanasi"
@@ -193,16 +191,12 @@ msgid "Homiladorlik"
 msgstr "Беременность"
 
 #: .\patient\models.py:94
-#, fuzzy
-#| msgid "Bemor kasalligi"
 msgid "Bemorning boshqa kasalligi"
-msgstr "Заболевание пациента"
+msgstr "Другое заболевание пациента"
 
 #: .\patient\models.py:95
-#, fuzzy
-#| msgid "Bemor kasalliklari"
 msgid "Bemorning boshqa kasalliklari"
-msgstr "Заболевания пациента"
+msgstr "Другие заболевания пациента"
 
 #: .\patient\models.py:103
 msgid "Tish raqami"
@@ -214,7 +208,7 @@ msgstr "Состояние зуба"
 
 #: .\patient\models.py:106
 msgid "Izoh"
-msgstr ""
+msgstr "Комментарий"
 
 #: .\patient\models.py:109
 msgid "Tish"
@@ -242,96 +236,24 @@ msgstr "Картинка из процесса работы"
 
 #: .\patient\models.py:135
 msgid "Davolanish jarayoni"
-msgstr ""
+msgstr "Процесс лечения"
 
 #: .\patient\models.py:136
 msgid "Davolanish jarayonlari"
-msgstr ""
+msgstr "Процессы лечения"
 
 #: .\patient\models.py:148
-#, fuzzy
-#| msgid "Bemor FIOsi"
 msgid "Bemor kodi "
-msgstr "ФИО пациента"
+msgstr "Код пациента"
 
 #: .\patient\models.py:149
-#, fuzzy
-#| msgid "Bemorlar"
 msgid "Bemor kodlari"
-msgstr "Пациенты"
+msgstr "Коды пациентов"
 
 #: .\patient\views.py:429
-#, fuzzy
-#| msgid "Yangi bemor qo'shildi"
 msgid "Bemor qo'shildi"
 msgstr "Добавлен новый пациент"
 
 #: .\patient\views.py:554
 msgid "Yangi bemor qo'shildi"
 msgstr "Добавлен новый пациент"
-
-#~ msgid "Telefon raqamingiz"
-#~ msgstr "Ваш номер телефона"
-
-#~ msgid "Tugilgan sana"
-#~ msgstr "Дата рождения"
-
-#~ msgid "Ish nomi"
-#~ msgstr "Название работы"
-
-#~ msgid "Qilinganligi"
-#~ msgstr "Сделано?"
-
-#~ msgid "Qilingan ish"
-#~ msgstr "Сделанная работа"
-
-#~ msgid "Qilingan ishlar"
-#~ msgstr "Сделанные работы"
-
-#~ msgid "Yanvar"
-#~ msgstr "Январь"
-
-#~ msgid "Fevral"
-#~ msgstr "Февраль"
-
-#~ msgid "Mart"
-#~ msgstr "Март"
-
-#~ msgid "Aprel"
-#~ msgstr "Апрель"
-
-#~ msgid "May"
-#~ msgstr "Май"
-
-#~ msgid "Iyun"
-#~ msgstr "Июнь"
-
-#~ msgid "Iyul"
-#~ msgstr "Июль"
-
-#~ msgid "Avgust"
-#~ msgstr "Август"
-
-#~ msgid "Sentyabr"
-#~ msgstr "Сентябрь"
-
-#~ msgid "Oktyabr"
-#~ msgstr "Октябрь"
-
-#~ msgid "Noyabr"
-#~ msgstr "Ноябрь"
-
-#~ msgid "Dekabr"
-#~ msgstr "Декабрь"
-
-#~ msgid "Foydalanuvchi"
-#~ msgstr "Пользователь"
-
-#~ msgid "Manzili"
-#~ msgstr "Адрес"
-
-#~ msgid "Foydalanuvchilar"
-#~ msgstr "Пользователи"
-
-#~ msgid "Foydalanuvchi kasalliklari"
-#~ msgstr "Заболевания пользователя"

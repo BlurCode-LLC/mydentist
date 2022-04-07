@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,45 +125,3 @@ msgstr "Описание"
 #: .\illness\models.py:24 .\illness\models.py:25
 msgid "Narkoz"
 msgstr "Наркоз"
-
-#~ msgid "Yo'q"
-#~ msgstr "Нет"
-
-#~ msgid "Bor"
-#~ msgstr "Есть"
-
-#~ msgid "Bilmadim"
-#~ msgstr "Не знаю"
-
-#~ msgid "3 va undan ko'proq"
-#~ msgstr "3 и более"
-
-#~ msgid "Qo'llanilmagan"
-#~ msgstr "Не применяли"
-
-#~ msgid "Normal"
-#~ msgstr "Нормальное"
-
-#~ msgid "Past"
-#~ msgstr "Низкое"
-
-#~ msgid "Baland"
-#~ msgstr "Высокое"
-
-#~ msgid "Bor (nimagaligini yozing)"
-#~ msgstr "Есть (напишите от чего)"
-
-#~ msgid "Ko'pincha"
-#~ msgstr "Часто"
-
-#~ msgid "Ba'zida"
-#~ msgstr "Иногда"
-
-#~ msgid "Bor (qaysilar)"
-#~ msgstr "Есть (какие)"
-
-#~ msgid "Ha"
-#~ msgstr "Да"
-
-#~ msgid "Bor (nechinchi oy)"
-#~ msgstr "Есть (какой месяц)"

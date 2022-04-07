@@ -280,7 +280,7 @@ REGIONS = [
     },
     {
         'value': 13,
-        'name': _("Navoiy viloyat")
+        'name': _("Navoiy viloyati")
     },
     {
         'value': 14,

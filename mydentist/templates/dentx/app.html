@@ -95,7 +95,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'dentx:logout' %}">
+                                        <a id="logout" class="dropdown-item" href="javascript:void(0)">
                                             <i class="fas fa-sign-out-alt"></i> {% trans "Chiqish" %}
                                         </a>
                                     </li>
@@ -166,6 +166,11 @@
         <!-- New js file html hacker end-->
 
         <script type="text/javascript">
+            $("#logout").on("click", function () {
+                if (confirm("{% trans "Chiqishni tasdiqlaysizmi?" %}") == true) {
+                    window.location.href = "{% url 'dentx:logout' %}"
+                }
+            })
             function addReminder(element, category, id=null) {
                 if ($(element).attr("id") == `add-${category}`) {   
                     $(element).after(

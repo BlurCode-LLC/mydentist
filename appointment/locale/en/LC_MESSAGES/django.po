@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: .\appointment\apps.py:8
 msgid "Qabullar va so'rovlar"
-msgstr "Receptions and requests"
+msgstr "Appoinments and queries"
 
 #: .\appointment\forms.py:9 .\appointment\models.py:11
 #: .\appointment\models.py:26
@@ -85,11 +85,11 @@ msgstr "Comments"
 
 #: .\appointment\models.py:16
 msgid "So'rov"
-msgstr "Request"
+msgstr "Query"
 
 #: .\appointment\models.py:17
 msgid "So'rovlar"
-msgstr "Requests"
+msgstr "Queries"
 
 #: .\appointment\models.py:29
 msgid "Tugash vaqti"
@@ -97,15 +97,15 @@ msgstr "End time"
 
 #: .\appointment\models.py:31
 msgid "Qabul holati"
-msgstr "Reception status"
+msgstr "Appointment status"
 
 #: .\appointment\models.py:34
 msgid "Qabul"
-msgstr "Reception"
+msgstr "Appointment"
 
 #: .\appointment\models.py:35
 msgid "Qabullar"
-msgstr "Receptions"
+msgstr "Appointments"
 
 #: .\appointment\views.py:51
 msgid "Bemor ma'lumotlari to'g'ri kelmayapti"
@@ -117,7 +117,7 @@ msgstr "New patient has been added"
 
 #: .\appointment\views.py:137 .\appointment\views.py:578
 msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
-msgstr "Cannot register this reception. Please choose another time"
+msgstr "Cannot register this appointment. Please choose another time"
 
 #: .\appointment\views.py:254
 msgid "Kutilmoqda"

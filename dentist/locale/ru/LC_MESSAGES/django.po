@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,10 +29,8 @@ msgid "Borish sababi"
 msgstr "Причина посещения"
 
 #: .\dentist\forms.py:14
-#, fuzzy
-#| msgid "Sababini kiriting"
 msgid "Sababini tanlang"
-msgstr "Введите причину"
+msgstr "Выберите причину"
 
 #: .\dentist\forms.py:24
 msgid "Sababini kiriting"
@@ -95,10 +93,8 @@ msgid "Shifoxona nomi (ruschada)"
 msgstr "Название клиники (на русском)"
 
 #: .\dentist\forms.py:151
-#, fuzzy
-#| msgid "Shifoxona nomi (ruschada)"
 msgid "Shifoxona nomi (inglizchada)"
-msgstr "Название клиники (на русском)"
+msgstr "Название клиники (на английском)"
 
 #: .\dentist\forms.py:162
 msgid "Manzil (o'zbekchada)"
@@ -114,10 +110,8 @@ msgid "Manzil (ruschada)"
 msgstr "Адрес (на русском)"
 
 #: .\dentist\forms.py:184
-#, fuzzy
-#| msgid "Manzil (ruschada)"
 msgid "Manzil (inglizchada)"
-msgstr "Адрес (на русском)"
+msgstr "Адрес (на английском)"
 
 #: .\dentist\forms.py:195
 msgid "Mo'ljal (o'zbekchada)"
@@ -133,10 +127,8 @@ msgid "Mo'ljal (ruschada)"
 msgstr "Ориентир (на русском)"
 
 #: .\dentist\forms.py:219
-#, fuzzy
-#| msgid "Mo'ljal (ruschada)"
 msgid "Mo'ljal (inglizchada)"
-msgstr "Ориентир (на русском)"
+msgstr "Ориентир (на английском)"
 
 #: .\dentist\forms.py:231 .\dentist\models.py:13
 msgid "Kenglik"
@@ -176,10 +168,8 @@ msgid "Xizmat nomi (ruschada)"
 msgstr "Название услуги (на русском)"
 
 #: .\dentist\forms.py:317
-#, fuzzy
-#| msgid "Xizmat nomi (ruschada)"
 msgid "Xizmat nomi (inglizchada)"
-msgstr "Название услуги (на русском)"
+msgstr "Название услуги (на английском)"
 
 #: .\dentist\forms.py:328 .\dentist\models.py:126
 msgid "Xizmat davomiyligi"
@@ -367,27 +357,3 @@ msgstr "Активы стоматолога "
 #: .\dentist\models.py:229
 msgid "Shifokor aktivliglari"
 msgstr "Активы стоматолога"
-
-#~ msgid "FISh"
-#~ msgstr "ФИО"
-
-#~ msgid "Foydalanuvchi"
-#~ msgstr "Пользователь"
-
-#~ msgid "Izohlar"
-#~ msgstr "Комментарии"
-
-#~ msgid "Qabul vaqti"
-#~ msgstr "Время приёма"
-
-#~ msgid "Qabul holati"
-#~ msgstr "Состояние приёма"
-
-#~ msgid "So'rov"
-#~ msgstr "Запрос"
-
-#~ msgid "So'rovlar"
-#~ msgstr "Запросы"
-
-#~ msgid "Shifokor"
-#~ msgstr "Стоматолог"

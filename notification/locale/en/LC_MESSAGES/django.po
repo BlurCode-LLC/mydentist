@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,44 +20,44 @@ msgstr ""
 
 #: .\notification\apps.py:8
 msgid "Xabarlar"
-msgstr ""
+msgstr "Notifications"
 
 #: .\notification\models.py:7 .\notification\models.py:25
 msgid "Tish shifokori"
-msgstr ""
+msgstr "Dentist"
 
 #: .\notification\models.py:8 .\notification\models.py:24
 msgid "Bemor"
-msgstr ""
+msgstr "Patient"
 
 #: .\notification\models.py:9 .\notification\models.py:26
 msgid "Xabar turi"
-msgstr ""
+msgstr "Notification type"
 
 #: .\notification\models.py:10 .\notification\models.py:27
 msgid "Xabar matni"
-msgstr ""
+msgstr "Notification text"
 
 #: .\notification\models.py:11 .\notification\models.py:28
 msgid "Xabar jo'natilgan vaqt"
-msgstr ""
+msgstr "Notification sent time"
 
 #: .\notification\models.py:12 .\notification\models.py:29
 msgid "O'qilganmi?"
-msgstr ""
+msgstr "Read?"
 
 #: .\notification\models.py:15
 msgid "D2P Xabar"
-msgstr ""
+msgstr "D2P Notification"
 
 #: .\notification\models.py:16
 msgid "D2P Xabarlar"
-msgstr ""
+msgstr "D2P Notifications"
 
 #: .\notification\models.py:32
 msgid "P2D Xabar"
-msgstr ""
+msgstr "P2D Notification"
 
 #: .\notification\models.py:33
 msgid "P2D Xabarlar"
-msgstr ""
+msgstr "P2D Notifications"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -255,39 +255,3 @@ msgstr ""
 #: .\patient\views.py:554
 msgid "Yangi bemor qo'shildi"
 msgstr ""
-
-#~ msgid "Yanvar"
-#~ msgstr "Yanvar"
-
-#~ msgid "Fevral"
-#~ msgstr "Fevral"
-
-#~ msgid "Mart"
-#~ msgstr "Mart"
-
-#~ msgid "Aprel"
-#~ msgstr "Aprel"
-
-#~ msgid "May"
-#~ msgstr "May"
-
-#~ msgid "Iyun"
-#~ msgstr "Iyun"
-
-#~ msgid "Iyul"
-#~ msgstr "Iyul"
-
-#~ msgid "Avgust"
-#~ msgstr "Avgust"
-
-#~ msgid "Sentyabr"
-#~ msgstr "Sentyabr"
-
-#~ msgid "Oktyabr"
-#~ msgstr "Oktyabr"
-
-#~ msgid "Noyabr"
-#~ msgstr "Noyabr"
-
-#~ msgid "Dekabr"
-#~ msgstr "Dekabr"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,10 +37,8 @@ msgid "Xabar turi"
 msgstr "Тип уведомления"
 
 #: .\notification\models.py:10 .\notification\models.py:27
-#, fuzzy
-#| msgid "Xabar turi"
 msgid "Xabar matni"
-msgstr "Текст уведомления"
+msgstr "Тип уведомления"
 
 #: .\notification\models.py:11 .\notification\models.py:28
 msgid "Xabar jo'natilgan vaqt"
@@ -65,6 +63,3 @@ msgstr "P2D уведомление"
 #: .\notification\models.py:33
 msgid "P2D Xabarlar"
 msgstr "P2D уведомления"
-
-#~ msgid "Tish holatlari"
-#~ msgstr "Состояние зубов"

@@ -234,7 +234,7 @@ def sign_in(request):
                 except:
                     return render(request, "login/login.html", {
                         'loginform': loginform,
-                        'error_message': _("Xato e-mail")
+                        'error_message': _("Xato telefon raqam")
                     })
         else:
             return render(request, "login/login.html", {

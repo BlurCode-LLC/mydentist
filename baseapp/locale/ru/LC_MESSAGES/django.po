@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,60 +55,3 @@ msgstr "Пол"
 #: .\baseapp\models.py:35
 msgid "Jinslar"
 msgstr "Полы"
-
-#~ msgid "Toshkent"
-#~ msgstr "Ташкент"
-
-#~ msgid "Toshkent viloyati"
-#~ msgstr "Ташкентская область"
-
-#~ msgid "Samarqand viloyati"
-#~ msgstr "Самаркандская область"
-
-#~ msgid "Buxoro viloyati"
-#~ msgstr "Бухарская область"
-
-#~ msgid "Andijon viloyati"
-#~ msgstr "Андижанская область"
-
-#~ msgid "Farg'ona viloyati"
-#~ msgstr "Ферганская область"
-
-#~ msgid "Namangan viloyati"
-#~ msgstr "Наманганская область"
-
-#~ msgid "Qashqadaryo viloyati"
-#~ msgstr "Кашкадарьинская область"
-
-#~ msgid "Surhondaryo viloyati"
-#~ msgstr "Сурхандарьинская область"
-
-#~ msgid "Sirdaryo viloyati"
-#~ msgstr "Сырдарьинская область"
-
-#~ msgid "Jizzax viloyati"
-#~ msgstr "Джизакская область"
-
-#~ msgid "Xorazm viloyati"
-#~ msgstr "Хорезмская область"
-
-#~ msgid "Navoiy viloyat"
-#~ msgstr "Навоийская область"
-
-#~ msgid "Qoraqalpog'iston Respublikasi"
-#~ msgstr "Республика Каракалпакстан"
-
-#~ msgid "Erkak"
-#~ msgstr "Мужчина"
-
-#~ msgid "Ayol"
-#~ msgstr "Женщина"
-
-#~ msgid "24 soat"
-#~ msgstr "24 часа"
-
-#~ msgid "Yaqinligi bo'yicha"
-#~ msgstr "По близости"
-
-#~ msgid "Администрирование сайта MyDentist"
-#~ msgstr "MyDentist sayti boshqaruvi"

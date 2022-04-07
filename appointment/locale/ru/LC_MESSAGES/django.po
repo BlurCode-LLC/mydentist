@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:13+0500\n"
+"POT-Creation-Date: 2022-04-07 23:56+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,14 +30,12 @@ msgid "Bemor"
 msgstr "Пациент"
 
 #: .\appointment\forms.py:13
-#, fuzzy
-#| msgid "Bemor"
 msgid "Bemor FIOsi"
-msgstr "Пациент"
+msgstr "ФИО пациента"
 
 #: .\appointment\forms.py:19
 msgid "Telefon raqami"
-msgstr ""
+msgstr "Номер телефона"
 
 #: .\appointment\forms.py:25
 msgid "(XX) XXX-XX-XX"
@@ -45,19 +43,19 @@ msgstr ""
 
 #: .\appointment\forms.py:33
 msgid "Tugilgan sana"
-msgstr ""
+msgstr "Дата рождения"
 
 #: .\appointment\forms.py:43
 msgid "Jins"
-msgstr ""
+msgstr "Пол"
 
 #: .\appointment\forms.py:52
 msgid "Manzil"
-msgstr ""
+msgstr "Адрес"
 
 #: .\appointment\forms.py:56
 msgid "Manzilni kiriting"
-msgstr ""
+msgstr "Введите адрес"
 
 #: .\appointment\forms.py:66 .\appointment\models.py:27
 msgid "Xizmat"

@@ -140,7 +140,8 @@
         var date = new Date()
         var current_year = date.getFullYear(), current_month = date.getMonth()
         var months_uz = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
-            months_ru = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+            months_ru = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            months_en = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         $("#birth_year_1").on("click", function(){
             if ($("#year_holder").val() == "") {
                 $("#year_holder").val(current_year)
@@ -162,6 +163,8 @@
                     $("#month_holder").val(months_uz[current_month])
                 {% elif LANGUAGE_CODE == "ru" %}
                     $("#month_holder").val(months_ru[current_month])
+                {% elif LANGUAGE_CODE == "en" %}
+                    $("#month_holder").val(months_en[current_month])
                 {% endif %}
             } else {
                 {% if LANGUAGE_CODE == "uz" %}
@@ -178,6 +181,13 @@
                             break
                         }
                     }
+                {% elif LANGUAGE_CODE == "en" %}
+                    for (let i = 0; i < months_en.length; i++) {
+                        if ($("#month_holder").val() == months_en[i] && i < months_en.length - 1) {
+                            $("#month_holder").val(months_en[i + 1])
+                            break
+                        }
+                    }
                 {% endif %}
             }
         })
@@ -187,6 +197,8 @@
                     $("#month_holder").val(months_uz[current_month])
                 {% elif LANGUAGE_CODE == "ru" %}
                     $("#month_holder").val(months_ru[current_month])
+                {% elif LANGUAGE_CODE == "en" %}
+                    $("#month_holder").val(months_en[current_month])
                 {% endif %}
             } else {
                 {% if LANGUAGE_CODE == "uz" %}
@@ -200,6 +212,13 @@
                     for (let i = months_ru.length; i >= 0; i--) {
                         if ($("#month_holder").val() == months_ru[i] && i > 0) {
                             $("#month_holder").val(months_ru[i - 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "en" %}
+                    for (let i = months_en.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_en[i] && i > 0) {
+                            $("#month_holder").val(months_en[i - 1])
                             break
                         }
                     }

@@ -75,7 +75,7 @@
                                     <li><a class="dropdown-item" href="{% url 'patient:settings' active_tab="profile" %}">{% trans "Sozlamalar" %}</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'login:logout' %}">
+                                        <a id="logout" class="dropdown-item" href="javascript:void(0)">
                                             <i class="fas fa-sign-out-alt"></i> {% trans "Chiqish" %}
                                         </a>
                                     </li>
@@ -122,6 +122,13 @@
         </nav>
         <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
+        <script type="text/javascript">
+            $("#logout").on("click", function () {
+                if (confirm("{% trans "Chiqishni tasdiqlaysizmi?" %}") == true) {
+                    window.location.href = "{% url 'login:logout' %}"
+                }
+            })
+        </script>
         {% block javascript %}{% endblock %}
     </body>
 </html>
