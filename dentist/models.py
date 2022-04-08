@@ -239,3 +239,16 @@ class Expire(models.Model):
             else:
                 self.expire_date = datetime.today() + timedelta(days=30)
         super().save(*args, **kwargs)
+
+
+class Animation(models.Model):
+    
+    name = models.CharField(_("Animatsiya nomi"), max_length=150)
+    file = models.FileField(_("Fayl"), upload_to="animations/")
+
+    class Meta:
+        verbose_name = _("Animatsiya ")
+        verbose_name_plural = _("Animatsiyalar")
+
+    def __str__(self):
+        return self.name

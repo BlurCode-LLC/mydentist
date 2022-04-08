@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext_lazy as _
 from appointment.models import *
-from dentist.models import User as DentistUser, Reminder
+from dentist.models import Animation, User as DentistUser, Reminder
 from mydentist.handler import *
 
 
@@ -82,4 +82,20 @@ def reminders(request):
 
 
 def animations(request):
-    return render(request, "dentx/animations.html")
+    if not is_authenticated(request, "dentist"):
+        if not is_authenticated(request, "patient"):
+            return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")
+        else:
+            return redirect(request.META.get("HTTP_REFERER", "/"))
+    else:
+        check_language(request, "dentist")
+    user = User.objects.get(username=request.user.username)
+    dentist = DentistUser.objects.get(user=user)
+    notifications = get_notifications(request, "dentist")
+    animations = Animation.objects.all()
+    return render(request, "dentx/animations.html", {
+        'dentist': dentist,
+        'notifications': notifications,
+        'notifications_count': len(notifications),
+        'animations': animations
+    })
