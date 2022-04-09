@@ -23,7 +23,11 @@ def error_403(request, exception):
 
 def index(request):
     if request.method == "POST":
-        request.session['post'] = request.POST
+        temp = {}
+        from html import unescape
+        for key, value in request.POST.items():
+            temp[key] = unescape(value) if isinstance(value, str) else value
+        request.session['post'] = temp
         return redirect("baseapp:results")
     else:
         try:
@@ -91,6 +95,7 @@ def get_dentists(request):
         searchform = SearchForm(request.session['post'])
         geoform = GeoForm(request.session['post'])
         if searchform.is_valid() and geoform.is_valid():
+            print(searchform.cleaned_data)
             if request.POST['sort_by'] == "price":
                 services_obj = Service_translation.objects.filter(
                     name=searchform.cleaned_data['service'],
