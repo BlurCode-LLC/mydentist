@@ -1072,27 +1072,27 @@
         request_path = request_path.split("/")
         $("#pills-profile-tab").on("click", function() {
             temp = request_path
-            temp[temp.length - 1] = "profile"
+            temp[temp.length - 2] = "profile"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-appointment-tab").on("click", function() {
             temp = request_path
-            temp[temp.length - 1] = "appointment"
+            temp[temp.length - 2] = "appointment"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-process-tab").on("click", function() {
             temp = request_path
-            temp[request_path.length - 1] = "process"
+            temp[request_path.length - 2] = "process"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-dental-map-tab").on("click", function() {
             temp = request_path
-            temp[request_path.length - 1] = "dental-map"
+            temp[request_path.length - 2] = "dental-map"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-photos-tab").on("click", function() {
             temp = request_path
-            temp[request_path.length - 1] = "photos"
+            temp[request_path.length - 2] = "photos"
             window.history.replaceState({}, "", temp.join("/"))
         })
     </script>

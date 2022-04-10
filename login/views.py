@@ -51,15 +51,24 @@ def register(request):
                 year = int(userform.cleaned_data['birth_year'])
                 month = MONTHS.index(userform.cleaned_data['birth_month']) + 1
                 day = int(userform.cleaned_data['birth_day'])
-                user_extra = PatientUser.objects.create(
-                    user=user,
-                    phone_number=userform.cleaned_data['phone_number'],
-                    address=userform.cleaned_data['address'],
-                    birthday=datetime(year, month, day),
-                    image="patients/photos/default.png",
-                    language=Language.objects.get(name=get_language()),
-                    gender=Gender.objects.get(pk=userform.cleaned_data['gender'])
-                )
+                try:
+                    user_extra = PatientUser.objects.create(
+                        user=user,
+                        phone_number=userform.cleaned_data['phone_number'],
+                        address=userform.cleaned_data['address'],
+                        birthday=datetime(year, month, day),
+                        image="patients/photos/default.png",
+                        language=Language.objects.get(name=get_language()),
+                        gender=Gender.objects.get(pk=userform.cleaned_data['gender'])
+                    )
+                except:
+                    return render(request, "login/register.html", {
+                        'userform': userform,
+                        'passwordform': passwordform,
+                        'illnessform': illnessform,
+                        'otherillnessform': otherillnessform,
+                        'error_message': _("Bu raqam ostida foydalanuvchi mavjud")
+                    })
                 key = Key.objects.create(
                     patient=user_extra,
                     key=randint(100000, 999999)

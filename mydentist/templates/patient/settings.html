@@ -403,22 +403,22 @@
         request_path = request_path.split("/")
         $("#pills-profile-tab").on("click", function() {
             temp = request_path
-            temp[temp.length - 1] = "profile"
+            temp[temp.length - 2] = "profile"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-password-tab").on("click", function() {
             temp = request_path
-            temp[temp.length - 1] = "password"
+            temp[temp.length - 2] = "password"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-illness-tab").on("click", function() {
             temp = request_path
-            temp[request_path.length - 1] = "illness"
+            temp[request_path.length - 2] = "illness"
             window.history.replaceState({}, "", temp.join("/"))
         })
         $("#pills-other-illness-tab").on("click", function() {
             temp = request_path
-            temp[request_path.length - 1] = "other-illness"
+            temp[request_path.length - 2] = "other-illness"
             window.history.replaceState({}, "", temp.join("/"))
         })
     </script>

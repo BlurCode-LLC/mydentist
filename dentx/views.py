@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext_lazy as _
 from appointment.models import *
-from dentist.models import Animation, User as DentistUser, Reminder
+from dentist.models import Animation, Animation_translation, User as DentistUser, Reminder
 from mydentist.handler import *
 
 
@@ -92,7 +92,14 @@ def animations(request):
     user = User.objects.get(username=request.user.username)
     dentist = DentistUser.objects.get(user=user)
     notifications = get_notifications(request, "dentist")
-    animations = Animation.objects.all()
+    animations_obj = Animation.objects.all()
+    animations = []
+    for animation_obj in animations_obj:
+        trans = animation_obj.animation_translation.filter(language__pk=dentist.language_id).first()
+        animations.append({
+            'animation': animation_obj,
+            'translation': trans
+        })
     return render(request, "dentx/animations.html", {
         'dentist': dentist,
         'notifications': notifications,

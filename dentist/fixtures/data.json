@@ -9699,5 +9699,1732 @@
             "language": 3,
             "name": "Breket (sim) qo'yish. Oddiy"
         }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 1,
+        "fields": {
+            "name": "Aql tish",
+            "file": "animations/aql_tish.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 2,
+        "fields": {
+            "name": "Breket 1",
+            "file": "animations/breket_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 3,
+        "fields": {
+            "name": "Breket 2",
+            "file": "animations/breket_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 4,
+        "fields": {
+            "name": "Endo 1",
+            "file": "animations/endo_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 5,
+        "fields": {
+            "name": "Gingivoplastika",
+            "file": "animations/gingivoplastika.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 6,
+        "fields": {
+            "name": "Ildiz. Keramika",
+            "file": "animations/ildiz._keramika.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 7,
+        "fields": {
+            "name": "Implant. Gaymor",
+            "file": "animations/implant._gaymor.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 8,
+        "fields": {
+            "name": "Implant. Sinus lift 1",
+            "file": "animations/implant._sinus_lift_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 9,
+        "fields": {
+            "name": "Implant. Sinus lift 2",
+            "file": "animations/implant._sinus_lift_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 10,
+        "fields": {
+            "name": "Implant. Sinus lift 3",
+            "file": "animations/implant._sinus_lift_3.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 11,
+        "fields": {
+            "name": "Implant. Suyak o stirish 1",
+            "file": "animations/implant._suyak_o_stirish_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 12,
+        "fields": {
+            "name": "Implant. Suyak o stirish 2",
+            "file": "animations/implant._suyak_o_stirish_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 13,
+        "fields": {
+            "name": "Implant. Suyak transplantatsiya",
+            "file": "animations/implant._suyak_transplantatsiya.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 14,
+        "fields": {
+            "name": "Implant 11",
+            "file": "animations/implant_11.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 15,
+        "fields": {
+            "name": "Implant 34 35",
+            "file": "animations/implant_34_35.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 16,
+        "fields": {
+            "name": "Implant 36 bosqichlar",
+            "file": "animations/implant_36_bosqichlar.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 17,
+        "fields": {
+            "name": "Implant bridge. 34 36",
+            "file": "animations/implant_bridge._34_36.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 18,
+        "fields": {
+            "name": "Implant pastki j. All in 4",
+            "file": "animations/implant_pastki_j._all_in_4.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 19,
+        "fields": {
+            "name": "Implant pastki jag to liq ko priksimon",
+            "file": "animations/implant_pastki_jag_to_liq_ko_priksimon.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 20,
+        "fields": {
+            "name": "Implant pj fiks protez",
+            "file": "animations/implant_pj_fiks_protez.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 21,
+        "fields": {
+            "name": "Implant pj fiks protez 2",
+            "file": "animations/implant_pj_fiks_protez_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 22,
+        "fields": {
+            "name": "Implant vs ko prik",
+            "file": "animations/implant_vs_ko_prik.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 23,
+        "fields": {
+            "name": "Implant yj fiks protez 2",
+            "file": "animations/implant_yj_fiks_protez_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 24,
+        "fields": {
+            "name": "Implant yuqori j. All in 4",
+            "file": "animations/implant_yuqori_j._all_in_4.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 25,
+        "fields": {
+            "name": "Implant yuqori jag to liq ko priksimon",
+            "file": "animations/implant_yuqori_jag_to_liq_ko_priksimon.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 26,
+        "fields": {
+            "name": "Invisilighn",
+            "file": "animations/invisilighn.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 27,
+        "fields": {
+            "name": "Ko prik merilend",
+            "file": "animations/ko_prik_merilend.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 28,
+        "fields": {
+            "name": "Mk vs sirkon",
+            "file": "animations/mk_vs_sirkon.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 29,
+        "fields": {
+            "name": "Perikoronit",
+            "file": "animations/perikoronit.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 30,
+        "fields": {
+            "name": "Sirkon",
+            "file": "animations/sirkon.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 31,
+        "fields": {
+            "name": "Svetoplomba",
+            "file": "animations/svetoplomba.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 32,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen",
+            "file": "animations/tishsizlik._atrofiya_P_G_fenomen.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 33,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen 2",
+            "file": "animations/tishsizlik._atrofiya_P_G_fenomen_2.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 34,
+        "fields": {
+            "name": "Tosh ta siri 1",
+            "file": "animations/tosh_ta_siri_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 35,
+        "fields": {
+            "name": "Vinir",
+            "file": "animations/vinir.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 36,
+        "fields": {
+            "name": "Vinir vs mk",
+            "file": "animations/vinir_vs_mk.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation",
+        "pk": 37,
+        "fields": {
+            "name": "Zoom 1",
+            "file": "animations/zoom_1.mp4"
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 1,
+        "fields": {
+            "name": "Aql tish",
+            "animation": 1,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 2,
+        "fields": {
+            "name": "Aql tish",
+            "animation": 1,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 3,
+        "fields": {
+            "name": "Aql tish",
+            "animation": 1,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 4,
+        "fields": {
+            "name": "Breket 1",
+            "animation": 2,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 5,
+        "fields": {
+            "name": "Breket 1",
+            "animation": 2,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 6,
+        "fields": {
+            "name": "Breket 1",
+            "animation": 2,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 7,
+        "fields": {
+            "name": "Breket 2",
+            "animation": 3,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 8,
+        "fields": {
+            "name": "Breket 2",
+            "animation": 3,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 9,
+        "fields": {
+            "name": "Breket 2",
+            "animation": 3,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 10,
+        "fields": {
+            "name": "Endo 1",
+            "animation": 4,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 11,
+        "fields": {
+            "name": "Endo 1",
+            "animation": 4,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 12,
+        "fields": {
+            "name": "Endo 1",
+            "animation": 4,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 13,
+        "fields": {
+            "name": "Gingivoplastika",
+            "animation": 5,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 14,
+        "fields": {
+            "name": "Gingivoplastika",
+            "animation": 5,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 15,
+        "fields": {
+            "name": "Gingivoplastika",
+            "animation": 5,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 16,
+        "fields": {
+            "name": "Ildiz. Keramika",
+            "animation": 6,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 17,
+        "fields": {
+            "name": "Ildiz. Keramika",
+            "animation": 6,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 18,
+        "fields": {
+            "name": "Ildiz. Keramika",
+            "animation": 6,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 19,
+        "fields": {
+            "name": "Implant. Gaymor",
+            "animation": 7,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 20,
+        "fields": {
+            "name": "Implant. Gaymor",
+            "animation": 7,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 21,
+        "fields": {
+            "name": "Implant. Gaymor",
+            "animation": 7,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 22,
+        "fields": {
+            "name": "Implant. Sinus lift 1",
+            "animation": 8,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 23,
+        "fields": {
+            "name": "Implant. Sinus lift 1",
+            "animation": 8,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 24,
+        "fields": {
+            "name": "Implant. Sinus lift 1",
+            "animation": 8,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 25,
+        "fields": {
+            "name": "Implant. Sinus lift 2",
+            "animation": 9,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 26,
+        "fields": {
+            "name": "Implant. Sinus lift 2",
+            "animation": 9,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 27,
+        "fields": {
+            "name": "Implant. Sinus lift 2",
+            "animation": 9,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 28,
+        "fields": {
+            "name": "Implant. Sinus lift 3",
+            "animation": 10,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 29,
+        "fields": {
+            "name": "Implant. Sinus lift 3",
+            "animation": 10,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 30,
+        "fields": {
+            "name": "Implant. Sinus lift 3",
+            "animation": 10,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 31,
+        "fields": {
+            "name": "Implant. Suyak o stirish 1",
+            "animation": 11,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 32,
+        "fields": {
+            "name": "Implant. Suyak o stirish 1",
+            "animation": 11,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 33,
+        "fields": {
+            "name": "Implant. Suyak o stirish 1",
+            "animation": 11,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 34,
+        "fields": {
+            "name": "Implant. Suyak o stirish 2",
+            "animation": 12,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 35,
+        "fields": {
+            "name": "Implant. Suyak o stirish 2",
+            "animation": 12,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 36,
+        "fields": {
+            "name": "Implant. Suyak o stirish 2",
+            "animation": 12,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 37,
+        "fields": {
+            "name": "Implant. Suyak transplantatsiya",
+            "animation": 13,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 38,
+        "fields": {
+            "name": "Implant. Suyak transplantatsiya",
+            "animation": 13,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 39,
+        "fields": {
+            "name": "Implant. Suyak transplantatsiya",
+            "animation": 13,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 40,
+        "fields": {
+            "name": "Implant 11",
+            "animation": 14,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 41,
+        "fields": {
+            "name": "Implant 11",
+            "animation": 14,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 42,
+        "fields": {
+            "name": "Implant 11",
+            "animation": 14,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 43,
+        "fields": {
+            "name": "Implant 34 35",
+            "animation": 15,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 44,
+        "fields": {
+            "name": "Implant 34 35",
+            "animation": 15,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 45,
+        "fields": {
+            "name": "Implant 34 35",
+            "animation": 15,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 46,
+        "fields": {
+            "name": "Implant 36 bosqichlar",
+            "animation": 16,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 47,
+        "fields": {
+            "name": "Implant 36 bosqichlar",
+            "animation": 16,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 48,
+        "fields": {
+            "name": "Implant 36 bosqichlar",
+            "animation": 16,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 49,
+        "fields": {
+            "name": "Implant bridge. 34 36",
+            "animation": 17,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 50,
+        "fields": {
+            "name": "Implant bridge. 34 36",
+            "animation": 17,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 51,
+        "fields": {
+            "name": "Implant bridge. 34 36",
+            "animation": 17,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 52,
+        "fields": {
+            "name": "Implant pastki j. All in 4",
+            "animation": 18,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 53,
+        "fields": {
+            "name": "Implant pastki j. All in 4",
+            "animation": 18,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 54,
+        "fields": {
+            "name": "Implant pastki j. All in 4",
+            "animation": 18,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 55,
+        "fields": {
+            "name": "Implant pastki jag to liq ko priksimon",
+            "animation": 19,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 56,
+        "fields": {
+            "name": "Implant pastki jag to liq ko priksimon",
+            "animation": 19,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 57,
+        "fields": {
+            "name": "Implant pastki jag to liq ko priksimon",
+            "animation": 19,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 58,
+        "fields": {
+            "name": "Implant pj fiks protez",
+            "animation": 20,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 59,
+        "fields": {
+            "name": "Implant pj fiks protez",
+            "animation": 20,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 60,
+        "fields": {
+            "name": "Implant pj fiks protez",
+            "animation": 20,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 61,
+        "fields": {
+            "name": "Implant pj fiks protez 2",
+            "animation": 21,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 62,
+        "fields": {
+            "name": "Implant pj fiks protez 2",
+            "animation": 21,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 63,
+        "fields": {
+            "name": "Implant pj fiks protez 2",
+            "animation": 21,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 64,
+        "fields": {
+            "name": "Implant vs ko prik",
+            "animation": 22,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 65,
+        "fields": {
+            "name": "Implant vs ko prik",
+            "animation": 22,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 66,
+        "fields": {
+            "name": "Implant vs ko prik",
+            "animation": 22,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 67,
+        "fields": {
+            "name": "Implant yj fiks protez 2",
+            "animation": 23,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 68,
+        "fields": {
+            "name": "Implant yj fiks protez 2",
+            "animation": 23,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 69,
+        "fields": {
+            "name": "Implant yj fiks protez 2",
+            "animation": 23,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 70,
+        "fields": {
+            "name": "Implant yuqori j. All in 4",
+            "animation": 24,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 71,
+        "fields": {
+            "name": "Implant yuqori j. All in 4",
+            "animation": 24,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 72,
+        "fields": {
+            "name": "Implant yuqori j. All in 4",
+            "animation": 24,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 73,
+        "fields": {
+            "name": "Implant yuqori jag to liq ko priksimon",
+            "animation": 25,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 74,
+        "fields": {
+            "name": "Implant yuqori jag to liq ko priksimon",
+            "animation": 25,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 75,
+        "fields": {
+            "name": "Implant yuqori jag to liq ko priksimon",
+            "animation": 25,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 76,
+        "fields": {
+            "name": "Invisilighn",
+            "animation": 26,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 77,
+        "fields": {
+            "name": "Invisilighn",
+            "animation": 26,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 78,
+        "fields": {
+            "name": "Invisilighn",
+            "animation": 26,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 79,
+        "fields": {
+            "name": "Ko prik merilend",
+            "animation": 27,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 80,
+        "fields": {
+            "name": "Ko prik merilend",
+            "animation": 27,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 81,
+        "fields": {
+            "name": "Ko prik merilend",
+            "animation": 27,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 82,
+        "fields": {
+            "name": "Mk vs sirkon",
+            "animation": 28,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 83,
+        "fields": {
+            "name": "Mk vs sirkon",
+            "animation": 28,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 84,
+        "fields": {
+            "name": "Mk vs sirkon",
+            "animation": 28,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 85,
+        "fields": {
+            "name": "Perikoronit",
+            "animation": 29,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 86,
+        "fields": {
+            "name": "Perikoronit",
+            "animation": 29,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 87,
+        "fields": {
+            "name": "Perikoronit",
+            "animation": 29,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 88,
+        "fields": {
+            "name": "Sirkon",
+            "animation": 30,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 89,
+        "fields": {
+            "name": "Sirkon",
+            "animation": 30,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 90,
+        "fields": {
+            "name": "Sirkon",
+            "animation": 30,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 91,
+        "fields": {
+            "name": "Svetoplomba",
+            "animation": 31,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 92,
+        "fields": {
+            "name": "Svetoplomba",
+            "animation": 31,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 93,
+        "fields": {
+            "name": "Svetoplomba",
+            "animation": 31,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 94,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen",
+            "animation": 32,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 95,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen",
+            "animation": 32,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 96,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen",
+            "animation": 32,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 97,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen 2",
+            "animation": 33,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 98,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen 2",
+            "animation": 33,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 99,
+        "fields": {
+            "name": "Tishsizlik. Atrofiya p g fenomen 2",
+            "animation": 33,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 100,
+        "fields": {
+            "name": "Tosh ta siri 1",
+            "animation": 34,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 101,
+        "fields": {
+            "name": "Tosh ta siri 1",
+            "animation": 34,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 102,
+        "fields": {
+            "name": "Tosh ta siri 1",
+            "animation": 34,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 103,
+        "fields": {
+            "name": "Vinir",
+            "animation": 35,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 104,
+        "fields": {
+            "name": "Vinir",
+            "animation": 35,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 105,
+        "fields": {
+            "name": "Vinir",
+            "animation": 35,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 106,
+        "fields": {
+            "name": "Vinir vs mk",
+            "animation": 36,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 107,
+        "fields": {
+            "name": "Vinir vs mk",
+            "animation": 36,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 108,
+        "fields": {
+            "name": "Vinir vs mk",
+            "animation": 36,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 109,
+        "fields": {
+            "name": "Zoom 1",
+            "animation": 37,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 110,
+        "fields": {
+            "name": "Zoom 1",
+            "animation": 37,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.animation_translation",
+        "pk": 111,
+        "fields": {
+            "name": "Zoom 1",
+            "animation": 37,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 1,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-1.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 2,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-2.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 3,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-3.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 4,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-1.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 5,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-2.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 6,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-3.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 7,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-1.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 8,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-2.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 9,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-3.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 10,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-4.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 11,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-1.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 12,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-2.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 13,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-3.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 14,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-4.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 15,
+        "fields": {
+            "image": "dentists/cabinet_photos/shokirov-xurshidbek-usmonjonovich-1.jpg",
+            "dentist": 5
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 16,
+        "fields": {
+            "image": "dentists/cabinet_photos/shokirov-xurshidbek-usmonjonovich-2.jpg",
+            "dentist": 5
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 17,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-1.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 18,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-2.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 19,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-3.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 20,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-4.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 21,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-1.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 22,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-2.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 23,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-3.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 24,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-1.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 25,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-2.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 26,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-3.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 27,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-4.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 28,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-1.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 29,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-2.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 30,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-3.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 31,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-1.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 32,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-2.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 33,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-3.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 34,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-1.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 35,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-2.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 36,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-3.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 37,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-1.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 38,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-2.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 39,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-3.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 40,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-1.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 41,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-2.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 42,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-3.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 43,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-1.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 44,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-2.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 45,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-3.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 46,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-1.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 47,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-2.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 48,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-3.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 49,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-1.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 50,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-2.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 51,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-3.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 52,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-4.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 53,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-5.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 54,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-6.jpg",
+            "dentist": 18
+        }
     }
 ]

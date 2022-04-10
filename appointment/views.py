@@ -43,51 +43,66 @@ def appointments(request):
             name = patientform.cleaned_data['name']
             try:
                 phone_number = patientform.cleaned_data['phone_number']
-                patient = PatientUser.objects.get(phone_number=phone_number)
-                print(patient)
-                patient_user = User.objects.get(pk=patient.user_id)
-                if not (name.split(" ")[0] == patient_user.last_name and name.split(" ")[1] == patient_user.first_name and phone_number == patient.phone_number and str(patient.birthday) == patientform.cleaned_data['birthday'] and patient.gender_id == int(patientform.cleaned_data['gender']) and patient.address == patientform.cleaned_data['address']):
+                dp = Patient.objects.get(
+                    dentist=dentist,
+                    patient__phone_number=phone_number
+                )
+                print(dp)
+                patient = dp.patient
+                patient_user = User.objects.get(pk=dp.patient.user_id)
+                if not (name.split(" ")[0] == patient_user.last_name and name.split(" ")[1] == patient_user.first_name and phone_number == patient.phone_number and str(patient.birthday) == patientform.cleaned_data['birthday'] and patient.address == patientform.cleaned_data['address']):
                     is_success = False
                     text = _("Bemor ma'lumotlari to'g'ri kelmayapti")
             except:
-                file_path = global_settings.PROJECT_DIR / "last_id.txt"
-                with open(file_path, "r") as file:
-                    id = int(file.read()) + 1
-                with open(file_path, "w") as file:
-                    file.write(str(id))
-                id = f"{id:07d}"
-                if len(name.split(" ")) > 1:
-                    patient_user = User.objects.create_user(
-                        f"user{id}",
-                        password=f"user{id}",
-                        last_name=name.split(" ")[0],
-                        first_name=" ".join(name.split(" ")[1:])
+                try:
+                    phone_number = patientform.cleaned_data['phone_number']
+                    dp = PatientUser.objects.get(phone_number=phone_number)
+                    is_success = False
+                    text = _("Bu bemor sizga tegishli emas")
+                    # print(dp)
+                    # patient_user = User.objects.get(pk=dp.patient.user_id)
+                    # if not (name.split(" ")[0] == patient_user.last_name and name.split(" ")[1] == patient_user.first_name and phone_number == patient.phone_number and str(patient.birthday) == patientform.cleaned_data['birthday'] and patient.gender_id == int(patientform.cleaned_data['gender']) and patient.address == patientform.cleaned_data['address']):
+                    #     is_success = False
+                    #     text = _("Bemor ma'lumotlari to'g'ri kelmayapti")
+                except:
+                    file_path = global_settings.PROJECT_DIR / "last_id.txt"
+                    with open(file_path, "r") as file:
+                        id = int(file.read()) + 1
+                    with open(file_path, "w") as file:
+                        file.write(str(id))
+                    id = f"{id:07d}"
+                    if len(name.split(" ")) > 1:
+                        patient_user = User.objects.create_user(
+                            f"user{id}",
+                            password=f"user{id}",
+                            last_name=name.split(" ")[0],
+                            first_name=" ".join(name.split(" ")[1:])
+                        )
+                    elif len(name.split(" ")) == 1:
+                        patient_user = User.objects.create_user(
+                            f"user{id}",
+                            password=f"user{id}",
+                            first_name=name
+                        )
+                    patient = PatientUser.objects.create(
+                        user=patient_user,
+                        phone_number=patientform.cleaned_data['phone_number'],
+                        address=patientform.cleaned_data['address'],
+                        birthday=patientform.cleaned_data['birthday'],
+                        image="patients/photos/default.png",
+                        language=Language.objects.get(name="ru"),
+                        gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
                     )
-                elif len(name.split(" ")) == 1:
-                    patient_user = User.objects.create_user(
-                        f"user{id}",
-                        password=f"user{id}",
-                        first_name=name
+                    key = Key.objects.create(
+                        patient=patient,
+                        key=randint(100000, 999999)
                     )
-                patient = PatientUser.objects.create(
-                    user=patient_user,
-                    phone_number=patientform.cleaned_data['phone_number'],
-                    address=patientform.cleaned_data['address'],
-                    birthday=patientform.cleaned_data['birthday'],
-                    image="patients/photos/default.png",
-                    language=Language.objects.get(name="ru"),
-                    gender=Gender.objects.get(pk=patientform.cleaned_data['gender'])
-                )
-                key = Key.objects.create(
-                    patient=patient,
-                    key=randint(100000, 999999)
-                )
-                dp = Patient.objects.create(
-                    dentist=dentist,
-                    patient=patient
-                )
-                success = _("Yangi bemor qo'shildi")
-                text = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
+                    dp = Patient.objects.create(
+                        dentist=dentist,
+                        patient=patient
+                    )
+                    success = _("Yangi bemor qo'shildi")
+                    text = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
             if is_success:
                 service_translation = Service_translation.objects.filter(
                     name=appointmentform.cleaned_data['service'],

@@ -38,6 +38,13 @@ class Clinic(models.Model):
                 orientir="",
                 language=Language.objects.get(name="ru")
             )
+            clinic_translation_en = Clinic_translation.objects.create(
+                clinic=self,
+                name=self.name,
+                address="",
+                orientir="",
+                language=Language.objects.get(name="en")
+            )
 
 
 class Clinic_translation(models.Model):
@@ -81,7 +88,8 @@ class User(models.Model):
 
     def save(self, *args, **kwargs):
         name = f"{self.user.last_name} {self.user.first_name}"
-        self.slug = name.replace(" ", "-").replace("'", "")
+        if self.slug is None or self.slug == "":
+            self.slug = name.replace(" ", "-").replace("'", "")
         super().save(*args, **kwargs)
         expire = Expire.objects.filter(dentist=self).first()
         if expire is None:
@@ -102,6 +110,12 @@ class User(models.Model):
                 fullname=str(self),
                 speciality="",
                 language=Language.objects.get(name="ru")
+            )
+            user_translation_en = User_translation.objects.create(
+                dentist=self,
+                fullname=str(self),
+                speciality="",
+                language=Language.objects.get(name="en")
             )
 
 
@@ -147,6 +161,11 @@ class Service(models.Model):
                 service=self,
                 name=self.name,
                 language=Language.objects.get(name="ru")
+            )
+            service_translation_en = Service_translation.objects.create(
+                service=self,
+                name=self.name,
+                language=Language.objects.get(name="en")
             )
 
 
@@ -250,5 +269,39 @@ class Animation(models.Model):
         verbose_name = _("Animatsiya ")
         verbose_name_plural = _("Animatsiyalar")
 
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        trans = Animation_translation.objects.filter(animation=self)
+        if len(trans) == 0:
+            animation_translation_uz = Animation_translation.objects.create(
+                animation=self,
+                name=self.name,
+                language=Language.objects.get(name="uz")
+            )
+            animation_translation_ru = Animation_translation.objects.create(
+                animation=self,
+                name=self.name,
+                language=Language.objects.get(name="ru")
+            )
+            animation_translation_en = Animation_translation.objects.create(
+                animation=self,
+                name=self.name,
+                language=Language.objects.get(name="en")
+            )
+
+
+class Animation_translation(models.Model):
+
+    name = models.CharField(_("Animatsiya nomi"), max_length=150)
+    animation = models.ForeignKey("dentist.Animation", verbose_name=_("Animatsiya"), on_delete=models.CASCADE, related_name="animation_translation")
+    language = models.ForeignKey("baseapp.Language", verbose_name=_("Til"), on_delete=models.CASCADE, related_name="animation_language")
+
+    class Meta:
+        verbose_name = _("Animatsiya ma'lumoti ")
+        verbose_name_plural = _("Animatsiya ma'lumotlari")
+    
     def __str__(self):
         return self.name

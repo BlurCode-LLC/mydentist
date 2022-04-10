@@ -180,7 +180,7 @@ a.my_btn {
   transition: background-color 0.4s;
 }
 
-.panel .my_btn {
+.panel .my_btn, .panel .my_red_btn {
   display: block;
 }
 
@@ -210,7 +210,8 @@ a.my_btn {
 
 .my_btn:hover,
 .my_btn_1:hover,
-.my_btn_2:hover {
+.my_btn_2:hover,
+.my_red_btn:hover {
   background-color: #5c636a;
   color: white;
 }
@@ -1041,6 +1042,16 @@ div.my_accaunt {
 
 .tooth, svg:hover {
   cursor: pointer;
+}
+
+.my_red_btn {
+  margin: 5px 0;
+  padding: 10px 40px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.4s;
 }
 
 @media (max-width: 1400px) {

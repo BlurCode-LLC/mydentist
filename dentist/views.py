@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render
+from django.urls import resolve, reverse
 from django.utils import timezone
 from django.utils.translation import get_language, ugettext_lazy as _
 from appointment.models import Appointment, Query
@@ -191,6 +192,7 @@ def settings(request, active_tab="profile"):
         service_ru = Service_translation.objects.get(service=service, language__name="ru")
         service_en = Service_translation.objects.get(service=service, language__name="en")
         services.append({
+            'id': service.id,
             'name_uz': service_uz.name,
             'name_ru': service_ru.name,
             'name_en': service_en.name,
@@ -430,30 +432,57 @@ def update(request, form):
             }, safe=False)
         elif form == "services":
             serviceform = ServiceForm(request.POST)
+            print(request.POST)
             if serviceform.is_valid():
-                service = Service.objects.create(
-                    name=serviceform.cleaned_data['name_uz'],
-                    duration=serviceform.cleaned_data['duration'],
-                    price=serviceform.cleaned_data['price'],
-                    dentist=dentist
-                )
-                service_uz = Service_translation.objects.create(
-                    service=service,
-                    language=Language.objects.get(name="uz"),
-                    name=serviceform.cleaned_data['name_uz'],
-                )
-                service_ru = Service_translation.objects.create(
-                    service=service,
-                    language=Language.objects.get(name="ru"),
-                    name=serviceform.cleaned_data['name_ru'],
-                )
-                service.save()
-                service_uz.save()
-                service_ru.save()
+                if request.POST['service'] != "":
+                    service = Service.objects.get(pk=int(request.POST['service']))
+                    service_uz = Service_translation.objects.get(
+                        service=service,
+                        language__name="uz"
+                    )
+                    service_ru = Service_translation.objects.get(
+                        service=service,
+                        language__name="ru"
+                    )
+                    service_en = Service_translation.objects.get(
+                        service=service,
+                        language__name="en"
+                    )
+                    service_uz.name = serviceform.cleaned_data['name_uz']
+                    service_ru.name = serviceform.cleaned_data['name_ru']
+                    service_en.name = serviceform.cleaned_data['name_en']
+                    service.price = serviceform.cleaned_data['price']
+                    service.duration = serviceform.cleaned_data['duration']
+                    service.save()
+                    service_uz.save()
+                    service_ru.save()
+                    service_en.save()
+                else:
+                    service = Service.objects.create(
+                        name=serviceform.cleaned_data['name_uz'],
+                        duration=serviceform.cleaned_data['duration'],
+                        price=serviceform.cleaned_data['price'],
+                        dentist=dentist
+                    )
                 serviceform = ServiceForm()
                 request.session['success_message'] = "Updated successfully"
                 return redirect("dentx:settings", active_tab="services")
         return redirect("dentx:settings", active_tab="profile")
+    
+
+def delete_service(request):
+    if request.method == "POST":
+        print(request.POST)
+        service = Service.objects.get(pk=int(request.POST['id']))
+        service.delete()
+        return JsonResponse({
+            'link': reverse(
+                "dentx:settings",
+                kwargs={
+                    'active_tab': "services"
+                }
+            )
+        })
 
 
 def update_photo(request):
@@ -465,6 +494,20 @@ def update_photo(request):
         return JsonResponse({
             'photo': dentist.image.url
         }, safe=False)
+
+
+def delete_cabinet_photo(request):
+    if request.method == "POST":
+        cabinet_photo = Cabinet_Image.objects.get(image=request.POST['image'])
+        cabinet_photo.delete()
+        return JsonResponse({
+            'link': reverse(
+                "dentx:settings",
+                kwargs={
+                    'active_tab': "clinic-photo"
+                }
+            )
+        })
 
 
 def get_clinic(request):

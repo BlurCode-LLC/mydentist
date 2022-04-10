@@ -5,30 +5,32 @@
 {% trans "Animatsiyalar" %}
 {% endblock %}
 
+{% block styles %}
+<style>
+    .animation {
+        cursor: pointer;
+        background-color: #999999;
+        color: #ffffff;
+        padding: 70px 0;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+    .animation::after {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .animation:hover::after {
+        opacity: 1;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <section class="container">
     <div class="mt-5">
         <h1 class="header-title">{% trans "Animatsiyalar" %}</h1>
         <hr>
     </div>
-    <!--<button type="button" class="d-none" data-toggle="modal" data-target="#animationModal">Modal</button>
-    <div class="modal fade" id="animationModal" tabindex="-1" role="dialog" aria-labelledby="animationModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="animationModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="..."></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <button type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#animationModal">Modal</button>
     <div class="modal fade" id="animationModal" tabindex="-1" role="dialog" aria-labelledby="animationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -37,25 +39,17 @@
                     <h5 class="modal-title" id="animationModalLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="ratio ratio-16x9">
-                        <video width="100%" controls>
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
+                <div class="modal-body"></div>
             </div>
         </div>
     </div>
-    {% for animation in animations %}
-    <div class="col-lg-4 col-md-6">
-        <div url="{{ animation.file.url }}" class="animation text-center"
-            style="cursor: pointer; background-color: #999999; color: #ffffff; padding: 70px 0;">
-            <h5>{{ animation.name }}</h5>
-        </div>
-    </div>
     <div class="row mt-5">
+        {% for animation in animations %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div url="{{ animation.animation.file.url }}" class="animation text-center">
+                <h5>{{ animation.translation.name }}</h5>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </section>
@@ -63,11 +57,19 @@
 
 {% block javascript %}
 <script type="text/javascript">
+    $(".moday-body").empty()
     $(".animation").on("click", function () {
         console.log($(this).attr("url"))
         $("button[data-bs-target='#animationModal']").click()
         $("#animationModalLabel").html($(this).children("h5").text())
-        $("video > source").attr("src", $(this).attr("url"))
+        $(".modal-body").empty()
+        $(".modal-body").append(
+            $("<div class=\"ratio ratio-16x9\"></div>").append(
+                $("<video width=\"100%\" controls></video>").append(
+                    $(`<source src="${$(this).attr("url")}" type="video/mp4">`)
+                )
+            )
+        )
     })
 </script>
 {% endblock %}
