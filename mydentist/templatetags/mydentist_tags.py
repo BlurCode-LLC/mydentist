@@ -41,7 +41,7 @@ def time_format(datetime):
 
 @register.simple_tag
 def last_visit_format(datetime):
-    if datetime:
+    if datetime and datetime != "-":
         now = timezone.now() + timedelta(seconds=settings.TIME_ZONE_HOUR * 3600)
         if now.day == 1 and datetime.day in [28, 29, 30, 31] or now.day - datetime.day == 1:
             return _("kecha")
