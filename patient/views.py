@@ -793,7 +793,7 @@ def patient(request, id, active_tab="profile"):
     })
 
 
-def update(request, id, form):
+def patient_update(request, id, form):
     if not is_authenticated(request, "dentist"):
         if not is_authenticated(request, "patient"):
             return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")

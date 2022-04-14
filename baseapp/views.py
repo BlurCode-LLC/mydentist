@@ -1,9 +1,11 @@
 from datetime import date
+from django.conf import settings as global_settings
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext_lazy as _, get_language
 from json import dumps
+from telebot import TeleBot
 from dentist.models import User as DentistUser, Service_translation
 from patient.models import User as PatientUser
 from mydentist.handler import *
@@ -202,3 +204,15 @@ def get_dentists(request):
         response = HttpResponse()
         response.status_code = 404
         return response
+
+
+def send_message(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        print(global_settings)
+        # bot = TeleBot()
+        bot = TeleBot("1965697713:AAFeZXqE3Q-xtqU7-v0fr81X9B4HjQ726y4")
+        if name and phone:
+            bot.send_message(657368864, f"<b>{name}</b> ismli va {phone} raqamli foydalanuvchi siz bilan bog'lanmoqchi", parse_mode="HTML")
+        return redirect(request.META.get("HTTP_REFERER", "/"))

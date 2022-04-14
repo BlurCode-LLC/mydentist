@@ -1054,6 +1054,11 @@ div.my_accaunt {
   transition: background-color 0.4s;
 }
 
+.dentist {
+  width: 50%;
+  display: block;
+}
+
 @media (max-width: 1400px) {
   .my_select {
     padding: 10px 0px;
@@ -1086,6 +1091,9 @@ div.my_accaunt {
   }
   .search {
     display: none;
+  }
+  .dentist {
+    width: 75%;
   }
 }
 
@@ -1215,6 +1223,9 @@ div.my_accaunt {
     position: absolute;
     top: 8px;
     right: 8px;
+  }
+  .dentist {
+    width: 100%
   }
 }
 

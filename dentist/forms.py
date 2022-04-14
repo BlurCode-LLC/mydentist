@@ -6,21 +6,32 @@ from mydentist.var import *
 
 class QueryForm(forms.Form):
 
-    reason = forms.CharField(
+    reason_name = forms.CharField(
         label=_("Borish sababi"),
+        widget=forms.Textarea(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Sabablar"),
+                'rows': 3
+            }
+        ),
+        localize=True
+    )
+    reason = forms.CharField(
+        label=_("Sabablarni tanlang"),
         widget=forms.Select(
             attrs={
-                'class': "form-select",
-                'placeholder': _("Sababini tanlang")
+                'class': "form-select"
             },
             # choices=CHOICES['reason']
         ),
-        localize=True
+        localize=True,
+        required=False
     )
     reason_detail = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': "form-control mt-3 d-none",
+                'class': "form-control",
                 'placeholder': _("Sababini kiriting")
             }
         ),

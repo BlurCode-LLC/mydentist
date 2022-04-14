@@ -28,49 +28,39 @@ def dentist(request, slug):
             user_extra = UserExtra.objects.get(user=user)
             dentist_extra = DentistUserTranslation.objects.get(language__name=current_language, dentist__slug=slug)
             dentist = DentistUser.objects.get(pk=dentist_extra.dentist_id)
-            reason_value = int(queryform.cleaned_data['reason'])
-            if reason_value != 25:
-                reason = Reason.objects.get(
-                    value=reason_value,
-                    language__pk=dentist.language_id
-                )
-                query = Query.objects.create(
-                    dentist=dentist,
-                    patient=user_extra,
-                    reason=reason.name,
-                    comment=queryform.cleaned_data['comment'],
-                )
-                notification = Patient2dentist.objects.create(
-                    sender=user_extra,
-                    recipient=dentist,
-                    type="query",
-                    message=f"{reason.name}{NEW_LINE}{queryform.cleaned_data['comment']}",
-                    datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
-                    is_read=False
-                )
-                dp = Patient.objects.create(
-                    dentist=dentist,
-                    patient=user_extra
-                )
-            else:
-                query = Query.objects.create(
-                    dentist=dentist,
-                    patient=user_extra,
-                    reason=queryform.cleaned_data['reason_detail'],
-                    comment=queryform.cleaned_data['comment'],
-                )
-                notification = Patient2dentist.objects.create(
-                    sender=user_extra,
-                    recipient=dentist,
-                    type="query",
-                    message=f"{queryform.cleaned_data['reason_detail']}{NEW_LINE}{queryform.cleaned_data['comment']}",
-                    datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
-                    is_read=False
-                )
-                dp = Patient.objects.create(
-                    dentist=dentist,
-                    patient=user_extra
-                )
+            reason = queryform.cleaned_data['reason_name'].split(", ")
+            new_reason = []
+            for r in reason:
+                try:
+                    temp = Reason.objects.get(
+                        name=r,
+                        language=user_extra.language
+                    )
+                    new = Reason.objects.get(
+                        value=temp.value,
+                        language=dentist.language
+                    )
+                    new_reason.append(new.name)
+                except:
+                    new_reason.append(r)
+            query = Query.objects.create(
+                dentist=dentist,
+                patient=user_extra,
+                reason=", ".join(new_reason),
+                comment=queryform.cleaned_data['comment'],
+            )
+            notification = Patient2dentist.objects.create(
+                sender=user_extra,
+                recipient=dentist,
+                type="query",
+                message=f"{', '.join(new_reason)}{NEW_LINE}{queryform.cleaned_data['comment']}",
+                datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
+                is_read=False
+            )
+            dp = Patient.objects.create(
+                dentist=dentist,
+                patient=user_extra
+            )
             return redirect("dentist:dentist", slug=dentist.slug)
     else:
         queryform = QueryForm()

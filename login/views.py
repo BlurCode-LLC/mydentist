@@ -274,7 +274,14 @@ def password_reset(request):
         emailform = EmailForm(request.POST)
         if emailform.is_valid():
             email = emailform.cleaned_data['email']
-            user = User.objects.get(email=email)
+            try:
+                user = User.objects.get(email=email)
+            except:
+                emailform = EmailForm()
+                return render(request, "login/password_reset.html", {
+                    'message': _("Foydalanuvchi topilmadi"),
+                    'emailform': emailform
+                })
             uidb64 = urlsafe_base64_encode(force_bytes(user.username))
             token = reset_password_token.make_token(user)
             password_reset = PasswordReset.objects.create(
@@ -290,6 +297,7 @@ def password_reset(request):
     else:
         emailform = EmailForm()
         return render(request, "login/password_reset.html", {
+            'message': None,
             'emailform': emailform
         })
 

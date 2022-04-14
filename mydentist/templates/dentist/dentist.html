@@ -56,41 +56,50 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
-                        {% if authenticated %}
-                            {% if query is None and appointment is None %}
-                                <button type="button" class="btn my_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{% trans "Qabulga yozilish" %}</button>
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable">
-                                        <div class="modal-content">
-                                            <form method="POST">
-                                                {% csrf_token %}
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">{% trans "Tish shifokor qabuliga yozilish" %}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Yopish"></button>
+                        {% if authenticated == "patient" %}
+                            <button type="button" class="btn my_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{% trans "Qabulga yozilish" %}</button>
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">{% trans "Tish shifokor qabuliga yozilish" %}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Yopish"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="id_reason" class="form-label">{{ queryform.reason_name.label }}</label>
+                                                    {{ queryform.reason_name }}
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label for="id_reason" class="form-label">{{ queryform.reason.label }}</label>
-                                                        {{ queryform.reason }}
+                                                <div class="mb-3">
+                                                    <label for="id_reason" class="form-label">{{ queryform.reason.label }}</label>
+                                                    {{ queryform.reason }}
+                                                    <div class="input-group mt-3 d-none" id="reason_detail">
                                                         {{ queryform.reason_detail }}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="id_comment" class="form-label">{{ queryform.comment.label }}</label>
-                                                        {{ queryform.comment }}
-                                                        <div id="emailHelp" class="form-text">
-                                                            {% trans "Sizga maqul kun va vaqt, hamda boshqa izohlar" %}
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-primary" type="button" id="reason_check" style="border-top-right-radius: 25px;border-bottom-right-radius: 25px;">
+                                                                <i class="fas fa-check"></i>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn my_close_btn" data-bs-dismiss="modal">{% trans "Yopish" %}</button>
-                                                    <button type="submit" class="btn my_btn_1">{% trans "Jo'natish" %}</button>
+                                                <div class="mb-3">
+                                                    <label for="id_comment" class="form-label">{{ queryform.comment.label }}</label>
+                                                    {{ queryform.comment }}
+                                                    <div id="emailHelp" class="form-text">
+                                                        {% trans "Sizga maqul kun va vaqt, hamda boshqa izohlar" %}
+                                                    </div>
                                                 </div>
-                                            </form>
-                                        </div>        
-                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn my_close_btn" data-bs-dismiss="modal">{% trans "Yopish" %}</button>
+                                                <button type="submit" class="btn my_btn_1">{% trans "Jo'natish" %}</button>
+                                            </div>
+                                        </form>
+                                    </div>        
                                 </div>
-                            {% endif %}
+                            </div>
                         {% else %}
                             <a href="{% url 'login:login' %}?next={{ request.path }}" class="btn my_btn">{% trans "Qabulga yozilish" %}</a>
                         {% endif %}
@@ -198,18 +207,41 @@
             myMap.geoObjects.add(myGeoObject)
 		}
         $("#id_reason").append(
+            $("<option hidden disabled selected></option>").html("{% trans "Tanlang" %}"),
             {% for option in reason_options %}
             $("<option value='{{ option.value }}'>{{ option.name }}</option>"),
             {% endfor %}
         )
         $("#id_reason").on("change", function () {
             if ($(this).val() == 25) {
-                $("#id_reason_detail").removeClass("d-none").attr("required", true)
+                $("#reason_detail").removeClass("d-none").attr("required", true)
             } else {
-                if (! $("#id_reason_detail").hasClass(".d-none")) {
-                    $("#id_reason_detail").addClass("d-none").removeAttr("required")
+                if (! $("#reason_detail").hasClass(".d-none")) {
+                    $("#reason_detail").addClass("d-none").removeAttr("required")
                 }
+                $("#id_reason_name").val($("#id_reason_name").val() + ($("#id_reason_name").val() != 0 ? ", ": "") + $("#id_reason option:selected").html())
+                $("#id_reason").empty()
+                $("#id_reason").append(
+                    $("<option hidden disabled selected></option>").html("{% trans "Tanlang" %}"),
+                    {% for option in reason_options %}
+                    $("<option value='{{ option.value }}'>{{ option.name }}</option>"),
+                    {% endfor %}
+                )
             }
+        })
+        $("#reason_check").on("click", function () {
+            $("#id_reason_name").val($("#id_reason_name").val() + ($("#id_reason_detail").val() != 0 && $("#id_reason_name").val() != 0 ? ", ": "") + $("#id_reason_detail").val())
+            $("#id_reason_detail").val("")
+            if (! $("#reason_detail").hasClass(".d-none")) {
+                $("#reason_detail").addClass("d-none").removeAttr("required")
+            }
+            $("#id_reason").empty()
+            $("#id_reason").append(
+                $("<option hidden disabled selected></option>").html("{% trans "Tanlang" %}"),
+                {% for option in reason_options %}
+                $("<option value='{{ option.value }}'>{{ option.name }}</option>"),
+                {% endfor %}
+            )
         })
 	</script>
 {% endblock %}

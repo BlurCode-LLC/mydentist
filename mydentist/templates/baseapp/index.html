@@ -64,9 +64,12 @@
 	</div>
 	<div id="second_screen">
 		<div class="container">
-			<div class="text-center">
-				<a class="title_b text-decoration-none" href="http://mydentistx.wordpress.com" target="_blank">{% trans "Agar siz tish shifokori bo'lsangiz" %}</a>
-			</div>
+			<a class="title_b text-decoration-none mx-auto dentist" href="http://mydentistx.wordpress.com" target="_blank">
+				<div class="mx-auto text-center p-3" style="border: 3px solid #289cd7">
+					<h3>Stomatologmisiz?</h3>
+					<h5 style="color: gray;">Sizga biz bilan ishlashni taklif etamiz!</h5>
+				</div>
+			</a>
 		</div>
 	</div>
 	<div class="contact_panel">
@@ -76,14 +79,15 @@
 					<div class="sub_title_white mt-4 mb-3">
 						{% trans "Savol bormi? Ma'lumotlaringizni qoldiring va biz sizga qayta qo'ng'iroq qilamiz" %}
 					</div>
-					<form>
+					<form action="{% url 'baseapp:send_message' %}" method="POST">
+						{% csrf_token %}
 						<div class="mb-3">
-							<input type="name" placeholder="Имя" class="form-control my_input" id="exampleInputEmail1" aria-describedby="emailHelp">
+							<input type="text" placeholder="{% trans "Ism" %}" class="form-control my_input" id="id_name" name="name">
 						</div>
 						<div class="mb-3">
-							<input type="tel" placeholder="Номер телефона" class="form-control my_input" id="exampleInputPassword1">
+							<input type="text" placeholder="{% trans "Telefon raqam" %}" class="form-control my_input" id="id_phone" name="phone">
 						</div>
-						<button type="button" class="btn my_btn">{% trans "Jo'natish" %}</button>
+						<button type="submit" class="btn my_btn">{% trans "Jo'natish" %}</button>
 					</form>
 				</div>
 				<div class="col-xxl-4 col-xl-4 col-md-4 col-sm-12">

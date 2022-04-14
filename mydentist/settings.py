@@ -140,10 +140,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_ROOT = PROJECT_DIR / 'static'
+# STATIC_ROOT = PROJECT_DIR / 'static'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    # PROJECT_DIR / 'static'
+    PROJECT_DIR / 'static'
 ]
 
 MEDIA_URL = '/media/'
