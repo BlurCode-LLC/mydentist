@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 23:56+0500\n"
+"POT-Creation-Date: 2022-04-14 20:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,26 +109,30 @@ msgstr "Приём"
 msgid "Qabullar"
 msgstr "Приёмы"
 
-#: .\appointment\views.py:51
+#: .\appointment\views.py:55
 msgid "Bemor ma'lumotlari to'g'ri kelmayapti"
 msgstr "Данные пациента не совпадают"
 
-#: .\appointment\views.py:89
+#: .\appointment\views.py:61
+msgid "Bu bemor sizga tegishli emas"
+msgstr "Это не ваш пациент"
+
+#: .\appointment\views.py:104
 msgid "Yangi bemor qo'shildi"
 msgstr "Добавлен новый пациент"
 
-#: .\appointment\views.py:137 .\appointment\views.py:578
+#: .\appointment\views.py:152 .\appointment\views.py:593
 msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
 msgstr "Нельзя назначить данный приём. Выберите другое время"
 
-#: .\appointment\views.py:254
+#: .\appointment\views.py:269
 msgid "Kutilmoqda"
 msgstr "Ожидается"
 
-#: .\appointment\views.py:256
+#: .\appointment\views.py:271
 msgid "Kelgan"
 msgstr "Посещён"
 
-#: .\appointment\views.py:258
+#: .\appointment\views.py:273
 msgid "Kelmagan"
 msgstr "Не посещён"

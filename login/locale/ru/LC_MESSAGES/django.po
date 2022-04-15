@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 23:56+0500\n"
+"POT-Creation-Date: 2022-04-14 20:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,31 +72,39 @@ msgstr "Сброс пароля"
 msgid "Parol tiklanishlari"
 msgstr "Сбросы пароля"
 
-#: .\login\views.py:156
+#: .\login\views.py:70
+msgid "Bu raqam ostida foydalanuvchi mavjud"
+msgstr "Пользователь под данным номером телефона существует"
+
+#: .\login\views.py:165
 msgid "Parollar to'g'ri kemayapti"
 msgstr "Пароли не совпадают"
 
-#: .\login\views.py:207 .\login\views.py:232
+#: .\login\views.py:216 .\login\views.py:241
 msgid "Xato parol"
 msgstr "Неверный пароль"
 
-#: .\login\views.py:237
+#: .\login\views.py:246
 msgid "Xato telefon raqam"
 msgstr "Неверный номер телефона"
 
-#: .\login\views.py:278
+#: .\login\views.py:282
+msgid "Foydalanuvchi topilmadi"
+msgstr "Пользователь не найден"
+
+#: .\login\views.py:294
 msgid "Parolni tiklash"
 msgstr "Подтвердите свой пароль"
 
-#: .\login\views.py:319
+#: .\login\views.py:336
 msgid "Parollar mos kelmayapti"
 msgstr "Пароли не совпадают"
 
-#: .\login\views.py:334 .\login\views.py:336 .\login\views.py:338
-#: .\login\views.py:340
+#: .\login\views.py:351 .\login\views.py:353 .\login\views.py:355
+#: .\login\views.py:357
 msgid "Havolani muddati yakunlandi"
 msgstr "Истек срок действия ссылки"
 
-#: .\login\views.py:389
+#: .\login\views.py:406
 msgid "Noto'g'ri login yoki parol"
 msgstr "Неверный логин или пароль"
