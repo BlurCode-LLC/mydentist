@@ -389,12 +389,10 @@ a.my_btn {
 }
 
 .card_img_holder {
-  display: block;
-  text-align: center;
-}
-
-.card_img_holder img {
-  height: 300px;
+  height: 225px;
+  width: 225px;
+  background-size: cover;
+  background-position: center;
 }
 
 .card_clinic {
@@ -1101,8 +1099,9 @@ div.my_accaunt {
   .title_w {
     font-size: 26px;
   }
-  .card_img_holder img {
-    height: 220px;
+  .card_img_holder {
+    height: 200px;
+    width: 200px;
   }
   .title_b {
     font-size: 26px;
@@ -1230,6 +1229,10 @@ div.my_accaunt {
 }
 
 @media (max-width: 768px) {
+  .card_img_holder {
+    height: 175px;
+    width: 175px;
+  }
   .footer_text_1 {
     font-size: 16px;
   }
@@ -1254,6 +1257,10 @@ div.my_accaunt {
 }
 
 @media (max-width: 480px) {
+  .card_img_holder {
+    height: 150px;
+    width: 150px;
+  }
   .my_table {
     width: 100%;
     overflow-x: scroll;

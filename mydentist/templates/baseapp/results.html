@@ -55,10 +55,10 @@
 				</div>
 				<div class="tab-content" id="pills-tabContent-2">
 					<div class="tab-pane fade show active" id="pills-price" role="tabpanel" aria-labelledby="pills-price-tab">
-						<div class="row"></div> 
+						<div class="row mb-4"></div> 
 					</div>
 					<div class="tab-pane fade" id="pills-near" role="tabpanel" aria-labelledby="pills-near-tab">
-						<div class="row">
+						<div class="row mb-4">
 						</div>
 					</div>
 				</div>
@@ -101,18 +101,17 @@
 					$(`#pills-${tab} > .row`).append(
 						$("<div class='col col-sm-12'></div>").append(
 							$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
-								$("<div class='col-md-8'></div>").append(
-									$("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
-									$("<div></div>").addClass("card_info").html(`${result[i]["fullname"]}`),
-									$("<div></div>").addClass("card_info").html(`${result[i]["clinic_name"]}`),
+								$("<div class='col-md-4 order-md-2'></div>").append(
+									$("<div class='card_img_holder mx-auto'></div>").attr("style", `background-image: url(http://{{ request.META.HTTP_HOST }}${result[i]["image"]});`)
+								),
+								$("<div class='col-md-8 order-md-1'></div>").append(
+									// $("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
+									$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona nomi:" %} ${result[i]["clinic_name"]}`),
+									$("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
 									/* $("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
 									$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`), */
 									$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]}`)
-								),	
-								$("<div class='card_img_holder col-md-4'></div>").append(
-									$("<img>").attr("src", result[i]["image"])
-								)
-								
+								)	
 							)
 						)
 					)
