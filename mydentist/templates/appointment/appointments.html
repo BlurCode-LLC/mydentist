@@ -59,8 +59,8 @@
                                             </p>
                                         </span>
                                     </div>
-                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
-                                        <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                        <div class="left col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                             <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
                                             {% comment %} {{ patientform.phone_number }} {% endcomment %}
                                             <div class="input-group wid">
@@ -68,11 +68,11 @@
                                                 {{ patientform.phone_number }}
                                             </div>
                                         </div> 
-                                        <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                        <div class="center col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                             <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
                                             {{ patientform.birthday }}
                                         </div>
-                                        <div class="end col-12 col-lg-3">
+                                        <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                             <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
                                             <div>
                                             {% for el in patientform.gender %}
@@ -80,7 +80,7 @@
                                             {% endfor %}
                                             </div>
                                         </div>
-                                        <div class="end col-12 col-lg-3 d-flex flex-column align-items-start">
+                                        <div class="end col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                             <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
                                             {{ patientform.address }}
                                         </div>
@@ -90,21 +90,21 @@
                                     <div class="form-title">
                                         <p><i class="fal fa-calendar-week"></i></p>
                                     </div>
-                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-4">
-                                        <div class="left col-12 col-lg-3">
+                                    <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                        <div class="left col-12 col-xl-3 col-lg-6 mb-3">
                                             <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
                                             {{ appointmentform.service }}
                                         </div>
                                         {{ appointmentform.begin_day }}
-                                        <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                        <div class="center col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                             <label class="mb-1 left" for="id_begin_time">{{ appointmentform.begin_time.label }}</label>
                                             {{ appointmentform.begin_time }}
                                         </div>
-                                        <div class="end col-12 col-lg-3">
+                                        <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                             <label class="mb-1 left" for="id_duration">{{ appointmentform.duration.label }}</label>
                                             {{ appointmentform.duration }}
                                         </div>
-                                        <div class="end col-12 col-lg-3">
+                                        <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                             <label class="mb-1 left" for="id_comment">{{ appointmentform.comment.label }}</label>
                                             {{ appointmentform.comment }}
                                         </div>
@@ -478,7 +478,7 @@
                     url : "{% url 'dentx:patients_list' %}",
                 }).always(function(result) {
                     if (result.length > 0) {
-                        $("#id_name").removeClass("mb-3").parent().append(
+                        $("#id_name").parent().append(
                             $("<div class=\"w-100\"></div>")
                         )
                         for (let i = 0; i < result.length; i++) {
@@ -529,7 +529,6 @@
                 })
             } else {
                 $(".input-group div.w-100").remove()
-                $("#id_name").addClass("mb-3")
             }
         })
         $("#id_service"){% for service in services %}.append(

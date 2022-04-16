@@ -39,7 +39,7 @@
   color: white !important;
 }
 
-.nav-space {
+.nav-space, .nav-space-md {
   height: 82px;
 }
 .nav-space button {
@@ -172,12 +172,13 @@ a.my_btn {
 
 .my_btn {
   margin: 5px 0;
-  padding: 10px 40px;
+  padding: 10px 30px;
   background-color: #289cd7;
   color: white;
   border-radius: 25px;
   font-weight: 600;
   transition: background-color 0.4s;
+  font-size: 14px;
 }
 
 .panel .my_btn, .panel .my_red_btn {
@@ -1110,7 +1111,8 @@ div.my_accaunt {
     padding: 5px 15px;
   }
   .my_btn {
-    padding: 5px 35px;
+    padding: 5px 20px;
+    font-size: 12px;
   }
   .present_about {
     font-size: 14px;

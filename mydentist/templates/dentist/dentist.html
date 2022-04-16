@@ -8,12 +8,11 @@
 {% block content %}
     <div class="container">
         <div class="row mb-3">
-            
             <div class="col-md-4 col-sm-12">
                 <div class="sub_title_gray_2 center mb-3">
                     {{ dentist_extra.fullname }}
                 </div>
-                <img class="img-fluid" src="/media/{{ dentist.image }}" alt="{{ dentist_extra.fullname }}">
+                <div class='card_img_holder mx-auto' style="background-image: url(http://{{ request.META.HTTP_HOST }}{{ dentist.image.url }})"></div>
             </div>
             <div class="col-md-8 col-sm-12">
                 <div class="row pt-5">
