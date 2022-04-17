@@ -67,24 +67,24 @@ def reply_buttons(lang, id, status, page=0):
             telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"])
         )
 
-    # elif status == "services_big":
-    #     keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
-    #     buttons = db.get_services_big(lang)
-    #     if len(buttons) % 2 == 0:
-    #         for i in range(0, len(buttons), 2):
-    #             keyboard.row(
-    #                 telebot.types.KeyboardButton(buttons[i]),
-    #                 telebot.types.KeyboardButton(buttons[i + 1])
-    #             )
-    #     else:
-    #         for i in range(0, len(buttons) - 1, 2):
-    #             keyboard.row(
-    #                 telebot.types.KeyboardButton(buttons[i]),
-    #                 telebot.types.KeyboardButton(buttons[i + 1])
-    #             )
-    #         keyboard.row(telebot.types.KeyboardButton(
-    #             buttons[len(buttons) - 1]))
-    #     return keyboard.row(telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"]))
+    elif status == "services":
+        keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
+        buttons = db.get_services_big(lang)
+        if len(buttons) % 2 == 0:
+            for i in range(0, len(buttons), 2):
+                keyboard.row(
+                    telebot.types.KeyboardButton(buttons[i]),
+                    telebot.types.KeyboardButton(buttons[i + 1])
+                )
+        else:
+            for i in range(0, len(buttons) - 1, 2):
+                keyboard.row(
+                    telebot.types.KeyboardButton(buttons[i]),
+                    telebot.types.KeyboardButton(buttons[i + 1])
+                )
+            keyboard.row(telebot.types.KeyboardButton(
+                buttons[len(buttons) - 1]))
+        return keyboard.row(telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"]))
 
     # elif status in db.get_services_big(lang) and len(db.get_services_mini(status, lang)) > 1:
     #     keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
