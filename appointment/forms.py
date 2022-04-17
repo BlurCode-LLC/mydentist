@@ -50,10 +50,11 @@ class AppointmentPatientForm(forms.Form):
     )
     address = forms.CharField(
         label=_("Manzil"),
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
-                'class': "form-control w-100",
+                'class': "form-control wid",
                 'placeholder': _("Manzilni kiriting"),
+                'rows': 3,
             }
         ),
         localize=True
@@ -95,7 +96,8 @@ class AppointmentForm(forms.Form):
         label=_("Eslatma"),
         widget=forms.Textarea(
             attrs={
-                'class': "form-control w-100"
+                'class': "form-control wid",
+                'rows': 5,
             }
         ),
         required=False

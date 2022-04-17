@@ -92,10 +92,11 @@ class UserForm(forms.Form):
     )
     address = forms.CharField(
         label=_("Manzil"),
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
                 'class': "form-control",
-                'placeholder': _("Manzilingiz")
+                'placeholder': _("Manzilingiz"),
+                'rows': 3,
             }
         ),
         max_length=150,
@@ -184,10 +185,11 @@ class PatientForm(forms.Form):
     )
     address = forms.CharField(
         label=_("Manzil"),
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
                 'class': "form-control w-100",
                 'placeholder': _("Manzilni kiriting"),
+                'rows': 3,
             }
         ),
         localize=True

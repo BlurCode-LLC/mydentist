@@ -8,6 +8,7 @@ mydentist/media/patients/photos/*
 mydentist/media/animations/*
 
 .env
+ngrok.exe
 
 !log/.gitkeep
 !mydentist/media/dentists/cabinet_photos/.gitkeep

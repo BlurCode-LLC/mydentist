@@ -386,20 +386,19 @@
                                                 <div class="input-group w-100">
                                                     {{ patientform.name }}
                                                 </div>
-                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-2">
-                                                    <div class="left col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                                    <div class="left col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
                                                         <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
-                                                        {% comment %} {{ patientform.phone_number }} {% endcomment %}
                                                         <div class="input-group wid">
                                                             <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
                                                             {{ patientform.phone_number }}
                                                         </div>
                                                     </div> 
-                                                    <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <div class="center col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
                                                         <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
                                                         {{ patientform.birthday }}
                                                     </div>
-                                                    <div class="end col-12 col-lg-3">
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                                         <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
                                                         <div>
                                                         {% for el in patientform.gender %}
@@ -407,7 +406,7 @@
                                                         {% endfor %}
                                                         </div>
                                                     </div>
-                                                    <div class="end col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <div class="end col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
                                                         <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
                                                         {{ patientform.address }}
                                                     </div>
@@ -424,21 +423,21 @@
                                                         <input type="date" name="appointment_date" class="form-control" required/>
                                                     </div>
                                                 </div>
-                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-4">
-                                                    <div class="left col-12 col-lg-3">
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                                    <div class="left col-12 col-xl-3 col-lg-6 mb-3">
                                                         <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
                                                         {{ appointmentform.service }}
                                                     </div>
                                                     {{ appointmentform.begin_day }}
-                                                    <div class="center col-12 col-lg-3 d-flex flex-column align-items-start">
+                                                    <div class="center col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                                         <label class="mb-1 left" for="id_begin_time">{{ appointmentform.begin_time.label }}</label>
                                                         {{ appointmentform.begin_time }}
                                                     </div>
-                                                    <div class="end col-12 col-lg-3">
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                                         <label class="mb-1 left" for="id_duration">{{ appointmentform.duration.label }}</label>
                                                         {{ appointmentform.duration }}
                                                     </div>
-                                                    <div class="end col-12 col-lg-3">
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
                                                         <label class="mb-1 left" for="id_comment">{{ appointmentform.comment.label }}</label>
                                                         {{ appointmentform.comment }}
                                                     </div>
@@ -492,29 +491,31 @@
                         <div class="row">
                             <button id="first-check" on="0" class="btn w-auto rounded-pill px-4" style="border: 1px solid #289cd7; font-weight: 600">{% trans "Birlamchi ko'rik" %}</button>
                         </div>
-                        <div class="row mt-5">
-                            {% static 'svg' as path %}
-                            <div class="col-12">
-                                <div class="d-flex justify-content-around">
-                                    {% for tooth_upper in teeth_upper %}
-                                    <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
-                                        <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
-                                        <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
+                        <div class="teeth-row">
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_upper in teeth_upper %}
+                                        <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
+                                            <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
+                                        </div>
+                                        {% endfor %}
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-5">
-                            {% static 'svg' as path %}
-                            <div class="col-12">
-                                <div class="d-flex justify-content-around">
-                                    {% for tooth_lower in teeth_lower %}
-                                    <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
-                                        <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
-                                        <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_lower in teeth_lower %}
+                                        <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
+                                            <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
+                                        </div>
+                                        {% endfor %}
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

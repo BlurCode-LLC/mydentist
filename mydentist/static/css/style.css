@@ -970,7 +970,7 @@ table {
 }
 
 .wid {
-  width: 80%;
+  width: 95%;
 }
 
 span.input-group-text {
@@ -1062,6 +1062,12 @@ div.my_accaunt {
   .my_select {
     padding: 10px 0px;
     justify-content: center;
+  }
+  .table-hover {
+    font-size: 13px !important;
+  }
+  .list-group-horizontal {
+    font-size: 13px !important;
   }
 }
 
@@ -1255,6 +1261,12 @@ div.my_accaunt {
   
   .my_row img:nth-child(1){
     width: 60px !important;
+  }
+  .list-group-item {
+    padding: 0 !important;
+  }
+  .teeth-row {
+    overflow-x: scroll;
   }
 }
 

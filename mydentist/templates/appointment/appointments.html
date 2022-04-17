@@ -62,7 +62,6 @@
                                     <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
                                         <div class="left col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
                                             <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
-                                            {% comment %} {{ patientform.phone_number }} {% endcomment %}
                                             <div class="input-group wid">
                                                 <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
                                                 {{ patientform.phone_number }}
@@ -127,6 +126,7 @@
 
 {% block javascript %}
     <script type="text/javascript">
+        console.log($(".wid"))
         {% get_current_language as LANGUAGE_CODE %}
         {% if LANGUAGE_CODE == 'uz' %}
         days = [
