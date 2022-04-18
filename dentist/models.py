@@ -76,6 +76,7 @@ class User(models.Model):
     worktime_end = models.TimeField(_("Ish vaqti tugashi"), auto_now=False, auto_now_add=False)
     work_days = models.IntegerField(_("Ish kunlari soni (6 yoki 7)"))
     is_fullday = models.BooleanField(_("24 soat rejimi"))
+    is_queued = models.BooleanField(_("Navbatsiz"), default=False)
     slug = models.CharField(_("Slug"), max_length=255, blank=True, null=True)
     clinic = models.ForeignKey("dentist.Clinic", verbose_name=_("Shifoxona"), on_delete=models.CASCADE, related_name="dentist_clinic")
 
@@ -134,9 +135,56 @@ class User_translation(models.Model):
         return f"{self.dentist.__str__()} - {self.language.name}"
 
 
+class Service_category(models.Model):
+
+    name = models.CharField(_("Xizmat turining nomi"), max_length=255)
+    
+    class Meta:
+        verbose_name = _("Xizmat turi")
+        verbose_name_plural = _("Xizmat turlari")
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        trans = Service_category_translation.objects.filter(service_category=self)
+        if len(trans) == 0:
+            service_category_translation_uz = Service_category_translation.objects.create(
+                service_category=self,
+                name=self.name,
+                language=Language.objects.get(name="uz")
+            )
+            service_category_translation_ru = Service_category_translation.objects.create(
+                service_category=self,
+                name=self.name,
+                language=Language.objects.get(name="ru")
+            )
+            service_category_translation_en = Service_category_translation.objects.create(
+                service_category=self,
+                name=self.name,
+                language=Language.objects.get(name="en")
+            )
+
+
+class Service_category_translation(models.Model):
+
+    name = models.CharField(_("Xizmat turining nomi"), max_length=255)
+    service_category = models.ForeignKey("dentist.Service_category", verbose_name=_("Xizmat turi"), on_delete=models.CASCADE, related_name="service_category_translation")
+    language = models.ForeignKey("baseapp.Language", verbose_name=_("Tili"), on_delete=models.CASCADE, related_name="service_category_language_translation")
+    
+    class Meta:
+        verbose_name = _("Xizmat turi ma'lumoti")
+        verbose_name_plural = _("Xizmat turi ma'lumotlari")
+
+    def __str__(self):
+        return f"{self.name} - {self.language.name}"
+
+
 class Service(models.Model):
 
     name = models.CharField(_("Xizmat nomi"), max_length=100)
+    service_category = models.ForeignKey("dentist.Service_category", verbose_name=_("Xizmat turi"), on_delete=models.CASCADE, related_name="service_category_service", blank=True, null=True)
     duration = models.IntegerField(_("Xizmat davomiyligi"))
     price = models.IntegerField(_("Xizmat narxi"))
     dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_service")
