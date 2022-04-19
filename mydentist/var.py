@@ -25,23 +25,23 @@ CHOICES = {
     'diabet': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'anesthesia': [
-        ('1', "1"),
-        ('2', "2"),
-        ('3', _("3 va undan ko'proq")),
-        ('4', _("Qo'llanilmagan")),
+        ('1', _("Qo'llanilmagan")),
+        ('2', "1 marta"),
+        ('3', "2 marta"),
+        ('4', _("3 va undan ko'proq")),
     ],
     'hepatitis': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'aids': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'pressure': [
         ('1', _("Normal")),
@@ -50,23 +50,23 @@ CHOICES = {
     ],
     'allergy': [
         ('1', _("Yo'q")),
-        ('2', _("Bor (nimagaligini yozing)"))
+        ('2', _("Bor (nimadanligini yozing)"))
     ],
     'asthma': [
         ('1', _("Yo'q")),
-        ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('2', _("Bor"))
     ],
     'dizziness': [
         ('1', _("Yo'q")),
-        ('2', _("Ko'pincha")),
-        ('3', _("Ba'zida"))
+        ('2', _("Ba‘zan")),
+        ('3', _("Tez-tez"))
+    ],
+    'fainting': [
+        ('1', _("Yo'q")),
+        ('2', _("Ba‘zan")),
+        ('3', _("Tez-tez"))
     ],
     'epilepsy': [
-        ('1', _("Yo'q")),
-        ('2', _("Bor"))
-    ],
-    'blood_disease': [
         ('1', _("Yo'q")),
         ('2', _("Bor"))
     ],
@@ -92,11 +92,16 @@ CHOICES = {
     ],
     'alcohol': [
         ('1', _("Yo'q")),
-        ('2', _("Ha"))
+        ('2', _("Oz")),
+        ('3', _("Ko'p"))
     ],
     'pregnancy': [
         ('1', _("Yo'q")),
         ('2', _("Bor (nechinchi oy)"))
+    ],
+    'breastfasting': [
+        ('1', _("Yo'q")),
+        ('2', _("Ha"))
     ],
     'duration': [
         ("15", _("15 daqiqa")),
@@ -149,23 +154,23 @@ ILLNESSES = {
     'diabet': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'anesthesia': [
-        ('1', "1"),
-        ('2', "2"),
-        ('3', _("3 va undan ko'proq")),
-        ('4', _("Qo'llanilmagan")),
+        ('1', _("Qo'llanilmagan")),
+        ('2', "1 marta"),
+        ('3', "2 marta"),
+        ('4', _("3 va undan ko'proq")),
     ],
     'hepatitis': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'aids': [
         ('1', _("Yo'q")),
         ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('3', _("Tekshirtirmaganman"))
     ],
     'pressure': [
         ('1', _("Normal")),
@@ -174,23 +179,23 @@ ILLNESSES = {
     ],
     'allergy': [
         ('1', _("Yo'q")),
-        ('2', _("Bor (nimagaligini yozing)"))
+        ('2', _("Bor (nimadanligini yozing)"))
     ],
     'asthma': [
         ('1', _("Yo'q")),
-        ('2', _("Bor")),
-        ('3', _("Bilmadim"))
+        ('2', _("Bor"))
     ],
     'dizziness': [
         ('1', _("Yo'q")),
-        ('2', _("Ko'pincha")),
-        ('3', _("Ba'zida"))
+        ('2', _("Ba‘zan")),
+        ('3', _("Tez-tez"))
+    ],
+    'fainting': [
+        ('1', _("Yo'q")),
+        ('2', _("Ba‘zan")),
+        ('3', _("Tez-tez"))
     ],
     'epilepsy': [
-        ('1', _("Yo'q")),
-        ('2', _("Bor"))
-    ],
-    'blood_disease': [
         ('1', _("Yo'q")),
         ('2', _("Bor"))
     ],
@@ -216,11 +221,16 @@ ILLNESSES = {
     ],
     'alcohol': [
         ('1', _("Yo'q")),
-        ('2', _("Ha"))
+        ('2', _("Oz")),
+        ('3', _("Ko'p"))
     ],
     'pregnancy': [
         ('1', _("Yo'q")),
         ('2', _("Bor (nechinchi oy)"))
+    ],
+    'breastfasting': [
+        ('1', _("Yo'q")),
+        ('2', _("Ha"))
     ]
 }
 
