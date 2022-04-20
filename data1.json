@@ -1,2631 +1,362 @@
 [
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 1,
     "fields": {
-        "name": "Konsultatsiya"
+        "user": 1,
+        "phone_number": "+998952020150",
+        "gender": 2,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "muydinova-barnoxon-asqarovna",
+        "clinic": 1
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 2,
     "fields": {
-        "name": "Tish olish"
+        "user": 2,
+        "phone_number": "+998901709993",
+        "gender": 1,
+        "birthday": "1987-08-19",
+        "image": "dentists/photos/qodirov-muhammadali-mahammadsoli-ogli.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "qodirov-muhammadali-mahammadsoli-ogli",
+        "clinic": 1
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 3,
     "fields": {
-        "name": "Plomba"
+        "user": 3,
+        "phone_number": "+998916185071",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/tojiboyev-rozijon-abdujabborovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "tojiboyev-rozijon-abdujabborovich",
+        "clinic": 2
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 4,
     "fields": {
-        "name": "Tishlarni professional tozalash"
+        "user": 4,
+        "phone_number": "+998914908333",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/ibragimov-dilmurodjon-zakirjanovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "ibragimov-dilmurodjon-zakirjanovich",
+        "clinic": 3
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 5,
     "fields": {
-        "name": "Tishlarni oqartirish (zoom)"
+        "user": 5,
+        "phone_number": "+998941030047",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "shokirov-xurshidbek-usmonjonovich",
+        "clinic": 4
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 6,
     "fields": {
-        "name": "Sirkoniy dioksid tishlar"
+        "user": 6,
+        "phone_number": "+998990300025 +998916050025",
+        "gender": 1,
+        "birthday": "2021-10-25",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "00:00:00",
+        "worktime_end": "00:00:00",
+        "work_days": 7,
+        "is_fullday": true,
+        "is_queued": false,
+        "slug": "ibrohimov-muhammadaziz-abdurasul-ogli",
+        "clinic": 5
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 7,
     "fields": {
-        "name": "Metallokeramik tishlar"
+        "user": 7,
+        "phone_number": "+998905475977",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/pulatov-nosirullo-xosiljonovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "15:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "pulatov-nosirullo-xosiljonovich",
+        "clinic": 6
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 8,
     "fields": {
-        "name": "Metall tishlar"
+        "user": 8,
+        "phone_number": "+998903744740",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/karimqulov-nodirbek-abdujalilovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "18:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "karimqulov-nodirbek-abdujalilovich",
+        "clinic": 7
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 9,
     "fields": {
-        "name": "Implant"
+        "user": 9,
+        "phone_number": "+998914821519",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "usmonov-baxtiyor-arobidin-ogli",
+        "clinic": 8
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 10,
     "fields": {
-        "name": "Breket (sim tortish)"
+        "user": 10,
+        "phone_number": "+998914821519",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/qurbonov-egamberdi-mominovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "qurbonov-egamberdi-mominovich",
+        "clinic": 9
     }
 },
 {
-    "model": "dentist.service_category",
+    "model": "dentist.user",
     "pk": 11,
     "fields": {
-        "name": "Protez"
+        "user": 11,
+        "phone_number": "+998916070055",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/ahmedov-muzaffarbek-ulugbek-ogli.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "19:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "ahmedov-muzaffarbek-ulugbek-ogli",
+        "clinic": 9
     }
 },
 {
-    "model": "dentist.service_category_translation",
-    "pk": 1,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 2,
-    "fields": {
-        "name": "Консультация",
-        "service_category": 1,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 3,
-    "fields": {
-        "name": "Consultation",
-        "service_category": 1,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 4,
-    "fields": {
-        "name": "Tish olish",
-        "service_category": 2,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 5,
-    "fields": {
-        "name": "Удаление зуба",
-        "service_category": 2,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 6,
-    "fields": {
-        "name": "Tooth deletion",
-        "service_category": 2,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 7,
-    "fields": {
-        "name": "Plomba",
-        "service_category": 3,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 8,
-    "fields": {
-        "name": "Пломба",
-        "service_category": 3,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 9,
-    "fields": {
-        "name": "Dental filling",
-        "service_category": 3,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 10,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 11,
-    "fields": {
-        "name": "Профессиональная чистка зубов",
-        "service_category": 4,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 12,
     "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "language": 3
+        "user": 12,
+        "phone_number": "+998999088688",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/default.png",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:30:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "tojiboev-azizbek-alisher-ogli",
+        "clinic": 10
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 13,
     "fields": {
-        "name": "Tishlarni oqartirish (zoom)",
-        "service_category": 5,
-        "language": 1
+        "user": 13,
+        "phone_number": "+998934299984 +998905402425",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/mamajonov-baxtiyor-abdullayevich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "20:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "mamajonov-baxtiyor-abdullayevich",
+        "clinic": 11
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 14,
     "fields": {
-        "name": "Tishlarni oqartirish (zoom)",
-        "service_category": 5,
-        "language": 2
+        "user": 14,
+        "phone_number": "+998916061881",
+        "gender": 2,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/sadikova-irodaxon-yangiboyevna.jpg",
+        "language": 1,
+        "experience": 28,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "sadikova-irodaxon-yangiboyevna",
+        "clinic": 11
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 15,
     "fields": {
-        "name": "Tishlarni oqartirish (zoom)",
-        "service_category": 5,
-        "language": 3
+        "user": 15,
+        "phone_number": "+998914780707",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/valiyev-zaynobiddin-nizomiddinovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "08:00:00",
+        "worktime_end": "12:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "valiyev-zaynobiddin-nizomiddinovich",
+        "clinic": 11
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 16,
     "fields": {
-        "name": "Sirkoniy dioksid tishlar",
-        "service_category": 6,
-        "language": 1
+        "user": 16,
+        "phone_number": "+998742261005 +998944311005 +998952001005",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/xurboyev-durbek-kabuljonovich.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "16:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "xurboyev-durbek-kabuljonovich",
+        "clinic": 12
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 17,
     "fields": {
-        "name": "Sirkoniy dioksid tishlar",
-        "service_category": 6,
-        "language": 2
+        "user": 17,
+        "phone_number": "+998990971000",
+        "gender": 1,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/jaxongirov-saidbek-lutfulloxon-ogli.jpg",
+        "language": 1,
+        "experience": 0,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "17:00:00",
+        "work_days": 7,
+        "is_fullday": false,
+        "is_queued": false,
+        "slug": "jaxongirov-saidbek-lutfulloxon-ogli",
+        "clinic": 12
     }
 },
 {
-    "model": "dentist.service_category_translation",
+    "model": "dentist.user",
     "pk": 18,
     "fields": {
-        "name": "Sirkoniy dioksid tishlar",
-        "service_category": 6,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 19,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 20,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 21,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 22,
-    "fields": {
-        "name": "Metall tishlar",
-        "service_category": 8,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 23,
-    "fields": {
-        "name": "Metall tishlar",
-        "service_category": 8,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 24,
-    "fields": {
-        "name": "Metall tishlar",
-        "service_category": 8,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 25,
-    "fields": {
-        "name": "Implant",
-        "service_category": 9,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 26,
-    "fields": {
-        "name": "Implant",
-        "service_category": 9,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 27,
-    "fields": {
-        "name": "Implant",
-        "service_category": 9,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 28,
-    "fields": {
-        "name": "Breket (sim tortish)",
-        "service_category": 10,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 29,
-    "fields": {
-        "name": "Breket (sim tortish)",
-        "service_category": 10,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 30,
-    "fields": {
-        "name": "Breket (sim tortish)",
-        "service_category": 10,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 31,
-    "fields": {
-        "name": "Protez",
-        "service_category": 11,
-        "language": 1
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 32,
-    "fields": {
-        "name": "Протез",
-        "service_category": 11,
-        "language": 2
-    }
-},
-{
-    "model": "dentist.service_category_translation",
-    "pk": 33,
-    "fields": {
-        "name": "Protez",
-        "service_category": 11,
-        "language": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 1,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 10000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 2,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 3,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 300000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 4,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 5,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 75000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 6,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 200000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 7,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 1
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 8,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 9,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 10,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 11,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 3000000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 12,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 13,
-    "fields": {
-        "name": "Metall tishlar. Quyma",
-        "service_category": 8,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 14,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 15,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 200000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 16,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 17,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 18,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 19,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 35000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 20,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 15000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 21,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 22,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 23,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 24,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Keramik",
-        "service_category": 10,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 25,
-    "fields": {
-        "name": "Implant. Premium",
-        "service_category": 9,
-        "duration": 15,
-        "price": 3200000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 26,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2300000,
-        "dentist": 2
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 27,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 28,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 29,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 30,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 70000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 31,
-    "fields": {
-        "name": "Metall tishlar. Tilla",
-        "service_category": 8,
-        "duration": 15,
-        "price": 630000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 32,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 300000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 33,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 34,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 35,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 36,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 55000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 37,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 25000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 38,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 25000,
-        "dentist": 3
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 39,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 40,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 90000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 41,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 42,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 40000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 43,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 40000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 44,
-    "fields": {
-        "name": "Tishlarni oqartirish",
-        "service_category": 5,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 45,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 46,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 47,
-    "fields": {
-        "name": "Metall tishlar. Quyma",
-        "service_category": 8,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 48,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 49,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 50,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 51,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 52,
-    "fields": {
-        "name": "Implant. Premium",
-        "service_category": 9,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 53,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 700000,
-        "dentist": 5
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 54,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 15000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 55,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 56,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 57,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 2200000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 58,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 120000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 59,
-    "fields": {
-        "name": "Metall tishlar. Tilla",
-        "service_category": 8,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 60,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 61,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 62,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 63,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 90000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 64,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 90000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 65,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 66,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 67,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 68,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 69,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 2500000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 70,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Keramik",
-        "service_category": 10,
-        "duration": 15,
-        "price": 3000000,
-        "dentist": 6
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 71,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 20000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 72,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 550000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 73,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1150000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 74,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 75,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 75000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 76,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 200000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 77,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 78,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 185000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 79,
-    "fields": {
-        "name": "Implant. Premium",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2700000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 80,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2200000,
-        "dentist": 8
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 81,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 10000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 82,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 83,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 84,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 85,
-    "fields": {
-        "name": "Tishlarni oqartirish",
-        "service_category": 5,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 86,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 87,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 88,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 89,
-    "fields": {
-        "name": "Implant. Premium",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2500000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 90,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 91,
-    "fields": {
-        "name": "Metall tishlar. Quyma",
-        "service_category": 8,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 92,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 450000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 93,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 200000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 94,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1100000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 95,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 2500000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 96,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Keramik",
-        "service_category": 10,
-        "duration": 15,
-        "price": 3750000,
-        "dentist": 9
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 97,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 98,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 99,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 900000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 100,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1300000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 101,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 70000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 102,
-    "fields": {
-        "name": "Metall tishlar. Tilla",
-        "service_category": 8,
-        "duration": 15,
-        "price": 650000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 103,
-    "fields": {
-        "name": "Metall tishlar. Quyma",
-        "service_category": 8,
-        "duration": 15,
-        "price": 130000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 104,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 350000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 105,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 210000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 106,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1200000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 107,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 110000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 108,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 75000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 109,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 110,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 111,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 35000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 112,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 113,
-    "fields": {
-        "name": "Implant. Premium",
-        "service_category": 9,
-        "duration": 15,
-        "price": 3000000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 114,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2500000,
-        "dentist": 11
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 115,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 70000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 116,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 120000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 117,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 118,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 119,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 900000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 120,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 750000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 121,
-    "fields": {
-        "name": "Tishlarni toshini terish",
-        "service_category": null,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 122,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 123,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 124,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 125,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 900000,
-        "dentist": 12
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 126,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 10
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 127,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 520000,
-        "dentist": 10
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 128,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 900000,
-        "dentist": 10
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 129,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 350000,
-        "dentist": 10
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 130,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 131,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 132,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 133,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 600000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 134,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 135,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 136,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 137,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 30000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 138,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 139,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 90000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 140,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 141,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 13
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 142,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 143,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 144,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 145,
-    "fields": {
-        "name": "Plombalash. Oddiy",
-        "service_category": 3,
-        "duration": 15,
-        "price": 25000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 146,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 147,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 650000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 148,
-    "fields": {
-        "name": "Tishlarni oqartirish",
-        "service_category": 5,
-        "duration": 15,
-        "price": 80000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 149,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 25000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 150,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 45000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 151,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 152,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 153,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 120000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 154,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 700000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 155,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 40000,
-        "dentist": 14
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 156,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 157,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 70000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 158,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 159,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 160,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1200000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 161,
-    "fields": {
-        "name": "Tishlarni oqartirish",
-        "service_category": 5,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 162,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 30000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 163,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 150000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 164,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 75000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 165,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 350000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 166,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 15
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 167,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 168,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 169,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 800000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 170,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 171,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 172,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 173,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 174,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 175,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 176,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 177,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Keramik",
-        "service_category": 10,
-        "duration": 15,
-        "price": 4000000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 178,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 16
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 179,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 180,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 60000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 181,
-    "fields": {
-        "name": "Plombalash. Kimyoviy qotuvchi",
-        "service_category": 3,
-        "duration": 15,
-        "price": 75000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 182,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 183,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 900000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 184,
-    "fields": {
-        "name": "Protez. Byugel",
-        "service_category": 11,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 185,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 50000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 186,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 200000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 187,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 70000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 188,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 300000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 189,
-    "fields": {
-        "name": "Metalloplastmassa tishlar",
-        "service_category": null,
-        "duration": 15,
-        "price": 120000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 190,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 850000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 191,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 30000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 192,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 1000000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 193,
-    "fields": {
-        "name": "Implant. Econom",
-        "service_category": 9,
-        "duration": 15,
-        "price": 2000000,
-        "dentist": 17
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 194,
-    "fields": {
-        "name": "Konsultatsiya",
-        "service_category": 1,
-        "duration": 15,
-        "price": 0,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 195,
-    "fields": {
-        "name": "Plombalash. Svetoplomba",
-        "service_category": 3,
-        "duration": 15,
-        "price": 120000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 196,
-    "fields": {
-        "name": "Protez. Oddiy",
-        "service_category": 11,
-        "duration": 15,
-        "price": 450000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 197,
-    "fields": {
-        "name": "Protez. Yumshoq",
-        "service_category": 11,
-        "duration": 15,
-        "price": 800000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 198,
-    "fields": {
-        "name": "Tishlarni oqartirish",
-        "service_category": 5,
-        "duration": 15,
-        "price": 500000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 199,
-    "fields": {
-        "name": "Tishlarni professional tozalash",
-        "service_category": 4,
-        "duration": 15,
-        "price": 450000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 200,
-    "fields": {
-        "name": "Tish olish. Oddiy",
-        "service_category": 2,
-        "duration": 15,
-        "price": 55000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 201,
-    "fields": {
-        "name": "Tish olish. Murakkab",
-        "service_category": 2,
-        "duration": 15,
-        "price": 100000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 202,
-    "fields": {
-        "name": "Metall tishlar. Sariq",
-        "service_category": 8,
-        "duration": 15,
-        "price": 85000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 203,
-    "fields": {
-        "name": "Metallokeramik tishlar",
-        "service_category": 7,
-        "duration": 15,
-        "price": 400000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 204,
-    "fields": {
-        "name": "Sirkoniy tishlar",
-        "service_category": 6,
-        "duration": 15,
-        "price": 800000,
-        "dentist": 18
-    }
-},
-{
-    "model": "dentist.service",
-    "pk": 205,
-    "fields": {
-        "name": "Breket (sim) qo'yish. Oddiy",
-        "service_category": 10,
-        "duration": 15,
-        "price": 1500000,
-        "dentist": 18
+        "user": 18,
+        "phone_number": "+998911700986",
+        "gender": 2,
+        "birthday": "2022-01-12",
+        "image": "dentists/photos/jorayeva-nigoraxon-iminjanovna.jpg",
+        "language": 1,
+        "experience": 30,
+        "worktime_begin": "09:00:00",
+        "worktime_end": "13:00:00",
+        "work_days": 7,
+        "is_fullday": true,
+        "is_queued": false,
+        "slug": "jorayeva-nigoraxon-iminjanovna",
+        "clinic": 13
     }
 }
 ]

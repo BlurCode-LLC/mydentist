@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.utils.translation import ugettext_lazy as _, get_language
 from json import dumps
 from telebot import TeleBot
-from dentist.models import User as DentistUser, Service_translation
+from dentist.models import Service_category, Service_category_translation, User as DentistUser, Service_translation
 from patient.models import User as PatientUser
 from mydentist.handler import *
 from mydentist.var import REGIONS
@@ -52,15 +52,10 @@ def index(request):
                 except:
                     pass
         language = Language.objects.get(name=get_language())
-        services_obj = Service_translation.objects.filter(
-            language__pk=language.id
-        ).values('name').order_by('name').distinct('name')
-        services = []
-        for i in range(len(services_obj)):
-            services.append({
-                'value': services_obj[i]['name'],
-                'name': services_obj[i]['name']
-            })
+        services = [{
+            'value': item.id,
+            'name': item.name
+        } for item in Service_category_translation.objects.filter(language=language)]
         return render(request, "baseapp/index.html", {
             'searchform': searchform,
             'regions': REGIONS,
