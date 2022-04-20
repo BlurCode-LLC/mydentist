@@ -95,6 +95,16 @@ class IllnessForm(forms.Form):
         ),
         localize=True,
     )
+    fainting = forms.IntegerField(
+        label=_("Hushdan ketish"),
+        widget=forms.Select(
+            attrs={
+                'class': "form-select"
+            },
+            choices=CHOICES['fainting']
+        ),
+        localize=True,
+    )
 
 
 class OtherIllnessForm(forms.Form):
@@ -106,17 +116,6 @@ class OtherIllnessForm(forms.Form):
                 'class': "form-select"
             },
             choices=CHOICES['epilepsy']
-        ),
-        localize=True,
-        required=False
-    )
-    blood_disease = forms.IntegerField(
-        label=_("Qon kasali"),
-        widget=forms.Select(
-            attrs={
-                'class': "form-select"
-            },
-            choices=CHOICES['blood_disease']
         ),
         localize=True,
         required=False
@@ -216,5 +215,16 @@ class OtherIllnessForm(forms.Form):
             }
         ),
         max_length=255,
+        required=False
+    )
+    breastfeeding = forms.IntegerField(
+        label=_("Emizasizmi?"),
+        widget=forms.Select(
+            attrs={
+                'class': "form-select"
+            },
+            choices=CHOICES['breastfeeding']
+        ),
+        localize=True,
         required=False
     )

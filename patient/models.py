@@ -68,6 +68,7 @@ class Illness(models.Model):
     allergy = models.ForeignKey("illness.Allergy", verbose_name=_("Allergiya"), on_delete=models.CASCADE, null=True)
     asthma = models.ForeignKey("illness.Asthma", verbose_name=_("Bronxial astma"), on_delete=models.CASCADE, null=True)
     dizziness = models.ForeignKey("illness.Dizziness", verbose_name=_("Bosh aylanishi"), on_delete=models.CASCADE, null=True)
+    fainting = models.ForeignKey("illness.Fainting", verbose_name=_("Hushdan ketish"), on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = _("Bemor kasalligi")
@@ -81,7 +82,6 @@ class Other_Illness(models.Model):
 
     patient = models.OneToOneField("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_otherillness")
     epilepsy = models.ForeignKey("illness.Epilepsy", verbose_name=_("Epilepsiya"), on_delete=models.CASCADE, blank=True, null=True)
-    blood_disease = models.ForeignKey("illness.Blood_disease", verbose_name=_("Qon kasali"), on_delete=models.CASCADE, blank=True, null=True)
     medications = models.ForeignKey("illness.Medications", verbose_name=_("Doimiy dorilar"), on_delete=models.CASCADE, blank=True, null=True)
     stroke = models.ForeignKey("illness.Stroke", verbose_name=_("Insultga uchraganmisiz?"), on_delete=models.CASCADE, blank=True, null=True)
     heart_attack = models.ForeignKey("illness.Heart_attack", verbose_name=_("Yurak xurujiga uchraganmisiz?"), on_delete=models.CASCADE, blank=True, null=True)
@@ -89,6 +89,7 @@ class Other_Illness(models.Model):
     tuberculosis = models.ForeignKey("illness.Tuberculosis", verbose_name=_("Sil kasalligi"), on_delete=models.CASCADE, blank=True, null=True)
     alcohol = models.ForeignKey("illness.Alcohol", verbose_name=_("Spirtli ichimlik ichasizmi?"), on_delete=models.CASCADE, blank=True, null=True)
     pregnancy = models.ForeignKey("illness.Pregnancy", verbose_name=_("Homiladorlik"), on_delete=models.CASCADE, blank=True, null=True)
+    breastfeeding = models.ForeignKey("illness.Breastfeeding", verbose_name=_("Emizasizmi?"), on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         verbose_name = _("Bemorning boshqa kasalligi")

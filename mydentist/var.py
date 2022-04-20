@@ -99,7 +99,7 @@ CHOICES = {
         ('1', _("Yo'q")),
         ('2', _("Bor (nechinchi oy)"))
     ],
-    'breastfasting': [
+    'breastfeeding': [
         ('1', _("Yo'q")),
         ('2', _("Ha"))
     ],
@@ -228,7 +228,7 @@ ILLNESSES = {
         ('1', _("Yo'q")),
         ('2', _("Bor (nechinchi oy)"))
     ],
-    'breastfasting': [
+    'breastfeeding': [
         ('1', _("Yo'q")),
         ('2', _("Ha"))
     ]
