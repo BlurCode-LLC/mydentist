@@ -178,14 +178,25 @@ def sort_by_distance(services, location):
 
 def get_results(services_obj):
     results = []
+    ids = []
+    services = []
     for service_obj in services_obj:
-        service = Service.objects.get(pk=service_obj.service_id)
-        dentist = DentistUser.objects.get(pk=service.dentist_id)
+        did = service_obj.service.dentist_id
+        if did not in ids:
+            ids.append(did)
+            services.append(service_obj)
+    for service_obj in services:
+        dentist = DentistUser.objects.get(pk=service_obj.service.dentist_id)
         dentist_extra = User_translation.objects.filter(dentist=dentist, language__pk=service_obj.language_id)[0]
         clinic = Clinic.objects.get(pk=dentist.clinic_id)
         clinic_extra = Clinic_translation.objects.filter(clinic=clinic, language__pk=service_obj.language_id)[0]
         worktime_begin = dentist.worktime_begin
         worktime_end = dentist.worktime_end
+        service_category = service_obj.service.service_category
+        service_name = service_category.service_category_translation.get(language=service_obj.language).name
+        services = list(Service.objects.filter(service_category=service_category, dentist=dentist).order_by("price"))
+        price_min = services[0].price
+        price_max = services[-1].price
         results.append({
             'image': dentist.image.url,
             'clinic_name': clinic_extra.name,
@@ -198,8 +209,9 @@ def get_results(services_obj):
             'worktime_end': f"{worktime_end.hour}:{worktime_end.minute:02d}",
             'is_fullday': dentist.is_fullday,
             'phone_number': dentist.phone_number,
-            'service_name': service_obj.name,
-            'service_price': service.price,
+            'service_name': service_name,
+            'service_price_min': price_min,
+            'service_price_max': price_max,
             'slug': dentist.slug,
         })
     return results

@@ -102,7 +102,7 @@
 						$("<div class='col col-sm-12'></div>").append(
 							$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
 								$("<div class='col-md-4 order-md-2'></div>").append(
-									$("<div class='card_img_holder mx-auto'></div>").attr("style", `background-image: url(https://{{ request.META.HTTP_HOST }}${result[i]["image"]});`)
+									$("<div class='card_img_holder mx-auto'></div>").attr("style", `background-image: url(http://{{ request.META.HTTP_HOST }}${result[i]["image"]});`)
 								),
 								$("<div class='col-md-8 order-md-1'></div>").append(
 									// $("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
@@ -129,10 +129,11 @@
 							$("<div></div>").addClass("card_info").html(`{% trans "Ishlash vaqti:" %} ${result[i]["worktime_begin"]} - ${result[i]["worktime_end"]}`)
 						)
 					}
+					let prices = result[i]["service_price_min"] != result[i]["service_price_max"] ? `${result[i]["service_price_min"]} {% trans "so'm" %} - ${result[i]["service_price_max"]} {% trans "so'm" %}` : `${result[i]["service_price_min"]} {% trans "so'm" %}`
 					$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
 						$("<div></div>").addClass("card_info").html(`{% trans "Telefon raqami:" %} ${result[i]["phone_number"]}`),
 						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`),
-						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${result[i]["service_price"]} {% trans "so'm" %}`),
+						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${prices}`),
 						$("<div></div>").addClass("btn_holder").append(
 							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Narxlarni ko'rish" %}"),
 							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Qabulga yozilish" %}")

@@ -18,7 +18,7 @@
 						</button>
 						<ul class="dropdown-menu" aria-labelledby="service">
 							{% for el in services %}
-							<li class="dropdown-item">{{ el.name }}</li>
+							<li class="dropdown-item" value="{{ el.value }}">{{ el.name }}</li>
 							{% endfor %}
 						</ul>
 					</div>
@@ -28,7 +28,7 @@
 						</button>
 						<ul class="dropdown-menu" aria-labelledby="region">
 							{% for el in regions %}
-							<li class="dropdown-item">{{ el.name }}</li>
+							<li class="dropdown-item" value="{{ el.value }}">{{ el.name }}</li>
 							{% endfor %}
 						</ul>
 					</div>
@@ -135,15 +135,13 @@
 			console.warn(`ERROR(${err.code}): ${err.message}`);
 		}
 		navigator.geolocation.getCurrentPosition(success, error, options)
-
-		$("input[name='service']").val("{{ service.name }}")
 		$("ul[aria-labelledby='service'] li").on("click", function() {
 			$("#service").text($(this).text())
-			$("input[name='service']").val($(this).text())
+			$("input[name='service']").val($(this).attr("value"))
 		})
 		$("ul[aria-labelledby='region'] li").on("click", function() {
 			$("#region").text($(this).text())
-			$("input[name='region']").val($("ul[aria-labelledby='region'] li").index($(this)) + 1)
+			$("input[name='region']").val($(this).attr("value"))
 		})
 	</script>
 {% endblock %}

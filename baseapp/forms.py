@@ -5,7 +5,11 @@ from django.utils.translation import ugettext_lazy as _, get_language
 class SearchForm(forms.Form):
 
     service = forms.CharField(
-        widget=forms.HiddenInput()
+        widget=forms.HiddenInput(
+            attrs={
+                'value': 1
+            }
+        )
     )
     region = forms.CharField(
         widget=forms.HiddenInput(
