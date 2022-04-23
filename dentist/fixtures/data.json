@@ -1660,7 +1660,7 @@
         "model": "dentist.reason",
         "pk": 23,
         "fields": {
-            "name": "Tish og‘rig‘i (shirinlikda)",
+            "name": "Зубная боль (при употреблении сладости)",
             "value": 8,
             "language": 2
         }
@@ -1687,7 +1687,7 @@
         "model": "dentist.reason",
         "pk": 26,
         "fields": {
-            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+            "name": "Зубная боль (на всю сторону челюсти)",
             "value": 9,
             "language": 2
         }
@@ -1714,7 +1714,7 @@
         "model": "dentist.reason",
         "pk": 29,
         "fields": {
-            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+            "name": "Зубная боль (утром, при открытии рта, при проглатывании)",
             "value": 10,
             "language": 2
         }
@@ -1768,7 +1768,7 @@
         "model": "dentist.reason",
         "pk": 35,
         "fields": {
-            "name": "Milk qonashi",
+            "name": "Кровоточение дёсен",
             "value": 12,
             "language": 2
         }
