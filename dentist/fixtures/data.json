@@ -1471,7 +1471,7 @@
         "model": "dentist.reason",
         "pk": 2,
         "fields": {
-            "name": "Konsultatsiya",
+            "name": "Консультация",
             "value": 1,
             "language": 2
         }
@@ -1498,7 +1498,7 @@
         "model": "dentist.reason",
         "pk": 5,
         "fields": {
-            "name": "Tish og‘rig‘i (doimiy)",
+            "name": "Зубная боль (постоянная)",
             "value": 2,
             "language": 2
         }
@@ -1525,7 +1525,7 @@
         "model": "dentist.reason",
         "pk": 8,
         "fields": {
-            "name": "Tish og‘rig‘i (tunda)",
+            "name": "Зубная боль (ночью)",
             "value": 3,
             "language": 2
         }
@@ -1552,7 +1552,7 @@
         "model": "dentist.reason",
         "pk": 11,
         "fields": {
-            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+            "name": "Зубная боль (от горячего и от холодного)",
             "value": 4,
             "language": 2
         }
@@ -1579,7 +1579,7 @@
         "model": "dentist.reason",
         "pk": 14,
         "fields": {
-            "name": "Tish og‘rig‘i (faqat sovuqqa)",
+            "name": "Зубная боль (только от холодного)",
             "value": 5,
             "language": 2
         }
@@ -1606,7 +1606,7 @@
         "model": "dentist.reason",
         "pk": 17,
         "fields": {
-            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+            "name": "Зубная боль (при попадании еды в полость зуба)",
             "value": 6,
             "language": 2
         }
@@ -1633,7 +1633,7 @@
         "model": "dentist.reason",
         "pk": 20,
         "fields": {
-            "name": "Tish og‘rig‘i (tishlaganda)",
+            "name": "Зубная боль (при кусании)",
             "value": 7,
             "language": 2
         }
