@@ -2313,7 +2313,7 @@
         "model": "dentist.service_category_translation",
         "pk": 12,
         "fields": {
-            "name": "Tishlarni professional tozalash",
+            "name": "Professional teeth cleaning",
             "service_category": 4,
             "language": 3
         }
@@ -2331,7 +2331,7 @@
         "model": "dentist.service_category_translation",
         "pk": 14,
         "fields": {
-            "name": "Tishlarni oqartirish (zoom)",
+            "name": "Отбеливание зубов (zoom)",
             "service_category": 5,
             "language": 2
         }
@@ -2340,7 +2340,7 @@
         "model": "dentist.service_category_translation",
         "pk": 15,
         "fields": {
-            "name": "Tishlarni oqartirish (zoom)",
+            "name": "Teeth whitening (zoom)",
             "service_category": 5,
             "language": 3
         }
@@ -2358,7 +2358,7 @@
         "model": "dentist.service_category_translation",
         "pk": 17,
         "fields": {
-            "name": "Sirkoniy dioksid tishlar",
+            "name": "Зубы из диоксида циркония",
             "service_category": 6,
             "language": 2
         }
@@ -2367,7 +2367,7 @@
         "model": "dentist.service_category_translation",
         "pk": 18,
         "fields": {
-            "name": "Sirkoniy dioksid tishlar",
+            "name": "Zirconia teeth",
             "service_category": 6,
             "language": 3
         }
@@ -2385,7 +2385,7 @@
         "model": "dentist.service_category_translation",
         "pk": 20,
         "fields": {
-            "name": "Metallokeramik tishlar",
+            "name": "Металлокерамические зубы",
             "service_category": 7,
             "language": 2
         }
@@ -2394,7 +2394,7 @@
         "model": "dentist.service_category_translation",
         "pk": 21,
         "fields": {
-            "name": "Metallokeramik tishlar",
+            "name": "Metal-ceramic teeth",
             "service_category": 7,
             "language": 3
         }
@@ -2412,7 +2412,7 @@
         "model": "dentist.service_category_translation",
         "pk": 23,
         "fields": {
-            "name": "Metall tishlar",
+            "name": "Металлические зубы",
             "service_category": 8,
             "language": 2
         }
@@ -2421,7 +2421,7 @@
         "model": "dentist.service_category_translation",
         "pk": 24,
         "fields": {
-            "name": "Metall tishlar",
+            "name": "Metal teeth",
             "service_category": 8,
             "language": 3
         }
@@ -2439,7 +2439,7 @@
         "model": "dentist.service_category_translation",
         "pk": 26,
         "fields": {
-            "name": "Implant",
+            "name": "Имплант",
             "service_category": 9,
             "language": 2
         }
@@ -2466,7 +2466,7 @@
         "model": "dentist.service_category_translation",
         "pk": 29,
         "fields": {
-            "name": "Breket (sim tortish)",
+            "name": "Укладка брикетов",
             "service_category": 10,
             "language": 2
         }
@@ -2475,7 +2475,7 @@
         "model": "dentist.service_category_translation",
         "pk": 30,
         "fields": {
-            "name": "Breket (sim tortish)",
+            "name": "Briquette",
             "service_category": 10,
             "language": 3
         }
@@ -4786,7 +4786,7 @@
         "fields": {
             "service": 1,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -4813,7 +4813,7 @@
         "fields": {
             "service": 2,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -4840,7 +4840,7 @@
         "fields": {
             "service": 3,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -4867,7 +4867,7 @@
         "fields": {
             "service": 4,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -4894,7 +4894,7 @@
         "fields": {
             "service": 5,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -4921,7 +4921,7 @@
         "fields": {
             "service": 6,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -4948,7 +4948,7 @@
         "fields": {
             "service": 7,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -4975,7 +4975,7 @@
         "fields": {
             "service": 8,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -5002,7 +5002,7 @@
         "fields": {
             "service": 9,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -5029,7 +5029,7 @@
         "fields": {
             "service": 10,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -5056,7 +5056,7 @@
         "fields": {
             "service": 11,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -5083,7 +5083,7 @@
         "fields": {
             "service": 12,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -5110,7 +5110,7 @@
         "fields": {
             "service": 13,
             "language": 3,
-            "name": "Metall tishlar. Quyma"
+            "name": "Metal teeth. Cast"
         }
     },
     {
@@ -5137,7 +5137,7 @@
         "fields": {
             "service": 14,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -5164,7 +5164,7 @@
         "fields": {
             "service": 15,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -5191,7 +5191,7 @@
         "fields": {
             "service": 16,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -5218,7 +5218,7 @@
         "fields": {
             "service": 17,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -5245,7 +5245,7 @@
         "fields": {
             "service": 18,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -5272,7 +5272,7 @@
         "fields": {
             "service": 19,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -5299,7 +5299,7 @@
         "fields": {
             "service": 20,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -5326,7 +5326,7 @@
         "fields": {
             "service": 21,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -5353,7 +5353,7 @@
         "fields": {
             "service": 22,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -5380,7 +5380,7 @@
         "fields": {
             "service": 23,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -5407,7 +5407,7 @@
         "fields": {
             "service": 24,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Keramik"
+            "name": "Briquette. Ceramic"
         }
     },
     {
@@ -5461,7 +5461,7 @@
         "fields": {
             "service": 26,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -5488,7 +5488,7 @@
         "fields": {
             "service": 27,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -5515,7 +5515,7 @@
         "fields": {
             "service": 28,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -5542,7 +5542,7 @@
         "fields": {
             "service": 29,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -5569,7 +5569,7 @@
         "fields": {
             "service": 30,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -5596,7 +5596,7 @@
         "fields": {
             "service": 31,
             "language": 3,
-            "name": "Metall tishlar. Tilla"
+            "name": "Metal teeth. Gold"
         }
     },
     {
@@ -5623,7 +5623,7 @@
         "fields": {
             "service": 32,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -5650,7 +5650,7 @@
         "fields": {
             "service": 33,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -5677,7 +5677,7 @@
         "fields": {
             "service": 34,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -5704,7 +5704,7 @@
         "fields": {
             "service": 35,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -5731,7 +5731,7 @@
         "fields": {
             "service": 36,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -5758,7 +5758,7 @@
         "fields": {
             "service": 37,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -5785,7 +5785,7 @@
         "fields": {
             "service": 38,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -5812,7 +5812,7 @@
         "fields": {
             "service": 39,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -5839,7 +5839,7 @@
         "fields": {
             "service": 40,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -5866,7 +5866,7 @@
         "fields": {
             "service": 41,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -5893,7 +5893,7 @@
         "fields": {
             "service": 42,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -5920,7 +5920,7 @@
         "fields": {
             "service": 43,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -5947,7 +5947,7 @@
         "fields": {
             "service": 44,
             "language": 3,
-            "name": "Tishlarni oqartirish"
+            "name": "Teeth whitening"
         }
     },
     {
@@ -5974,7 +5974,7 @@
         "fields": {
             "service": 45,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -6001,7 +6001,7 @@
         "fields": {
             "service": 46,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -6028,7 +6028,7 @@
         "fields": {
             "service": 47,
             "language": 3,
-            "name": "Metall tishlar. Quyma"
+            "name": "Metal teeth. Cast"
         }
     },
     {
@@ -6055,7 +6055,7 @@
         "fields": {
             "service": 48,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -6082,7 +6082,7 @@
         "fields": {
             "service": 49,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -6109,7 +6109,7 @@
         "fields": {
             "service": 50,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -6136,7 +6136,7 @@
         "fields": {
             "service": 51,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -6190,7 +6190,7 @@
         "fields": {
             "service": 53,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -6217,7 +6217,7 @@
         "fields": {
             "service": 54,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -6244,7 +6244,7 @@
         "fields": {
             "service": 55,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -6271,7 +6271,7 @@
         "fields": {
             "service": 56,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -6298,7 +6298,7 @@
         "fields": {
             "service": 57,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -6325,7 +6325,7 @@
         "fields": {
             "service": 58,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -6352,7 +6352,7 @@
         "fields": {
             "service": 59,
             "language": 3,
-            "name": "Metall tishlar. Tilla"
+            "name": "Metal teeth. Gold"
         }
     },
     {
@@ -6379,7 +6379,7 @@
         "fields": {
             "service": 60,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -6406,7 +6406,7 @@
         "fields": {
             "service": 61,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -6433,7 +6433,7 @@
         "fields": {
             "service": 62,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -6460,7 +6460,7 @@
         "fields": {
             "service": 63,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -6487,7 +6487,7 @@
         "fields": {
             "service": 64,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -6514,7 +6514,7 @@
         "fields": {
             "service": 65,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -6541,7 +6541,7 @@
         "fields": {
             "service": 66,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -6568,7 +6568,7 @@
         "fields": {
             "service": 67,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -6595,7 +6595,7 @@
         "fields": {
             "service": 68,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -6622,7 +6622,7 @@
         "fields": {
             "service": 69,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -6649,7 +6649,7 @@
         "fields": {
             "service": 70,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Keramik"
+            "name": "Briquette. Ceramic"
         }
     },
     {
@@ -6676,7 +6676,7 @@
         "fields": {
             "service": 71,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -6703,7 +6703,7 @@
         "fields": {
             "service": 72,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -6730,7 +6730,7 @@
         "fields": {
             "service": 73,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -6757,7 +6757,7 @@
         "fields": {
             "service": 74,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -6784,7 +6784,7 @@
         "fields": {
             "service": 75,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -6811,7 +6811,7 @@
         "fields": {
             "service": 76,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -6838,7 +6838,7 @@
         "fields": {
             "service": 77,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -6865,7 +6865,7 @@
         "fields": {
             "service": 78,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -6919,7 +6919,7 @@
         "fields": {
             "service": 80,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -6946,7 +6946,7 @@
         "fields": {
             "service": 81,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -6973,7 +6973,7 @@
         "fields": {
             "service": 82,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -7000,7 +7000,7 @@
         "fields": {
             "service": 83,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -7027,7 +7027,7 @@
         "fields": {
             "service": 84,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -7054,7 +7054,7 @@
         "fields": {
             "service": 85,
             "language": 3,
-            "name": "Tishlarni oqartirish"
+            "name": "Teeth whitening"
         }
     },
     {
@@ -7081,7 +7081,7 @@
         "fields": {
             "service": 86,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -7108,7 +7108,7 @@
         "fields": {
             "service": 87,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -7135,7 +7135,7 @@
         "fields": {
             "service": 88,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -7189,7 +7189,7 @@
         "fields": {
             "service": 90,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -7216,7 +7216,7 @@
         "fields": {
             "service": 91,
             "language": 3,
-            "name": "Metall tishlar. Quyma"
+            "name": "Metal teeth. Cast"
         }
     },
     {
@@ -7243,7 +7243,7 @@
         "fields": {
             "service": 92,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -7270,7 +7270,7 @@
         "fields": {
             "service": 93,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -7297,7 +7297,7 @@
         "fields": {
             "service": 94,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -7324,7 +7324,7 @@
         "fields": {
             "service": 95,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -7351,7 +7351,7 @@
         "fields": {
             "service": 96,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Keramik"
+            "name": "Briquette. Ceramic"
         }
     },
     {
@@ -7378,7 +7378,7 @@
         "fields": {
             "service": 97,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -7405,7 +7405,7 @@
         "fields": {
             "service": 98,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -7432,7 +7432,7 @@
         "fields": {
             "service": 99,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -7459,7 +7459,7 @@
         "fields": {
             "service": 100,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -7486,7 +7486,7 @@
         "fields": {
             "service": 101,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -7513,7 +7513,7 @@
         "fields": {
             "service": 102,
             "language": 3,
-            "name": "Metall tishlar. Tilla"
+            "name": "Metal teeth. Gold"
         }
     },
     {
@@ -7540,7 +7540,7 @@
         "fields": {
             "service": 103,
             "language": 3,
-            "name": "Metall tishlar. Quyma"
+            "name": "Metal teeth. Cast"
         }
     },
     {
@@ -7567,7 +7567,7 @@
         "fields": {
             "service": 104,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -7594,7 +7594,7 @@
         "fields": {
             "service": 105,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -7621,7 +7621,7 @@
         "fields": {
             "service": 106,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -7648,7 +7648,7 @@
         "fields": {
             "service": 107,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -7675,7 +7675,7 @@
         "fields": {
             "service": 108,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -7702,7 +7702,7 @@
         "fields": {
             "service": 109,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -7729,7 +7729,7 @@
         "fields": {
             "service": 110,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -7756,7 +7756,7 @@
         "fields": {
             "service": 111,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -7783,7 +7783,7 @@
         "fields": {
             "service": 112,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -7837,7 +7837,7 @@
         "fields": {
             "service": 114,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -7864,7 +7864,7 @@
         "fields": {
             "service": 115,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -7891,7 +7891,7 @@
         "fields": {
             "service": 116,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -7918,7 +7918,7 @@
         "fields": {
             "service": 117,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -7945,7 +7945,7 @@
         "fields": {
             "service": 118,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -7972,7 +7972,7 @@
         "fields": {
             "service": 119,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -7999,7 +7999,7 @@
         "fields": {
             "service": 120,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -8026,7 +8026,7 @@
         "fields": {
             "service": 121,
             "language": 3,
-            "name": "Tishlarni toshini terish"
+            "name": "Cleaning stones"
         }
     },
     {
@@ -8053,7 +8053,7 @@
         "fields": {
             "service": 122,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -8080,7 +8080,7 @@
         "fields": {
             "service": 123,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -8107,7 +8107,7 @@
         "fields": {
             "service": 124,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -8134,7 +8134,7 @@
         "fields": {
             "service": 125,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -8161,7 +8161,7 @@
         "fields": {
             "service": 126,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -8188,7 +8188,7 @@
         "fields": {
             "service": 127,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -8215,7 +8215,7 @@
         "fields": {
             "service": 128,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -8242,7 +8242,7 @@
         "fields": {
             "service": 129,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -8269,7 +8269,7 @@
         "fields": {
             "service": 130,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -8296,7 +8296,7 @@
         "fields": {
             "service": 131,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -8323,7 +8323,7 @@
         "fields": {
             "service": 132,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -8350,7 +8350,7 @@
         "fields": {
             "service": 133,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -8377,7 +8377,7 @@
         "fields": {
             "service": 134,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -8404,7 +8404,7 @@
         "fields": {
             "service": 135,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -8431,7 +8431,7 @@
         "fields": {
             "service": 136,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -8458,7 +8458,7 @@
         "fields": {
             "service": 137,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -8485,7 +8485,7 @@
         "fields": {
             "service": 138,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -8512,7 +8512,7 @@
         "fields": {
             "service": 139,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -8539,7 +8539,7 @@
         "fields": {
             "service": 140,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -8566,7 +8566,7 @@
         "fields": {
             "service": 141,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -8593,7 +8593,7 @@
         "fields": {
             "service": 142,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -8620,7 +8620,7 @@
         "fields": {
             "service": 143,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -8647,7 +8647,7 @@
         "fields": {
             "service": 144,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -8674,7 +8674,7 @@
         "fields": {
             "service": 145,
             "language": 3,
-            "name": "Plombalash. Oddiy"
+            "name": "Seal. Simple"
         }
     },
     {
@@ -8701,7 +8701,7 @@
         "fields": {
             "service": 146,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -8728,7 +8728,7 @@
         "fields": {
             "service": 147,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -8755,7 +8755,7 @@
         "fields": {
             "service": 148,
             "language": 3,
-            "name": "Tishlarni oqartirish"
+            "name": "Teeth whitening"
         }
     },
     {
@@ -8782,7 +8782,7 @@
         "fields": {
             "service": 149,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -8809,7 +8809,7 @@
         "fields": {
             "service": 150,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -8836,7 +8836,7 @@
         "fields": {
             "service": 151,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -8863,7 +8863,7 @@
         "fields": {
             "service": 152,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -8890,7 +8890,7 @@
         "fields": {
             "service": 153,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -8917,7 +8917,7 @@
         "fields": {
             "service": 154,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -8944,7 +8944,7 @@
         "fields": {
             "service": 155,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -8971,7 +8971,7 @@
         "fields": {
             "service": 156,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -8998,7 +8998,7 @@
         "fields": {
             "service": 157,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -9025,7 +9025,7 @@
         "fields": {
             "service": 158,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -9052,7 +9052,7 @@
         "fields": {
             "service": 159,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -9079,7 +9079,7 @@
         "fields": {
             "service": 160,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -9106,7 +9106,7 @@
         "fields": {
             "service": 161,
             "language": 3,
-            "name": "Tishlarni oqartirish"
+            "name": "Teeth whitening"
         }
     },
     {
@@ -9133,7 +9133,7 @@
         "fields": {
             "service": 162,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -9160,7 +9160,7 @@
         "fields": {
             "service": 163,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -9187,7 +9187,7 @@
         "fields": {
             "service": 164,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -9214,7 +9214,7 @@
         "fields": {
             "service": 165,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -9241,7 +9241,7 @@
         "fields": {
             "service": 166,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -9268,7 +9268,7 @@
         "fields": {
             "service": 167,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -9295,7 +9295,7 @@
         "fields": {
             "service": 168,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -9322,7 +9322,7 @@
         "fields": {
             "service": 169,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -9349,7 +9349,7 @@
         "fields": {
             "service": 170,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -9376,7 +9376,7 @@
         "fields": {
             "service": 171,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -9403,7 +9403,7 @@
         "fields": {
             "service": 172,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -9430,7 +9430,7 @@
         "fields": {
             "service": 173,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -9457,7 +9457,7 @@
         "fields": {
             "service": 174,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -9484,7 +9484,7 @@
         "fields": {
             "service": 175,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -9511,7 +9511,7 @@
         "fields": {
             "service": 176,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -9538,7 +9538,7 @@
         "fields": {
             "service": 177,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Keramik"
+            "name": "Briquette. Ceramic"
         }
     },
     {
@@ -9565,7 +9565,7 @@
         "fields": {
             "service": 178,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -9592,7 +9592,7 @@
         "fields": {
             "service": 179,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -9619,7 +9619,7 @@
         "fields": {
             "service": 180,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -9646,7 +9646,7 @@
         "fields": {
             "service": 181,
             "language": 3,
-            "name": "Plombalash. Kimyoviy qotuvchi"
+            "name": "Seal. Chemically hardening"
         }
     },
     {
@@ -9673,7 +9673,7 @@
         "fields": {
             "service": 182,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -9700,7 +9700,7 @@
         "fields": {
             "service": 183,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -9727,7 +9727,7 @@
         "fields": {
             "service": 184,
             "language": 3,
-            "name": "Protez. Byugel"
+            "name": "Prosthesis. Clasp"
         }
     },
     {
@@ -9754,7 +9754,7 @@
         "fields": {
             "service": 185,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -9781,7 +9781,7 @@
         "fields": {
             "service": 186,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -9808,7 +9808,7 @@
         "fields": {
             "service": 187,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -9835,7 +9835,7 @@
         "fields": {
             "service": 188,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -9862,7 +9862,7 @@
         "fields": {
             "service": 189,
             "language": 3,
-            "name": "Metalloplastmassa tishlar"
+            "name": "Metal-plastic teeth"
         }
     },
     {
@@ -9889,7 +9889,7 @@
         "fields": {
             "service": 190,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -9916,7 +9916,7 @@
         "fields": {
             "service": 191,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -9943,7 +9943,7 @@
         "fields": {
             "service": 192,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
@@ -9970,7 +9970,7 @@
         "fields": {
             "service": 193,
             "language": 3,
-            "name": "Implant. Econom"
+            "name": "Implant. Economy"
         }
     },
     {
@@ -9997,7 +9997,7 @@
         "fields": {
             "service": 194,
             "language": 3,
-            "name": "Konsultatsiya"
+            "name": "Consultation"
         }
     },
     {
@@ -10024,7 +10024,7 @@
         "fields": {
             "service": 195,
             "language": 3,
-            "name": "Plombalash. Svetoplomba"
+            "name": "Seal. Light"
         }
     },
     {
@@ -10051,7 +10051,7 @@
         "fields": {
             "service": 196,
             "language": 3,
-            "name": "Protez. Oddiy"
+            "name": "Prosthesis. Simple"
         }
     },
     {
@@ -10078,7 +10078,7 @@
         "fields": {
             "service": 197,
             "language": 3,
-            "name": "Protez. Yumshoq"
+            "name": "Prosthesis. Soft"
         }
     },
     {
@@ -10105,7 +10105,7 @@
         "fields": {
             "service": 198,
             "language": 3,
-            "name": "Tishlarni oqartirish"
+            "name": "Teeth whitening"
         }
     },
     {
@@ -10132,7 +10132,7 @@
         "fields": {
             "service": 199,
             "language": 3,
-            "name": "Tishlarni professional tozalash"
+            "name": "Professional teeth cleaning"
         }
     },
     {
@@ -10159,7 +10159,7 @@
         "fields": {
             "service": 200,
             "language": 3,
-            "name": "Tish olish. Oddiy"
+            "name": "Tooth removal. Simple"
         }
     },
     {
@@ -10186,7 +10186,7 @@
         "fields": {
             "service": 201,
             "language": 3,
-            "name": "Tish olish. Murakkab"
+            "name": "Tooth removal. Complex"
         }
     },
     {
@@ -10213,7 +10213,7 @@
         "fields": {
             "service": 202,
             "language": 3,
-            "name": "Metall tishlar. Sariq"
+            "name": "Metal teeth. Yellow"
         }
     },
     {
@@ -10240,7 +10240,7 @@
         "fields": {
             "service": 203,
             "language": 3,
-            "name": "Metallokeramik tishlar"
+            "name": "Metal-ceramic teeth"
         }
     },
     {
@@ -10267,7 +10267,7 @@
         "fields": {
             "service": 204,
             "language": 3,
-            "name": "Sirkoniy tishlar"
+            "name": "Zircon teeth"
         }
     },
     {
@@ -10294,7 +10294,7 @@
         "fields": {
             "service": 205,
             "language": 3,
-            "name": "Breket (sim) qo'yish. Oddiy"
+            "name": "Briquette. Simple"
         }
     },
     {
