@@ -55,7 +55,7 @@ def index(request):
         services = [{
             'value': item.service_category_id,
             'name': item.name
-        } for item in Service_category_translation.objects.filter(language=language)]
+        } for item in Service_category_translation.objects.filter(language=language).order_by("id")]
         return render(request, "baseapp/index.html", {
             'searchform': searchform,
             'regions': REGIONS,
@@ -93,6 +93,7 @@ def get_dentists(request):
         searchform = SearchForm(request.session['post'])
         geoform = GeoForm(request.session['post'])
         if searchform.is_valid() and geoform.is_valid():
+            print(request.session['post'])
             def searcher():
                 if request.POST['female'] == "true" and request.POST['queue'] == "true" and request.POST['time'] == "true":
                     today = date.today()
