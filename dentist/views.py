@@ -1,4 +1,4 @@
-from datetime import timedelta, time
+from datetime import timedelta, time as dttime
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -243,7 +243,8 @@ def settings(request, active_tab="profile"):
     worktimeform = WorkTimeForm({
         'work_days': dentist.work_days,
         'worktime_begin': dentist.worktime_begin.strftime("%H:%M"),
-        'worktime_end': dentist.worktime_end.strftime("%H:%M")
+        'worktime_end': dentist.worktime_end.strftime("%H:%M"),
+        'no_queue': dentist.is_queued
     })
     if 'incorrect_password' in request.session:
         passwordupdateform = PasswordUpdateForm(request.session['incorrect_password'])
@@ -342,61 +343,64 @@ def update(request, form):
                 dentist.work_days = worktimeform.cleaned_data['work_days']
                 begin = worktimeform.cleaned_data['worktime_begin'].split(":")
                 if len(begin) == 2:
-                    dentist.worktime_begin = time(int(begin[0]), int(begin[1]))
+                    dentist.worktime_begin = dttime(int(begin[0]), int(begin[1]))
                 end = worktimeform.cleaned_data['worktime_end'].split(":")
                 if len(end) == 2:
-                    dentist.worktime_end = time(int(end[0]), int(end[1]))
+                    dentist.worktime_end = dttime(int(end[0]), int(end[1]))
+                dentist.is_queued = worktimeform.cleaned_data['no_queue']
                 dentist.save()
-            clinicform = ClinicForm(request.POST)
-            if clinicform.is_valid():
-                if request.POST['clinic'] == 'other':
-                    try:
-                        latitude = float(clinicform.cleaned_data['latitude'])
-                        longitude = float(clinicform.cleaned_data['longitude'])
-                    except ValueError:
-                        latitude = float(clinicform.cleaned_data['latitude'].replace(",", "."))
-                        longitude = float(clinicform.cleaned_data['longitude'].replace(",", "."))
-                    except Exception:
-                        raise HttpResponseForbidden
-                    clinic = Clinic.objects.create(
-                        name=clinicform.cleaned_data['clinic_name_uz'],
-                        region=Region.objects.get(pk=clinicform.cleaned_data['region']),
-                        latitude=latitude,
-                        longitude=longitude
-                    )
-                    clinic_uz = Clinic_translation.objects.create(
-                        clinic=clinic,
-                        name=clinicform.cleaned_data['clinic_name_uz'],
-                        address=clinicform.cleaned_data['address_uz'],
-                        orientir=clinicform.cleaned_data['orientir_uz'],
-                        language=Language.objects.get(name="uz")
-                    )
-                    clinic_ru = Clinic_translation.objects.create(
-                        clinic=clinic,
-                        name=clinicform.cleaned_data['clinic_name_ru'],
-                        address=clinicform.cleaned_data['address_ru'],
-                        orientir=clinicform.cleaned_data['orientir_ru'],
-                        language=Language.objects.get(name="ru")
-                    )
-                    dentist.clinic_id = clinic.id
-                    dentist.save()
-                    request.session['success_message'] = "Added successfully"
-                    return redirect("dentx:settings", active_tab="clinic")
-                else:
-                    clinic_translation = Clinic_translation.objects.get(
-                        name=request.POST['clinic'],
-                        language__pk=dentist.language_id
-                    )
-                    clinic = Clinic.objects.get(
-                        pk=clinic_translation.clinic_id
-                    )
-                    dentist.clinic_id = clinic.id
-                    dentist.save()
-                    request.session['success_message'] = "Updated successfully"
-                    return redirect("dentx:settings", active_tab="clinic")
-            else:
-                request.session['success_message'] = "Updated successfully"
-                return redirect("dentx:settings", active_tab="clinic")
+            request.session['success_message'] = "Updated successfully"
+            return redirect("dentx:settings", active_tab="clinic")
+            # clinicform = ClinicForm(request.POST)
+            # if clinicform.is_valid():
+            #     if request.POST['clinic'] == 'other':
+            #         try:
+            #             latitude = float(clinicform.cleaned_data['latitude'])
+            #             longitude = float(clinicform.cleaned_data['longitude'])
+            #         except ValueError:
+            #             latitude = float(clinicform.cleaned_data['latitude'].replace(",", "."))
+            #             longitude = float(clinicform.cleaned_data['longitude'].replace(",", "."))
+            #         except Exception:
+            #             raise HttpResponseForbidden
+            #         clinic = Clinic.objects.create(
+            #             name=clinicform.cleaned_data['clinic_name_uz'],
+            #             region=Region.objects.get(pk=clinicform.cleaned_data['region']),
+            #             latitude=latitude,
+            #             longitude=longitude
+            #         )
+            #         clinic_uz = Clinic_translation.objects.create(
+            #             clinic=clinic,
+            #             name=clinicform.cleaned_data['clinic_name_uz'],
+            #             address=clinicform.cleaned_data['address_uz'],
+            #             orientir=clinicform.cleaned_data['orientir_uz'],
+            #             language=Language.objects.get(name="uz")
+            #         )
+            #         clinic_ru = Clinic_translation.objects.create(
+            #             clinic=clinic,
+            #             name=clinicform.cleaned_data['clinic_name_ru'],
+            #             address=clinicform.cleaned_data['address_ru'],
+            #             orientir=clinicform.cleaned_data['orientir_ru'],
+            #             language=Language.objects.get(name="ru")
+            #         )
+            #         dentist.clinic_id = clinic.id
+            #         dentist.save()
+            #         request.session['success_message'] = "Added successfully"
+            #         return redirect("dentx:settings", active_tab="clinic")
+            #     else:
+            #         clinic_translation = Clinic_translation.objects.get(
+            #             name=request.POST['clinic'],
+            #             language__pk=dentist.language_id
+            #         )
+            #         clinic = Clinic.objects.get(
+            #             pk=clinic_translation.clinic_id
+            #         )
+            #         dentist.clinic_id = clinic.id
+            #         dentist.save()
+            #         request.session['success_message'] = "Updated successfully"
+            #         return redirect("dentx:settings", active_tab="clinic")
+            # else:
+            #     request.session['success_message'] = "Updated successfully"
+            #     return redirect("dentx:settings", active_tab="clinic")
         elif form == "clinic-photo":
             new_cabinet_image = Cabinet_Image.objects.create(
                 image=request.FILES['file'],

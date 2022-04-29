@@ -580,7 +580,20 @@
                 this.val(current_year)
             }
         })
-        if ($("#id_clinic").val() != "other") {
+        $("#id_clinic").attr("readonly", true)
+        $("#id_clinic_name_uz").attr("readonly", true)
+        $("#id_clinic_name_ru").attr("readonly", true)
+        $("#id_clinic_name_en").attr("readonly", true)
+        $("#id_address_uz").attr("readonly", true)
+        $("#id_address_ru").attr("readonly", true)
+        $("#id_address_en").attr("readonly", true)
+        $("#id_orientir_uz").attr("readonly", true)
+        $("#id_orientir_ru").attr("readonly", true)
+        $("#id_orientir_en").attr("readonly", true)
+        $("#id_region").attr("readonly", true)
+        $("#id_latitude").attr("readonly", true)
+        $("#id_longitude").attr("readonly", true)
+        /*if ($("#id_clinic").val() != "other") {
             $("#id_clinic_name_uz").attr("readonly", true)
             $("#id_clinic_name_ru").attr("readonly", true)
             $("#id_clinic_name_en").attr("readonly", true)
@@ -631,7 +644,7 @@
                     $("#id_longitude").val(result["longitude"]).attr("readonly", true)
                 })
             }
-        })
+        })*/
         let intervalFunc
         $("#cabinet-photo-upload-button").on("click", function() {
             $("#cabinet-photo-upload").click()

@@ -298,6 +298,16 @@ class WorkTimeForm(forms.Form):
         ),
         localize=True
     )
+    no_queue = forms.BooleanField(
+        label=_("Navbatsiz"),
+        widget=forms.CheckboxInput(
+            attrs={
+                'class': "form-check-input"
+            }
+        ),
+        localize=True,
+        required=False
+    )
 
 
 class ServiceForm(forms.Form):
