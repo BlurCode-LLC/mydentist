@@ -4,7 +4,7 @@
         "description": "This is a API Documentation for MyDentist Platform",
         "title": "MyDentist API"
     },
-    "host": "mydentist.uz",
+    "host": "127.0.0.1:8000",
     "basePath": "/api/",
     "tags": [
         {
@@ -21,7 +21,6 @@
         }
     ],
     "schemes": [
-        "https",
         "http"
     ],
     "paths": {
@@ -934,8 +933,9 @@
                     "example": 5
                 },
                 "service": {
-                    "type": "string",
-                    "example": "Konsultatsiya"
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
                 },
                 "woman": {
                     "type": "boolean",
@@ -1056,25 +1056,15 @@
         "Query": {
             "type": "object",
             "required": [
-                "language",
                 "slug",
                 "reason"
             ],
             "properties": {
-                "language": {
-                    "type": "string",
-                    "example": "uz"
-                },
                 "slug": {
                     "type": "string",
                     "example": "qodirov-muhammadali-mahammadsoli-ogli"
                 },
                 "reason": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 1
-                },
-                "reason_detail": {
                     "type": "string",
                     "example": "Konsultatsiya"
                 },
@@ -1165,7 +1155,8 @@
                 "pressure",
                 "allergy",
                 "asthma",
-                "dizziness"
+                "dizziness",
+                "fainting"
             ],
             "properties": {
                 "phone": {
@@ -1215,6 +1206,11 @@
                     "type": "integer",
                     "format": "int64",
                     "example": 1
+                },
+                "fainting": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
                 }
             }
         },
@@ -1229,11 +1225,6 @@
                     "example": "(93) 884-81-00"
                 },
                 "epilepsy": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 1
-                },
-                "blood_disease": {
                     "type": "integer",
                     "format": "int64",
                     "example": 1
@@ -1280,6 +1271,11 @@
                 "pregnancy_detail": {
                     "type": "string",
                     "example": ""
+                },
+                "breastfeeding": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
                 }
             }
         },
@@ -1395,7 +1391,8 @@
                 "pressure",
                 "allergy",
                 "asthma",
-                "dizziness"
+                "dizziness",
+                "fainting"
             ],
             "properties": {
                 "diabet": {
@@ -1441,6 +1438,11 @@
                     "type": "integer",
                     "format": "int64",
                     "example": 1
+                },
+                "fainting": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
                 }
             }
         },
@@ -1448,11 +1450,6 @@
             "type": "object",
             "properties": {
                 "epilepsy": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 1
-                },
-                "blood_disease": {
                     "type": "integer",
                     "format": "int64",
                     "example": 1
@@ -1499,6 +1496,11 @@
                 "pregnancy_detail": {
                     "type": "string",
                     "example": ""
+                },
+                "breastfeeding": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
                 }
             }
         },
@@ -1718,6 +1720,10 @@
                 "name": {
                     "type": "string",
                     "example": "Andijon viloyati"
+                },
+                "has_dentists": {
+                    "type": "boolean",
+                    "example": true
                 }
             }
         },
@@ -1796,7 +1802,12 @@
                     "type": "string",
                     "example": "Konsultatsiya"
                 },
-                "service_price": {
+                "service_price_min": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 0
+                },
+                "service_price_max": {
                     "type": "integer",
                     "format": "int64",
                     "example": 50000

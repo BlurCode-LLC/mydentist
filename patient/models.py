@@ -37,6 +37,7 @@ class User(models.Model):
                 allergy=None,
                 asthma=None,
                 dizziness=None,
+                fainting=None,
             )
         try:
             other_illness = Other_Illness.objects.get(patient=self)
@@ -44,7 +45,6 @@ class User(models.Model):
             other_illness = Other_Illness.objects.create(
                 patient=self,
                 epilepsy=None,
-                blood_disease=None,
                 medications=None,
                 stroke=None,
                 heart_attack=None,
@@ -52,6 +52,7 @@ class User(models.Model):
                 tuberculosis=None,
                 alcohol=None,
                 pregnancy=None,
+                breastfeeding=None,
             )
         if len(Tooth.objects.filter(patient=self)) == 0:
             teeth_creator(self, Tooth, Tooth_status)

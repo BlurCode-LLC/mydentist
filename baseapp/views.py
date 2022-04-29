@@ -96,7 +96,6 @@ def get_dentists(request):
             print(request.session['post'])
             def searcher():
                 if request.POST['female'] == "true" and request.POST['queue'] == "true" and request.POST['time'] == "true":
-                    today = date.today()
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
@@ -106,7 +105,6 @@ def get_dentists(request):
                         service__dentist__is_queued=True
                     )
                 elif request.POST['female'] == "true" and request.POST['queue'] == "true":
-                    today = date.today()
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
@@ -123,7 +121,6 @@ def get_dentists(request):
                         service__dentist__is_fullday=True
                     )
                 elif request.POST['queue'] == "true" and request.POST['time'] == "true":
-                    today = date.today()
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
@@ -139,7 +136,6 @@ def get_dentists(request):
                         language__name=current_language
                     )
                 elif request.POST['queue'] == "true":
-                    today = date.today()
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],

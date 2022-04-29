@@ -1480,7 +1480,7 @@
         "model": "dentist.reason",
         "pk": 3,
         "fields": {
-            "name": "Konsultatsiya",
+            "name": "Consultation",
             "value": 1,
             "language": 3
         }
@@ -1507,7 +1507,7 @@
         "model": "dentist.reason",
         "pk": 6,
         "fields": {
-            "name": "Tish og‘rig‘i (doimiy)",
+            "name": "Toothache (constant)",
             "value": 2,
             "language": 3
         }
@@ -1534,7 +1534,7 @@
         "model": "dentist.reason",
         "pk": 9,
         "fields": {
-            "name": "Tish og‘rig‘i (tunda)",
+            "name": "Toothache (at night)",
             "value": 3,
             "language": 3
         }
@@ -1561,7 +1561,7 @@
         "model": "dentist.reason",
         "pk": 12,
         "fields": {
-            "name": "Tish og‘rig‘i (issiq va sovuqqa)",
+            "name": "Toothache (hot and cold)",
             "value": 4,
             "language": 3
         }
@@ -1588,7 +1588,7 @@
         "model": "dentist.reason",
         "pk": 15,
         "fields": {
-            "name": "Tish og‘rig‘i (faqat sovuqqa)",
+            "name": "Toothache (cold)",
             "value": 5,
             "language": 3
         }
@@ -1615,7 +1615,7 @@
         "model": "dentist.reason",
         "pk": 18,
         "fields": {
-            "name": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
+            "name": "Toothache (when food gets into the tooth cavity)",
             "value": 6,
             "language": 3
         }
@@ -1642,7 +1642,7 @@
         "model": "dentist.reason",
         "pk": 21,
         "fields": {
-            "name": "Tish og‘rig‘i (tishlaganda)",
+            "name": "Toothache (when biting)",
             "value": 7,
             "language": 3
         }
@@ -1669,7 +1669,7 @@
         "model": "dentist.reason",
         "pk": 24,
         "fields": {
-            "name": "Tish og‘rig‘i (shirinlikda)",
+            "name": "Toothache (when eating sweets)",
             "value": 8,
             "language": 3
         }
@@ -1696,7 +1696,7 @@
         "model": "dentist.reason",
         "pk": 27,
         "fields": {
-            "name": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
+            "name": "Toothache (on the entire side of the jaw)",
             "value": 9,
             "language": 3
         }
@@ -1723,7 +1723,7 @@
         "model": "dentist.reason",
         "pk": 30,
         "fields": {
-            "name": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
+            "name": "Toothache (in the morning, on opening the mouth, on swallowing)",
             "value": 10,
             "language": 3
         }
@@ -1741,7 +1741,7 @@
         "model": "dentist.reason",
         "pk": 32,
         "fields": {
-            "name": "Tish qimirlashi",
+            "name": "Зуб шатается",
             "value": 11,
             "language": 2
         }
@@ -1750,7 +1750,7 @@
         "model": "dentist.reason",
         "pk": 33,
         "fields": {
-            "name": "Tish qimirlashi",
+            "name": "The tooth is loose",
             "value": 11,
             "language": 3
         }
@@ -1777,7 +1777,7 @@
         "model": "dentist.reason",
         "pk": 36,
         "fields": {
-            "name": "Milk qonashi",
+            "name": "Bleeding gums",
             "value": 12,
             "language": 3
         }
@@ -1795,7 +1795,7 @@
         "model": "dentist.reason",
         "pk": 38,
         "fields": {
-            "name": "Milk shishishi",
+            "name": "Отек десен",
             "value": 13,
             "language": 2
         }
@@ -1804,7 +1804,7 @@
         "model": "dentist.reason",
         "pk": 39,
         "fields": {
-            "name": "Milk shishishi",
+            "name": "Gum swelling",
             "value": 13,
             "language": 3
         }
@@ -1822,7 +1822,7 @@
         "model": "dentist.reason",
         "pk": 41,
         "fields": {
-            "name": "Isitma",
+            "name": "Температура",
             "value": 14,
             "language": 2
         }
@@ -1831,7 +1831,7 @@
         "model": "dentist.reason",
         "pk": 42,
         "fields": {
-            "name": "Isitma",
+            "name": "Temperature",
             "value": 14,
             "language": 3
         }
@@ -1849,7 +1849,7 @@
         "model": "dentist.reason",
         "pk": 44,
         "fields": {
-            "name": "Tish ildiz",
+            "name": "Корень зуба",
             "value": 15,
             "language": 2
         }
@@ -1858,7 +1858,7 @@
         "model": "dentist.reason",
         "pk": 45,
         "fields": {
-            "name": "Tish ildiz",
+            "name": "Tooth root",
             "value": 15,
             "language": 3
         }
@@ -1876,7 +1876,7 @@
         "model": "dentist.reason",
         "pk": 47,
         "fields": {
-            "name": "Estetik nuqson (ko‘rinishi yomon)",
+            "name": "Эстетический дефект (плохой внешний вид)",
             "value": 16,
             "language": 2
         }
@@ -1885,7 +1885,7 @@
         "model": "dentist.reason",
         "pk": 48,
         "fields": {
-            "name": "Estetik nuqson (ko‘rinishi yomon)",
+            "name": "Aesthetic defect (poor appearance)",
             "value": 16,
             "language": 3
         }
@@ -1903,7 +1903,7 @@
         "model": "dentist.reason",
         "pk": 50,
         "fields": {
-            "name": "Kovak",
+            "name": "Полость зуба",
             "value": 17,
             "language": 2
         }
@@ -1912,7 +1912,7 @@
         "model": "dentist.reason",
         "pk": 51,
         "fields": {
-            "name": "Kovak",
+            "name": "Tooth cavity",
             "value": 17,
             "language": 3
         }
@@ -1930,7 +1930,7 @@
         "model": "dentist.reason",
         "pk": 53,
         "fields": {
-            "name": "Tish qo‘ydirish",
+            "name": "Вставка зуба",
             "value": 18,
             "language": 2
         }
@@ -1939,7 +1939,7 @@
         "model": "dentist.reason",
         "pk": 54,
         "fields": {
-            "name": "Tish qo‘ydirish",
+            "name": "Tooth insert",
             "value": 18,
             "language": 3
         }
@@ -1957,7 +1957,7 @@
         "model": "dentist.reason",
         "pk": 56,
         "fields": {
-            "name": "Tishni oldirish",
+            "name": "Удаление зуба",
             "value": 19,
             "language": 2
         }
@@ -1966,7 +1966,7 @@
         "model": "dentist.reason",
         "pk": 57,
         "fields": {
-            "name": "Tishni oldirish",
+            "name": "Tooth removal",
             "value": 19,
             "language": 3
         }
@@ -1984,7 +1984,7 @@
         "model": "dentist.reason",
         "pk": 59,
         "fields": {
-            "name": "Tishlarni tozalatish",
+            "name": "Чистка зубов",
             "value": 20,
             "language": 2
         }
@@ -1993,7 +1993,7 @@
         "model": "dentist.reason",
         "pk": 60,
         "fields": {
-            "name": "Tishlarni tozalatish",
+            "name": "Teeth cleaning",
             "value": 20,
             "language": 3
         }
@@ -2011,7 +2011,7 @@
         "model": "dentist.reason",
         "pk": 62,
         "fields": {
-            "name": "Implant qo‘ydirish",
+            "name": "Имплант",
             "value": 21,
             "language": 2
         }
@@ -2020,7 +2020,7 @@
         "model": "dentist.reason",
         "pk": 63,
         "fields": {
-            "name": "Implant qo‘ydirish",
+            "name": "Implant placement",
             "value": 21,
             "language": 3
         }
@@ -2038,7 +2038,7 @@
         "model": "dentist.reason",
         "pk": 65,
         "fields": {
-            "name": "Breket qo'ydirish",
+            "name": "Укладка брекетов",
             "value": 22,
             "language": 2
         }
@@ -2047,7 +2047,7 @@
         "model": "dentist.reason",
         "pk": 66,
         "fields": {
-            "name": "Breket qo'ydirish",
+            "name": "Bracketing",
             "value": 22,
             "language": 3
         }
@@ -2065,7 +2065,7 @@
         "model": "dentist.reason",
         "pk": 68,
         "fields": {
-            "name": "Protez qildirish",
+            "name": "Протезирование",
             "value": 23,
             "language": 2
         }
@@ -2074,7 +2074,7 @@
         "model": "dentist.reason",
         "pk": 69,
         "fields": {
-            "name": "Protez qildirish",
+            "name": "Prosthetis",
             "value": 23,
             "language": 3
         }
@@ -2092,7 +2092,7 @@
         "model": "dentist.reason",
         "pk": 71,
         "fields": {
-            "name": "Plombalash",
+            "name": "Пломба",
             "value": 24,
             "language": 2
         }
@@ -2101,7 +2101,7 @@
         "model": "dentist.reason",
         "pk": 72,
         "fields": {
-            "name": "Plombalash",
+            "name": "Filling",
             "value": 24,
             "language": 3
         }
@@ -2119,7 +2119,7 @@
         "model": "dentist.reason",
         "pk": 74,
         "fields": {
-            "name": "Boshqa sabab",
+            "name": "Другая причина",
             "value": 25,
             "language": 2
         }
@@ -2128,7 +2128,7 @@
         "model": "dentist.reason",
         "pk": 75,
         "fields": {
-            "name": "Boshqa sabab",
+            "name": "Another reason",
             "value": 25,
             "language": 3
         }

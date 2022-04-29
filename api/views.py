@@ -15,7 +15,7 @@ from json import loads
 
 from appointment.models import Appointment, Query
 from baseapp.models import Gender, Language
-from dentist.models import Cabinet_Image, User as DentistUser, Patient, Reason, Service_translation
+from dentist.models import Cabinet_Image, Service_category_translation, User as DentistUser, Patient, Reason, Service_translation
 from illness.models import *
 from login.models import PasswordReset
 from login.tokens import reset_password_token
@@ -33,26 +33,31 @@ def index(request):
             language = body.get('language') or "uz"
             translation.activate(language)
             request.session[translation.LANGUAGE_SESSION_KEY] = language
-            services_obj = Service_translation.objects.filter(
-                language__name=language
-            ).values('name').annotate(
-                name_count=Count('name')
-            )
-            services = []
-            for i in range(len(services_obj)):
-                services.append({
-                    'value': services_obj[i]['name'],
-                    'name': services_obj[i]['name'],
+            services = [{
+                'value': item.service_category_id,
+                'name': item.name
+            } for item in Service_category_translation.objects.filter(language__name=language).order_by("id")]
+            regions = []
+            for region in REGIONS:
+                regions.append({
+                    'value': region['value'],
+                    'name': region['name'],
+                    'has_dentists': True if len(DentistUser.objects.filter(clinic__region__pk=region['value'])) else False,
                 })
             illnesses = {}
             for key, value in ILLNESSES.items():
                 illnesses[key] = [{
-                    'value': val[0],
-                    'name': val[1]
-                } for val in value]
+                    'value': "0",
+                    'name': _("Tanlang")
+                }]
+                for val in value:
+                    illnesses[key].append({
+                        'value': val[0],
+                        'name': val[1]
+                    })
             return JsonResponse({
                 'services': services,
-                'regions': REGIONS,
+                'regions': regions,
                 'illnesses': illnesses
             })
         else:
@@ -78,83 +83,68 @@ def results(request):
             no_que = body.get("no_que")
             sort_by = body.get("sort_by")
             result = []
-            if is_woman and hour_24 and no_que:
-                today = date.today()
-                services_obj = [service.id for service in Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__gender__pk=2,
-                    service__dentist__is_fullday=True
-                ) if len(service.service.dentist.dentist_appointment.filter(
-                    begin__day=today.day,
-                    begin__month=today.month,
-                    begin__year=today.year
-                )) == 0]
-            elif is_woman and no_que:
-                today = date.today()
-                services_obj = [service.id for service in Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__gender__pk=2
-                ) if len(service.service.dentist.dentist_appointment.filter(
-                    begin__day=today.day,
-                    begin__month=today.month,
-                    begin__year=today.year
-                )) == 0]
-            elif hour_24 and no_que:
-                today = date.today()
-                services_obj = [service.id for service in Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__is_fullday=True
-                ) if len(service.service.dentist.dentist_appointment.filter(
-                    begin__day=today.day,
-                    begin__month=today.month,
-                    begin__year=today.year
-                )) == 0]
-            elif is_woman and hour_24:
-                services_obj = Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__gender__pk=2,
-                    service__dentist__is_fullday=True
-                )
-            elif hour_24:
-                services_obj = Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__is_fullday=True
-                )
-            elif is_woman:
-                services_obj = Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
-                    service__dentist__gender__pk=2
-                )
-            elif no_que:
-                today = date.today()
-                services_obj = [service.id for service in Service_translation.objects.filter(
-                    name=service,
+            def searcher():
+                if is_woman and hour_24 and no_que:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        language__name=language,
+                        service__dentist__gender__pk=2,
+                        service__dentist__is_fullday=True,
+                        service__dentist__is_queued=True
+                    )
+                elif is_woman and no_que:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        language__name=language,
+                        service__dentist__gender__pk=2,
+                        service__dentist__is_queued=True
+                    )
+                elif hour_24 and no_que:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        language__name=language,
+                        service__dentist__is_fullday=True,
+                        service__dentist__is_queued=True
+                    )
+                elif is_woman and hour_24:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        language__name=language,
+                        service__dentist__gender__pk=2,
+                        service__dentist__is_fullday=True
+                    )
+                elif hour_24:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        service__dentist__is_fullday=True,
+                        language__name=language
+                    )
+                elif is_woman:
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        service__dentist__gender__pk=2,
+                        language__name=language
+                    )
+                elif no_que:
+                    today = date.today()
+                    return Service_translation.objects.filter(
+                        service__service_category__pk=int(service),
+                        service__dentist__clinic__region__pk=int(region),
+                        language__name=language,
+                        service__dentist__is_queued=True
+                    )
+                return Service_translation.objects.filter(
+                    service__service_category__pk=int(service),
                     service__dentist__clinic__region__pk=int(region),
                     language__name=language
-                ) if len(service.service.dentist.dentist_appointment.filter(
-                    begin__day=today.day,
-                    begin__month=today.month,
-                    begin__year=today.year
-                )) == 0]
-                services_obj = Service_translation.objects.filter(pk__in=services_obj)
-            else:
-                services_obj = Service_translation.objects.filter(
-                    name=service,
-                    service__dentist__clinic__region__pk=int(region),
-                    language__name=language,
                 )
+            services_obj = searcher()
             if sort_by == "price":
                 result += get_results(list(services_obj.order_by('service__price')))
             elif sort_by == "near":
@@ -233,29 +223,35 @@ def query(request, user):
         if request.body:
             patient = PatientUser.objects.filter(user=user).first()
             body = loads(request.body.decode("utf-8"))
-            language = body.get('language') or "uz"
-            reason = body.get('reason')
-            if reason == 25:
-                reason = body.get('reason_detail')
-            else:
-                reason = Reason.objects.filter(
-                    value=int(reason),
-                    language__name=language
-                ).first().name
+            reason = body.get('reason').split(", ")
             comment = body.get('comment')
             dentist_slug = body.get("slug")
             dentist = DentistUser.objects.filter(slug=dentist_slug).first()
+            new_reason = []
+            for r in reason:
+                try:
+                    temp = Reason.objects.get(
+                        name=r,
+                        language=patient.language
+                    )
+                    new = Reason.objects.get(
+                        value=temp.value,
+                        language=dentist.language
+                    )
+                    new_reason.append(new.name)
+                except:
+                    new_reason.append(r)
             query = Query.objects.create(
                 dentist=dentist,
                 patient=patient,
-                reason=reason,
+                reason=", ".join(new_reason),
                 comment=comment,
             )
             notification = Patient2dentist.objects.create(
                 sender=patient,
                 recipient=dentist,
                 type="query",
-                message=f"{reason}{NEW_LINE}{comment}",
+                message=f"{', '.join(new_reason)}{NEW_LINE}{comment}",
                 datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                 is_read=False
             )
@@ -326,8 +322,11 @@ def register_user(request):
                 patient=new_patient,
                 key=randint(100000, 999999)
             )
+            token = token_encode({
+                'user_id': new_user.id
+            })
             return JsonResponse({
-                'message': "Success"
+                'token': token
             })
         else:
             return JsonResponse({
@@ -371,6 +370,7 @@ def register_illness(request):
                 illness.allergy_id = allergy.id
                 illness.asthma_id = Asthma.objects.get(value=int(body.get('asthma'))).id
                 illness.dizziness_id = Dizziness.objects.get(value=int(body.get('dizziness'))).id
+                illness.fainting_id = Fainting.objects.get(value=int(body.get('dizziness'))).id
                 illness.save()
                 return JsonResponse({
                     'message': "Success"
@@ -397,7 +397,6 @@ def register_other_illness(request):
             otherillness = Other_Illness.objects.get(patient__phone_number=body.get('phone'))
             if otherillness:
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=int(body.get('epilepsy'))).id if body.get('epilepsy') is not None else None
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=int(body.get('blood_disease'))).id if body.get('blood_disease') is not None else None
                 if body.get('medications') is not None:
                     medications = int(body.get('medications'))
                     if medications == 2:
@@ -445,6 +444,7 @@ def register_other_illness(request):
                     otherillness.pregnancy_id = pregnancy.id
                 else:
                     otherillness.pregnancy_id = None
+                otherillness.breastfeeding_id = Breastfeeding.objects.get(value=int(body.get('breastfeeding_id'))).id if body.get('breastfeeding_id') is not None else None
                 otherillness.save()
                 return JsonResponse({
                     'message': "Success"
@@ -746,7 +746,7 @@ def update_password(request, user):
     if request.method == "POST":
         if request.body:
             body = loads(request.body.decode("utf-8"))
-            old_password = body.get('password')
+            old_password = body.get('old_password')
             password = body.get('password')
             password_confirm = body.get('password_confirm')
             if authenticate(request, username=user.username, password=old_password) is None:
