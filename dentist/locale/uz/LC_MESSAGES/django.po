@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 20:38+0500\n"
+"POT-Creation-Date: 2022-04-29 17:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Borish sababi"
 msgstr ""
 
-#: .\dentist\forms.py:14 .\dentist\models.py:222
+#: .\dentist\forms.py:14 .\dentist\models.py:270
 msgid "Sabablar"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgid "Xizmat nomi (o'zbekchada)"
 msgstr ""
 
 #: .\dentist\forms.py:310 .\dentist\forms.py:321 .\dentist\forms.py:332
-#: .\dentist\models.py:139 .\dentist\models.py:176
+#: .\dentist\models.py:186 .\dentist\models.py:224
 msgid "Xizmat nomi"
 msgstr ""
 
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Xizmat nomi (inglizchada)"
 msgstr ""
 
-#: .\dentist\forms.py:339 .\dentist\models.py:140
+#: .\dentist\forms.py:339 .\dentist\models.py:188
 msgid "Xizmat davomiyligi"
 msgstr ""
 
-#: .\dentist\forms.py:348 .\dentist\models.py:141
+#: .\dentist\forms.py:348 .\dentist\models.py:189
 msgid "Xizmat narxi"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Nomi"
 msgstr ""
 
-#: .\dentist\models.py:17 .\dentist\models.py:52 .\dentist\models.py:80
+#: .\dentist\models.py:17 .\dentist\models.py:52 .\dentist\models.py:81
 msgid "Shifoxona"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Shifoxonalar"
 msgstr ""
 
-#: .\dentist\models.py:56 .\dentist\models.py:300
+#: .\dentist\models.py:56 .\dentist\models.py:348
 msgid "Til"
 msgstr ""
 
@@ -205,9 +205,9 @@ msgstr ""
 msgid "Shifoxonaning ma'lumotlari"
 msgstr ""
 
-#: .\dentist\models.py:68 .\dentist\models.py:83 .\dentist\models.py:124
-#: .\dentist\models.py:142 .\dentist\models.py:189 .\dentist\models.py:201
-#: .\dentist\models.py:230
+#: .\dentist\models.py:68 .\dentist\models.py:84 .\dentist\models.py:125
+#: .\dentist\models.py:190 .\dentist\models.py:237 .\dentist\models.py:249
+#: .\dentist\models.py:278
 msgid "Tish shifokori"
 msgstr ""
 
@@ -223,8 +223,8 @@ msgstr ""
 msgid "Rasmi"
 msgstr ""
 
-#: .\dentist\models.py:73 .\dentist\models.py:125 .\dentist\models.py:175
-#: .\dentist\models.py:218
+#: .\dentist\models.py:73 .\dentist\models.py:126 .\dentist\models.py:174
+#: .\dentist\models.py:223 .\dentist\models.py:266
 msgid "Tili"
 msgstr ""
 
@@ -249,137 +249,161 @@ msgid "24 soat rejimi"
 msgstr ""
 
 #: .\dentist\models.py:79
+msgid "Navbatsiz"
+msgstr ""
+
+#: .\dentist\models.py:80
 msgid "Slug"
 msgstr ""
 
-#: .\dentist\models.py:84
+#: .\dentist\models.py:85
 msgid "Tish shifokorlari"
 msgstr ""
 
-#: .\dentist\models.py:126
+#: .\dentist\models.py:127
 msgid "MyDentist dagi FIShi"
 msgstr ""
 
-#: .\dentist\models.py:127
+#: .\dentist\models.py:128
 msgid "Soha"
 msgstr ""
 
-#: .\dentist\models.py:130
+#: .\dentist\models.py:131
 msgid "Tish shifokorining ma'lumoti"
 msgstr ""
 
-#: .\dentist\models.py:131
+#: .\dentist\models.py:132
 msgid "Tish shifokorining ma'lumotlari"
 msgstr ""
 
-#: .\dentist\models.py:145 .\dentist\models.py:174
+#: .\dentist\models.py:140 .\dentist\models.py:172
+msgid "Xizmat turining nomi"
+msgstr ""
+
+#: .\dentist\models.py:143 .\dentist\models.py:173 .\dentist\models.py:187
+msgid "Xizmat turi"
+msgstr ""
+
+#: .\dentist\models.py:144
+msgid "Xizmat turlari"
+msgstr ""
+
+#: .\dentist\models.py:177
+msgid "Xizmat turi ma'lumoti"
+msgstr ""
+
+#: .\dentist\models.py:178
+msgid "Xizmat turi ma'lumotlari"
+msgstr ""
+
+#: .\dentist\models.py:193 .\dentist\models.py:222
 msgid "Xizmat"
 msgstr ""
 
-#: .\dentist\models.py:146
+#: .\dentist\models.py:194
 msgid "Xizmatlar"
 msgstr ""
 
-#: .\dentist\models.py:179
+#: .\dentist\models.py:227
 msgid "Xizmatning ma'lumoti"
 msgstr ""
 
-#: .\dentist\models.py:180
+#: .\dentist\models.py:228
 msgid "Xizmatning ma'lumotlari"
 msgstr ""
 
-#: .\dentist\models.py:188
+#: .\dentist\models.py:236
 msgid "Rasm"
 msgstr ""
 
-#: .\dentist\models.py:192
+#: .\dentist\models.py:240
 msgid "Kabinet rasmi"
 msgstr ""
 
-#: .\dentist\models.py:193
+#: .\dentist\models.py:241
 msgid "Kabinet rasmlari"
 msgstr ""
 
-#: .\dentist\models.py:202 .\dentist\models.py:207
+#: .\dentist\models.py:250 .\dentist\models.py:255
 msgid "Eslatma"
 msgstr ""
 
-#: .\dentist\models.py:203
+#: .\dentist\models.py:251
 msgid "Eslatma turi"
 msgstr ""
 
-#: .\dentist\models.py:204
+#: .\dentist\models.py:252
 msgid "Bajarilganmi?"
 msgstr ""
 
-#: .\dentist\models.py:208
+#: .\dentist\models.py:256
 msgid "Eslatmalar"
 msgstr ""
 
-#: .\dentist\models.py:216
+#: .\dentist\models.py:264
 msgid "Sabab nomi"
 msgstr ""
 
-#: .\dentist\models.py:217
+#: .\dentist\models.py:265
 msgid "Raqami"
 msgstr ""
 
-#: .\dentist\models.py:221
+#: .\dentist\models.py:269
 msgid "Sabab "
 msgstr ""
 
-#: .\dentist\models.py:231
+#: .\dentist\models.py:279
 msgid "Bemor"
 msgstr ""
 
-#: .\dentist\models.py:234
+#: .\dentist\models.py:282
 msgid "Tish shifokorining bemori "
 msgstr ""
 
-#: .\dentist\models.py:235
+#: .\dentist\models.py:283
 msgid "Tish shifokorining bemorlari"
 msgstr ""
 
-#: .\dentist\models.py:243
+#: .\dentist\models.py:291
 msgid "Aktivlangan"
 msgstr ""
 
-#: .\dentist\models.py:244
+#: .\dentist\models.py:292
 msgid "Tugash muddati"
 msgstr ""
 
-#: .\dentist\models.py:247
+#: .\dentist\models.py:295
 msgid "Shifokor aktivligi "
 msgstr ""
 
-#: .\dentist\models.py:248
+#: .\dentist\models.py:296
 msgid "Shifokor aktivliglari"
 msgstr ""
 
-#: .\dentist\models.py:265 .\dentist\models.py:298
+#: .\dentist\models.py:313 .\dentist\models.py:346
 msgid "Animatsiya nomi"
 msgstr ""
 
-#: .\dentist\models.py:266
+#: .\dentist\models.py:314
 msgid "Fayl"
 msgstr ""
 
-#: .\dentist\models.py:269
+#: .\dentist\models.py:317
 msgid "Animatsiya "
 msgstr ""
 
-#: .\dentist\models.py:270
+#: .\dentist\models.py:318
 msgid "Animatsiyalar"
 msgstr ""
 
-#: .\dentist\models.py:299
+#: .\dentist\models.py:347
 msgid "Animatsiya"
 msgstr ""
 
-#: .\dentist\models.py:303
+#: .\dentist\models.py:351
 msgid "Animatsiya ma'lumoti "
 msgstr ""
 
-#: .\dentist\models.py:304
+#: .\dentist\models.py:352
 msgid "Animatsiya ma'lumotlari"
 msgstr ""

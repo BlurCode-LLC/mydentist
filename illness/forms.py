@@ -6,7 +6,7 @@ from mydentist.var import CHOICES
 class IllnessForm(forms.Form):
 
     diabet = forms.IntegerField(
-        label=_("Qandli diabet"),
+        label=_("Qand kasalligi"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -26,7 +26,7 @@ class IllnessForm(forms.Form):
         localize=True,
     )
     hepatitis = forms.IntegerField(
-        label=_("Gepatit B"),
+        label=_("Gepatit (B yoki C)"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -110,7 +110,7 @@ class IllnessForm(forms.Form):
 class OtherIllnessForm(forms.Form):
     
     epilepsy = forms.IntegerField(
-        label=_("Epilepsiya"),
+        label=_("Epilepsiya (tutqanoq)"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -121,7 +121,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     medications = forms.IntegerField(
-        label=_("Doimiy dorilar"),
+        label=_("Doimiy qabul qiladigan dorilar"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -142,7 +142,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     stroke = forms.IntegerField(
-        label=_("Insultga uchraganmisiz?"),
+        label=_("Insult bo'lganmisiz?"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -153,7 +153,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     heart_attack = forms.IntegerField(
-        label=_("Yurak xurujiga uchraganmisiz?"),
+        label=_("Infarkt bo'lganmisiz?"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -164,7 +164,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     oncologic = forms.IntegerField(
-        label=_("Onkologik kasalliklar"),
+        label=_("Onkologik kasallik (o'sma - рак)"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -175,7 +175,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     tuberculosis = forms.IntegerField(
-        label=_("Sil kasalligi"),
+        label=_("Tuberkuloz"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -186,7 +186,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     alcohol = forms.IntegerField(
-        label=_("Spirtli ichimlik ichasizmi?"),
+        label=_("Alkogol iste'mol qilasizmi?"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"
@@ -197,7 +197,7 @@ class OtherIllnessForm(forms.Form):
         required=False
     )
     pregnancy = forms.IntegerField(
-        label=_("Homiladorlik"),
+        label=_("Homiladormisiz?"),
         widget=forms.Select(
             attrs={
                 'class': "form-select"

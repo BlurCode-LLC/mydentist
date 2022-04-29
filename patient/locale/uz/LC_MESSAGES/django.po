@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 20:38+0500\n"
+"POT-Creation-Date: 2022-04-29 17:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Familiyangiz"
 msgstr ""
 
-#: .\patient\forms.py:32 .\patient\forms.py:177 .\patient\models.py:12
+#: .\patient\forms.py:32 .\patient\forms.py:178 .\patient\models.py:12
 msgid "Jins"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Telefon raqam"
 msgstr ""
 
-#: .\patient\forms.py:74 .\patient\forms.py:142
+#: .\patient\forms.py:74 .\patient\forms.py:143
 msgid "(XX) XXX-XX-XX"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Elektron pochtangiz"
 msgstr ""
 
-#: .\patient\forms.py:94 .\patient\forms.py:186 .\patient\models.py:13
+#: .\patient\forms.py:94 .\patient\forms.py:187 .\patient\models.py:13
 msgid "Manzil"
 msgstr ""
 
@@ -66,33 +66,33 @@ msgstr ""
 msgid "Manzilingiz"
 msgstr ""
 
-#: .\patient\forms.py:109
+#: .\patient\forms.py:110
 msgid "Til"
 msgstr ""
 
-#: .\patient\forms.py:126 .\patient\models.py:10 .\patient\models.py:19
-#: .\patient\models.py:62 .\patient\models.py:82 .\patient\models.py:105
-#: .\patient\models.py:132 .\patient\models.py:144
+#: .\patient\forms.py:127 .\patient\models.py:10 .\patient\models.py:19
+#: .\patient\models.py:63 .\patient\models.py:84 .\patient\models.py:107
+#: .\patient\models.py:134 .\patient\models.py:146
 msgid "Bemor"
 msgstr ""
 
-#: .\patient\forms.py:130
+#: .\patient\forms.py:131
 msgid "Bemor FIOsi"
 msgstr ""
 
-#: .\patient\forms.py:136 .\patient\models.py:11
+#: .\patient\forms.py:137 .\patient\models.py:11
 msgid "Telefon raqami"
 msgstr ""
 
-#: .\patient\forms.py:190
+#: .\patient\forms.py:191
 msgid "Manzilni kiriting"
 msgstr ""
 
-#: .\patient\forms.py:200 .\patient\models.py:145
+#: .\patient\forms.py:202 .\patient\models.py:147
 msgid "Kod"
 msgstr ""
 
-#: .\patient\forms.py:204
+#: .\patient\forms.py:206
 msgid "Kodni kiriting"
 msgstr ""
 
@@ -112,139 +112,143 @@ msgstr ""
 msgid "Bemorlar"
 msgstr ""
 
-#: .\patient\models.py:63
+#: .\patient\models.py:64
 msgid "Qandli diabet"
 msgstr ""
 
-#: .\patient\models.py:64
+#: .\patient\models.py:65
 msgid "Narkoz"
 msgstr ""
 
-#: .\patient\models.py:65
+#: .\patient\models.py:66
 msgid "Gepatit B"
 msgstr ""
 
-#: .\patient\models.py:66
+#: .\patient\models.py:67
 msgid "OITS"
 msgstr ""
 
-#: .\patient\models.py:67
+#: .\patient\models.py:68
 msgid "Qon bosimi"
 msgstr ""
 
-#: .\patient\models.py:68
+#: .\patient\models.py:69
 msgid "Allergiya"
 msgstr ""
 
-#: .\patient\models.py:69
+#: .\patient\models.py:70
 msgid "Bronxial astma"
 msgstr ""
 
-#: .\patient\models.py:70
+#: .\patient\models.py:71
 msgid "Bosh aylanishi"
 msgstr ""
 
-#: .\patient\models.py:73
+#: .\patient\models.py:72
+msgid "Hushdan ketish"
+msgstr ""
+
+#: .\patient\models.py:75
 msgid "Bemor kasalligi"
 msgstr ""
 
-#: .\patient\models.py:74
+#: .\patient\models.py:76
 msgid "Bemor kasalliklari"
 msgstr ""
 
-#: .\patient\models.py:83
+#: .\patient\models.py:85
 msgid "Epilepsiya"
 msgstr ""
 
-#: .\patient\models.py:84
-msgid "Qon kasali"
-msgstr ""
-
-#: .\patient\models.py:85
+#: .\patient\models.py:86
 msgid "Doimiy dorilar"
 msgstr ""
 
-#: .\patient\models.py:86
+#: .\patient\models.py:87
 msgid "Insultga uchraganmisiz?"
 msgstr ""
 
-#: .\patient\models.py:87
+#: .\patient\models.py:88
 msgid "Yurak xurujiga uchraganmisiz?"
 msgstr ""
 
-#: .\patient\models.py:88
+#: .\patient\models.py:89
 msgid "Onkologik kasalliklar"
 msgstr ""
 
-#: .\patient\models.py:89
+#: .\patient\models.py:90
 msgid "Sil kasalligi"
 msgstr ""
 
-#: .\patient\models.py:90
+#: .\patient\models.py:91
 msgid "Spirtli ichimlik ichasizmi?"
 msgstr ""
 
-#: .\patient\models.py:91
+#: .\patient\models.py:92
 msgid "Homiladorlik"
 msgstr ""
 
-#: .\patient\models.py:94
+#: .\patient\models.py:93
+msgid "Emizasizmi?"
+msgstr ""
+
+#: .\patient\models.py:96
 msgid "Bemorning boshqa kasalligi"
 msgstr ""
 
-#: .\patient\models.py:95
+#: .\patient\models.py:97
 msgid "Bemorning boshqa kasalliklari"
 msgstr ""
 
-#: .\patient\models.py:103
+#: .\patient\models.py:105
 msgid "Tish raqami"
 msgstr ""
 
-#: .\patient\models.py:104 .\patient\models.py:122
+#: .\patient\models.py:106 .\patient\models.py:124
 msgid "Tish holati"
 msgstr ""
 
-#: .\patient\models.py:106
+#: .\patient\models.py:108
 msgid "Izoh"
 msgstr ""
 
-#: .\patient\models.py:109
+#: .\patient\models.py:111
 msgid "Tish"
 msgstr ""
 
-#: .\patient\models.py:110
+#: .\patient\models.py:112
 msgid "Tishlar"
 msgstr ""
 
-#: .\patient\models.py:118
+#: .\patient\models.py:120
 msgid "Holat nomi"
 msgstr ""
 
-#: .\patient\models.py:119
+#: .\patient\models.py:121
 msgid "Holat qo'shimchasi"
 msgstr ""
 
-#: .\patient\models.py:123
+#: .\patient\models.py:125
 msgid "Tish holatlari"
 msgstr ""
 
-#: .\patient\models.py:131
+#: .\patient\models.py:133
 msgid "Ish jarayonidagi rasm"
 msgstr ""
 
-#: .\patient\models.py:135
+#: .\patient\models.py:137
 msgid "Davolanish jarayoni"
 msgstr ""
 
-#: .\patient\models.py:136
+#: .\patient\models.py:138
 msgid "Davolanish jarayonlari"
 msgstr ""
 
-#: .\patient\models.py:148
+#: .\patient\models.py:150
 msgid "Bemor kodi "
 msgstr ""
 
-#: .\patient\models.py:149
+#: .\patient\models.py:151
 msgid "Bemor kodlari"
 msgstr ""
 

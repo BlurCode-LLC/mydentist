@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 20:38+0500\n"
+"POT-Creation-Date: 2022-04-29 17:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,19 +57,19 @@ msgstr "Адрес"
 msgid "Manzilni kiriting"
 msgstr "Введите адрес"
 
-#: .\appointment\forms.py:66 .\appointment\models.py:27
+#: .\appointment\forms.py:67 .\appointment\models.py:27
 msgid "Xizmat"
 msgstr "Услуга"
 
-#: .\appointment\forms.py:78 .\appointment\models.py:28
+#: .\appointment\forms.py:79 .\appointment\models.py:28
 msgid "Boshlanish vaqti"
 msgstr "Время начала"
 
-#: .\appointment\forms.py:86
+#: .\appointment\forms.py:87
 msgid "Davomiyligi"
 msgstr "Длительность"
 
-#: .\appointment\forms.py:95
+#: .\appointment\forms.py:96
 msgid "Eslatma"
 msgstr "Напоминание"
 

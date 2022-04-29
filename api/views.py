@@ -809,6 +809,7 @@ def update_illness(request, user):
                 illness.allergy_id = allergy.id
                 illness.asthma_id = Asthma.objects.get(value=int(body.get('asthma'))).id
                 illness.dizziness_id = Dizziness.objects.get(value=int(body.get('dizziness'))).id
+                illness.fainting_id = Fainting.objects.get(value=int(body.get('fainting'))).id
                 illness.save()
                 return JsonResponse({
                     'message': "Success"
@@ -836,7 +837,6 @@ def update_other_illness(request, user):
             otherillness = Other_Illness.objects.filter(patient__user=user).first()
             if otherillness:
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=int(body.get('epilepsy'))).id if body.get('epilepsy') is not None else None
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=int(body.get('blood_disease'))).id if body.get('blood_disease') is not None else None
                 if body.get('medications') is not None:
                     medications = int(body.get('medications'))
                     if medications == 2:
@@ -884,6 +884,7 @@ def update_other_illness(request, user):
                     otherillness.pregnancy_id = pregnancy.id
                 else:
                     otherillness.pregnancy_id = None
+                otherillness.breastfeeding_id = Breastfeeding.objects.get(value=int(body.get('breastfeeding'))).id if body.get('breastfeeding') is not None else None
                 otherillness.save()
                 return JsonResponse({
                     'message': "Success"

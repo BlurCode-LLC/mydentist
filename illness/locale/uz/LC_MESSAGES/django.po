@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 20:38+0500\n"
+"POT-Creation-Date: 2022-04-29 17:41+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,27 +22,27 @@ msgstr ""
 msgid "Kasalliklar"
 msgstr ""
 
-#: .\illness\forms.py:9 .\illness\models.py:11 .\illness\models.py:12
-msgid "Qandli diabet"
+#: .\illness\forms.py:9 .\illness\models.py:12
+msgid "Qand kasalligi"
 msgstr ""
 
 #: .\illness\forms.py:19
 msgid "Nechi marta narkoz qo'llanilgan?"
 msgstr ""
 
-#: .\illness\forms.py:29 .\illness\models.py:37 .\illness\models.py:38
-msgid "Gepatit B"
+#: .\illness\forms.py:29 .\illness\models.py:38
+msgid "Gepatit (B yoki C)"
 msgstr ""
 
-#: .\illness\forms.py:39 .\illness\models.py:50 .\illness\models.py:51
+#: .\illness\forms.py:39 .\illness\models.py:51
 msgid "OITS"
 msgstr ""
 
-#: .\illness\forms.py:49 .\illness\models.py:63 .\illness\models.py:64
+#: .\illness\forms.py:49 .\illness\models.py:64
 msgid "Qon bosimi"
 msgstr ""
 
-#: .\illness\forms.py:59 .\illness\models.py:76 .\illness\models.py:77
+#: .\illness\forms.py:59 .\illness\models.py:77
 msgid "Allergiya"
 msgstr ""
 
@@ -50,56 +50,60 @@ msgstr ""
 msgid "Nimaga allergiya borligini yozing"
 msgstr ""
 
-#: .\illness\forms.py:79 .\illness\models.py:89 .\illness\models.py:90
+#: .\illness\forms.py:79 .\illness\models.py:90
 msgid "Bronxial astma"
 msgstr ""
 
-#: .\illness\forms.py:89 .\illness\models.py:102 .\illness\models.py:103
+#: .\illness\forms.py:89 .\illness\models.py:103
 msgid "Bosh aylanishi"
 msgstr ""
 
-#: .\illness\forms.py:103 .\illness\models.py:115 .\illness\models.py:116
-msgid "Epilepsiya"
+#: .\illness\forms.py:99 .\illness\models.py:116
+msgid "Hushdan ketish"
 msgstr ""
 
-#: .\illness\forms.py:114 .\illness\models.py:128 .\illness\models.py:129
-msgid "Qon kasali"
+#: .\illness\forms.py:113 .\illness\models.py:129
+msgid "Epilepsiya (tutqanoq)"
 msgstr ""
 
-#: .\illness\forms.py:125 .\illness\models.py:141 .\illness\models.py:142
-msgid "Doimiy dorilar"
+#: .\illness\forms.py:124 .\illness\models.py:142
+msgid "Doimiy qabul qiladigan dorilar"
 msgstr ""
 
-#: .\illness\forms.py:139
+#: .\illness\forms.py:138
 msgid "Doimiy dorilaringizni yozing"
 msgstr ""
 
-#: .\illness\forms.py:146 .\illness\models.py:154 .\illness\models.py:155
-msgid "Insultga uchraganmisiz?"
+#: .\illness\forms.py:145 .\illness\models.py:155
+msgid "Insult bo'lganmisiz?"
 msgstr ""
 
-#: .\illness\forms.py:157 .\illness\models.py:167 .\illness\models.py:168
-msgid "Yurak xurujiga uchraganmisiz?"
+#: .\illness\forms.py:156 .\illness\models.py:168
+msgid "Infarkt bo'lganmisiz?"
 msgstr ""
 
-#: .\illness\forms.py:168 .\illness\models.py:180 .\illness\models.py:181
-msgid "Onkologik kasalliklar"
+#: .\illness\forms.py:167 .\illness\models.py:181
+msgid "Onkologik kasallik (o'sma - рак)"
 msgstr ""
 
-#: .\illness\forms.py:179 .\illness\models.py:193 .\illness\models.py:194
-msgid "Sil kasalligi"
+#: .\illness\forms.py:178 .\illness\models.py:194
+msgid "Tuberkuloz"
 msgstr ""
 
-#: .\illness\forms.py:190 .\illness\models.py:206 .\illness\models.py:207
-msgid "Spirtli ichimlik ichasizmi?"
+#: .\illness\forms.py:189 .\illness\models.py:207
+msgid "Alkogol iste'mol qilasizmi?"
 msgstr ""
 
-#: .\illness\forms.py:201 .\illness\models.py:219 .\illness\models.py:220
-msgid "Homiladorlik"
+#: .\illness\forms.py:200 .\illness\models.py:220
+msgid "Homiladormisiz?"
 msgstr ""
 
-#: .\illness\forms.py:215
+#: .\illness\forms.py:214
 msgid "Nechi oyligini yozing"
+msgstr ""
+
+#: .\illness\forms.py:221 .\illness\models.py:233
+msgid "Emizasizmi?"
 msgstr ""
 
 #: .\illness\models.py:7 .\illness\models.py:20 .\illness\models.py:33
@@ -107,7 +111,7 @@ msgstr ""
 #: .\illness\models.py:85 .\illness\models.py:98 .\illness\models.py:111
 #: .\illness\models.py:124 .\illness\models.py:137 .\illness\models.py:150
 #: .\illness\models.py:163 .\illness\models.py:176 .\illness\models.py:189
-#: .\illness\models.py:202 .\illness\models.py:215
+#: .\illness\models.py:202 .\illness\models.py:215 .\illness\models.py:228
 msgid "Qiymat"
 msgstr ""
 
@@ -116,10 +120,82 @@ msgstr ""
 #: .\illness\models.py:86 .\illness\models.py:99 .\illness\models.py:112
 #: .\illness\models.py:125 .\illness\models.py:138 .\illness\models.py:151
 #: .\illness\models.py:164 .\illness\models.py:177 .\illness\models.py:190
-#: .\illness\models.py:203 .\illness\models.py:216
+#: .\illness\models.py:203 .\illness\models.py:216 .\illness\models.py:229
 msgid "Tavsif"
 msgstr ""
 
-#: .\illness\models.py:24 .\illness\models.py:25
+#: .\illness\models.py:11
+msgid "Qand kasalligi "
+msgstr ""
+
+#: .\illness\models.py:24
+msgid "Narkoz "
+msgstr ""
+
+#: .\illness\models.py:25
 msgid "Narkoz"
+msgstr ""
+
+#: .\illness\models.py:37
+msgid "Gepatit (B yoki C) "
+msgstr ""
+
+#: .\illness\models.py:50
+msgid "OITS "
+msgstr ""
+
+#: .\illness\models.py:63
+msgid "Qon bosimi "
+msgstr ""
+
+#: .\illness\models.py:76
+msgid "Allergiya "
+msgstr ""
+
+#: .\illness\models.py:89
+msgid "Bronxial astma "
+msgstr ""
+
+#: .\illness\models.py:102
+msgid "Bosh aylanishi "
+msgstr ""
+
+#: .\illness\models.py:115
+msgid "Hushdan ketish "
+msgstr ""
+
+#: .\illness\models.py:128
+msgid "Epilepsiya (tutqanoq) "
+msgstr ""
+
+#: .\illness\models.py:141
+msgid "Doimiy qabul qiladigan dorilar "
+msgstr ""
+
+#: .\illness\models.py:154
+msgid "Insult bo'lganmisiz? "
+msgstr ""
+
+#: .\illness\models.py:167
+msgid "Infarkt bo'lganmisiz? "
+msgstr ""
+
+#: .\illness\models.py:180
+msgid "Onkologik kasallik (o'sma - рак) "
+msgstr ""
+
+#: .\illness\models.py:193
+msgid "Tuberkuloz "
+msgstr ""
+
+#: .\illness\models.py:206
+msgid "Alkogol iste'mol qilasizmi? "
+msgstr ""
+
+#: .\illness\models.py:219
+msgid "Homiladormisiz? "
+msgstr ""
+
+#: .\illness\models.py:232
+msgid "Emizasizmi? "
 msgstr ""
