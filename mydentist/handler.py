@@ -21,15 +21,7 @@ from .var import CHOICES, GENDERS, NEW_LINE
 def set_language(request, user_language):
     translation.activate(user_language)
     request.session[translation.LANGUAGE_SESSION_KEY] = user_language
-    url = redirect(request.META.get("HTTP_REFERER", "/")).url
-    if "/results/" in url:
-        if 'post' in request.session:
-            post = request.session['post']
-            post['service'] = Service_translation.objects.filter(
-                service__pk=Service_translation.objects.filter(name=post['service'])[0].service_id,
-                language__name=user_language
-            )[0].name
-    return redirect(request.META.get("HTTP_REFERER", "/"))
+    return redirect("baseapp:index")
 
 
 def is_authenticated(request, status):
@@ -477,3 +469,17 @@ def token_required(function):
 # else:
 #     new_url = old_url.replace(f"/{old_url.split('/')[1]}/", f"/{user_language}/")
 # return redirect(new_url)
+
+
+class LanguageMiddleware:
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+    
+    def __call__(self, request):
+        response = self.get_response(request)
+        return response
+
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        if get_language() != request.session[translation.LANGUAGE_SESSION_KEY]:
+            translation.activate(request.session[translation.LANGUAGE_SESSION_KEY])
