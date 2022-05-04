@@ -481,5 +481,5 @@ class LanguageMiddleware:
         return response
 
     def process_view(self, request, view_func, view_args, view_kwargs):
-        if get_language() != request.session[translation.LANGUAGE_SESSION_KEY]:
+        if translation.LANGUAGE_SESSION_KEY in request.session and get_language() != request.session[translation.LANGUAGE_SESSION_KEY]:
             translation.activate(request.session[translation.LANGUAGE_SESSION_KEY])

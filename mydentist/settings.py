@@ -164,8 +164,10 @@ DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_USE_SSL = True    # use port 465
-EMAIL_USE_TLS = False    # use port 587
+EMAIL_USE_SSL = False    # use port 465
+EMAIL_USE_TLS = True    # use port 587
+# EMAIL_SSL_CERTFILE = BASE_DIR / 'ssl/fullchain.pem'
+# EMAIL_SSL_KEYFILE = BASE_DIR / 'ssl/privkey.pem'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
