@@ -173,11 +173,11 @@ def settings(request, active_tab="profile"):
         'allergy_detail': Allergy.objects.get(pk=illness.allergy_id).desc if illness.allergy_id is not None else None,
         'asthma': Asthma.objects.get(pk=illness.asthma_id).value if illness.asthma_id is not None else None,
         'dizziness': Dizziness.objects.get(pk=illness.dizziness_id).value if illness.dizziness_id is not None else None,
+        'fainting': Fainting.objects.get(pk=illness.fainting_id).value if illness.fainting_id is not None else None,
     })
     otherillness = Other_Illness.objects.get(patient=user_extra)
     otherillnessform = OtherIllnessForm({
         'epilepsy': Epilepsy.objects.get(pk=otherillness.epilepsy_id).value if otherillness.epilepsy_id is not None else None,
-        'blood_disease': Blood_disease.objects.get(pk=otherillness.blood_disease_id).value if otherillness.blood_disease_id is not None else None,
         'medications': Medications.objects.get(pk=otherillness.medications_id).value if otherillness.medications_id is not None else None,
         'medications_detail': Medications.objects.get(pk=otherillness.medications_id).desc if otherillness.medications_id is not None else None,
         'stroke': Stroke.objects.get(pk=otherillness.stroke_id).value if otherillness.stroke_id is not None else None,
@@ -187,6 +187,7 @@ def settings(request, active_tab="profile"):
         'alcohol': Alcohol.objects.get(pk=otherillness.alcohol_id).value if otherillness.alcohol_id is not None else None,
         'pregnancy': Pregnancy.objects.get(pk=otherillness.pregnancy_id).value if otherillness.pregnancy_id is not None else None,
         'pregnancy_detail': Pregnancy.objects.get(pk=otherillness.pregnancy_id).desc if otherillness.pregnancy_id is not None else None,
+        'breastfeeding': Breastfeeding.objects.get(pk=otherillness.breastfeeding_id).value if otherillness.breastfeeding_id is not None else None,
     })
     authenticated = is_authenticated(request, "patient")
     if authenticated:
@@ -293,7 +294,7 @@ def update(request, form):
             if illnessform.is_valid():
                 user = User.objects.get(username=request.user.username)
                 user_extra = PatientUser.objects.get(user=user)
-                illness = Illness.objects.get(user=user_extra)
+                illness = Illness.objects.get(patient=user_extra)
                 if illnessform.cleaned_data['allergy'] == 2:
                     try:
                         allergy = Allergy.objects.get(
@@ -317,6 +318,7 @@ def update(request, form):
                 illness.allergy_id = allergy.id
                 illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                 illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
+                illness.fainting_id = Fainting.objects.get(value=illnessform.cleaned_data['fainting']).id
                 illness.save()
                 userform = UserForm(request.POST)
                 languageform = LanguageForm(request.POST)
@@ -329,7 +331,7 @@ def update(request, form):
             if otherillnessform.is_valid():
                 user = User.objects.get(username=request.user.username)
                 user_extra = PatientUser.objects.get(user=user)
-                otherillness = Other_Illness.objects.get(user=user_extra)
+                otherillness = Other_Illness.objects.get(patient=user_extra)
                 if otherillnessform.cleaned_data['medications'] == 2:
                     try:
                         medications = Medications.objects.get(
@@ -361,7 +363,6 @@ def update(request, form):
                         value=otherillnessform.cleaned_data['pregnancy'],
                     )
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id
                 otherillness.medications_id = medications.id
                 otherillness.stroke_id = Stroke.objects.get(value=otherillnessform.cleaned_data['stroke']).id
                 otherillness.heart_attack_id = Heart_attack.objects.get(value=otherillnessform.cleaned_data['heart_attack']).id
@@ -369,6 +370,7 @@ def update(request, form):
                 otherillness.tuberculosis_id = Tuberculosis.objects.get(value=otherillnessform.cleaned_data['tuberculosis']).id
                 otherillness.alcohol_id = Alcohol.objects.get(value=otherillnessform.cleaned_data['alcohol']).id
                 otherillness.pregnancy_id = pregnancy.id
+                otherillness.breastfeeding_id = Breastfeeding.objects.get(value=otherillnessform.cleaned_data['breastfeeding']).id
                 otherillness.save()
                 userform = UserForm(request.POST)
                 languageform = LanguageForm(request.POST)
@@ -503,10 +505,10 @@ def patients(request):
                     illness.allergy_id = allergy.id
                     illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                     illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
+                    illness.fainting_id = Fainting.objects.get(value=illnessform.cleaned_data['fainting']).id
                     illness.save()
                     otherillness = Other_Illness.objects.get(patient=new_patient)
                     otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
-                    otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                     if otherillnessform.cleaned_data.get('medications') is not None:
                         if otherillnessform.cleaned_data['medications'] == 2:
                             try:
@@ -550,6 +552,7 @@ def patients(request):
                         otherillness.pregnancy_id = pregnancy.id
                     else:
                         otherillness.pregnancy_id = None
+                    otherillness.breastfeeding_id = Breastfeeding.objects.get(value=otherillnessform.cleaned_data['breastfeeding']).id if otherillnessform.cleaned_data.get('breastfeeding') is not None else None
                     otherillness.save()
                     success = _("Yangi bemor qo'shildi")
                     request.session['text'] = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {new_patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
@@ -675,11 +678,11 @@ def patient(request, id, active_tab="profile"):
         'allergy_detail': Allergy.objects.get(pk=patient_illness.allergy_id).desc if patient_illness.allergy_id is not None else None,
         'asthma': Asthma.objects.get(pk=patient_illness.asthma_id).value if patient_illness.asthma_id is not None else None,
         'dizziness': Dizziness.objects.get(pk=patient_illness.dizziness_id).value if patient_illness.dizziness_id is not None else None,
+        'fainting': Fainting.objects.get(pk=patient_illness.fainting_id).value if patient_illness.fainting_id is not None else None,
     })
     patient_other_illness = Other_Illness.objects.get(patient=patient_extra)
     otherillnessform = OtherIllnessForm({
         'epilepsy': Epilepsy.objects.get(pk=patient_other_illness.epilepsy_id).value if patient_other_illness.epilepsy_id is not None else None,
-        'blood_disease': Blood_disease.objects.get(pk=patient_other_illness.blood_disease_id).value if patient_other_illness.blood_disease_id is not None else None,
         'medications': Medications.objects.get(pk=patient_other_illness.medications_id).value if patient_other_illness.medications_id is not None else None,
         'medications_detail': Medications.objects.get(pk=patient_other_illness.medications_id).desc if patient_other_illness.medications_id is not None else None,
         'stroke': Stroke.objects.get(pk=patient_other_illness.stroke_id).value if patient_other_illness.stroke_id is not None else None,
@@ -689,6 +692,7 @@ def patient(request, id, active_tab="profile"):
         'alcohol': Alcohol.objects.get(pk=patient_other_illness.alcohol_id).value if patient_other_illness.alcohol_id is not None else None,
         'pregnancy': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).value if patient_other_illness.pregnancy_id is not None else None,
         'pregnancy_detail': Pregnancy.objects.get(pk=patient_other_illness.pregnancy_id).desc if patient_other_illness.pregnancy_id is not None else None,
+        'breastfeeding': Breastfeeding.objects.get(pk=patient_other_illness.breastfeeding_id).value if patient_other_illness.breastfeeding_id is not None else None,
     })
     upcoming = None
     appointments_obj = Appointment.objects.filter(patient=patient_extra).order_by("-begin")
@@ -846,11 +850,11 @@ def patient_update(request, id, form):
                 illness.allergy_id = allergy.id
                 illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                 illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
+                illness.fainting_id = Fainting.objects.get(value=illnessform.cleaned_data['fainting']).id
                 illness.save()
                 illnessform = IllnessForm(request.POST)
                 otherillness = Other_Illness.objects.get(patient=patient)
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                 if otherillnessform.cleaned_data.get('medications') is not None:
                     if otherillnessform.cleaned_data['medications'] == 2:
                         try:
@@ -894,6 +898,7 @@ def patient_update(request, id, form):
                     otherillness.pregnancy_id = pregnancy.id
                 else:
                     otherillness.pregnancy_id = None
+                otherillness.breastfeeding_id = Breastfeeding.objects.get(value=otherillnessform.cleaned_data['breastfeeding']).id if otherillnessform.cleaned_data.get('breastfeeding') is not None else None
                 otherillness.save()
                 otherillnessform = OtherIllnessForm(request.POST)
                 return redirect("dentx:patient", id=id, active_tab="profile")

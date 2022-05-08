@@ -97,10 +97,10 @@ def register(request):
                 illness.allergy_id = allergy.id
                 illness.asthma_id = Asthma.objects.get(value=illnessform.cleaned_data['asthma']).id
                 illness.dizziness_id = Dizziness.objects.get(value=illnessform.cleaned_data['dizziness']).id
+                illness.fainting_id = Fainting.objects.get(value=illnessform.cleaned_data['fainting']).id
                 illness.save()
                 otherillness = Other_Illness.objects.get(patient=user_extra)
                 otherillness.epilepsy_id = Epilepsy.objects.get(value=otherillnessform.cleaned_data['epilepsy']).id if otherillnessform.cleaned_data.get('epilepsy') is not None else None
-                otherillness.blood_disease_id = Blood_disease.objects.get(value=otherillnessform.cleaned_data['blood_disease']).id if otherillnessform.cleaned_data.get('blood_disease') is not None else None
                 if otherillnessform.cleaned_data.get('medications') is not None:
                     if otherillnessform.cleaned_data['medications'] == 2:
                         try:
@@ -144,6 +144,7 @@ def register(request):
                     otherillness.pregnancy_id = pregnancy.id
                 else:
                     otherillness.pregnancy_id = None
+                otherillness.breastfeeding_id = Breastfeeding.objects.get(value=otherillnessform.cleaned_data['breastfeeding']).id if otherillnessform.cleaned_data.get('breastfeeding') is not None else None
                 otherillness.save()
                 user = authenticate(
                     request,

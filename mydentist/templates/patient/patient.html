@@ -216,6 +216,10 @@
                                         <div class="info_name">{% trans "Bosh aylanishi" %}: </div>
                                         <div class="info_desc">{% get_option select='dizziness' index=patient_illness.dizziness_id %}</div>
                                     </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Hushdan ketish" %}: </div>
+                                        <div class="info_desc">{% get_option select='fainting' index=patient_illness.fainting_id %}</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -226,14 +230,6 @@
                                             <div class="info_desc">-</div>
                                         {% else %}
                                             <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Qon kasali" %}: </div>
-                                        {% if not patient_other_illness.blood_disease.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='blood_disease' index=patient_other_illness.blood_disease_id %}</div>
                                         {% endif %}
                                     </div>
                                     <div class="info_holder mb-2">
@@ -290,6 +286,14 @@
                                             <div class="info_desc">-</div>
                                         {% else %}
                                             <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Emizasizmi" %}: </div>
+                                        {% if not patient_other_illness.breastfeeding.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='breastfeeding' index=patient_other_illness.breastfeeding_id %}</div>
                                         {% endif %}
                                     </div>
                                 </div>

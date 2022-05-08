@@ -641,6 +641,10 @@ def settings(request, user):
         'dizziness': {
             'value': illness.dizziness.value,
             'desc': illness.dizziness.desc,
+        },
+        'fainting': {
+            'value': illness.fainting.value,
+            'desc': illness.fainting.desc,
         }
     }
     otherillness = patient.patient_otherillness
@@ -649,10 +653,6 @@ def settings(request, user):
             'value': otherillness.epilepsy.value,
             'desc': otherillness.epilepsy.desc,
         } if otherillness.epilepsy else None,
-        'blood_disease': {
-            'value': otherillness.blood_disease.value,
-            'desc': otherillness.blood_disease.desc,
-        } if otherillness.blood_disease else None,
         'medications': {
             'value': otherillness.medications.value,
             'desc': otherillness.medications.desc,
@@ -680,7 +680,11 @@ def settings(request, user):
         'pregnancy': {
             'value': otherillness.pregnancy.value,
             'desc': otherillness.pregnancy.desc,
-        } if otherillness.pregnancy else None
+        } if otherillness.pregnancy else None,
+        'breastfeeding': {
+            'value': otherillness.breastfeeding.value,
+            'desc': otherillness.breastfeeding.desc,
+        } if otherillness.breastfeeding else None
     }
     return JsonResponse({
         'patient': patient_result,
