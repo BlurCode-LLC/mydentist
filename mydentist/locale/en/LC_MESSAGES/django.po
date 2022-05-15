@@ -301,11 +301,11 @@ msgid "Xarita"
 msgstr "Map"
 
 #: .\mydentist\templates\baseapp\results.html:32
-msgid "Narxi bo'yicha"
+msgid "Arzoni"
 msgstr "By price"
 
 #: .\mydentist\templates\baseapp\results.html:35
-msgid "Yaqinligi bo'yicha"
+msgid "Yaqini"
 msgstr "Nearby"
 
 #: .\mydentist\templates\baseapp\results.html:43
@@ -328,8 +328,6 @@ msgid "Xaritada joylashuv"
 msgstr "Location on the map"
 
 #: .\mydentist\templates\baseapp\results.html:109
-#, fuzzy
-#| msgid "Shifoxona:"
 msgid "Shifoxona nomi:"
 msgstr "Clinic:"
 
@@ -384,8 +382,8 @@ msgid "Xizmat narxi:"
 msgstr "Service price:"
 
 #: .\mydentist\templates\baseapp\results.html:138
-msgid "Narxlarni ko'rish"
-msgstr "See prices"
+msgid "Batafsil"
+msgstr "More"
 
 #: .\mydentist\templates\baseapp\results.html:139
 #: .\mydentist\templates\dentist\dentist.html:59

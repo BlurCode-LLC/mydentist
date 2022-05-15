@@ -12,7 +12,7 @@
 				{% csrf_token %}
 				<div class="title_g">{% trans "Xizmatni qidirish" %}</div>
 				<div class="checkers">
-					<div class="dropdown select">
+					<div class="dropdown select d-md-inline-block d-block mb-md-0 mb-3">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="service" data-bs-toggle="dropdown" aria-expanded="false">
 							{{ service.name }}
 						</button>
@@ -22,7 +22,7 @@
 							{% endfor %}
 						</ul>
 					</div>
-					<div class="dropdown select">
+					<div class="dropdown select d-md-inline-block d-block">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="region" data-bs-toggle="dropdown" aria-expanded="false">
 							{{ region.name }}
 						</button>
@@ -37,24 +37,24 @@
 					{{ geoform.latitude }}
 					{{ geoform.longitude }}
 				</div>
-				<button type="submit" class="btn my_btn mx-auto">{% trans "Qidirish" %}</button>
+				<button type="submit" class="btn srch_btn mx-auto">{% trans "Qidirish" %}</button>
 			</form>
 		</div>
 		<div class="presentation">
 			<div class="container">
 				<div class="row my_row">
 					<div class="col-sm-4 col-4">
-						<img width="105" src="{% static 'img/clock-solid.svg' %}">
+						<img height="105" src="{% static 'img/clock-solid.svg' %}">
 						<span class="present_about">{% trans "Navbatsiz" %}</span>
 						<span class="present_text">{% trans "Stomatolog qabuliga onlayn navbat olish va ortiqcha kutishlarsiz qabulga kirish" %}</span>
 					</div>
 					<div class="col-sm-4 col-4">
-						<img width="117" src="{% static 'img/map-marked-alt-solid.svg' %}">
+						<img height="105" src="{% static 'img/map-marked-alt-solid.svg' %}">
 						<span class="present_about">{% trans "Yaqinroq" %}</span>
 						<span class="present_text">{% trans "Yaqin masofagagi stomatologlar" %}</span>
 					</div>
 					<div class="col-sm-4 col-4">
-						<img width="130" src="{% static 'img/user-edit-solid.svg' %}">
+						<img height="105" src="{% static 'img/user-edit-solid.svg' %}">
 						<span class="present_about">{% trans "Arzonroq" %}</span>
 						<span class="present_text">{% trans "Turli stomatologik klinikalardagi narxlarni solishtirish imkoniyati" %}</span>
 					</div>
@@ -143,5 +143,10 @@
 			$("#region").text($(this).text())
 			$("input[name='region']").val($(this).attr("value"))
 		})
+		if ($(window).width() <= 768) {
+			$(".presentation img").attr("height", "75")
+		} else {
+			$(".presentation img").attr("height", "105")
+		}
 	</script>
 {% endblock %}

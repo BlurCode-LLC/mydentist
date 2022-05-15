@@ -181,6 +181,17 @@ a.my_btn {
   font-size: 14px;
 }
 
+.srch_btn {
+  margin: 5px 0;
+  padding: 13px 35px;
+  background-color: #289cd7;
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.4s;
+  font-size: 16px;
+}
+
 .panel .my_btn, .panel .my_red_btn {
   display: block;
 }
@@ -210,6 +221,7 @@ a.my_btn {
 }
 
 .my_btn:hover,
+.srch_btn:hover,
 .my_btn_1:hover,
 .my_btn_2:hover,
 .my_red_btn:hover {
@@ -1119,6 +1131,10 @@ div.my_accaunt {
   .my_btn {
     padding: 5px 20px;
     font-size: 12px;
+  }
+  .srch_btn {
+    padding: 7px 25px;
+    font-size: 14px;
   }
   .present_about {
     font-size: 14px;

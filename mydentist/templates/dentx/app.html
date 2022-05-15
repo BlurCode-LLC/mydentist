@@ -17,9 +17,10 @@
             <div class="my-header">
                 <button id="close_btn">
                     <i class="fas fa-times"></i>
-
                 </button>
-                <a href="{% url 'dentx:appointments' %}" class="my-header-logo">DentX</a>
+                <a href="{% url 'dentx:appointments' %}" class="my-header-logo">
+                    <img src="{% static 'img/dentx.png' %}" height="30" />
+                </a>
                 <a href="{% url 'dentx:appointments' %}" class="my-header-item{% if "/appointments/" in request.path %} active-item{% endif %}">
                     <i class="far fa-calendar-alt"></i>
                     <span>{% trans "Qabullar" %}</span>

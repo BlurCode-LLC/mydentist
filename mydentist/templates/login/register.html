@@ -265,6 +265,9 @@
                 $(this).val(`${$(this).val()}) `)
             } else if ($(this).val().length == 8 || $(this).val().length == 11) {
                 $(this).val(`${$(this).val()}-`)
+            } else if ($(this).val().length == 15) {
+                let val = $(this).val()
+                $(this).val(val.substr(0, val.length - 1))
             } else if ($(this).val().length == 0) {
                 $(this).val("(")
             }

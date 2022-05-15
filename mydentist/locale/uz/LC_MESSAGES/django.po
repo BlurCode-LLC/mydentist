@@ -301,11 +301,11 @@ msgid "Xarita"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\results.html:32
-msgid "Narxi bo'yicha"
+msgid "Arzoni"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\results.html:35
-msgid "Yaqinligi bo'yicha"
+msgid "Yaqini"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\results.html:43
@@ -382,7 +382,7 @@ msgid "Xizmat narxi:"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\results.html:138
-msgid "Narxlarni ko'rish"
+msgid "Batafsil"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\results.html:139

@@ -29,10 +29,10 @@
 							<div class="checker">
 								<ul class="nav nav-pills my_select mx-auto mb-3" id="pills-tab" role="tablist">
 									<li class="nav-item my_select_item" role="presentation">
-										<button class="nav-link active" id="pills-price-tab" data-bs-toggle="pill" data-bs-target="#pills-price" type="button" role="tab" aria-controls="pills-price" aria-selected="true">{% trans "Narxi bo'yicha" %}</button>
+										<button class="nav-link active" id="pills-price-tab" data-bs-toggle="pill" data-bs-target="#pills-price" type="button" role="tab" aria-controls="pills-price" aria-selected="true">{% trans "Arzoni" %}</button>
 									</li>
 									<li class="nav-item my_select_item" role="presentation">
-										<button class="nav-link" id="pills-near-tab" data-bs-toggle="pill" data-bs-target="#pills-near" type="button" role="tab" aria-controls="pills-near" aria-selected="true">{% trans "Yaqinligi bo'yicha" %}</button>
+										<button class="nav-link" id="pills-near-tab" data-bs-toggle="pill" data-bs-target="#pills-near" type="button" role="tab" aria-controls="pills-near" aria-selected="true">{% trans "Yaqini" %}</button>
 									</li>
 								</ul>
 							</div>
@@ -135,7 +135,7 @@
 						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`),
 						$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${prices}`),
 						$("<div></div>").addClass("btn_holder").append(
-							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Narxlarni ko'rish" %}"),
+							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Batafsil" %}"),
 							$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Qabulga yozilish" %}")
 						)
 					)
