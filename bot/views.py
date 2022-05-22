@@ -163,17 +163,6 @@ def dentists_by_price(language, message, location, dentists, page=1):
     return "".join(text)
 
 
-def get_location(user):
-    return {
-        'latitude': user.latitude,
-        'longitude': user.longitude
-    }
-
-
-def get_dentists_by_price(status, language):
-    pass
-
-
 @bot.message_handler(commands=["start"])
 def register(message):
 

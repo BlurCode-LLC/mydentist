@@ -22,3 +22,14 @@ def get_near_dentists(language, tf_hour):
             'longitude': clinic.longitude
         })
     return result
+
+
+def get_location(user):
+    return {
+        'latitude': user.latitude,
+        'longitude': user.longitude
+    }
+
+
+def get_dentists_by_price(status, language):
+    pass
