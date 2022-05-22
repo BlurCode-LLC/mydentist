@@ -231,7 +231,7 @@ msgid "Yaqinroq"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\index.html:54
-msgid "Yaqin masofagagi stomatologlar"
+msgid "Yaqin masofadagi stomatologlar"
 msgstr ""
 
 #: .\mydentist\templates\baseapp\index.html:58

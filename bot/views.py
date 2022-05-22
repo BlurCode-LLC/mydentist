@@ -7,7 +7,7 @@ from json import loads
 from random import randrange
 from telebot import TeleBot, types
 
-from dentist.models import Service_translation
+from dentist.models import Service_category_translation, Service_translation
 
 from . import keypad
 from .models import User
@@ -163,6 +163,17 @@ def dentists_by_price(language, message, location, dentists, page=1):
     return "".join(text)
 
 
+def get_location(user):
+    return {
+        'latitude': user.latitude,
+        'longitude': user.longitude
+    }
+
+
+def get_dentists_by_price(status, language):
+    pass
+
+
 @bot.message_handler(commands=["start"])
 def register(message):
 
@@ -226,10 +237,7 @@ def msg_handler(message):
             user.status = status
             user.current_page = page
             user.save()
-            location = {
-                'latitude': user.latitude,
-                'longitude': user.longitude
-            }
+            location = get_location(user)
             bot.send_message(message.chat.id, dentists_by_location(language, location, sort_by_distance(location, get_near_dentists(language, str_obj[language]["24_hour"]))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["mainmenu_keypad"][1]:
@@ -238,13 +246,29 @@ def msg_handler(message):
             user.save()
             bot.send_message(message.chat.id, f"{str_obj[language]['services_big_message']}\n\n{str_obj[language]['services_mini_message']}", reply_markup=keypad.reply_buttons(language, message.chat.id, status))
 
-        elif message.text in Service_translation:
+        elif message.text in [category.name for category in Service_category_translation.objects.filter(language__name=language)]:
             status = message.text
-            db.update_status(message.chat.id, status)
+            user.status = status
+            user.save()
+            services = Service_category_translation.objects.filter(name=status).first()
+            if services is not None:
+                services = services.service_category.service_category_service.distinct("name")
+                if len(services) > 1:
+                    bot.send_message(message.chat.id, str_obj[language]["services_mini_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
+                else:
+                    page = 1
+                    user.current_page = page
+                    user.save()
+                    location = get_location(user)
+                    bot.send_message(message.chat.id, dentists_by_price(language, message, location, get_dentists_by_price(status, language)), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
+
+        elif message.text in [service.name for service in Service_translation.objects.filter(language__name=language).distinct("name")]:
+            status = message.text
             page = 1
-            db.update_current_page(message.chat.id, page)
-            bot.send_message(message.chat.id, dentists_by_price(language, message, db.get_location(message.chat.id), db.get_dentists_by_price(
-                status, language)), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
+            user.status = status
+            user.current_page = page
+            user.save()
+            bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(user), get_dentists_by_price(status, language)), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["mainmenu_keypad"][2]:
             status = "24/7"
