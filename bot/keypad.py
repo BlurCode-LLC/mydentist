@@ -88,11 +88,11 @@ def reply_buttons(lang, id, status, page=0):
                 buttons[len(buttons) - 1]))
         return keyboard.row(telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"]))
 
-    elif status in [category.name for category in Service_category_translation.objects.filter(language__name=lang)] and len([service.name for service in Service_translation.objects.filter(language__name=lang).distinct("name")]) > 1:
+    elif status in [category.name for category in Service_category_translation.objects.filter(language__name=lang)] and len([service.name for service in Service_translation.objects.filter(language__name=lang, service__service_category__pk=Service_category_translation.objects.get(name=status).service_category_id).distinct("name")]) > 1:
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
         services = Service_category_translation.objects.filter(name=status).first()
         if services is not None:
-            buttons = services.service_category.service_category_service.distinct("name")
+            buttons = [button.name for button in services.service_category.service_category_service.distinct("name")]
         else:
             buttons = 0
         if len(buttons) % 2 == 0:
