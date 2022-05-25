@@ -6,6 +6,7 @@ from geopy.distance import distance
 from json import loads
 from random import randrange
 from telebot import TeleBot, types
+from baseapp.models import Language
 
 from dentist.models import Service_category_translation, Service_translation
 
@@ -282,14 +283,14 @@ def msg_handler(message):
         elif message.text == "O'z 🇺🇿":
             if language != "uz":
                 language = "uz"
-                user.language = language
+                user.language_id = Language.objects.get(name=language).id
                 user.save()
             bot.send_message( message.chat.id, str_obj[language]["mainmenu_message"], reply_markup = keypad.reply_buttons( "uz", message.chat.id, "mainmenu" ) )
 
         elif message.text == "Рус 🇷🇺":
             if language != "ru":
                 language = "ru"
-                user.language = language
+                user.language_id = Language.objects.get(name=language).id
                 user.save()
             bot.send_message( message.chat.id, str_obj[language]["mainmenu_message"], reply_markup = keypad.reply_buttons( "ru", message.chat.id, "mainmenu" ) )
 
@@ -298,7 +299,7 @@ def msg_handler(message):
                 language = "uz"
             elif language == "uz":
                 language = "ru"
-            user.language = language
+            user.language_id = Language.objects.get(name=language).id
             user.save()
             bot.send_message(message.chat.id, str_obj[language]["mainmenu_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, "mainmenu"))
 
