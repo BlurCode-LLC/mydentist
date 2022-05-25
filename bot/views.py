@@ -117,7 +117,7 @@ def dentists_by_location(language, location, dentists, page=1):
     i = 0
     for dentist in dentists_temp:
         text1 = f"<b>{str_obj[language]['result_template'][0].upper()}{str(count + 1)}</b>   🦷 🦷 🦷 🦷 🦷\n\n"
-        text1 += f"<b>{dentist['name']}</b>\n"
+        text1 += f"<b>{dentist['clinic_name']}</b>\n"
         text1 += f"<a href=\"{dentist['tg_href']}\">{dentist['fullname']}</a>\n"
         text1 += f"<b>{str_obj[language]['result_template'][9]}:</b> {dentist['worktime']}\n"
         lat = float(dentist["latitude"])
@@ -147,7 +147,7 @@ def dentists_by_price(language, message, location, dentists, page=1):
     for dentist in dentists_temp:
         text1 = f"<b>{str_obj[language]['result_template'][0].upper()}{str(count + 1)}</b>   🦷 🦷 🦷 🦷 🦷\n\n"
         text1 += f"{dentist['service_name']} ({price_splitter(str(dentist['price']))} {str_obj[language]['currency']})\n"
-        text1 += f"<b>{dentist['name']}</b>\n"
+        text1 += f"<b>{dentist['clinic_name']}</b>\n"
         text1 += f"<a href =\"{dentist['tg_href']}\">{dentist['fullname']}</a>\n"
         text1 += f"<b>{str_obj[language]['result_template'][9]}:</b> {dentist['worktime']}\n"
         lat = float(dentist["latitude"])
@@ -261,19 +261,22 @@ def msg_handler(message):
 
         elif message.text == str_obj[language]["mainmenu_keypad"][2]:
             status = "24/7"
-            db.update_status(message.chat.id, status)
             page = 1
-            db.update_current_page(message.chat.id, page)
-            bot.send_message(message.chat.id, dentists_by_location(language, db.get_location(message.chat.id), sort_by_distance(db.get_location(message.chat.id), db.get_24_7_dentists(language))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+            user.status = status
+            user.current_page = page
+            user.save()
+            bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_24_7_dentists(language))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["mainmenu_keypad"][3]:
             status = "about"
-            db.update_status(message.chat.id, status)
+            user.status = status
+            user.save()
             bot.send_message(message.chat.id, str_obj[language]["about_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
 
         elif message.text == str_obj[language]["mainmenu_keypad"][4]:
             status = "call"
-            db.update_status(message.chat.id, status)
+            user.status = status
+            user.save()
             bot.send_message(message.chat.id, str_obj[language]["call_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
 
         elif message.text == "O'z 🇺🇿":

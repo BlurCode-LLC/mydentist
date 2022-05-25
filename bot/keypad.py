@@ -137,27 +137,27 @@ def reply_buttons(lang, id, status, page=0):
             telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"])
         )
 
-    # elif status == "24/7":
-    #     keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
-    #     if len(db.get_24_7_dentists(lang)) > 4:
-    #         if page * 4 >= len(db.get_24_7_dentists(lang)):
-    #             keyboard.row(
-    #                 telebot.types.KeyboardButton(
-    #                     str_obj[lang]["previous_button"])
-    #             )
-    #         elif page == 1:
-    #             keyboard.row(
-    #                 telebot.types.KeyboardButton(str_obj[lang]["next_button"])
-    #             )
-    #         else:
-    #             keyboard.row(
-    #                 telebot.types.KeyboardButton(
-    #                     str_obj[lang]["previous_button"]),
-    #                 telebot.types.KeyboardButton(str_obj[lang]["next_button"])
-    #             )
-    #     return keyboard.add(
-    #         telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"])
-    #     )
+    elif status == "24/7":
+        keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
+        if len(get_24_7_dentists(lang)) > 4:
+            if page * 4 >= len(get_24_7_dentists(lang)):
+                keyboard.row(
+                    telebot.types.KeyboardButton(
+                        str_obj[lang]["previous_button"])
+                )
+            elif page == 1:
+                keyboard.row(
+                    telebot.types.KeyboardButton(str_obj[lang]["next_button"])
+                )
+            else:
+                keyboard.row(
+                    telebot.types.KeyboardButton(
+                        str_obj[lang]["previous_button"]),
+                    telebot.types.KeyboardButton(str_obj[lang]["next_button"])
+                )
+        return keyboard.add(
+            telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"])
+        )
 
     elif status == "about" or status == "call":
         return telebot.types.ReplyKeyboardMarkup(True, row_width=1).add(

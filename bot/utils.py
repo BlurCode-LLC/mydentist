@@ -24,6 +24,10 @@ def get_near_dentists(language, tf_hour):
     return result
 
 
+def get_dentists_by_price(status, language):
+    pass
+
+
 def get_location(user):
     return {
         'latitude': user.latitude,
@@ -31,5 +35,22 @@ def get_location(user):
     }
 
 
-def get_dentists_by_price(status, language):
-    pass
+def get_24_7_dentists(language, tf_hour):
+    dentists_translation = DentistUserTranslation.objects.filter(language__name=language, is_fullday=True)
+    result = []
+    for dentist_translation in dentists_translation:
+        dentist = dentist_translation.dentist
+        clinic = dentist.clinic
+        clinic_translation = clinic.dentist_clinic_translation.get(language__name=language)
+        result.append({
+            'fullname': dentist_translation.fullname,
+            'worktime': tf_hour,
+            'phone_number': dentist.fullname,
+            'tg_href': f"https://mydentist.uz/dentist/{dentist.slug}",
+            'clinic_name': clinic_translation.name,
+            'address': clinic_translation.address,
+            'orientir': clinic_translation.orientir if clinic_translation.orientir is not None else "",
+            'latitude': clinic.latitude,
+            'longitude': clinic.longitude
+        })
+    return result
