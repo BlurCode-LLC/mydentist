@@ -71,7 +71,7 @@ def reply_buttons(lang, id, status, page=0):
 
     elif status == "services":
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
-        buttons = [category.name for category in Service_category_translation.objects.filter(language__name=lang)]
+        buttons = get_categories(lang)
         if len(buttons) % 2 == 0:
             for i in range(0, len(buttons), 2):
                 keyboard.row(
@@ -88,7 +88,7 @@ def reply_buttons(lang, id, status, page=0):
                 buttons[len(buttons) - 1]))
         return keyboard.row(telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"]))
 
-    elif status in [category.name for category in Service_category_translation.objects.filter(language__name=lang)] and len([service.name for service in Service_translation.objects.filter(language__name=lang, service__service_category__pk=Service_category_translation.objects.get(name=status).service_category_id).distinct("name")]) > 1:
+    elif status in get_categories(lang) and len(get_services(lang, status)) > 1:
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
         services = Service_category_translation.objects.filter(name=status).first()
         if services is not None:
@@ -114,7 +114,7 @@ def reply_buttons(lang, id, status, page=0):
             telebot.types.KeyboardButton(str_obj[lang]["mainmenu_button"])
         )
 
-    elif status in [service.name for service in Service_translation.objects.filter(language__name=lang).distinct("name")]:
+    elif status in get_services_all(lang):
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
         if len(get_dentists_by_price(status, lang)) > 4:
             if page * 4 >= len(get_dentists_by_price(status, lang)):

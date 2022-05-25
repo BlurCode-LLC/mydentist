@@ -1,5 +1,21 @@
+from dentist.models import Service_category_translation, Service_translation, User_translation as DentistUserTranslation
 
-from dentist.models import User_translation as DentistUserTranslation
+
+def get_categories(language):
+    [category.name for category in Service_category_translation.objects.filter(language__name=language)]
+
+
+def get_category(status, language):
+    service_category = Service_translation.objects.get(name=status, language__name=language).service.service_category.service_category_translation.filter(language__name=language)
+    return service_category.name
+
+
+def get_services(language, status):
+    return [service.name for service in Service_translation.objects.filter(language__name=language, service__service_category__pk=Service_category_translation.objects.get(name=status).service_category_id).distinct("name")]
+
+
+def get_services_all(language):
+    return [service.name for service in Service_translation.objects.filter(language__name=language).distinct("name")]
 
 
 def get_near_dentists(language, tf_hour):
@@ -54,3 +70,7 @@ def get_24_7_dentists(language, tf_hour):
             'longitude': clinic.longitude
         })
     return result
+
+
+def location_not_exists(user):
+    return user.latitude == 0 and user.longitude == 0
