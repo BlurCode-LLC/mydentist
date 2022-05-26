@@ -77,29 +77,30 @@ def get_option(select, index):
 
 @register.simple_tag
 def get_message(notification):
-    if notification.type == "query":
-        messages = notification.message.split(NEW_LINE)
-        message = f"{_('Sabab')}: {messages[0]}{NEW_LINE}{_('Izohlar')}: {messages[1]}"
-    elif notification.type == "appointment":
-        messages = notification.message.split(NEW_LINE)
-        print(get_language())
-        dentist = User_translation.objects.get(
-            dentist__pk=int(messages[1]),
-            language__name=get_language()
-        )
-        print(messages[0], get_language())
-        service = Service_translation.objects.get(
-            service__name=messages[0],
-            service__dentist__pk=int(messages[1]),
-            language__name=get_language()
-        )
-        appointment = Appointment.objects.get(
-            dentist__pk=dentist.dentist_id,
-            service__pk=service.service_id
-        )
-        begin_time = f"{date_format(appointment.begin)} {time_format(appointment.begin)}"
-        end_time = f"{date_format(appointment.end)} {time_format(appointment.end)}"
-        message = f"{_('Shifokor')}: {dentist.fullname}{NEW_LINE}{_('Xizmat turi')}: {service.name}{NEW_LINE}{_('Boshlanish vaqti')}: {begin_time}{NEW_LINE}{_('Tugash vaqti')}: {end_time}"
-    else:
-        message = notification.message
+    # if notification.type == "query":
+    #     messages = notification.message.split(NEW_LINE)
+    #     message = f"{_('Sabab')}: {messages[0]}{NEW_LINE}{_('Izohlar')}: {messages[1]}"
+    # elif notification.type == "appointment":
+    #     messages = notification.message.split(NEW_LINE)
+    #     print(get_language())
+    #     dentist = User_translation.objects.get(
+    #         dentist__pk=int(messages[1]),
+    #         language__name=get_language()
+    #     )
+    #     print(messages[0], get_language())
+    #     service = Service_translation.objects.get(
+    #         service__name=messages[0],
+    #         service__dentist__pk=int(messages[1]),
+    #         language__name=get_language()
+    #     )
+    #     appointment = Appointment.objects.get(
+    #         dentist__pk=dentist.dentist_id,
+    #         service__pk=service.service_id
+    #     )
+    #     begin_time = f"{date_format(appointment.begin)} {time_format(appointment.begin)}"
+    #     end_time = f"{date_format(appointment.end)} {time_format(appointment.end)}"
+    #     message = f"{_('Shifokor')}: {dentist.fullname}{NEW_LINE}{_('Xizmat turi')}: {service.name}{NEW_LINE}{_('Boshlanish vaqti')}: {begin_time}{NEW_LINE}{_('Tugash vaqti')}: {end_time}"
+    # else:
+    #     message = notification.message
+    message = notification.message
     return mark_safe(message)

@@ -55,7 +55,7 @@ def index(request):
         services = [{
             'value': item.service_category_id,
             'name': item.name
-        } for item in Service_category_translation.objects.filter(language=language).order_by("id")]
+        } for item in Service_category_translation.objects.filter(language=language)]
         return render(request, "baseapp/index.html", {
             'searchform': searchform,
             'regions': REGIONS,

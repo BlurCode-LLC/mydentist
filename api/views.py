@@ -21,7 +21,7 @@ from login.models import PasswordReset
 from login.tokens import reset_password_token
 from mydentist.var import ILLNESSES, NEW_LINE, REGIONS
 from mydentist.handler import get_results, sort_by_distance, token_encode, token_decode_expired, token_required
-from notification.models import Dentist2patient, Patient2dentist
+from notification.models import Dentist2patient, Notification, Patient2dentist
 from patient.models import Illness, Key, Other_Illness, User as PatientUser
 
 
@@ -582,11 +582,11 @@ def profile(request, user):
 @csrf_exempt
 @token_required
 def notifications(request, user):
-    notifications_obj = list(Dentist2patient.objects.filter(recipient__user=user))[::-1]
+    notifications_obj = list(Notification.objects.all())[::-1]
     notifications = []
     for notification_obj in notifications_obj:
         notifications.append({
-            'sender': str(notification_obj.sender),
+            'sender': "MyDentist",
             'text': notification_obj.message,
             'datetime': notification_obj.datetime.strftime("%B %d, %Y")
         })
