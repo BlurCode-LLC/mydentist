@@ -34,3 +34,17 @@ class Patient2dentist(models.Model):
 
     def __str__(self):
         return f"{self.sender.__str__()} - {self.datetime}"
+
+
+class Notification(models.Model):
+
+    message = models.TextField(_("Xabar matni"))
+    datetime = models.DateTimeField(_("Xabar jo'natilgan vaqt"), auto_now=False, auto_now_add=False)
+    is_read = models.BooleanField(_("O'qilganmi?"))
+
+    class Meta:
+        verbose_name = _("Xabar")
+        verbose_name_plural = _("Xabarlar")
+
+    def __str__(self):
+        return str(self.datetime)
