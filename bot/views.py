@@ -62,7 +62,8 @@ def price_splitter(price):
 
 
 def oscilate(distance):
-    return round(distance + randrange(500, 2000, 10) / 1000, 2)
+    return distance
+    # return round(distance + randrange(500, 2000, 10) / 1000, 2)
 
 
 def register_checker(message):
@@ -105,7 +106,7 @@ def sort_by_distance(user, dentists):
 
 
 def dentists_by_location(language, location, dentists, page=1):
-    location = (float(location["latitude"]), float(location["longitude"]))
+    location = (location['latitude'], location['longitude'])
     text = []
     count = (page - 1) * 4
     if page * 4 >= len(dentists):
@@ -134,7 +135,7 @@ def dentists_by_location(language, location, dentists, page=1):
 
 
 def dentists_by_price(language, message, location, dentists, page=1):
-    location = (float(location["latitude"]), float(location["longitude"]))
+    location = (location['latitude'], location['longitude'])
     text = []
     count = (page - 1) * 4
     if page * 4 >= len(dentists):
@@ -216,7 +217,7 @@ def msg_handler(message):
             status = user.status
 
         if message.text == str_obj[language]["mainmenu_keypad"][0]:
-            status = "near1" if (not (user.latitude == 0 and user.longitude == 0)) else "near2"
+            status = "near1" if location_not_exists(user) else "near2"
             user.status = status
             user.save()
             bot.send_message(message.chat.id, str_obj[language]["near_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
@@ -250,7 +251,7 @@ def msg_handler(message):
                     user.current_page = page
                     user.save()
                     location = get_location(user)
-                    bot.send_message(message.chat.id, dentists_by_price(language, message, location, get_dentists_by_price(status, language)), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
+                    bot.send_message(message.chat.id, dentists_by_price(language, message, location, get_dentists_by_price(status, language, str_obj[language]["24_hour"])), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text in get_services_all(language):
             status = message.text
@@ -258,7 +259,7 @@ def msg_handler(message):
             user.status = status
             user.current_page = page
             user.save()
-            bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(user), get_dentists_by_price(status, language)), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
+            bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(user), get_dentists_by_price(status, language, str_obj[language]["24_hour"])), reply_markup=keypad.reply_buttons(language, message.chat.id, message.text, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["mainmenu_keypad"][2]:
             status = "24/7"
@@ -266,7 +267,8 @@ def msg_handler(message):
             user.status = status
             user.current_page = page
             user.save()
-            bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_24_7_dentists(language))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+            bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_24_7_dentists(language, str_obj[language]["24_hour"]))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+            
 
         elif message.text == str_obj[language]["mainmenu_keypad"][3]:
             status = "about"
@@ -316,11 +318,11 @@ def msg_handler(message):
             user.current_page = page
             user.save()
             if status == "near":
-                bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_near_dentists(language)), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_near_dentists(language, str_obj[language]["24_hour"])), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
             elif status in get_services_all(language):
-                bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(message.chat.id), get_dentists_by_price(status, language), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(user), get_dentists_by_price(status, language, str_obj[language]["24_hour"]), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
             elif status == "24/7":
-                bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_24_7_dentists(language)), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_24_7_dentists(language, str_obj[language]["24_hour"])), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["next_button"]:
             if page == 0:
@@ -329,11 +331,11 @@ def msg_handler(message):
             user.current_page = page
             user.save()
             if status == "near":
-                bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_near_dentists(language)), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_near_dentists(language, str_obj[language]["24_hour"])), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
             elif status in get_services_all(language):
-                bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(message.chat.id), get_dentists_by_price(status, language), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_price(language, message, get_location(user), get_dentists_by_price(status, language, str_obj[language]["24_hour"]), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
             elif status == "24/7":
-                bot.send_message(message.chat.id, dentists_by_location(language, get_location(message.chat.id), sort_by_distance(get_location(message.chat.id), get_24_7_dentists(language)), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
+                bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_24_7_dentists(language, str_obj[language]["24_hour"])), page), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)
 
         elif message.text == str_obj[language]["back_button"]:
             status = user.status
@@ -344,23 +346,21 @@ def msg_handler(message):
                 user.save()
                 bot.send_message(message.chat.id, str_obj[language]["near_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, "near1" if location_not_exists(user) else "near2"))
             elif status in get_categories(language):
-                status = "services_big"
+                status = "services"
                 user.status = status
                 user.save()
-                bot.send_message(message.chat.id, str_obj[language]["services_big_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, "services_big"))
+                bot.send_message(message.chat.id, str_obj[language]["services_big_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
             elif status in get_services_all(language):
                 if status == get_category(status, language):
-                    status = "services_big"
+                    status = "services"
                     user.status = status
                     user.save()
-                    bot.send_message(message.chat.id, str_obj[language]["services_big_message"], reply_markup=keypad.reply_buttons(
-                        language, message.chat.id, "services_big"))
+                    bot.send_message(message.chat.id, str_obj[language]["services_big_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
                 else:
                     status = get_category(status, language)
                     user.status = status
                     user.save()
-                    bot.send_message(message.chat.id, str_obj[language]["services_mini_message"], reply_markup=keypad.reply_buttons(
-                        language, message.chat.id, status))
+                    bot.send_message(message.chat.id, str_obj[language]["services_mini_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
             elif status in ["about", "call", "comment"]:
                 status = "MyDentist"
                 user.status = status
@@ -373,5 +373,35 @@ def msg_handler(message):
             user.status = status
             user.current_page = 0
             user.save()
-            bot.send_message(message.chat.id, str_obj[language]["mainmenu_message"], reply_markup=keypad.reply_buttons(
-                language, message.chat.id, "mainmenu"))
+            bot.send_message(message.chat.id, str_obj[language]["mainmenu_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, "mainmenu"))
+
+
+@bot.message_handler(content_types=["location"])
+def handle_location(message):
+
+    global language
+    global status
+    global page
+
+    if len(User.objects.filter(tg_user_id=message.chat.id)) == 0:
+        register_checker(message)
+    else:
+        user = User.objects.get(tg_user_id=message.chat.id)
+        if language == "":
+            language = user.language.name
+        if status == "":
+            status = user.status
+
+    user = User.objects.get(tg_user_id=message.chat.id)
+    user.latitude = message.location.latitude
+    user.longitude = message.location.longitude
+    user.save()
+    status = "near"
+    page = 1
+    user.status = status
+    user.current_page = page
+    user.save()
+    temp = get_near_dentists(language, str_obj[language]["24_hour"])
+    with open("debug.txt", "a") as file:
+        file.write("Done\n")
+    bot.send_message(message.chat.id, dentists_by_location(language, get_location(user), sort_by_distance(get_location(user), get_near_dentists(language, str_obj[language]["24_hour"]))), reply_markup=keypad.reply_buttons(language, message.chat.id, status, page), parse_mode="HTML", disable_web_page_preview=True)

@@ -92,7 +92,9 @@ def reply_buttons(lang, id, status, page=0):
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
         services = Service_category_translation.objects.filter(name=status).first()
         if services is not None:
-            buttons = [button.name for button in services.service_category.service_category_service.distinct("name")]
+            buttons = [button.dentist_service_translation.filter(language__name=lang).first().name for button in services.service_category.service_category_service.all().distinct("name")]
+            with open("debug.txt", "a") as file:
+                file.write(", ".join(buttons) + "\n")
         else:
             buttons = 0
         if len(buttons) % 2 == 0:
@@ -116,8 +118,8 @@ def reply_buttons(lang, id, status, page=0):
 
     elif status in get_services_all(lang):
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
-        if len(get_dentists_by_price(status, lang)) > 4:
-            if page * 4 >= len(get_dentists_by_price(status, lang)):
+        if len(get_dentists_by_price(status, lang, str_obj[lang]["24_hour"])) > 4:
+            if page * 4 >= len(get_dentists_by_price(status, lang, str_obj[lang]["24_hour"])):
                 keyboard.row(
                     telebot.types.KeyboardButton(
                         str_obj[lang]["previous_button"])
@@ -139,7 +141,7 @@ def reply_buttons(lang, id, status, page=0):
 
     elif status == "24/7":
         keyboard = telebot.types.ReplyKeyboardMarkup(True, row_width=1)
-        if len(get_24_7_dentists(lang)) > 4:
+        if len(get_24_7_dentists(lang, str_obj[lang]["24_hour"])) > 4:
             if page * 4 >= len(get_24_7_dentists(lang)):
                 keyboard.row(
                     telebot.types.KeyboardButton(
