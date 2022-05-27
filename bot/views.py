@@ -171,16 +171,20 @@ def register(message):
     global language
     global status
 
-    if len(User.objects.filter(tg_user_id=message.chat.id)) == 0:
-        register_checker(message)
-    else:
-        user = User.objects.get(tg_user_id=message.chat.id)
-        status = "mainmenu"
-        user.status = status
-        user.save()
-        if language == '':
-            language = user.language.name
-        bot.send_message(message.chat.id, str_obj[language]["mainmenu_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
+    try:
+        if len(User.objects.filter(tg_user_id=message.chat.id)) == 0:
+            register_checker(message)
+        else:
+            user = User.objects.get(tg_user_id=message.chat.id)
+            status = "mainmenu"
+            user.status = status
+            user.save()
+            if language == '':
+                language = user.language.name
+            bot.send_message(message.chat.id, str_obj[language]["mainmenu_message"], reply_markup=keypad.reply_buttons(language, message.chat.id, status))
+    except Exception as E:
+        with open("debug.txt", "a") as file:
+            file.write(str(E))
 
 
 @bot.message_handler(commands=["developers"])
