@@ -145,23 +145,18 @@ def results(request):
                     language__name=language
                 )
             services_obj = searcher()
-            if sort_by == "price":
-                result += get_results(list(services_obj.order_by('service__price')))
-            elif sort_by == "near":
-                latitude = body.get("lat")
-                longitude = body.get("long")
-                result += get_results(
-                    sort_by_distance(
-                        list(services_obj),
-                        (
-                            float(latitude),
-                            float(longitude)
-                        )
-                    ) if latitude and longitude else list(services_obj)
-                )
-            return JsonResponse({
-                'dentists': result
-            })
+            latitude = body.get("lat")
+            longitude = body.get("long")
+            if latitude and longitude:
+                location = (float(latitude), float(longitude))
+                result += get_results(list(services_obj.order_by('service__price')), location) if sort_by == "price" else get_results(sort_by_distance(list(services_obj), location), location)
+                return JsonResponse({
+                    'dentists': result
+                })
+            else:
+                return JsonResponse({
+                    'message': "No location passed"
+                }, status=400)
         else:
             return JsonResponse({
                 'message': "No data in request.body"

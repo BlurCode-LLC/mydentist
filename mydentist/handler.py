@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.utils import translation, timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
-from geopy.distance import distance
+from geopy import distance
 from jwt import encode, decode
 
 from appointment.models import Appointment
@@ -96,79 +96,69 @@ def get_reminders(reminders):
     return results
 
 
-def sort_by_distance(services, location):
-    if len(services) < 2:
-        return services
+def sort_by_distance(services, location, priced=False):
+    if priced:
+        if len(services) < 2:
+            return services
+        else:
+            middle = services[0]
+            less = []
+            greater = []
+            for service in services[1:]:
+                dentist = DentistUser.objects.get(pk=service.service.dentist_id)
+                service_category = service.service.service_category
+                services_obj = list(Service.objects.filter(service_category=service_category, dentist=dentist).order_by("price"))
+                price_m = middle.service.price
+                if services_obj[0].price < price_m:
+                    less.append(service)
+                elif services_obj[0].price > price_m:
+                    greater.append(service)
+                elif services_obj[0].price == price_m:
+                    if distance.distance(
+                        (
+                            service.service.dentist.clinic.latitude,
+                            service.service.dentist.clinic.longitude,
+                        ),
+                        location
+                    ).km <= distance.distance(
+                        (
+                            middle.service.dentist.clinic.latitude,
+                            middle.service.dentist.clinic.longitude,
+                        ),
+                        location
+                    ).km:
+                        less.append(service)
+                    else:
+                        greater.append(service)
+            return sort_by_distance(less, location, priced=True) + [middle] + sort_by_distance(greater, location, priced=True)
     else:
-        middle = services[0]
-        less = [
-            service for service in services[1:]
-            if distance(
-                (
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=service.service_id).dentist_id
-                        ).clinic_id
-                    ).latitude,
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=service.service_id).dentist_id
-                        ).clinic_id
-                    ).longitude,
-                ),
-                location
-            ).kilometers <= distance(
-                (
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=middle.service_id).dentist_id
-                        ).clinic_id
-                    ).latitude,
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=middle.service_id).dentist_id
-                        ).clinic_id
-                    ).longitude,
-                ),
-                location
-            ).kilometers
-        ]
-        greater = [
-            service for service in services[1:]
-            if distance(
-                (
-                    Clinic.objects.get( 
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=service.service_id).dentist_id
-                        ).clinic_id
-                    ).latitude,
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=service.service_id).dentist_id
-                        ).clinic_id
-                    ).longitude,
-                ),
-                location
-            ).kilometers > distance(
-                (
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=middle.service_id).dentist_id
-                        ).clinic_id
-                    ).latitude,
-                    Clinic.objects.get(
-                        pk=DentistUser.objects.get(
-                            pk=Service.objects.get(pk=middle.service_id).dentist_id
-                        ).clinic_id
-                    ).longitude,
-                ),
-                location
-            ).kilometers
-        ]
-        return sort_by_distance(less, location) + [middle] + sort_by_distance(greater, location)
+        if len(services) < 2:
+            return services
+        else:
+            middle = services[0]
+            less = []
+            greater = []
+            for service in services[1:]:
+                if distance.distance(
+                    (
+                        service.service.dentist.clinic.latitude,
+                        service.service.dentist.clinic.longitude,
+                    ),
+                    location
+                ).km <= distance.distance(
+                    (
+                        middle.service.dentist.clinic.latitude,
+                        middle.service.dentist.clinic.longitude,
+                    ),
+                    location
+                ).km:
+                    less.append(service)
+                else:
+                    greater.append(service)
+            return sort_by_distance(less, location) + [middle] + sort_by_distance(greater, location)
 
 
-def get_results(services_obj):
+def get_results(services_obj, location):
     results = []
     ids = []
     services = []
@@ -177,11 +167,13 @@ def get_results(services_obj):
         if did not in ids:
             ids.append(did)
             services.append(service_obj)
+    services = sort_by_distance(services, location, priced=True)
     for service_obj in services:
         dentist = DentistUser.objects.get(pk=service_obj.service.dentist_id)
         dentist_extra = User_translation.objects.filter(dentist=dentist, language__pk=service_obj.language_id)[0]
         clinic = Clinic.objects.get(pk=dentist.clinic_id)
         clinic_extra = Clinic_translation.objects.filter(clinic=clinic, language__pk=service_obj.language_id)[0]
+        dist = distance.distance((clinic.latitude, clinic.longitude), location).km
         worktime_begin = dentist.worktime_begin
         worktime_end = dentist.worktime_end
         service_category = service_obj.service.service_category
@@ -197,6 +189,7 @@ def get_results(services_obj):
             'orientir': clinic_extra.orientir,
             'latitude': clinic.latitude,
             'longitude': clinic.longitude,
+            'distance': dist,
             'worktime_begin': f"{worktime_begin.hour}:{worktime_begin.minute:02d}",
             'worktime_end': f"{worktime_end.hour}:{worktime_end.minute:02d}",
             'is_fullday': dentist.is_fullday,

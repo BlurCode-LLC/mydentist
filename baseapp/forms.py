@@ -22,18 +22,10 @@ class SearchForm(forms.Form):
 class GeoForm(forms.Form):
     
     latitude = forms.FloatField(
-        widget=forms.HiddenInput(
-            attrs={
-                'value': 40.767684
-            }
-        ),
+        widget=forms.HiddenInput(),
         required=False
     )
     longitude = forms.FloatField(
-        widget=forms.HiddenInput(
-            attrs={
-                'value': 72.336187
-            }
-        ),
+        widget=forms.HiddenInput(),
         required=False
     )

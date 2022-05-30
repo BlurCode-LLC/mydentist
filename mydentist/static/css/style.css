@@ -1086,7 +1086,7 @@ div.my_accaunt {
 @media (max-width: 1340px) {
   .my-header {
     width: 100%;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     position: static;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -1100,7 +1100,7 @@ div.my_accaunt {
     justify-content: center;
   }
   .checker {
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     width: 100%;
   }
   .my_select_item button {
@@ -1177,7 +1177,7 @@ div.my_accaunt {
     position: fixed;
     top: 0;
     left: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: #fff;
     flex-wrap: wrap;
     white-space: normal;

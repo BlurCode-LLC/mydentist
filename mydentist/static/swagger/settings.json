@@ -1783,6 +1783,10 @@
                     "type": "number",
                     "example": 72.332524
                 },
+                "distance": {
+                    "type": "number",
+                    "example": 2.241018981534311
+                },
                 "worktime_begin": {
                     "type": "string",
                     "example": "8:00"
