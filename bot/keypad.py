@@ -93,8 +93,6 @@ def reply_buttons(lang, id, status, page=0):
         services = Service_category_translation.objects.filter(name=status).first()
         if services is not None:
             buttons = [button.dentist_service_translation.filter(language__name=lang).first().name for button in services.service_category.service_category_service.all().distinct("name")]
-            with open("debug.txt", "a") as file:
-                file.write(", ".join(buttons) + "\n")
         else:
             buttons = 0
         if len(buttons) % 2 == 0:
