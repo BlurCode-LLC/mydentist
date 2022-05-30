@@ -154,23 +154,26 @@ def get_dentists(request):
                     service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                     language__name=current_language
                 )
-            if request.POST.get('sort_by') == "near":
-                services_obj = searcher()
-                results = get_results(
-                    sort_by_distance(
-                        list(services_obj),
-                        (
-                            geoform.cleaned_data['latitude'],
-                            geoform.cleaned_data['longitude']
-                        )
+            if geoform.cleaned_data['latitude'] is not None and geoform.cleaned_data['longitude'] is not None:
+                location = (geoform.cleaned_data['latitude'], geoform.cleaned_data['longitude'])
+                if request.POST.get('sort_by') == "near":
+                    services_obj = searcher()
+                    results = get_results(
+                        sort_by_distance(
+                            list(services_obj),
+                            (
+                                geoform.cleaned_data['latitude'],
+                                geoform.cleaned_data['longitude']
+                            )
+                        ),
+                        location
                     )
-                )
+                else:
+                    services_obj = searcher()
+                    results = get_results(list(services_obj.order_by('service__price')), location)
+                response = HttpResponse(dumps(results))
             else:
-                services_obj = searcher()
-                results = get_results(
-                    list(services_obj.order_by('service__price'))
-                )
-            response = HttpResponse(dumps(results))
+                response = HttpResponse(dumps([]))
             return response
         else:
             response = HttpResponse()

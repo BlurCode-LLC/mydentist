@@ -374,39 +374,6 @@
                 $("#day_holder").val(parseInt($("#day_holder").val()) - 1)
             }
         })
-        $("#id_phone_number").on("focus", function () {
-            if ($(this).val() == "") {
-                $(this).val("(")
-            }
-        })
-        $("#id_phone_number").on("focusout", function () {
-            if ($(this).val() == "(") {
-                $(this).val("")
-            }
-        })
-        $("#id_phone_number").on("keydown", function (e) {
-            if (e.keyCode == 8) {
-                if ($(this).val().length == 12 || $(this).val().length == 9) {
-                    let val = $(this).val()
-                    $(this).val(val.slice(0, val.length - 1))
-                } else if ($(this).val().length == 5) {
-                    let val = $(this).val()
-                    $(this).val(val.slice(0, val.length - 2))
-                }
-            }
-        })
-        $("#id_phone_number").on("input", function () {
-            if ($(this).val().length == 3) {
-                $(this).val(`${$(this).val()}) `)
-            } else if ($(this).val().length == 8 || $(this).val().length == 11) {
-                $(this).val(`${$(this).val()}-`)
-            } else if ($(this).val().length == 15) {
-                let val = $(this).val()
-                $(this).val(val.substr(0, val.length - 1))
-            } else if ($(this).val().length == 0) {
-                $(this).val("(")
-            }
-        })
         $("#id_allergy").on("change", function() {
             if ($("#id_allergy").val() == 2) {
                 $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
