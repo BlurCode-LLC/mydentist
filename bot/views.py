@@ -211,10 +211,6 @@ def developers(message):
 @bot.message_handler()
 def msg_handler(message):
 
-    global language
-    global status
-    global page
-
     try:
         if len(User.objects.filter(tg_user_id=message.chat.id)) == 0:
             register_checker(message)
@@ -386,7 +382,6 @@ def msg_handler(message):
     except Exception as E:
         with open("debug.txt", "a") as file:
             file.write(str(E))
-
 
 @bot.message_handler(content_types=["location"])
 def handle_location(message):
