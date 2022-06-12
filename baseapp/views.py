@@ -156,20 +156,10 @@ def get_dentists(request):
                 )
             if geoform.cleaned_data['latitude'] is not None and geoform.cleaned_data['longitude'] is not None:
                 location = (geoform.cleaned_data['latitude'], geoform.cleaned_data['longitude'])
+                services_obj = searcher()
                 if request.POST.get('sort_by') == "near":
-                    services_obj = searcher()
-                    results = get_results(
-                        sort_by_distance(
-                            list(services_obj),
-                            (
-                                geoform.cleaned_data['latitude'],
-                                geoform.cleaned_data['longitude']
-                            )
-                        ),
-                        location
-                    )
+                    results = get_results(sort_by_distance(list(services_obj), location), location)
                 else:
-                    services_obj = searcher()
                     results = get_results(list(services_obj.order_by('service__price')), location)
                 response = HttpResponse(dumps(results))
             else:
