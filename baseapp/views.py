@@ -102,7 +102,8 @@ def get_dentists(request):
                         language__name=current_language,
                         service__dentist__gender__pk=2,
                         service__dentist__is_fullday=True,
-                        service__dentist__is_queued=True
+                        service__dentist__is_queued=True,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['female'] == "true" and request.POST['queue'] == "true":
                     return Service_translation.objects.filter(
@@ -110,7 +111,8 @@ def get_dentists(request):
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         language__name=current_language,
                         service__dentist__gender__pk=2,
-                        service__dentist__is_queued=True
+                        service__dentist__is_queued=True,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['female'] == "true" and request.POST['time'] == "true":
                     return Service_translation.objects.filter(
@@ -118,7 +120,8 @@ def get_dentists(request):
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         language__name=current_language,
                         service__dentist__gender__pk=2,
-                        service__dentist__is_fullday=True
+                        service__dentist__is_fullday=True,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['queue'] == "true" and request.POST['time'] == "true":
                     return Service_translation.objects.filter(
@@ -126,40 +129,55 @@ def get_dentists(request):
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         language__name=current_language,
                         service__dentist__is_fullday=True,
-                        service__dentist__is_queued=True
+                        service__dentist__is_queued=True,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['female'] == "true":
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         service__dentist__gender__pk=2,
-                        language__name=current_language
+                        language__name=current_language,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['queue'] == "true":
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         language__name=current_language,
-                        service__dentist__is_queued=True
+                        service__dentist__is_queued=True,
+                        service__dentist__user__is_active=True
                     )
                 elif request.POST['time'] == "true":
                     return Service_translation.objects.filter(
                         service__service_category__pk=searchform.cleaned_data['service'],
                         service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
                         service__dentist__is_fullday=True,
-                        language__name=current_language
+                        language__name=current_language,
+                        service__dentist__user__is_active=True
                     )
                 return Service_translation.objects.filter(
                     service__service_category__pk=searchform.cleaned_data['service'],
                     service__dentist__clinic__region__pk=searchform.cleaned_data['region'],
-                    language__name=current_language
+                    language__name=current_language,
+                    service__dentist__user__is_active=True
                 )
             if geoform.cleaned_data['latitude'] is not None and geoform.cleaned_data['longitude'] is not None:
                 location = (geoform.cleaned_data['latitude'], geoform.cleaned_data['longitude'])
-                services_obj = searcher()
                 if request.POST.get('sort_by') == "near":
-                    results = get_results(sort_by_distance(list(services_obj), location), location)
+                    services_obj = searcher()
+                    results = get_results(
+                        sort_by_distance(
+                            list(services_obj),
+                            (
+                                geoform.cleaned_data['latitude'],
+                                geoform.cleaned_data['longitude']
+                            )
+                        ),
+                        location
+                    )
                 else:
+                    services_obj = searcher()
                     results = get_results(list(services_obj.order_by('service__price')), location)
                 response = HttpResponse(dumps(results))
             else:

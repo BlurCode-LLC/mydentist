@@ -173,9 +173,7 @@
 						}
 					}
 				} else {
-					$("main > .filter").remove()
-					$("main > .container").remove()
-					$("main").append(
+					$(`#pills-${tab} > .row`).append(
 						$("<div class=\"big_title mt-4 mb-4\"></div>").html("{% trans "Kechirasiz, sizning so'rovingiz bo'yicha tish shifokorlari topilmadi" %}")
 					)
 				}
