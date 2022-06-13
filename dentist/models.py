@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from baseapp.models import Language
+from dentist.service_handler import service_creator
 
 
 class Clinic(models.Model):
@@ -118,6 +119,8 @@ class User(models.Model):
                 speciality="",
                 language=Language.objects.get(name="en")
             )
+        if len(Service.objects.filter(dentist=self)) == 0:
+            service_creator(self, Service, Service_category, Service_translation)
 
 
 class User_translation(models.Model):
@@ -185,7 +188,6 @@ class Service(models.Model):
 
     name = models.CharField(_("Xizmat nomi"), max_length=100)
     service_category = models.ForeignKey("dentist.Service_category", verbose_name=_("Xizmat turi"), on_delete=models.CASCADE, related_name="service_category_service", blank=True, null=True)
-    duration = models.IntegerField(_("Xizmat davomiyligi"), blank=True, null=True)
     price = models.IntegerField(_("Xizmat narxi"), blank=True, null=True)
     dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_service")
     is_editable = models.BooleanField(_("Nomini o'zgartirish mumkinmi?"), default=True)

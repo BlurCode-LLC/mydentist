@@ -1,0 +1,106 @@
+[
+    {
+        "name": {
+            "uz": "Konsultatsiya",
+            "ru": "Консултация",
+            "en": "Consultation"
+        },
+        "category_id": 1
+    },
+    {
+        "name": {
+            "uz": "Tish olish. Oddiy",
+            "ru": "Удаление зуба. Простое",
+            "en": "Tooth removal. Simple"
+        },
+        "category_id": 2
+    },
+    {
+        "name": {
+            "uz": "Tish olish. Murakkab",
+            "ru": "Удаление зуба. Сложное",
+            "en": "Tooth removal. Complex"
+        },
+        "category_id": 2
+    },
+    {
+        "name": {
+            "uz": "Plombalash. Svetoplomba",
+            "ru": "Пломба. Светопломба",
+            "en": "Seal. Light"
+        },
+        "category_id": 3
+    },
+    {
+        "name": {
+            "uz": "Plombalash. Kimyoviy qotuvchi",
+            "ru": "Пломба. Химически отвердевающая",
+            "en": "Seal. Chemically hardening"
+        },
+        "category_id": 3
+    },
+    {
+        "name": {
+            "uz": "Plombalash. Oddiy",
+            "ru": "Пломба. Простая",
+            "en": "Seal. Simple"
+        },
+        "category_id": 3
+    },
+    {
+        "name": {
+            "uz": "Tishlarni professional tozalash",
+            "ru": "Профессиональная чистка зубов",
+            "en": "Professional teeth cleaning"
+        },
+        "category_id": 4
+    },
+    {
+        "name": {
+            "uz": "Tishlarni oqartirish (zoom)",
+            "ru": "Отбеливание зубов (zoom)",
+            "en": "Teeth whitening (zoom)"
+        },
+        "category_id": 5
+    },
+    {
+        "name": {
+            "uz": "Sirkoniy tishlar",
+            "ru": "Цирконовые зубы",
+            "en": "Zircon teeth"
+        },
+        "category_id": 6
+    },
+    {
+        "name": {
+            "uz": "Metallokeramik tishlar",
+            "ru": "Металлокерамические зубы",
+            "en": "Metal-ceramic teeth"
+        },
+        "category_id": 7
+    },
+    {
+        "name": {
+            "uz": "Metall tishlar. Sariq",
+            "ru": "Металлические зубы. Жёлтые",
+            "en": "Metal teeth. Yellow"
+        },
+        "category_id": 8
+    },
+    {
+        "name": {
+            "uz": "Metall tishlar. Quyma",
+            "ru": "Металлические зубы. Литые",
+            "en": "Metal teeth. Cast"
+        },
+        "category_id": 8
+    },
+    {
+        "name": {
+            "uz": "Metall tishlar. Tilla",
+            "ru": "Металлические зубы. Золотые",
+            "en": "Metal teeth. Gold"
+        },
+        "category_id": 8
+    }
+]

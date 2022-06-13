@@ -91,6 +91,7 @@
 				},
 				dataType : "json",
 			}).done((result) => {
+				$(".d-none").removeClass("d-none")
 				if (result.length > 0) {
 					if ($("main > .filter").hasClass("d-none")) {
 						$("main > .filter").removeClass("d-none")

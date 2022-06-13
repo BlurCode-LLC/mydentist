@@ -181,7 +181,7 @@ FIXTURES_DIRS = [
     BASE_DIR / 'patient',
 ]
 
-if DEBUG == True:
+if not DEBUG:
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
