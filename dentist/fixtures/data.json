@@ -1,5 +1,564 @@
 [
     {
+        "model": "dentist.clinic",
+        "pk": 1,
+        "fields": {
+            "name": "Sog'lom tabassum",
+            "region": 5,
+            "latitude": 40.784638,
+            "longitude": 72.332524
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 2,
+        "fields": {
+            "name": "Biostomadent",
+            "region": 5,
+            "latitude": 40.808288,
+            "longitude": 72.344401
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 3,
+        "fields": {
+            "name": "Musaffo Stoma Servis",
+            "region": 5,
+            "latitude": 40.778628,
+            "longitude": 72.355082
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 4,
+        "fields": {
+            "name": "\"Xurshid\" davolash muassasasi",
+            "region": 5,
+            "latitude": 40.761752,
+            "longitude": 72.349655
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 5,
+        "fields": {
+            "name": "Family Dent",
+            "region": 5,
+            "latitude": 40.77452,
+            "longitude": 72.357308
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 6,
+        "fields": {
+            "name": "Medical Pro klinikasi",
+            "region": 5,
+            "latitude": 40.746311,
+            "longitude": 72.320613
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 7,
+        "fields": {
+            "name": "Red-White Dental Clinic",
+            "region": 5,
+            "latitude": 40.770132,
+            "longitude": 72.340377
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 8,
+        "fields": {
+            "name": "Neodent Clinic",
+            "region": 5,
+            "latitude": 40.810443,
+            "longitude": 72.323543
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 9,
+        "fields": {
+            "name": "Andijon viloyat stomatologiya poliklinikasi",
+            "region": 5,
+            "latitude": 40.790022,
+            "longitude": 72.333112
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 10,
+        "fields": {
+            "name": "Stomatologiya",
+            "region": 5,
+            "latitude": 40.646161,
+            "longitude": 72.244197
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 11,
+        "fields": {
+            "name": "Viloyat bolalar stomatologiya poliklinikasi",
+            "region": 5,
+            "latitude": 40.795181,
+            "longitude": 72.348533
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 12,
+        "fields": {
+            "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
+            "region": 5,
+            "latitude": 40.751179,
+            "longitude": 72.354252
+        }
+    },
+    {
+        "model": "dentist.clinic",
+        "pk": 13,
+        "fields": {
+            "name": "Oila-dent klinikasi",
+            "region": 5,
+            "latitude": 40.762634,
+            "longitude": 72.366836
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 1,
+        "fields": {
+            "clinic": 1,
+            "name": "Sog'lom tabassum",
+            "address": "Bobur shoh ko'chasi, 109-b uy",
+            "orientir": "Hamkor biznes markazi",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 2,
+        "fields": {
+            "clinic": 1,
+            "name": "Sog'lom tabassum",
+            "address": "Проспект Бабура, 109-б",
+            "orientir": "Бизнес-центр Хамкор",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 3,
+        "fields": {
+            "clinic": 1,
+            "name": "Sog'lom tabassum",
+            "address": "Проспект Бабура, 109-б",
+            "orientir": "Бизнес-центр Хамкор",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 4,
+        "fields": {
+            "clinic": 2,
+            "name": "Biostomadent",
+            "address": "Pirmuhammedov ko'chasi",
+            "orientir": "Trikotaj",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 5,
+        "fields": {
+            "clinic": 2,
+            "name": "Biostomadent",
+            "address": "Улица Пирмухаммедова",
+            "orientir": "Трикотаж",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 6,
+        "fields": {
+            "clinic": 2,
+            "name": "Biostomadent",
+            "address": "Улица Пирмухаммедова",
+            "orientir": "Трикотаж",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 7,
+        "fields": {
+            "clinic": 3,
+            "name": "Musaffo Stoma Servis",
+            "address": "Navoiy shoh ko'chasi",
+            "orientir": "Andijon viloyati hokimiyati",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 8,
+        "fields": {
+            "clinic": 3,
+            "name": "Musaffo Stoma Servis",
+            "address": "Проспект Навои",
+            "orientir": "Хокимият Андижанской области",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 9,
+        "fields": {
+            "clinic": 3,
+            "name": "Musaffo Stoma Servis",
+            "address": "Проспект Навои",
+            "orientir": "Хокимият Андижанской области",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 10,
+        "fields": {
+            "clinic": 4,
+            "name": "\"Xurshid\" davolash muassasasi",
+            "address": "Dalvarzin dahasi, Sarbon ko'chasi, 12-uy",
+            "orientir": null,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 11,
+        "fields": {
+            "clinic": 4,
+            "name": "Медицинское учреждение \"Xurshid\"",
+            "address": "Квартал Далварзин, улица Сарбон, 12",
+            "orientir": null,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 12,
+        "fields": {
+            "clinic": 4,
+            "name": "Медицинское учреждение \"Xurshid\"",
+            "address": "Квартал Далварзин, улица Сарбон, 12",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 13,
+        "fields": {
+            "clinic": 5,
+            "name": "Family Dent",
+            "address": "Navoiy shoh ko'chasi",
+            "orientir": null,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 14,
+        "fields": {
+            "clinic": 5,
+            "name": "Family Dent",
+            "address": "Проспект Навои",
+            "orientir": null,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 15,
+        "fields": {
+            "clinic": 5,
+            "name": "Family Dent",
+            "address": "Проспект Навои",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 16,
+        "fields": {
+            "clinic": 6,
+            "name": "Medical Pro klinikasi",
+            "address": "A. Yo'ldashev ko'chasi",
+            "orientir": "Visus ko'z klinikasi yonida",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 17,
+        "fields": {
+            "clinic": 6,
+            "name": "Клиника Medical Pro",
+            "address": "Улица А.Юлдашева",
+            "orientir": "Глазная клиника",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 18,
+        "fields": {
+            "clinic": 6,
+            "name": "Клиника Medical Pro",
+            "address": "Улица А.Юлдашева",
+            "orientir": "Глазная клиника",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 19,
+        "fields": {
+            "clinic": 7,
+            "name": "Red-White Dental Clinic",
+            "address": "Bobur shoh ko'chasi",
+            "orientir": "Hamkorbank bosh ofisi",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 20,
+        "fields": {
+            "clinic": 7,
+            "name": "Red-White Dental Clinic",
+            "address": "Проспект Бабура",
+            "orientir": "Главный офис Хамкорбанк",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 21,
+        "fields": {
+            "clinic": 7,
+            "name": "Red-White Dental Clinic",
+            "address": "Проспект Бабура",
+            "orientir": "Главный офис Хамкорбанк",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 22,
+        "fields": {
+            "clinic": 8,
+            "name": "Neodent Clinic",
+            "address": "Shimoliy kichik daha, Bobur shoh ko'chasi",
+            "orientir": "Gumbaz parhez taomlari",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 23,
+        "fields": {
+            "clinic": 8,
+            "name": "Neodent Clinic",
+            "address": "Северный малый квартал, проспект Бабура",
+            "orientir": "Диетические блюда Гумбаз",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 24,
+        "fields": {
+            "clinic": 8,
+            "name": "Neodent Clinic",
+            "address": "Северный малый квартал, проспект Бабура",
+            "orientir": "Диетические блюда Гумбаз",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 25,
+        "fields": {
+            "clinic": 9,
+            "name": "Andijon viloyat stomatologiya poliklinikasi",
+            "address": "Bobur shoh ko'chasi 87-uy",
+            "orientir": "1-tug'ruqxona",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 26,
+        "fields": {
+            "clinic": 9,
+            "name": "Андижанская областная стоматологическая поликлиника",
+            "address": "Проспект Бабура, 87",
+            "orientir": "1-роддом",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 27,
+        "fields": {
+            "clinic": 9,
+            "name": "Андижанская областная стоматологическая поликлиника",
+            "address": "Проспект Бабура, 87",
+            "orientir": "1-роддом",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 28,
+        "fields": {
+            "clinic": 10,
+            "name": "Stomatologiya",
+            "address": "Asaka shahar",
+            "orientir": null,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 29,
+        "fields": {
+            "clinic": 10,
+            "name": "Стоматология",
+            "address": "Город Асака",
+            "orientir": null,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 30,
+        "fields": {
+            "clinic": 10,
+            "name": "Стоматология",
+            "address": "Город Асака",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 31,
+        "fields": {
+            "clinic": 11,
+            "name": "Viloyat bolalar stomatologiya poliklinikasi",
+            "address": "Baynalmilal ko'chasi (Cho'lpon)",
+            "orientir": "Yoshlar markazi",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 32,
+        "fields": {
+            "clinic": 11,
+            "name": "Областная детская стоматологическая поликлиника",
+            "address": "Улица Байналминал (Чулпана)",
+            "orientir": "Центр молодёжи",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 33,
+        "fields": {
+            "clinic": 11,
+            "name": "Областная детская стоматологическая поликлиника",
+            "address": "Улица Байналминал (Чулпана)",
+            "orientir": "Центр молодёжи",
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 34,
+        "fields": {
+            "clinic": 12,
+            "name": "\"Stomatolog\" klinikasi (Gorodskoy)",
+            "address": "3-Mikrorayon",
+            "orientir": null,
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 35,
+        "fields": {
+            "clinic": 12,
+            "name": "Клиника \"Стоматолог\" (Городская)",
+            "address": "3-Микрорайон",
+            "orientir": null,
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 36,
+        "fields": {
+            "clinic": 12,
+            "name": "Клиника \"Стоматолог\" (Городская)",
+            "address": "3-Микрорайон",
+            "orientir": null,
+            "language": 3
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 37,
+        "fields": {
+            "clinic": 13,
+            "name": "Oila-dent klinikasi",
+            "address": "Prospekt. Dukchi eshon ko'chasi 24-b uy",
+            "orientir": "Tashkent Premium to'yxonasi",
+            "language": 1
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 38,
+        "fields": {
+            "clinic": 13,
+            "name": "Клиника Oila-dent",
+            "address": "Проспект. Улица Дукчи Эшон 24-б",
+            "orientir": "Tashkent Premium",
+            "language": 2
+        }
+    },
+    {
+        "model": "dentist.clinic_translation",
+        "pk": 39,
+        "fields": {
+            "clinic": 13,
+            "name": "Клиника Oila-dent",
+            "address": "Проспект. Улица Дукчи Эшон 24-б",
+            "orientir": "Tashkent Premium",
+            "language": 3
+        }
+    },
+    {
         "model": "dentist.reason",
         "pk": 1,
         "fields": {

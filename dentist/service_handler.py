@@ -6,15 +6,22 @@ from baseapp.models import Language
 
 def service_creator(dentist, Service, Service_category, Service_translation):
     file_path = global_settings.BASE_DIR / "dentist/services.json"
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         data = load(f)
     for item in data:
-        service = Service.objects.create(
-            dentist=dentist,
-            name=item['name']['uz'],
-            service_category=Service_category.objects.get(pk=item['category_id']),
-            is_editable=False
-        )
+        if item['category_id'] is not None:
+            service = Service.objects.create(
+                dentist=dentist,
+                name=item['name']['uz'],
+                service_category=Service_category.objects.get(pk=item['category_id']),
+                is_editable=False
+            )
+        else:
+            service = Service.objects.create(
+                dentist=dentist,
+                name=item['name']['uz'],
+                is_editable=False
+            )
         for lang in Language.objects.all():
             service_trans = Service_translation.objects.create(
                 name=item['name'][lang.name],

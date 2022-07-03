@@ -5,7 +5,8 @@
             "ru": "Консултация",
             "en": "Consultation"
         },
-        "category_id": 1
+        "category_id": 1,
+        "is_editable": false
     },
     {
         "name": {
@@ -13,7 +14,8 @@
             "ru": "Удаление зуба. Простое",
             "en": "Tooth removal. Simple"
         },
-        "category_id": 2
+        "category_id": 2,
+        "is_editable": false
     },
     {
         "name": {
@@ -21,7 +23,8 @@
             "ru": "Удаление зуба. Сложное",
             "en": "Tooth removal. Complex"
         },
-        "category_id": 2
+        "category_id": 2,
+        "is_editable": false
     },
     {
         "name": {
@@ -29,7 +32,8 @@
             "ru": "Пломба. Светопломба",
             "en": "Seal. Light"
         },
-        "category_id": 3
+        "category_id": 3,
+        "is_editable": false
     },
     {
         "name": {
@@ -37,7 +41,8 @@
             "ru": "Пломба. Химически отвердевающая",
             "en": "Seal. Chemically hardening"
         },
-        "category_id": 3
+        "category_id": 3,
+        "is_editable": false
     },
     {
         "name": {
@@ -45,7 +50,8 @@
             "ru": "Пломба. Простая",
             "en": "Seal. Simple"
         },
-        "category_id": 3
+        "category_id": 3,
+        "is_editable": false
     },
     {
         "name": {
@@ -53,7 +59,8 @@
             "ru": "Профессиональная чистка зубов",
             "en": "Professional teeth cleaning"
         },
-        "category_id": 4
+        "category_id": 4,
+        "is_editable": false
     },
     {
         "name": {
@@ -61,7 +68,8 @@
             "ru": "Отбеливание зубов (zoom)",
             "en": "Teeth whitening (zoom)"
         },
-        "category_id": 5
+        "category_id": 5,
+        "is_editable": false
     },
     {
         "name": {
@@ -69,7 +77,8 @@
             "ru": "Цирконовые зубы",
             "en": "Zircon teeth"
         },
-        "category_id": 6
+        "category_id": 6,
+        "is_editable": false
     },
     {
         "name": {
@@ -77,7 +86,8 @@
             "ru": "Металлокерамические зубы",
             "en": "Metal-ceramic teeth"
         },
-        "category_id": 7
+        "category_id": 7,
+        "is_editable": false
     },
     {
         "name": {
@@ -85,7 +95,8 @@
             "ru": "Металлические зубы. Жёлтые",
             "en": "Metal teeth. Yellow"
         },
-        "category_id": 8
+        "category_id": 8,
+        "is_editable": false
     },
     {
         "name": {
@@ -93,14 +104,205 @@
             "ru": "Металлические зубы. Литые",
             "en": "Metal teeth. Cast"
         },
-        "category_id": 8
+        "category_id": 8,
+        "is_editable": false
     },
-    {
+    {   
         "name": {
             "uz": "Metall tishlar. Tilla",
             "ru": "Металлические зубы. Золотые",
             "en": "Metal teeth. Gold"
         },
-        "category_id": 8
+        "category_id": 8,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Implant. Econom",
+            "ru": "Имплант. Эконом",
+            "en": "Implant. Economy"
+        },
+        "category_id": 9,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Implant. Premium",
+            "ru": "Имплант. Премиум",
+            "en": "Implant. Premium"
+        },
+        "category_id": 9,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Breket (sim) qo'yish. Oddiy",
+            "ru": "Укладка брикетов. Простая",
+            "en": "Briquette. Simple"
+        },
+        "category_id": 10,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Breket (sim) qo'yish. Keramik",
+            "ru": "Укладка брикетов. Керамическая",
+            "en": "Briquette. Ceramic"
+        },
+        "category_id": 10,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Protez. Byugel",
+            "ru": "Протез. Бюгельный",
+            "en": "Prosthesis. Clasp"
+        },
+        "category_id": 11,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Protez. Oddiy",
+            "ru": "Протез. Простой",
+            "en": "Prosthesis. Simple"
+        },
+        "category_id": 11,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Protez. Yumshoq",
+            "ru": "Протез. Мягкий",
+            "en": "Prosthesis. Soft"
+        },
+        "category_id": 11,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Plastmassa tishlar",
+            "ru": "Пластиковые зубы",
+            "en": "Plastic teeth"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Davolash (anesteziya, nervini olish, kanal plomba) 1 kanalli",
+            "ru": "Лечение (анестезия, удаление нерва, пломбирование каналов) 1 канал",
+            "en": "Treatment (anesthesia, nerve removal, canal filling) 1 canal"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Davolash (anesteziya, nervini olish, kanal plomba) 2 kanalli",
+            "ru": "Лечение (анестезия, удаление нерва, пломбирование каналов) 2 канал",
+            "en": "Treatment (anesthesia, nerve removal, canal filling) 2 canal"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Davolash (anesteziya, nervini olish, kanal plomba) 3 kanalli",
+            "ru": "Лечение (анестезия, удаление нерва, пломбирование каналов) 3 канал",
+            "en": "Treatment (anesthesia, nerve removal, canal filling) 3 canal"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Davolash (anesteziya, nervini olish, kanal plomba) 4 kanalli",
+            "ru": "Лечение (анестезия, удаление нерва, пломбирование каналов) 4 канал",
+            "en": "Treatment (anesthesia, nerve removal, canal filling) 4 canal"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Fissura germetizatsiyasi",
+            "ru": "Герметизация фиссур",
+            "en": "Fissure sealing"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Rentgen",
+            "ru": "Рентген",
+            "en": "X-ray"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Ottok",
+            "ru": "Отток",
+            "en": "Outflow"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Quyma shtift",
+            "ru": "Литой штифт",
+            "en": "Cast pin"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Shisha tolali shtift",
+            "ru": "Штифт из стекловолокна",
+            "en": "Fiberglass pin"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Vaqtinchalik qoplama",
+            "ru": "Временное покрытие",
+            "en": "Temporary cover"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Ildiz uchi rezeksiyasi",
+            "ru": "Резекция верхушки корня",
+            "en": "Root tip resection"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Vaqtinchalik plomba",
+            "ru": "Временная пломба",
+            "en": "Temporary filling"
+        },
+        "category_id": null,
+        "is_editable": false
+    },
+    {   
+        "name": {
+            "uz": "Devitalizatsiyalovchi pasta qo'yish",
+            "ru": "Применение девитализирующей пасты",
+            "en": "Application of devitalizing paste"
+        },
+        "category_id": null,
+        "is_editable": false
     }
 ]
