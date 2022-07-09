@@ -6,7 +6,8 @@
             "en": "Consultation"
         },
         "category_id": 1,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {
         "name": {
@@ -15,7 +16,8 @@
             "en": "Tooth removal. Simple"
         },
         "category_id": 2,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -24,7 +26,8 @@
             "en": "Tooth removal. Complex"
         },
         "category_id": 2,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -33,7 +36,8 @@
             "en": "Seal. Light"
         },
         "category_id": 3,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -42,7 +46,8 @@
             "en": "Seal. Chemically hardening"
         },
         "category_id": 3,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -51,7 +56,8 @@
             "en": "Seal. Simple"
         },
         "category_id": 3,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -60,7 +66,8 @@
             "en": "Professional teeth cleaning"
         },
         "category_id": 4,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {
         "name": {
@@ -69,7 +76,8 @@
             "en": "Teeth whitening (zoom)"
         },
         "category_id": 5,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {
         "name": {
@@ -78,7 +86,8 @@
             "en": "Zircon teeth"
         },
         "category_id": 6,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -87,7 +96,8 @@
             "en": "Metal-ceramic teeth"
         },
         "category_id": 7,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -96,7 +106,8 @@
             "en": "Metal teeth. Yellow"
         },
         "category_id": 8,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {
         "name": {
@@ -105,7 +116,8 @@
             "en": "Metal teeth. Cast"
         },
         "category_id": 8,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -114,7 +126,8 @@
             "en": "Metal teeth. Gold"
         },
         "category_id": 8,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -123,7 +136,8 @@
             "en": "Implant. Economy"
         },
         "category_id": 9,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -132,7 +146,8 @@
             "en": "Implant. Premium"
         },
         "category_id": 9,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -141,7 +156,8 @@
             "en": "Briquette. Simple"
         },
         "category_id": 10,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -150,7 +166,8 @@
             "en": "Briquette. Ceramic"
         },
         "category_id": 10,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -159,7 +176,8 @@
             "en": "Prosthesis. Clasp"
         },
         "category_id": 11,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -168,7 +186,8 @@
             "en": "Prosthesis. Simple"
         },
         "category_id": 11,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -177,7 +196,8 @@
             "en": "Prosthesis. Soft"
         },
         "category_id": 11,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -186,7 +206,8 @@
             "en": "Plastic teeth"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -195,7 +216,8 @@
             "en": "Treatment (anesthesia, nerve removal, canal filling) 1 canal"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -204,7 +226,8 @@
             "en": "Treatment (anesthesia, nerve removal, canal filling) 2 canal"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -213,7 +236,8 @@
             "en": "Treatment (anesthesia, nerve removal, canal filling) 3 canal"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -222,7 +246,8 @@
             "en": "Treatment (anesthesia, nerve removal, canal filling) 4 canal"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -231,7 +256,8 @@
             "en": "Fissure sealing"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -240,7 +266,8 @@
             "en": "X-ray"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -249,7 +276,8 @@
             "en": "Outflow"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -258,7 +286,8 @@
             "en": "Cast pin"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -267,7 +296,8 @@
             "en": "Fiberglass pin"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -276,7 +306,8 @@
             "en": "Temporary cover"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -285,7 +316,8 @@
             "en": "Root tip resection"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     },
     {   
         "name": {
@@ -294,7 +326,8 @@
             "en": "Temporary filling"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": true
     },
     {   
         "name": {
@@ -303,6 +336,7 @@
             "en": "Application of devitalizing paste"
         },
         "category_id": null,
-        "is_editable": false
+        "is_editable": false,
+        "one_tooth": false
     }
 ]

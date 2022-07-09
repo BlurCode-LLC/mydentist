@@ -191,6 +191,7 @@ class Service(models.Model):
     price = models.IntegerField(_("Xizmat narxi"), blank=True, null=True)
     dentist = models.ForeignKey("dentist.User", verbose_name=_("Tish shifokori"), on_delete=models.CASCADE, related_name="dentist_service")
     is_editable = models.BooleanField(_("Nomini o'zgartirish mumkinmi?"), default=True)
+    one_tooth = models.BooleanField(_("Bitta tish uchun"), default=False)
 
     class Meta:
         verbose_name = _("Xizmat")
