@@ -290,7 +290,6 @@
                             <thead class="table-light">
                                 <tr>
                                     <th class="border" colspan="3">{% trans "Xizmat nomi" %}</th>
-                                    <th class="border" rowspan="2">{% trans "Davomiyligi" %}</th>
                                     <th class="border" rowspan="2">{% trans "Narxi" %}</th>
                                     <th class="border" rowspan="2"></th>
                                     <th class="border" rowspan="2"></th>
@@ -307,10 +306,9 @@
                                     <td class="border">{{ service.name_uz }}</td>
                                     <td class="border">{{ service.name_ru }}</td>
                                     <td class="border">{{ service.name_en }}</td>
-                                    <td class="border" value="{{ service.duration }}">{% convert_time service.duration %}</td>
-                                    <td class="border">{{ service.price }} {% trans "so'm" %}</td>
+                                    <td class="border">{% if service.price is not none %}{{ service.price }} {% trans "so'm" %}{% else %}-{% endif %}</td>
                                     <td class="border">
-                                        <button class="edit-service" class="border-0 bg-white ms-1" key="{{ service.id }}">
+                                        <button class="edit-service" class="border-0 bg-white ms-1" key="{{ service.id }}" editable="{{ service.is_editable }}">
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </td>
@@ -748,13 +746,25 @@
             }
         })
         $(".edit-service").on("click", function () {
+            let is_editable = $(this).attr("editable")
+            console.log(is_editable)
             $("button[data-bs-target='#serviceModal']").click()
             $("#id_service").val($(this).attr("key"))
-            $("#id_name_uz").val($($(this).parent().siblings()[0]).text())
-            $("#id_name_ru").val($($(this).parent().siblings()[1]).text())
-            $("#id_name_en").val($($(this).parent().siblings()[2]).text())
-            $("#id_duration").val(parseInt($($(this).parent().siblings()[3]).attr("value")))
-            $("#id_price").val($($(this).parent().siblings()[4]).text().split(" ")[0])
+            let languages = ["uz", "ru", "en"]
+            for (let i = 0; i < languages.length; i++) {
+                $(`#id_name_${languages[i]}`).val($($(this).parent().siblings()[i]).text())
+                if (is_editable == "False") {
+                    $(`#id_name_${languages[i]}`).attr("readonly", "readonly")
+                } else if (is_editable == "True") {
+                    let attr = $(`#id_name_${languages[i]}`).attr("readonly")
+                    if (typeof attr !== 'undefined' && attr !== false) {
+                        $(`#id_name_${languages[i]}`).removeAttr("readonly")
+                    }
+                }
+            }
+            let price = $($(this).parent().siblings()[3]).text()
+            console.log(price)
+            $("#id_price").val(price == "-" ? "" : price.split(" ")[0])
         })
         $(".delete-service").on("click", function () {
             if (confirm("{% trans "Xizmatni o'chirishni tasdiqlaysizmi?" %}") === true) {

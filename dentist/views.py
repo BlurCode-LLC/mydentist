@@ -175,7 +175,7 @@ def settings(request, active_tab="profile"):
         clinic=clinic,
         language__name="en"
     )
-    services_obj = Service.objects.filter(dentist=dentist)
+    services_obj = Service.objects.filter(dentist=dentist).order_by("id")
     services = []
     for service in services_obj:
         service_uz = Service_translation.objects.get(service=service, language__name="uz")
@@ -186,8 +186,8 @@ def settings(request, active_tab="profile"):
             'name_uz': service_uz.name,
             'name_ru': service_ru.name,
             'name_en': service_en.name,
-            'duration': service.duration,
-            'price': service.price
+            'price': service.price,
+            'is_editable': service.is_editable
         })
     cabinet_images = Cabinet_Image.objects.filter(dentist=dentist)
     if len(cabinet_images) > 1:
@@ -446,7 +446,6 @@ def update(request, form):
                     service_ru.name = serviceform.cleaned_data['name_ru']
                     service_en.name = serviceform.cleaned_data['name_en']
                     service.price = serviceform.cleaned_data['price']
-                    service.duration = serviceform.cleaned_data['duration']
                     service.save()
                     service_uz.save()
                     service_ru.save()
@@ -454,7 +453,6 @@ def update(request, form):
                 else:
                     service = Service.objects.create(
                         name=serviceform.cleaned_data['name_uz'],
-                        duration=serviceform.cleaned_data['duration'],
                         price=serviceform.cleaned_data['price'],
                         dentist=dentist
                     )
