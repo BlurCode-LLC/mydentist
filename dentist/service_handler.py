@@ -23,11 +23,17 @@ def service_creator(dentist, Service, Service_category, Service_translation):
                 is_editable=False
             )
         for lang in Language.objects.all():
-            service_trans = Service_translation.objects.create(
-                name=item['name'][lang.name],
-                language=Language.objects.get(name=lang.name),
-                service=service
+            service_trans = Service_translation.objects.get(
+                service=service,
+                language=lang
             )
+            service_trans.name = item['name'][lang.name]
+            service_trans.save()
+            # service_trans = Service_translation.objects.create(
+            #     name=item['name'][lang.name],
+            #     language=Language.objects.get(name=lang.name),
+            #     service=service
+            # )
 
 
 # def get_teeth(patient, Tooth_class):
