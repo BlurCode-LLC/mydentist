@@ -333,7 +333,7 @@
                 text = ` ${temp[1]}, ${temp[0]}, ${time}`
                 $("#id_begin_time").val(time).change()
                 $(".form-title p").text(text)
-                $("#id_duration").val(15).change()
+                $("#id_duration").val(30).change()
                 $("#id_comment").val("")
                 $("#appointment-delete-button").addClass("d-none")
             })
@@ -531,19 +531,12 @@
                 $(".input-group div.w-100").remove()
             }
         })
-        $("#id_service"){% for service in services %}.append(
-            $("<option></option>").html("{{ service.service_name.name }}")
-        )
-        {% endfor %}
-        $("#id_service").on("change", function() {
-            {% for service in services %}
-            if ($("#id_service").val() == "{{ service.service_name.name }}") {
-                $("#id_duration").val("{{ service.service.duration }}").change()
-            }
-            {% endfor %}
-        })
         $("#id_begin_time"){% for time in times %}.append(
             $("<option></option>").html("{{ time }}")
+        )
+        {% endfor %}
+        $("#id_service"){% for service in services %}.append(
+            $("<option></option>").html("{{ service.service_name.name }}")
         )
         {% endfor %}
     </script>

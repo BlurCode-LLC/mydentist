@@ -743,7 +743,7 @@ def patient(request, id, active_tab="profile"):
     )
     while day_begin < day_end:
         times.append(day_begin.strftime('%H:%M'))
-        day_begin += timedelta(minutes=15)
+        day_begin += timedelta(minutes=30)
     patientform = AppointmentPatientForm({
         'name': str(patient_extra),
         'phone_number': patient_extra.phone_number,

@@ -345,15 +345,6 @@ class ServiceForm(forms.Form):
         max_length=150,
         localize=True
     )
-    duration = forms.CharField(
-        label=_("Xizmat davomiyligi"),
-        widget=forms.Select(
-            attrs={
-                'class': "form-select wid"
-            },
-            choices=CHOICES['duration']
-        )
-    )
     price = forms.IntegerField(
         label=_("Xizmat narxi"),
         widget=forms.NumberInput(

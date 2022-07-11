@@ -173,9 +173,11 @@ def appointments(request):
     )
     while day_begin < day_end:
         times.append(day_begin.strftime('%H:%M'))
-        day_begin += timedelta(minutes=15)
+        day_begin += timedelta(minutes=30)
     patientform = AppointmentPatientForm()
     appointmentform = AppointmentForm()
+    # appointmentform['service'].choices = [(service['service'].id, service['service_name'].name) for service in services]
+    print(appointmentform)
     return render(request, "appointment/appointments.html", {
         'patientform': patientform,
         'appointmentform': appointmentform,
@@ -374,7 +376,7 @@ def table(request):
                 begin__month=time.month,
                 begin__day=time.day
             ))
-        day_begin += timedelta(minutes=15)
+        day_begin += timedelta(minutes=30)
         html += "</tr>"
     html += "</tbody></table><script type='text/javascript'>$('.overflow').css({'overflow-x': 'scroll','overflow-y': 'scroll','height': '45vh'})</script>"
     return HttpResponse(html)
@@ -444,7 +446,7 @@ def test_table(request):
         dentist.worktime_end.hour,
         dentist.worktime_end.minute
     )
-    while day_begin <= day_end:
+    while day_begin < day_end:
         table.append([])
         table[-1].append({
             'class': "",
@@ -468,7 +470,7 @@ def test_table(request):
                     begin__day=time.day
                 )
             ))
-        day_begin += timedelta(minutes=15)
+        day_begin += timedelta(minutes=30)
     return JsonResponse(table, safe=False)
 
 

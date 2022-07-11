@@ -14,7 +14,8 @@ def service_creator(dentist, Service, Service_category, Service_translation):
                 dentist=dentist,
                 name=item['name']['uz'],
                 service_category=Service_category.objects.get(pk=item['category_id']),
-                is_editable=False
+                is_editable=False,
+                one_tooth=item['one_tooth']
             )
         else:
             service = Service.objects.create(

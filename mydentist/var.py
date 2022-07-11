@@ -104,21 +104,13 @@ CHOICES = {
         ('2', _("Ha"))
     ],
     'duration': [
-        ("15", _("15 daqiqa")),
         ("30", _("30 daqiqa")),
-        ("45", _("45 daqiqa")),
         ("60", _("1 soat")),
-        ("75", _("1 soat 15 daqiqa")),
         ("90", _("1 soat 30 daqiqa")),
-        ("105", _("1 soat 45 daqiqa")),
         ("120", _("2 soat")),
-        ("135", _("2 soat 15 daqiqa")),
         ("150", _("2 soat 30 daqiqa")),
-        ("165", _("2 soat 45 daqiqa")),
         ("180", _("3 soat")),
-        ("195", _("3 soat 15 daqiqa")),
         ("210", _("3 soat 30 daqiqa")),
-        ("225", _("3 soat 45 daqiqa")),
         ("240", _("4 soat")),
     ],
     # 'reason': [

@@ -12,7 +12,7 @@ from jwt import encode, decode
 
 from appointment.models import Appointment
 from baseapp.models import Language
-from dentist.models import Patient, User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
+from dentist.models import Expire, Patient, User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
 from notification.models import *
 from patient.models import User as PatientUser
 from .var import CHOICES, GENDERS, NEW_LINE
@@ -29,7 +29,11 @@ def is_authenticated(request, status):
         if status == "dentist":
             try:
                 user = DentistUser.objects.get(user__username=request.user.username)
-                return True
+                expire = Expire.objects.filter(dentist=user).order_by('-id').first()
+                print(timezone.now() < expire.expire_date)
+                if timezone.now() < expire.expire_date:
+                    return True
+                return False
             except:
                 return False
         elif status == "patient":
@@ -170,35 +174,39 @@ def get_results(services_obj, location):
     services = sort_by_distance(services, location, priced=True)
     for service_obj in services:
         dentist = DentistUser.objects.get(pk=service_obj.service.dentist_id)
-        dentist_extra = User_translation.objects.filter(dentist=dentist, language__pk=service_obj.language_id)[0]
-        clinic = Clinic.objects.get(pk=dentist.clinic_id)
-        clinic_extra = Clinic_translation.objects.filter(clinic=clinic, language__pk=service_obj.language_id)[0]
-        dist = distance.distance((clinic.latitude, clinic.longitude), location).km
-        worktime_begin = dentist.worktime_begin
-        worktime_end = dentist.worktime_end
-        service_category = service_obj.service.service_category
-        service_name = service_category.service_category_translation.get(language=service_obj.language).name
-        services = list(Service.objects.filter(service_category=service_category, dentist=dentist).order_by("price"))
-        price_min = services[0].price
-        price_max = services[-1].price
-        results.append({
-            'image': dentist.image.url,
-            'clinic_name': clinic_extra.name,
-            'fullname': dentist_extra.fullname,
-            'address': clinic_extra.address,
-            'orientir': clinic_extra.orientir,
-            'latitude': clinic.latitude,
-            'longitude': clinic.longitude,
-            'distance': dist,
-            'worktime_begin': f"{worktime_begin.hour}:{worktime_begin.minute:02d}",
-            'worktime_end': f"{worktime_end.hour}:{worktime_end.minute:02d}",
-            'is_fullday': dentist.is_fullday,
-            'phone_number': dentist.phone_number,
-            'service_name': service_name,
-            'service_price_min': price_min,
-            'service_price_max': price_max,
-            'slug': dentist.slug,
-        })
+        expire = Expire.objects.filter(dentist=dentist).order_by('-id').first()
+        if timezone.now() < expire.expire_date:
+            dentist_extra = User_translation.objects.filter(dentist=dentist, language__pk=service_obj.language_id)[0]
+            clinic = Clinic.objects.get(pk=dentist.clinic_id)
+            clinic_extra = Clinic_translation.objects.filter(clinic=clinic, language__pk=service_obj.language_id)[0]
+            dist = distance.distance((clinic.latitude, clinic.longitude), location).km
+            worktime_begin = dentist.worktime_begin
+            worktime_end = dentist.worktime_end
+            service_category = service_obj.service.service_category
+            service_name = service_category.service_category_translation.get(language=service_obj.language).name
+            services = list(Service.objects.filter(service_category=service_category, dentist=dentist).order_by("price"))
+            price_min = services[0].price
+            price_max = services[-1].price
+            results.append({
+                'image': dentist.image.url,
+                'clinic_name': clinic_extra.name,
+                'fullname': dentist_extra.fullname,
+                'address': clinic_extra.address,
+                'orientir': clinic_extra.orientir,
+                'latitude': clinic.latitude,
+                'longitude': clinic.longitude,
+                'distance': dist,
+                'worktime_begin': f"{worktime_begin.hour}:{worktime_begin.minute:02d}",
+                'worktime_end': f"{worktime_end.hour}:{worktime_end.minute:02d}",
+                'is_fullday': dentist.is_fullday,
+                'phone_number': dentist.phone_number,
+                'service_name': service_name,
+                'service_price_min': price_min,
+                'service_price_max': price_max,
+                'slug': dentist.slug,
+            })
+        else:
+            continue
     return results
 
 
@@ -214,7 +222,7 @@ def compare_time(datetime, appointments):
                 )[0]
                 duration = appointment.end - appointment.begin
                 minutes = duration.seconds // 60
-                return f"<td class=\"appointment\" rowspan=\"{minutes // 15}\"><div>{patient}<br>{service.name}</div></td>"
+                return f"<td class=\"appointment\" rowspan=\"{minutes // 30}\"><div>{patient}<br>{service.name}</div></td>"
             else:
                 return "<td class=\"d-none\"></td>"
     return f"<td class=\"time\">{datetime.strftime('%H:%M')}</td>"
@@ -233,7 +241,7 @@ def test_compare_time(datetime, appointments):
                 minutes = duration.seconds // 60
                 return {
                     'class': "appointment",
-                    'rowspan': minutes // 15,
+                    'rowspan': minutes // 30,
                     'name': f"{patient}<br>{service.name}"
                 }
             else:

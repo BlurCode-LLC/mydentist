@@ -430,6 +430,33 @@ def update(request, form):
             if serviceform.is_valid():
                 if request.POST['service'] != "":
                     service = Service.objects.get(pk=int(request.POST['service']))
+                    if service.is_editable:
+                        service_uz = Service_translation.objects.get(
+                            service=service,
+                            language__name="uz"
+                        )
+                        service_ru = Service_translation.objects.get(
+                            service=service,
+                            language__name="ru"
+                        )
+                        service_en = Service_translation.objects.get(
+                            service=service,
+                            language__name="en"
+                        )
+                        service_uz.name = serviceform.cleaned_data['name_uz']
+                        service_ru.name = serviceform.cleaned_data['name_ru']
+                        service_en.name = serviceform.cleaned_data['name_en']
+                        service_uz.save()
+                        service_ru.save()
+                        service_en.save()
+                    service.price = serviceform.cleaned_data['price']
+                    service.save()
+                else:
+                    service = Service.objects.create(
+                        name=serviceform.cleaned_data['name_uz'],
+                        price=serviceform.cleaned_data['price'],
+                        dentist=dentist
+                    )
                     service_uz = Service_translation.objects.get(
                         service=service,
                         language__name="uz"
@@ -445,17 +472,9 @@ def update(request, form):
                     service_uz.name = serviceform.cleaned_data['name_uz']
                     service_ru.name = serviceform.cleaned_data['name_ru']
                     service_en.name = serviceform.cleaned_data['name_en']
-                    service.price = serviceform.cleaned_data['price']
-                    service.save()
                     service_uz.save()
                     service_ru.save()
                     service_en.save()
-                else:
-                    service = Service.objects.create(
-                        name=serviceform.cleaned_data['name_uz'],
-                        price=serviceform.cleaned_data['price'],
-                        dentist=dentist
-                    )
                 serviceform = ServiceForm()
                 request.session['success_message'] = "Updated successfully"
                 return redirect("dentx:settings", active_tab="services")
@@ -463,10 +482,22 @@ def update(request, form):
     
 
 def delete_service(request):
+    if not is_authenticated(request, "dentist"):
+        if not is_authenticated(request, "patient"):
+            return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")
+        else:
+            return redirect(request.META.get("HTTP_REFERER", "/"))
+    else:
+        check_language(request, "dentist")
     if request.method == "POST":
         print(request.POST)
         service = Service.objects.get(pk=int(request.POST['id']))
-        service.delete()
+        print(service.is_editable)
+        if service.is_editable:
+            service.delete()
+        else:
+            service.price = None
+            service.save()
         return JsonResponse({
             'link': reverse(
                 "dentx:settings",
@@ -478,6 +509,13 @@ def delete_service(request):
 
 
 def update_photo(request):
+    if not is_authenticated(request, "dentist"):
+        if not is_authenticated(request, "patient"):
+            return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")
+        else:
+            return redirect(request.META.get("HTTP_REFERER", "/"))
+    else:
+        check_language(request, "dentist")
     if request.method == "POST":
         photo = request.FILES.get("file")
         dentist = DentistUser.objects.get(user=request.user)
@@ -489,6 +527,13 @@ def update_photo(request):
 
 
 def delete_cabinet_photo(request):
+    if not is_authenticated(request, "dentist"):
+        if not is_authenticated(request, "patient"):
+            return redirect(f"{global_settings.LOGIN_URL_DENTX}?next={request.path}")
+        else:
+            return redirect(request.META.get("HTTP_REFERER", "/"))
+    else:
+        check_language(request, "dentist")
     if request.method == "POST":
         cabinet_photo = Cabinet_Image.objects.get(image=request.POST['image'])
         cabinet_photo.delete()
