@@ -82,7 +82,10 @@ def get_appointments(appointments):
             'dentist': User.objects.get(pk=dentist_extra.user_id),
             'dentist_extra': dentist_extra,
             'patient': PatientUser.objects.get(pk=appointment.patient_id),
-            'service': Service_translation.objects.filter(service__pk=appointment.service_id)[0],
+            'services': [Service_translation.objects.filter(
+                service__pk=procedure.service_id,
+                language__pk=dentist_extra.language_id
+            ).first() for procedure in appointment.appointment_procedure.all()],
             'appointment': appointment
         })
     return results
@@ -233,16 +236,12 @@ def test_compare_time(datetime, appointments):
         if datetime - appointment.begin >= timedelta() and appointment.end - datetime > timedelta():
             if datetime - appointment.begin == timedelta():
                 patient = PatientUser.objects.get(pk=appointment.patient_id)
-                service = Service_translation.objects.filter(
-                    service__pk=appointment.service_id,
-                    language__pk=DentistUser.objects.get(pk=appointment.dentist_id).language_id
-                )[0]
                 duration = appointment.end - appointment.begin
                 minutes = duration.seconds // 60
                 return {
                     'class': "appointment",
                     'rowspan': minutes // 30,
-                    'name': f"{patient}<br>{service.name}"
+                    'name': f"{patient}<br>{appointment.begin.strftime('%H:%M')} - {appointment.end.strftime('%H:%M')}",
                 }
             else:
                 return {

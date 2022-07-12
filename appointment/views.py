@@ -104,11 +104,7 @@ def appointments(request):
                     success = _("Yangi bemor qo'shildi")
                     text = mark_safe(f"{success}{NEW_LINE}{_('Telefon raqam')}: {patient.phone_number}{NEW_LINE}{_('Parol')}: user{id}")
             if is_success:
-                service_translation = Service_translation.objects.filter(
-                    name=appointmentform.cleaned_data['service'],
-                    language__pk=dentist.language_id
-                )[0]
-                service = Service.objects.get(pk=service_translation.service_id)
+                services = request.POST.getlist('service')
                 begin = appointmentform.cleaned_data['begin_day']
                 begin_day = int(begin.split("-")[0])
                 begin_month = MONTHS.index(begin.split("-")[1].split(" ")[0].capitalize()) + 1
@@ -128,12 +124,16 @@ def appointments(request):
                     appointment = Appointment.objects.create(
                         dentist=dentist,
                         patient=patient,
-                        service=service,
                         begin=begin,
                         end=end,
                         comment=appointmentform.cleaned_data['comment'],
                         status="waiting"
                     )
+                    for service in services:
+                        procedure = Procedure.objects.create(
+                            appointment=appointment,
+                            service=Service.objects.get(pk=int(service))
+                        )
                     try:
                         query = Query.objects.get(patient=patient)
                         query.delete()
@@ -143,7 +143,7 @@ def appointments(request):
                         sender=dentist,
                         recipient=patient,
                         type="appointment",
-                        message=f"{service.name}{NEW_LINE}{dentist.id}",
+                        message=str(dentist.id),
                         datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                         is_read=False
                     )
@@ -152,7 +152,10 @@ def appointments(request):
                     text = _("Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang")
                 return redirect("dentx:appointments")
     services = get_services(
-        Service.objects.filter(dentist=dentist),
+        Service.objects.filter(
+            dentist=dentist,
+            one_tooth=False
+        ).order_by("id"),
         dentist.language_id
     )
     today = date.today()
@@ -176,8 +179,6 @@ def appointments(request):
         day_begin += timedelta(minutes=30)
     patientform = AppointmentPatientForm()
     appointmentform = AppointmentForm()
-    # appointmentform['service'].choices = [(service['service'].id, service['service_name'].name) for service in services]
-    print(appointmentform)
     return render(request, "appointment/appointments.html", {
         'patientform': patientform,
         'appointmentform': appointmentform,
@@ -208,10 +209,9 @@ def appointments_update(request):
             dentist=dentist,
             language__pk=dentist.language_id
         )[0]
-        patientform = PatientForm(request.POST)
+        patientform = AppointmentPatientForm(request.POST)
         appointmentform = AppointmentForm(request.POST)
         if patientform.is_valid() and appointmentform.is_valid():
-            print(request.POST.get('appointment_id'))
             name = patientform.cleaned_data['name'].split(" ")
             phone_number = patientform.cleaned_data['phone_number']
             try:
@@ -223,11 +223,6 @@ def appointments_update(request):
                     user_check = name[0] == patient_user.first_name
                 if user_check and phone_number == patient.phone_number and str(patient.birthday) == patientform.cleaned_data['birthday'] and patient.gender_id == int(patientform.cleaned_data['gender']) and patient.address == patientform.cleaned_data['address']:
                     print(request.POST)
-                    service_translation = Service_translation.objects.filter(
-                        name=appointmentform.cleaned_data['service'],
-                        language__pk=dentist.language_id
-                    )[0]
-                    service = Service.objects.get(pk=service_translation.service_id)
                     begin = appointmentform.cleaned_data['begin_day']
                     begin_day = int(begin.split("-")[0])
                     begin_month = MONTHS.index(begin.split("-")[1].split(" ")[0].capitalize()) + 1
@@ -251,10 +246,18 @@ def appointments_update(request):
                             begin=last_begin,
                         )
                         appointment.patient_id = patient.id
-                        appointment.service_id = service.id
                         appointment.begin = begin
                         appointment.end = end
                         appointment.comment = appointmentform.cleaned_data["comment"]
+                        services = request.POST.getlist('service')
+                        print(Procedure.objects.filter(appointment__pk=int(request.POST.get('appointment_id'))))
+                        for procedure in Procedure.objects.filter(appointment__pk=int(request.POST.get('appointment_id'))):
+                            procedure.delete()
+                        for service in services:
+                            procedure = Procedure.objects.create(
+                                appointment=appointment,
+                                service=Service.objects.get(pk=int(service)),
+                            )
                         appointment.save()
                     except Exception as E:
                         print(E)
@@ -523,18 +526,17 @@ def appointment(request):
             begin__minute=minute,
         )
         patient = PatientUser.objects.get(pk=appointment.patient_id)
-        service = Service_translation.objects.get(
-            service__pk=appointment.service_id,
-            language__name=get_language()
-        )
+        services = get_services([item.service for item in Procedure.objects.filter(appointment=appointment)], appointment.dentist.language_id)
+        services = [item['service'].id for item in services]
+        print(services)
         return JsonResponse({
             'id': appointment.id,
             'name': str(patient),
             'phone_number': patient.phone_number,
             'birthday': str(patient.birthday),
             'gender': patient.gender_id,
+            'services': services,
             'address': patient.address,
-            'service': service.name,
             'duration': (appointment.end - appointment.begin).seconds // 60,
             'comment': appointment.comment,
             'date': request.POST['date'],

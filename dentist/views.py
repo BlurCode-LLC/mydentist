@@ -156,25 +156,24 @@ def settings(request, active_tab="profile"):
         success_message = None
     user = User.objects.get(username=request.user.username)
     dentist = DentistUser.objects.get(user=user)
-    dentist_translation = DentistUserTranslation.objects.filter(
+    # dentist_translation = DentistUserTranslation.objects.filter(
+    #     dentist=dentist,
+    #     language__pk=dentist.language_id
+    # )[0]
+    dentist_translation_uz = DentistUserTranslation.objects.get(
         dentist=dentist,
-        language__pk=dentist.language_id
-    )[0]
-    notifications = get_notifications(request, "dentist")
-    queries = get_queries(Query.objects.filter(dentist=dentist))
-    clinic = Clinic.objects.get(pk=dentist.clinic_id)
-    clinic_uz = Clinic_translation.objects.get(
-        clinic=clinic,
         language__name="uz"
     )
-    clinic_ru = Clinic_translation.objects.get(
-        clinic=clinic,
+    dentist_translation_ru = DentistUserTranslation.objects.get(
+        dentist=dentist,
         language__name="ru"
     )
-    clinic_en = Clinic_translation.objects.get(
-        clinic=clinic,
+    dentist_translation_en = DentistUserTranslation.objects.get(
+        dentist=dentist,
         language__name="en"
     )
+    notifications = get_notifications(request, "dentist")
+    queries = get_queries(Query.objects.filter(dentist=dentist))
     services_obj = Service.objects.filter(dentist=dentist).order_by("id")
     services = []
     for service in services_obj:
@@ -215,32 +214,14 @@ def settings(request, active_tab="profile"):
     languageform = LanguageForm({
         'language': dentist.language_id
     })
-    clinics_obj = Clinic.objects.all()
-    clinics = []
-    for clinic_obj in clinics_obj:
-        clinics.append(
-            Clinic_translation.objects.get(
-                clinic=clinic_obj,
-                language__pk=dentist.language_id
-            )
-        )
-        if clinic_obj.id == dentist.clinic_id:
-            active_clinic = clinic_obj
-    clinicform = ClinicForm({
-        'clinic_name_uz': clinic_uz.name,
-        'clinic_name_ru': clinic_ru.name,
-        'clinic_name_en': clinic_en.name,
-        'address_uz': clinic_uz.address,
-        'address_ru': clinic_ru.address,
-        'address_en': clinic_en.address,
-        'orientir_uz': clinic_uz.orientir,
-        'orientir_ru': clinic_ru.orientir,
-        'orientir_en': clinic_en.orientir,
-        'region': clinic.region_id,
-        'latitude': clinic.latitude,
-        'longitude': clinic.longitude,
-    })
-    worktimeform = WorkTimeForm({
+    workform = WorkForm({
+        'fullname_uz': dentist_translation_uz.fullname,
+        'fullname_ru': dentist_translation_ru.fullname,
+        'fullname_en': dentist_translation_en.fullname,
+        'speciality_uz': dentist_translation_uz.speciality,
+        'speciality_ru': dentist_translation_ru.speciality,
+        'speciality_en': dentist_translation_en.speciality,
+        'experience': dentist.experience,
         'work_days': dentist.work_days,
         'worktime_begin': dentist.worktime_begin.strftime("%H:%M"),
         'worktime_end': dentist.worktime_end.strftime("%H:%M"),
@@ -256,11 +237,8 @@ def settings(request, active_tab="profile"):
         'userform': userform,
         'languageform': languageform,
         'passwordupdateform': passwordupdateform,
-        'clinicform': clinicform,
-        'worktimeform': worktimeform,
+        'workform': workform,
         'serviceform': serviceform,
-        'clinics': clinics,
-        'active_clinic': active_clinic,
         'cabinet_images': cabinet_images,
         'cabinet_image': cabinet_image,
         'counter': counter,
@@ -269,7 +247,7 @@ def settings(request, active_tab="profile"):
         'notifications': notifications,
         'notifications_count': len(notifications),
         'queries': queries,
-        'dentist_translation': dentist_translation,
+        # 'dentist_translation': dentist_translation,
         'active_tab': active_tab,
         'success_message': success_message,
     })
@@ -338,16 +316,38 @@ def update(request, form):
                     request.session['success_message'] = "Passwords do not match"
                     return redirect("dentx:settings", active_tab="password")
         elif form == "clinic":
-            worktimeform = WorkTimeForm(request.POST)
-            if worktimeform.is_valid():
-                dentist.work_days = worktimeform.cleaned_data['work_days']
-                begin = worktimeform.cleaned_data['worktime_begin'].split(":")
+            workform = WorkForm(request.POST)
+            if workform.is_valid():
+                dentist_translation_uz = DentistUserTranslation.objects.get(
+                    dentist=dentist,
+                    language__name="uz"
+                )
+                dentist_translation_ru = DentistUserTranslation.objects.get(
+                    dentist=dentist,
+                    language__name="ru"
+                )
+                dentist_translation_en = DentistUserTranslation.objects.get(
+                    dentist=dentist,
+                    language__name="en"
+                )
+                dentist_translation_uz.fullname = workform.cleaned_data['fullname_uz']
+                dentist_translation_ru.fullname = workform.cleaned_data['fullname_ru']
+                dentist_translation_en.fullname = workform.cleaned_data['fullname_en']
+                dentist_translation_uz.speciality = workform.cleaned_data['speciality_uz']
+                dentist_translation_ru.speciality = workform.cleaned_data['speciality_ru']
+                dentist_translation_en.speciality = workform.cleaned_data['speciality_en']
+                dentist.experience = workform.cleaned_data['experience']
+                dentist.work_days = workform.cleaned_data['work_days']
+                begin = workform.cleaned_data['worktime_begin'].split(":")
                 if len(begin) == 2:
                     dentist.worktime_begin = dttime(int(begin[0]), int(begin[1]))
-                end = worktimeform.cleaned_data['worktime_end'].split(":")
+                end = workform.cleaned_data['worktime_end'].split(":")
                 if len(end) == 2:
                     dentist.worktime_end = dttime(int(end[0]), int(end[1]))
-                dentist.is_queued = worktimeform.cleaned_data['no_queue']
+                dentist.is_queued = workform.cleaned_data['no_queue']
+                dentist_translation_uz.save()
+                dentist_translation_ru.save()
+                dentist_translation_en.save()
                 dentist.save()
             request.session['success_message'] = "Updated successfully"
             return redirect("dentx:settings", active_tab="clinic")

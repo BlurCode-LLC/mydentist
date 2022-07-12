@@ -266,8 +266,87 @@ class ClinicForm(forms.Form):
         )
     )
 
-class WorkTimeForm(forms.Form):
+class WorkForm(forms.Form):
     
+    fullname_uz = forms.CharField(
+        label=_("MyDentist dagi FIShi (o'zbekchada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("MyDentist dagi FIShi")
+            }
+        ),
+        max_length=100,
+        localize=True
+    )
+    fullname_ru = forms.CharField(
+        label=_("MyDentist dagi FIShi (ruschada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("MyDentist dagi FIShi")
+            }
+        ),
+        max_length=100,
+        localize=True
+    )
+    fullname_en = forms.CharField(
+        label=_("MyDentist dagi FIShi (inglizchada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("MyDentist dagi FIShi")
+            }
+        ),
+        max_length=100,
+        localize=True
+    )
+    speciality_uz = forms.CharField(
+        label=_("Soha (o'zbekchada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Soha")
+            }
+        ),
+        max_length=500,
+        localize=True,
+        required=False
+    )
+    speciality_ru = forms.CharField(
+        label=_("Soha (ruschada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Soha")
+            }
+        ),
+        max_length=500,
+        localize=True,
+        required=False
+    )
+    speciality_en = forms.CharField(
+        label=_("Soha (inglizchada)"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Soha")
+            }
+        ),
+        max_length=500,
+        localize=True,
+        required=False
+    )
+    experience = forms.IntegerField(
+        label=_("Tajriba"),
+        widget=forms.TextInput(
+            attrs={
+                'class': "form-control",
+                'placeholder': _("Tajriba")
+            }
+        ),
+        localize=True
+    )
     work_days = forms.ChoiceField(
         label=_("Ish kuni"),
         widget=forms.RadioSelect(

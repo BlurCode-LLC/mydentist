@@ -18,7 +18,7 @@
                 <button class="nav-link {% if active_tab == "password" %}active{% endif %}" id="pills-password-tab" data-bs-toggle="pill" data-bs-target="#pills-password" type="button" role="tab" aria-controls="pills-password" aria-selected="false">{% trans "Parolni o'zgartirish" %}</button>
             </li>
             <li class="nav-item my_select_item" role="presentation">
-                <button class="nav-link {% if active_tab == "clinic" %}active{% endif %}" id="pills-clinic-tab" data-bs-toggle="pill" data-bs-target="#pills-clinic" type="button" role="tab" aria-controls="pills-clinic" aria-selected="false">{% trans "Shifoxona ma'lumotlari" %}</button>
+                <button class="nav-link {% if active_tab == "clinic" %}active{% endif %}" id="pills-clinic-tab" data-bs-toggle="pill" data-bs-target="#pills-clinic" type="button" role="tab" aria-controls="pills-clinic" aria-selected="false">{% trans "Shifokor ma'lumotlari" %}</button>
             </li>
             <li class="nav-item my_select_item" role="presentation">
                 <button class="nav-link {% if active_tab == "clinic-photo" %}active{% endif %}" id="pills-clinic-photo-tab" data-bs-toggle="pill" data-bs-target="#pills-clinic-photo" type="button" role="tab" aria-controls="pills-clinic-photo" aria-selected="false">{% trans "Shifoxona rasmlari" %}</button>
@@ -129,33 +129,7 @@
                             </div>
                         {% endif %}
                         <div class="row">
-                            <div class="col-12 mb-4">
-                                <label for="id_clinic" class="form-label">{% trans "Shifoxona" %}</label>
-                                <select name="clinic" class="form-select" id="id_clinic">
-                                    {% for clinic in clinics %}
-                                        {% if active_clinic.id == clinic.clinic_id %}
-                                        <option value="{{ clinic.name }}" selected>{{ clinic.name }}</option>
-                                        {% else %}
-                                        <option value="{{ clinic.name }}">{{ clinic.name }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                    <option value="other">{% trans "Boshqa" %}</option>
-                                </select>
-                            </div>
-                            {% for field in clinicform %}
-                                {% for error in field.errors %}
-                                    <div class="alert alert-danger">
-                                        {{ error }}
-                                    </div>
-                                {% endfor %}
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
-                                    {{ field }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <div class="row">
-                            {% for field in worktimeform %}
+                            {% for field in workform %}
                                 {% for error in field.errors %}
                                     <div class="alert alert-danger">
                                         {{ error }}
@@ -176,6 +150,14 @@
                                                 {{ field }}
                                                 <i id="worktime_end_2" class="fas fa-sort-down"></i>
                                             </div>
+                                        </div>
+                                    </div>
+                                {% elif field.name == "experience" %}
+                                    <div class="col-md-6 mb-3">
+                                        <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                        <div class="input-group wid">
+                                            {{ field }}
+                                            <span class="input-group-text" id="experience-addon" style="border-top-left-radius: 0 !important;border-bottom-left-radius: 0 !important;border-top-right-radius: 25px !important;border-bottom-right-radius: 25px !important;">{% trans "yil" %}</span>
                                         </div>
                                     </div>
                                 {% else %}

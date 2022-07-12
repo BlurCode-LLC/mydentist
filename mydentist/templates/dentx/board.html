@@ -59,7 +59,9 @@
                                                     <div class="mb-4"></div>
                                                     <div class="row align-items-start mt-1">
                                                         <div class="col">
-                                                            <div class="small text-muted">{{ appointment.service.name }}</div>
+                                                            {% for service in appointment.services %}
+                                                                <div class="small text-muted">{{ service.name }}</div>
+                                                            {% endfor %}
                                                             <div class="small text-muted">{{ appointment.appointment.comment }}</div>
                                                         </div>
                                                     </div>

@@ -91,8 +91,18 @@
                                     </div>
                                     <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
                                         <div class="left col-12 col-xl-3 col-lg-6 mb-3">
-                                            <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
-                                            {{ appointmentform.service }}
+                                            <label class="mb-1 left" for="id_service">{% trans "Xizmat" %}</label>
+                                            <div class="wid" style="height: 250px; overflow-x: hidden; overflow-y: scroll; border: 1px solid #bbbbbb">
+                                                <ul id="id_service" class="wid">
+                                                    {% for el in services %}
+                                                    <div class="form-check">
+                                                        <input type="checkbox" name="service" value="{{ el.service.id }}" id="id_service_{{ el.service.id }}" class="form-check-input">
+                                                        <label class="form-check-label" for="id_service_{{ el.service.id }}">{{ el.service_name.name }}</label>
+                                                    </div>
+                                                    {% endfor %}
+                                                {{ appointmentform.service }}
+                                                </ul>
+                                            </div>
                                         </div>
                                         {{ appointmentform.begin_day }}
                                         <div class="center col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
@@ -319,6 +329,7 @@
                     $("form").removeAttr("action")
                 }
                 temp = $(`.time-table thead th:nth-child(${$(this).index() + 1})`).attr("old_name").split("<br>")
+                console.log(temp)
                 $("#id_name").val("")
                 $("#id_phone_number").val("")
                 $("#id_phone_number").removeAttr("readonly")
@@ -327,7 +338,6 @@
                 $(`#id_gender_0`).attr("checked", true)
                 $("#id_address").val("")
                 $("#id_address").removeAttr("readonly")
-                $("#id_service").val($("#id_service option")[0].value).change()
                 $("#id_begin_day").val(temp[0])
                 time = $(this).parent().children(":first-child").text()
                 text = ` ${temp[1]}, ${temp[0]}, ${time}`
@@ -338,7 +348,6 @@
                 $("#appointment-delete-button").addClass("d-none")
             })
             $(".overflow td.appointment").on("dblclick", function() {
-                console.log($(this).index())
                 $.ajax({
                     url: "{% url 'dentx:appointment' %}",
                     type: "POST",
@@ -348,6 +357,7 @@
                         time: $(this).parent().children(":first-child").text(),
                     },
                 }).always(function(result) {
+                    console.log(result)
                     function changeDetector() {
                         $("#id_phone_number").val("")
                         $("#id_phone_number").removeAttr("readonly")
@@ -358,6 +368,7 @@
                     }
                     $(".hidden-button > button")[0].click()
                     $("input[name='appointment_id']").val(result.id)
+                    console.log(result.date)
                     temp = result.date.split("<br>")
                     time = result.time
                     text = ` ${temp[1]}, ${temp[0]}, ${time}`
@@ -370,6 +381,9 @@
                     $("#id_birthday").val(result["birthday"])
                     $("#id_birthday").attr("readonly", "readonly")
                     $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
+                    result["services"].forEach(function (item) {
+                        $(`#id_service_${item}`).attr("checked", true)
+                    })
                     // $("input[name='gender']").on("change", changeDetector)
                     $("#id_address").val(result["address"])
                     $("#id_address").attr("readonly", "readonly")
@@ -533,10 +547,6 @@
         })
         $("#id_begin_time"){% for time in times %}.append(
             $("<option></option>").html("{{ time }}")
-        )
-        {% endfor %}
-        $("#id_service"){% for service in services %}.append(
-            $("<option></option>").html("{{ service.service_name.name }}")
         )
         {% endfor %}
     </script>

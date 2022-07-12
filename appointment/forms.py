@@ -63,16 +63,6 @@ class AppointmentPatientForm(forms.Form):
 
 class AppointmentForm(forms.Form):
     
-    service = forms.MultipleChoiceField(
-        label=_("Xizmat"),
-        widget=forms.SelectMultiple(
-            attrs={
-                'class': "form-select wid",
-                'style': "border-radius: 0;",
-            }
-        ),
-        localize=True
-    )
     begin_day = forms.CharField(
         widget=forms.HiddenInput()
     )
