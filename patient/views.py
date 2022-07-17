@@ -9,7 +9,7 @@ from django.utils.safestring import mark_safe
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from appointment.forms import AppointmentForm, AppointmentPatientForm
-from appointment.models import Query, Appointment
+from appointment.models import Procedure, Query, Appointment
 from baseapp.models import Language, Gender
 from dentist.models import User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation, Cabinet_Image
 from illness.models import *
@@ -702,10 +702,10 @@ def patient(request, id, active_tab="profile"):
         if appointment_obj.upcoming():
             upcoming = {
                 'appointment': appointment_obj,
-                'service': Service_translation.objects.get(
-                    service__pk=appointment_obj.service_id,
+                'service': [Service_translation.objects.get(
+                    service=procedure.service,
                     language__pk=dentist.language_id
-                )
+                ) for procedure in appointment_obj.appointment_procedure.all()],
             }
         appointments.append({
             'appointment': appointment_obj,
@@ -714,15 +714,37 @@ def patient(request, id, active_tab="profile"):
                 language__pk=dentist.language_id
             ),
             'number': number,
-            'service': Service.objects.get(pk=appointment_obj.service_id),
-            'service_translation': Service_translation.objects.get(
-                service__pk=appointment_obj.service_id,
-                language__pk=dentist.language_id
-            )
+            'service': [procedure.service for procedure in appointment_obj.appointment_procedure.all()],
+            'service_translation': [Service_translation.objects.get(
+                    service=procedure.service,
+                    language__pk=dentist.language_id
+                ) for procedure in appointment_obj.appointment_procedure.all()],
         })
         number += 1
+    procedures_obj = []
+    for appointment in Appointment.objects.filter(patient=patient_extra):
+        for procedure in appointment.appointment_procedure.all():
+            procedures_obj.append(procedure)
+    procedures = []
+    for procedure in procedures_obj:
+        procedures.append({
+            'service': procedure.service,
+            'service_name': Service_translation.objects.get(
+                service=procedure.service,
+                language__pk=dentist.language_id
+            ).name,
+            'begin': procedure.appointment.begin,
+            'comment': procedure.comment,
+        })
     services = get_services(
         Service.objects.filter(dentist=dentist),
+        dentist.language_id
+    )
+    tooth_services = get_services(
+        Service.objects.filter(
+            dentist=dentist,
+            one_tooth=True
+        ),
         dentist.language_id
     )
     today = date.today()
@@ -781,7 +803,9 @@ def patient(request, id, active_tab="profile"):
         'otherillnessform': otherillnessform,
         'upcoming': upcoming,
         'appointments': appointments,
+        'procedures': procedures,
         'services': services,
+        'tooth_services': tooth_services,
         'times': times,
         'patientform': patientform,
         'appointmentform': appointmentform,
@@ -936,46 +960,58 @@ def patient_update(request, id, form):
                 tooth.save()
                 return redirect("dentx:patient", id=id, active_tab="dental-map")
             elif request.POST['on'] == "0":
-                dentist = DentistUser.objects.get(user=request.user)
-                appointmentform = AppointmentForm(request.POST)
-                if appointmentform.is_valid():
-                    service_translation = Service_translation.objects.filter(
-                        name=appointmentform.cleaned_data['service'],
-                        language__pk=dentist.language_id
-                    )[0]
-                    service = Service.objects.get(pk=service_translation.service_id)
-                    begin = appointmentform.cleaned_data['begin_day']
-                    begin_day = int(begin.split("-")[0])
-                    begin_month = MONTHS.index(begin.split("-")[1].split(" ")[0].capitalize()) + 1
-                    begin_year = int(begin.split(" ")[1])
-                    begin_hour = int(appointmentform.cleaned_data['begin_time'].split(":")[0])
-                    begin_minute = int(appointmentform.cleaned_data['begin_time'].split(":")[1])
-                    begin = datetime(begin_year, begin_month, begin_day, begin_hour, begin_minute, tzinfo=timezone.now().tzinfo)
-                    duration = int(appointmentform.cleaned_data['duration'])
-                    duration = timedelta(hours=duration // 60, minutes=duration % 60)
-                    end = begin + duration
-                    if compare_appointment(begin, end, Appointment.objects.filter(
-                        dentist=dentist,
-                        begin__year=begin_year,
-                        begin__month=begin_month,
-                        begin__day=begin_day
-                    )):
-                        appointment = Appointment.objects.create(
-                            dentist=dentist,
+                print(request.POST)
+                appointment = Appointment.objects.get(pk=int(request.POST.get('appointment')))
+                services = request.POST.getlist('service')
+                for service in services:
+                    procedure = Procedure.objects.create(
+                        appointment=appointment,
+                        service=Service.objects.get(pk=int(service)),
+                        tooth=Tooth.objects.get(
                             patient=patient,
-                            service=service,
-                            begin=begin,
-                            end=end,
-                            comment=f"{request.POST['code']}-{_('tish')}{appointmentform.cleaned_data['comment']}",
-                            status="waiting"
-                        )
-                        notification = Dentist2patient.objects.create(
-                            sender=dentist,
-                            recipient=patient,
-                            type="appointment",
-                            message=f"{service.name}{NEW_LINE}{dentist.id}",
-                            datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
-                            is_read=False
-                        )
+                            code=int(request.POST.get('code')),
+                        ),
+                        comment="%s%s" % (request.POST.get('code'), _("-tish"))
+                    )
+                # appointmentform = AppointmentForm(request.POST)
+                # if appointmentform.is_valid():
+                #     service_translation = Service_translation.objects.filter(
+                #         name=appointmentform.cleaned_data['service'],
+                #         language__pk=dentist.language_id
+                #     )[0]
+                #     service = Service.objects.get(pk=service_translation.service_id)
+                #     begin = appointmentform.cleaned_data['begin_day']
+                #     begin_day = int(begin.split("-")[0])
+                #     begin_month = MONTHS.index(begin.split("-")[1].split(" ")[0].capitalize()) + 1
+                #     begin_year = int(begin.split(" ")[1])
+                #     begin_hour = int(appointmentform.cleaned_data['begin_time'].split(":")[0])
+                #     begin_minute = int(appointmentform.cleaned_data['begin_time'].split(":")[1])
+                #     begin = datetime(begin_year, begin_month, begin_day, begin_hour, begin_minute, tzinfo=timezone.now().tzinfo)
+                #     duration = int(appointmentform.cleaned_data['duration'])
+                #     duration = timedelta(hours=duration // 60, minutes=duration % 60)
+                #     end = begin + duration
+                #     if compare_appointment(begin, end, Appointment.objects.filter(
+                #         dentist=dentist,
+                #         begin__year=begin_year,
+                #         begin__month=begin_month,
+                #         begin__day=begin_day
+                #     )):
+                #         appointment = Appointment.objects.create(
+                #             dentist=dentist,
+                #             patient=patient,
+                #             service=service,
+                #             begin=begin,
+                #             end=end,
+                #             comment=f"{request.POST['code']}-{_('tish')}{appointmentform.cleaned_data['comment']}",
+                #             status="waiting"
+                #         )
+                #         notification = Dentist2patient.objects.create(
+                #             sender=dentist,
+                #             recipient=patient,
+                #             type="appointment",
+                #             message=f"{service.name}{NEW_LINE}{dentist.id}",
+                #             datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
+                #             is_read=False
+                #         )
                 return redirect("dentx:patient", id=id, active_tab="dental-map")
         return redirect("dentx:patient", id=id, active_tab="profile")

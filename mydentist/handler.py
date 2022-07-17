@@ -323,21 +323,19 @@ def get_patients(request, sort_by):
         appointments = Appointment.objects.filter(
             patient=patient
         )
+        procedures = []
+        for appointment in appointments:
+            for procedure in appointment.appointment_procedure.all():
+                procedures.append(procedure)
         done = mark_safe(f", {NEW_LINE}".join([ Service_translation.objects.get(
-            service__pk=appointment.service_id,
+            service=procedure.service,
             language__name=get_language()
-        ).name for appointment in appointments.filter(status="done").order_by("begin")]))
-        total_sum = sum([Service.objects.get(
-            pk=appointment.service_id
-        ).price for appointment in appointments.filter(status="done")])
-        coming = None
-        for appointment in appointments.filter(status="waiting").order_by("begin"):
-            if appointment.upcoming():
-                coming = Service_translation.objects.get(
-                    service__pk=appointment.service_id,
-                    language__name=get_language()
-                ).name
-                break
+        ).name for procedure in procedures if procedure.is_done]))
+        total_sum = sum([procedure.service.price for procedure in procedures if procedure.is_done])
+        coming = mark_safe(f", {NEW_LINE}".join([ Service_translation.objects.get(
+            service=procedure.service,
+            language__name=get_language()
+        ).name for procedure in procedures if not procedure.is_done]))
         last = appointments.filter(status="done").order_by("-begin").first()
         last_visit = last.begin if last else None
         results.append({
@@ -346,7 +344,7 @@ def get_patients(request, sort_by):
             'gender': GENDERS[patient.gender_id - 1],
             'done': done if done != "" else None,
             'total_sum': total_sum,
-            'coming': coming,
+            'coming': coming if coming != "" else "-",
             'last_visit': last_visit,
         })
     if sort_by is not None:

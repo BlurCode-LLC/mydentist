@@ -155,7 +155,7 @@ def appointments(request):
         Service.objects.filter(
             dentist=dentist,
             one_tooth=False
-        ).order_by("id"),
+        ).exclude(price__isnull=True).order_by("id"),
         dentist.language_id
     )
     today = date.today()

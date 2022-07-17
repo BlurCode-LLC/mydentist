@@ -1,0 +1,1104 @@
+{% extends 'dentx/app.html' %}
+{% load static i18n mydentist_tags %}
+
+{% block title %}
+	{% trans "Bemorlar" %}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="row ml-5 mt-5">
+            <div class="col-lg-3 col-md-4 col-4 center">
+                <img src="/media/{{ patient_extra.image }}" class="img-fluid">
+            </div>
+            <div class="col-md-9 col-md-8 col-8">
+                <h3>{{ patient_extra }}</h3>
+                <p>
+                    <a href="tel:{{ patient_extra.phone_number }}" class="text-decoration-none">{{ patient_extra.phone_number }}</a>
+                </p>
+                <p>
+                    <span class="badge bg-success">{{ year }}</span>
+                    <span class="badge bg-primary">{{ gender }}</span>
+                </p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <ul class="nav nav-pills my_select mx-auto mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item my_select_item" role="presentation">
+                    <button class="nav-link {% if active_tab == "profile" %}active{% endif %}" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">{% trans "Shaxsiy ma'lumotlar" %}</button>
+                </li>
+                <li class="nav-item my_select_item" role="presentation">
+                    <button class="nav-link {% if active_tab == "appointment" %}active{% endif %}" id="pills-appointment-tab" data-bs-toggle="pill" data-bs-target="#pills-appointment" type="button" role="tab" aria-controls="pills-appointment" aria-selected="false">{% trans "Yozilgan vaqti" %}</button>
+                </li>
+                <li class="nav-item my_select_item" role="presentation">
+                    <button class="nav-link {% if active_tab == "process" %}active{% endif %}" id="pills-process-tab" data-bs-toggle="pill" data-bs-target="#pills-process" type="button" role="tab" aria-controls="pills-process" aria-selected="false">{% trans "Davolanish jarayoni" %}</button>
+                </li>
+                <li class="nav-item my_select_item" role="presentation">
+                    <button class="nav-link {% if active_tab == "dental-map" %}active{% endif %}" id="pills-dental-map-tab" data-bs-toggle="pill" data-bs-target="#pills-dental-map" type="button" role="tab" aria-controls="pills-dental-map" aria-selected="false">{% trans "Tish xaritasi" %}</button>
+                </li>
+                <li class="nav-item my_select_item" role="presentation">
+                    <button class="nav-link {% if active_tab == "photos" %}active{% endif %}" id="pills-photos-tab" data-bs-toggle="pill" data-bs-target="#pills-photos" type="button" role="tab" aria-controls="pills-photos" aria-selected="false">{% trans "Rasmlar" %}</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col"></div>
+                            <div class="col-auto">
+                                <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#profileModal">{% trans "Ma'lumotlarni tahrirlash" %}</button>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="serviceModalLabel">{% trans "Ma'lumotlarni tahrirlash" %}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action={% url 'dentx:update_patient' id=patient_extra.id form="profile" %} method="POST">
+                                            {% csrf_token %}
+                                            <div class="row">
+                                                <div class="big_title mb-5">
+                                                    {% trans "Shaxsiy ma'lumotlar" %}
+                                                </div>
+                                                {% for field in userform %}
+                                                    {% for error in field.errors %}
+                                                        <div class="alert alert-danger">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% if field.name == "birth_year" %}
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="birthday_holder" class="form-label">{% trans "Tug'ilgan sana" %}</label>
+                                                            <div id="birthday_holder">
+                                                                <div class="birth_item">
+                                                                    <i id="birth_year_1" class="fas fa-sort-up"></i>
+                                                                    {{ field }}
+                                                                    <i id="birth_year_2" class="fas fa-sort-down"></i>
+                                                                </div>
+                                                    {% elif field.name == "birth_month" %}
+                                                                <div class="birth_item">
+                                                                    <i id="birth_month_1" class="fas fa-sort-up"></i>
+                                                                    {{ field }}
+                                                                    <i id="birth_month_2" class="fas fa-sort-down"></i>
+                                                                </div>
+                                                    {% elif field.name == "birth_day" %}
+                                                                <div class="birth_item">
+                                                                    <i id="birth_day_1" class="fas fa-sort-up"></i>
+                                                                    {{ field }}
+                                                                    <i id="birth_day_2" class="fas fa-sort-down"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                            {{ field }}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <div class="big_title mb-5">
+                                                    {% trans "Kasalliklar haqida" %}
+                                                </div>
+                                                {% for field in illnessform %}
+                                                    {% for error in field.errors %}
+                                                        <div class="alert alert-danger">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% if field.name != "allergy_detail" %}
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                            {{ field }}
+                                                            {% if field.name == "allergy" %}
+                                                                {{ illnessform.allergy_detail }}
+                                                            {% endif %}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <div class="big_title mb-5">
+                                                    {% trans "Boshqa kasalliklar" %}
+                                                </div>
+                                                {% for field in otherillnessform %}
+                                                    {% for error in field.errors %}
+                                                        <div class="alert alert-danger">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                            {{ field }}
+                                                            {% if field.name == "medications" %}
+                                                                {{ otherillnessform.medications_detail }}
+                                                            {% elif field.name == "pregnancy" %}
+                                                                {{ otherillnessform.pregnancy_detail }}
+                                                            {% endif %}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
+                                                <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="info-pane">
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Familiya" %}: </div>
+                                        <div class="info_desc">{{ patient.last_name }}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Ism" %}: </div>
+                                        <div class="info_desc">{{ patient.first_name }}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Jinsi" %}: </div>
+                                        <div class="info_desc">{% get_gender patient_extra.gender_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Tug’ilgan sana" %}: </div>
+                                        <div class="info_desc">{% date_format patient_extra.birthday %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Elektron manzil" %}: </div>
+                                        <div class="info_desc">{{ patient.email }}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Telefon raqam" %}: </div>
+                                        <div class="info_desc">{{ patient_extra.phone_number }}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Manzil" %}: </div>
+                                        <div class="info_desc">{{ patient_extra.address }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-pane">
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Qandli diabet" %}: </div>
+                                        <div class="info_desc">{% get_option select='diabet' index=patient_illness.diabet_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Nechi marta narkoz qo'llanilgan?" %}: </div>
+                                        <div class="info_desc">{% get_option select='anesthesia' index=patient_illness.anesthesia_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Gepatit B" %}: </div>
+                                        <div class="info_desc">{% get_option select='hepatitis' index=patient_illness.hepatitis_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "OITS" %}: </div>
+                                        <div class="info_desc">{% get_option select='aids' index=patient_illness.aids_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Qon bosimi" %}: </div>
+                                        <div class="info_desc">{% get_option select='pressure' index=patient_illness.pressure_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Allergiya" %}: </div>
+                                        <div class="info_desc">{% get_option select='allergy' index=patient_illness.allergy_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Bronxial astma" %}: </div>
+                                        <div class="info_desc">{% get_option select='asthma' index=patient_illness.asthma_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Bosh aylanishi" %}: </div>
+                                        <div class="info_desc">{% get_option select='dizziness' index=patient_illness.dizziness_id %}</div>
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Hushdan ketish" %}: </div>
+                                        <div class="info_desc">{% get_option select='fainting' index=patient_illness.fainting_id %}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info-pane">
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Epilepsiya" %}: </div>
+                                        {% if not patient_other_illness.epilepsy.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Doimiy dorilar" %}: </div>
+                                        {% if not patient_other_illness.medications.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='medications' index=patient_other_illness.medications_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Insultga uchraganmisiz?" %}: </div>
+                                        {% if not patient_other_illness.stroke.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='stroke' index=patient_other_illness.stroke_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Yurak xurujiga uchraganmisiz?" %}: </div>
+                                        {% if not patient_other_illness.heart_attack.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='heart_attack' index=patient_other_illness.heart_attack_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Onkologik kasalliklar" %}: </div>
+                                        {% if not patient_other_illness.oncologic.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='oncologic' index=patient_other_illness.oncologic_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Sil kasalligi" %}: </div>
+                                        {% if not patient_other_illness.tuberculosis.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='tuberculosis' index=patient_other_illness.tuberculosis_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Spirtli ichimlik ichasizmi?" %}: </div>
+                                        {% if not patient_other_illness.alcohol.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='alcohol' index=patient_other_illness.alcohol_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Homiladorlik" %}: </div>
+                                        {% if not patient_other_illness.pregnancy.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="info_holder mb-2">
+                                        <div class="info_name">{% trans "Emizasizmi" %}: </div>
+                                        {% if not patient_other_illness.breastfeeding.value %}
+                                            <div class="info_desc">-</div>
+                                        {% else %}
+                                            <div class="info_desc">{% get_option select='breastfeeding' index=patient_other_illness.breastfeeding_id %}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {% if active_tab == "appointment" %}show active{% endif %}" id="pills-appointment" role="tabpanel" aria-labelledby="pills-appointment-tab">
+                    {% if upcoming is not None %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="card-body">
+                                        <div tabindex="0" class="kanban-category">
+                                            <div tabindex="0" class="kanban-item">
+                                                <div class="card" draggable="false" style="border-top: 3px solid rgb(91, 192, 235); transform: translateZ(0px);">
+                                                    <div class="card-body p-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h4>{% date_format upcoming.appointment.begin %}</h4>
+                                                                <h4>{% time_format upcoming.appointment.begin %} - {% time_format upcoming.appointment.end %}</h4>
+                                                            </div>
+                                                            <div class="col-auto small">
+                                                            {% if upcoming.appointment.status == "waiting" %}
+                                                                <span class="badge bg-info">{% trans "Kutilmoqda" %}</span>
+                                                            {% elif upcoming.appointment.status == "done" %}
+                                                                <span class="badge bg-success">{% trans "Kelgan" %}</span>
+                                                            {% elif upcoming.appointment.status == "missed" %}
+                                                                <span class="badge bg-danger">{% trans "Kelmagan" %}</span>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-start">
+                                                            <div class="col">
+                                                                <div class="mb-4"></div>
+                                                                <div class="row align-items-start mt-1">
+                                                                    <div class="col">
+                                                                        <div class="small text-muted">{{ upcoming.service.name }}</div>
+                                                                        <div class="small text-muted">{{ upcoming.appointment.comment }}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer1 p-2 border-top">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <a href="tel:{{ patient_extra.phone_number }}" class="btn btn-outline-info mr-2" draggable="false">
+                                                                    <i class="fas fa-phone"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor ko'rikga yozilmagan" %}</h2>
+                    {% endif %}
+                </div>
+                <div class="tab-pane fade {% if active_tab == "process" %}show active{% endif %}" id="pills-process" role="tabpanel" aria-labelledby="pills-process-tab">
+                    <div class="container">
+                        {% if text is not None %}
+                            <div class="alert alert-{% if is_success %}success{% else %}danger{% endif %}">
+                                {{ text }}
+                            </div>
+                        {% endif %}
+                        <div class="row align-items-center mb-3">
+                            <div class="col"></div>
+                            <div class="col-auto">
+                                <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#appointmentModal">{% trans "Qabul qo'shish" %}</button>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ patientform.name.label }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-group" method="POST" action="{% url 'dentx:appointment_plan' %}">
+                                            {% csrf_token %}
+                                            <div class="pats">
+                                                <div class="mb-1 d-flex justify-content-between">
+                                                    <label for="id_name">{{ patientform.name.label }}</label>
+                                                </div>
+                                                <div class="input-group w-100">
+                                                    {{ patientform.name }}
+                                                </div>
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                                    <div class="left col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
+                                                        <label class="mb-1 left" for="id_phone_number">{{ patientform.phone_number.label }}</label>
+                                                        <div class="input-group wid">
+                                                            <span class="input-group-text" id="phone-addon" style="border-top-left-radius: 25px !important;border-bottom-left-radius: 25px !important;border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;">+998</span>
+                                                            {{ patientform.phone_number }}
+                                                        </div>
+                                                    </div> 
+                                                    <div class="center col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
+                                                        <label class="mb-1 left" for="id_birthday">{{ patientform.birthday.label }}</label>
+                                                        {{ patientform.birthday }}
+                                                    </div>
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
+                                                        <label class="mb-1 left" for="id_gender">{{ patientform.gender.label }}</label>
+                                                        <div>
+                                                        {% for el in patientform.gender %}
+                                                            {{ el }}
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="end col-12 col-xl-3 col-lg-6 d-flex flex-column align-items-start mb-3">
+                                                        <label class="mb-1 left" for="id_address">{{ patientform.address.label }}</label>
+                                                        {{ patientform.address }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-time">
+                                                <div class="form-title">
+                                                    <div class="input-group mb-3" style="width: 250px">
+                                                        <span class="input-group-text" style="border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;">
+                                                            <p>
+                                                                <i class="fal fa-calendar-week"></i>
+                                                            </p>
+                                                        </span>
+                                                        <input type="date" name="appointment_date" class="form-control" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom-inputs d-flex justify-content-between flex-wrap mt-3">
+                                                    <div class="left col-12 col-xl-3 col-lg-6 mb-3">
+                                                        <label class="mb-1 left" for="id_service">{{ appointmentform.service.label }}</label>
+                                                        {{ appointmentform.service }}
+                                                    </div>
+                                                    {{ appointmentform.begin_day }}
+                                                    <div class="center col-12 col-xl-3 col-lg-6 mb-3 d-flex flex-column align-items-start">
+                                                        <label class="mb-1 left" for="id_begin_time">{{ appointmentform.begin_time.label }}</label>
+                                                        {{ appointmentform.begin_time }}
+                                                    </div>
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
+                                                        <label class="mb-1 left" for="id_duration">{{ appointmentform.duration.label }}</label>
+                                                        {{ appointmentform.duration }}
+                                                    </div>
+                                                    <div class="end col-12 col-xl-3 col-lg-6 mb-3">
+                                                        <label class="mb-1 left" for="id_comment">{{ appointmentform.comment.label }}</label>
+                                                        {{ appointmentform.comment }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Saqlash" %}</button>
+                                                <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if appointments %}
+                        <div class="overflow">
+                            <table class="table table-primary table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">{% trans "Shifokor" %}</th>
+                                        <th scope="col">{% trans "Xizmat nomi" %}</th>
+                                        <th scope="col">{% trans "Narxi" %}</th>
+                                        <th scope="col">{% trans "Davomiyligi" %}</th>
+                                        <th scope="col">{% trans "Boshlangan vaqti" %}</th>
+                                        <th scope="col">{% trans "Tugagan vaqti" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for appointment in appointments %}
+                                        <tr>
+                                            <td>{{ appointment.number }}</td>
+                                            <td>{{ appointment.dentist.fullname }}</td>
+                                            <td>{{ appointment.service_translation.name }}</td>
+                                            <td>{{ appointment.service.price }} {% trans "so'm" %}</td>
+                                            <td>{% convert_time appointment.service.duration %}</td>
+                                            <td>{{ appointment.appointment.begin }}</td>
+                                            <td>{{ appointment.appointment.end }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor davolanmagan" %}</h2>
+                    {% endif %}
+                </div>
+                <div class="tab-pane fade {% if active_tab == "dental-map" %}show active{% endif %}" id="pills-dental-map" role="tabpanel" aria-labelledby="pills-dental-map-tab">
+                    <div class="tab-pane fade show active">
+                        <div class="row">
+                            <button id="first-check" on="0" class="btn w-auto rounded-pill px-4" style="border: 1px solid #289cd7; font-weight: 600">{% trans "Birlamchi ko'rik" %}</button>
+                        </div>
+                        <div class="teeth-row">
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_upper in teeth_upper %}
+                                        <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
+                                            <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_lower in teeth_lower %}
+                                        <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
+                                            <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none hidden-button">
+                        <button data-bs-toggle="modal" data-bs-target="#toothModal"></button>
+                    </div>
+                    <div class="modal fade" id="toothModal" tabindex="-1" aria-labelledby="toothModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="toothModalLabel">{% trans "Tishni tahrirlash" %}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="number" id="id_on" name="on" class="d-none" required/>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex flex-wrap justify-content-around">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
+                                            <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {% if active_tab == "photos" %}show active{% endif %}" id="pills-photos" role="tabpanel" aria-labelledby="pills-photos-tab">
+                    <div class="panel">
+                        {% if process_photos %}
+                            <div id="carouselProcessPhotos" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    {% for i in counter %}
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ i }}" class="active" aria-current="true" aria-label="Slide {{ i }}"></button>
+                                    {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{ cabinet_image.image.url }}" class="d-block w-100">
+                                    </div>
+                                    {% for image in process_photos %}
+                                        <div class="carousel-item">
+                                            <img src="{{ image.image.url }}" class="d-block w-100">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProcessPhotos" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselProcessPhotos" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        {% elif process_photo %}
+                            <img src="{{ process_photo.image.url }}" class="d-block w-100">
+                        {% endif %}
+                        <button class="btn my_btn mx-auto mt-4" id="process-photo-upload-button">{% trans "Rasm yuklash" %}</button>
+                        <input type="file" class="d-none" id="process-photo-upload" name="process-photo-upload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'uz' %}
+        days = [
+            "Dushanba",
+            "Seshanba",
+            "Chorshanba",
+            "Payshanba",
+            "Juma",
+            "Shanba",
+            "Yakshanba"
+        ]
+        months = [
+            "yanvar",
+            "fevral",
+            "mart",
+            "aprel",
+            "may",
+            "iyun",
+            "iyul",
+            "avgust",
+            "sentyabr",
+            "oktyabr",
+            "noyabr",
+            "dekabr"
+        ]
+        {% elif LANGUAGE_CODE == 'ru' %}
+        days = [
+            "Понедельник",
+            "Вторник",
+            "Среда",
+            "Четверг",
+            "Пятница",
+            "Суббота",
+            "Воскресенье"
+        ]
+        months = [
+            "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря"
+        ]
+        {% elif LANGUAGE_CODE == 'en' %}
+        days = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ]
+        months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
+        {% endif %}
+        {% for field in illnessform %}
+            {% if field.name == "allergy" %}
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
+                if ($("#id_allergy").val() == 2) {
+                    $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name != "allergy_detail" %}
+                $("#id_{{ field.name }}").val({{ field.value }})
+            {% endif %}
+        {% endfor %}
+        {% for field in otherillnessform %}
+            {% if field.name == "medications" %}
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
+                if ($("#id_medications").val() == 2) {
+                    $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name == "pregnancy" %}
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
+                if ($("#id_pregnancy").val() == 2) {
+                    $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+                }
+            {% elif field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                {% if not field.value %}
+                    $("#id_{{ field.name }}").prepend(
+                        $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                    )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        var date = new Date()
+        var current_year = date.getFullYear(), current_month = date.getMonth()
+        var months_uz = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+            months_ru = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            months_en = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        $("#birth_year_1").on("click", function(){
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) < current_year) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) + 1)
+            }
+        })
+        $("#birth_year_2").on("click", function() {
+            if ($("#year_holder").val() == "") {
+                $("#year_holder").val(current_year)
+            } else if (parseInt($("#year_holder").val()) > 1900) {
+                $("#year_holder").val(parseInt($("#year_holder").val()) - 1)
+            }
+        })
+        {% get_current_language as LANGUAGE_CODE %}
+        $("#birth_month_1").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% elif LANGUAGE_CODE == "en" %}
+                    $("#month_holder").val(months_en[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = 0; i < months_uz.length; i++) {
+                        if ($("#month_holder").val() == months_uz[i] && i < months_uz.length - 1) {
+                            $("#month_holder").val(months_uz[i + 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = 0; i < months_ru.length; i++) {
+                        if ($("#month_holder").val() == months_ru[i] && i < months_ru.length - 1) {
+                            $("#month_holder").val(months_ru[i + 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "en" %}
+                    for (let i = 0; i < months_en.length; i++) {
+                        if ($("#month_holder").val() == months_en[i] && i < months_en.length - 1) {
+                            $("#month_holder").val(months_en[i + 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_month_2").on("click", function() {
+            if ($("#month_holder").val() == "") {
+                {% if LANGUAGE_CODE == "uz" %}
+                    $("#month_holder").val(months_uz[current_month])
+                {% elif LANGUAGE_CODE == "ru" %}
+                    $("#month_holder").val(months_ru[current_month])
+                {% elif LANGUAGE_CODE == "en" %}
+                    $("#month_holder").val(months_en[current_month])
+                {% endif %}
+            } else {
+                {% if LANGUAGE_CODE == "uz" %}
+                    for (let i = months_uz.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_uz[i] && i > 0) {
+                            $("#month_holder").val(months_uz[i - 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "ru" %}
+                    for (let i = months_ru.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_ru[i] && i > 0) {
+                            $("#month_holder").val(months_ru[i - 1])
+                            break
+                        }
+                    }
+                {% elif LANGUAGE_CODE == "en" %}
+                    for (let i = months_en.length; i >= 0; i--) {
+                        if ($("#month_holder").val() == months_en[i] && i > 0) {
+                            $("#month_holder").val(months_en[i - 1])
+                            break
+                        }
+                    }
+                {% endif %}
+            }
+        })
+        $("#birth_day_1").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) < 31) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) + 1)
+            }
+        })
+        $("#birth_day_2").on("click", function() {
+            if ($("#day_holder").val() == "") {
+                $("#day_holder").val(1)
+            } else if (parseInt($("#day_holder").val()) > 1) {
+                $("#day_holder").val(parseInt($("#day_holder").val()) - 1)
+            }
+        })
+        $("#id_allergy").on("change", function() {
+            if ($("#id_allergy").val() == 2) {
+                $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
+            } else  {
+                $("#id_allergy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#other_illness").on("change", function() {
+            if ($("#other_illness").is(":checked")) {
+                $("#other_illness_holder").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#other_illness_holder").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_medications").on("change", function() {
+            if ($("#id_medications").val() == 2) {
+                $("#id_medications_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_medications_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#id_pregnancy").on("change", function() {
+            if ($("#id_pregnancy").val() == 2) {
+                $("#id_pregnancy_detail").addClass("d-block").removeClass("d-none")
+            } else {
+                $("#id_pregnancy_detail").removeClass("d-block").addClass("d-none")
+            }
+        })
+        $("#birth_year_1").on("change", function() {
+            if (parseInt(this.val()) >= current_year) {
+                this.val(current_year)
+            }
+        })
+        $("button[data-bs-target='#appointmentModal']").click(function () {
+            console.log(true)
+            $("#appointmentModal #id_name").attr("readonly", "readonly")
+            $("#appointmentModal #id_phone_number").attr("readonly", "readonly")
+            $("#appointmentModal #id_birthday").attr("readonly", "readonly")
+            $("#appointmentModal input[name='gender']").attr("disabled", "disabled")
+            $("#appointmentModal input[name='gender']:checked").removeAttr("disabled")
+            $("#appointmentModal #id_address").attr("readonly", "readonly")
+        })
+        $("#appointmentModal #id_service"){% for service in services %}.append(
+            $("<option></option>").html("{{ service.service_name.name }}")
+        )
+        {% endfor %}
+        $("#appointmentModal #id_service").on("change", function() {
+            {% for service in services %}
+            if ($("#id_service").val() == "{{ service.service_name.name }}") {
+                $("#id_duration").val("{{ service.service.duration }}").change()
+            }
+            {% endfor %}
+        })
+        $("#appointmentModal #id_begin_time"){% for time in times %}.append(
+            $("<option></option>").html("{{ time }}")
+        )
+        {% endfor %}
+        $("#appointmentModal input[name='appointment_date']").on("change", function () {
+            let temp = $("#appointmentModal input[name='appointment_date']").val()
+            let day = temp.split("-")[2]
+            let month = temp.split("-")[1]
+            let year = temp.split("-")[0]
+            $("#appointmentModal #id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
+        })
+        $("#first-check").on("click", function () {
+            if ($("#first-check").attr("on") === "1") {
+                $("#first-check").attr("style", "border: 1px solid #289cd7; font-weight: 600")
+                $("#first-check").attr("on", "0")
+            } else if ($("#first-check").attr("on") === "0") {
+                $("#first-check").attr("style", "background-color: #289cd7; color: white; font-weight: 600")
+                $("#first-check").attr("on", "1")
+            }
+        })
+        $(".tooth").on("click", function() {
+            $(".hidden-button > button")[0].click()
+            $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
+            if ($("#first-check").attr("on") === "1") {
+                $("#id_on").val(1)
+                if ($(".details").length != 0) {
+                    $(".details").remove()
+                }
+                let code = $(this).attr("code")
+                {% static 'svg' as path %}
+                {% for status in teeth_status %}
+                if ($(this).attr("status") != "{{ status.prefix }}") {
+                    $("#toothModal .modal-body .row > .col-12 > .d-flex").append(
+                        $("<div class='d-flex flex-column align-items-center justify-content-end pb-3 px-3' style='border: 2px solid transparent' status='{{ status.id }}'></div>").append(
+                            $(`<img src='{{ path }}/{{ status.prefix }}-${code}.svg' width='40' />`),
+                            $("<span class='badge bg-secondary mt-3'></span>").html(code),
+                            $("<span></span>").html("{{ status.name }}")
+                        )
+                    )
+                }
+                {% endfor %}
+                $("#toothModal .modal-body .row").append(
+                    $("<div class=\"details col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12\"></div>").append(
+                        $("<input type=\"number\" id=\"id_code\" name=\"code\" class=\"form-control d-none\" required/>"),
+                        $("<input type=\"number\" id=\"id_status\" name=\"status\" class=\"form-control d-none\" required/>"),
+                        $("<label for=\"id_comment\" class=\"mb-1\"></label>").html("Izoh"),
+                        $("<input type=\"text\" id=\"id_comment\" name=\"comment\" class=\"form-control mb-3\"/>")
+                    )
+                )
+                $("#id_code").val(code)
+                $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").on("click", function () {
+                    $("#toothModal .modal-body .row > .col-12 > .d-flex > .d-flex").css({
+                        "border": "2px solid transparent",
+                    })
+                    $(this).css({
+                        "border": "2px solid #0d6efd",
+                        "border-radius": "5px",
+                    })
+                    $("#id_status").val($(this).attr("status"))
+                })
+            } else if ($("#first-check").attr("on") === "0") {
+                $("#id_on").val(0)
+                if ($(".details").length != 0) {
+                    $(".details").remove()
+                }
+                $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
+                $("#toothModal .modal-body .row").append(
+                    $("<div class=\"details px-4\"></div>").append(
+                        $("<input type=\"number\" id=\"id_code\" name=\"code\" class=\"form-control d-none\" required/>"),
+                        $("<div class=\"form-title\"></div>").append(
+                            $("<div class=\"input-group mb-3\" style=\"width: 250px\"></div>").append(
+                                $("<span class=\"input-group-text\" style=\"border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;\"></span>").append(
+                                    $("<p></p>").append(
+                                        $("<i class=\"fal fa-calendar-week\"></i>")
+                                    )
+                                ),
+                                $("<input type=\"date\" name=\"appointment_date\" class=\"form-control\" required/>")
+                            )
+                        ),
+                        $("<div class=\"bottom-inputs d-flex justify-content-between flex-wrap my-4\"></div>").append(
+                            $('<div class="left col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_service\"></label>").html("{{ appointmentform.service.label }}"),
+                                $("<select name='service' class='form-select wid' id='id_service'></select>")
+                            ),
+                            $('{{ appointmentform.begin_day }}'),
+                            $('<div class="center col-12 col-lg-3 d-flex flex-column align-items-start"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_begin_time\"></label>").html("{{ appointmentform.begin_time.label }}"),
+                                $("<select name='begin_time' class='form-select wid' id='id_begin_time'></select>")
+                            ),
+                            $('<div class="end col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_duration\"></label>").html("{{ appointmentform.duration.label }}"),
+                                $("<select name='duration' class='form-select wid' id='id_duration'></select>")
+                            ),
+                            $('<div class="end col-12 col-lg-3"></div>').append(
+                                $("<label class=\"mb-1 left\" for=\"id_comment\"></label>").html("{{ appointmentform.comment.label }}"),
+                                $('<textarea name="comment" cols="30" rows="10" class="form-control w-100" id="id_comment"></textarea>')
+                            ),
+                        )
+                    )
+                )
+                let code = $(this).attr("code")
+                $("#id_code").val(code)
+                $("#toothModal #id_duration"){% for option in appointmentform.duration %}.append(
+                    $('{{ option }}')
+                )
+                {% endfor %}
+                $("#toothModal #id_service"){% for service in services %}.append(
+                    $("<option></option>").html("{{ service.service_name.name }}")
+                )
+                {% endfor %}
+                $("#toothModal #id_service").on("change", function() {
+                    {% for service in services %}
+                    if ($("#id_service").val() == "{{ service.service_name.name }}") {
+                        $("#id_duration").val("{{ service.service.duration }}").change()
+                    }
+                    {% endfor %}
+                })
+                $("#toothModal #id_begin_time"){% for time in times %}.append(
+                    $("<option></option>").html("{{ time }}")
+                )
+                {% endfor %}
+                $("#toothModal input[name='appointment_date']").on("change", function () {
+                    let temp = $("#toothModal input[name='appointment_date']").val()
+                    let day = temp.split("-")[2]
+                    let month = temp.split("-")[1]
+                    let year = temp.split("-")[0]
+                    $("#toothModal #id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
+                })
+            }
+        })
+        let intervalFunc
+        $("#process-photo-upload-button").on("click", function() {
+            $("#process-photo-upload").click()
+            intervalFunc = setInterval(function() {
+                if ($("#process-photo-upload")[0].files.length != 0) {
+                    let data = new FormData()
+                    data.append("file", $("#process-photo-upload")[0].files[0])
+                    data.append("csrfmiddlewaretoken", "{{ csrf_token }}")
+                    $.ajax({
+                        url: "{% url 'dentx:update_patient' id=patient_extra.id form='process-photo' %}",
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        mimeType: "multipart/form-data",
+                        data: data
+                    }).always(function(result) {
+                        let images = JSON.parse(result)
+                        if (images.counter > 1) {
+                            if ($("#pills-photos > .panel .carousel-indicators").length == 0) {
+                                $("#pills-photos > .panel > img").remove()
+                            } else {
+                                $("#pills-photos > .panel > div").remove()
+                            }
+                            $("#pills-photos > .panel").prepend(
+                                $("<div id='carouselProcessPhotos' class='carousel slide' data-bs-ride='carousel'></div>").append(
+                                    $("<div class='carousel-indicators'></div>"),
+                                    $("<div class='carousel-inner'></div>"),
+                                    $("<button class='carousel-control-prev' type='button' data-bs-target='#carouselProcessPhotos' data-bs-slide='prev'></button>"),
+                                    $("<button class='carousel-control-next' type='button' data-bs-target='#carouselProcessPhotos' data-bs-slide='next'></button>")
+                                )
+                            )
+                            for (let i = 0; i < images.counter; i++) {
+                                $("#pills-photos > .panel .carousel-indicators").append(
+                                    $(`<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='${i}' class='active' aria-current='true' aria-label='Slide ${i}'></button>`)
+                                )
+                            }
+                            $("#pills-photos > .panel .carousel-inner").append(
+                                $("<div class='carousel-item active'></div>").append(
+                                    $(`<img src=${images.process_photo} class='d-block w-100'>`)
+                                )
+                            )
+                            for (let i = 0; i < images.process_photos.length; i++) {
+                                $("#pills-photos > .panel .carousel-inner").append(
+                                    $("<div class='carousel-item'></div>").append(
+                                        $(`<img src=${images.process_photos[i]} class='d-block w-100'>`)
+                                    )
+                                )
+                            }
+                            $("#pills-photos > .panel .carousel-control-prev").append(
+                                $("<span class='carousel-control-prev-icon' aria-hidden='true'></span>"),
+                                $("<span class='visually-hidden'></span>").html("Previous"),
+                            )
+                            $("#pills-photos > .panel .carousel-control-next").append(
+                                $("<span class='carousel-control-next-icon' aria-hidden='true'></span>"),
+                                $("<span class='visually-hidden'></span>").html("Next"),
+                            )
+                        } else if (images.counter == 1) {
+                            if ($("#pills-photos > .panel > img").length == 0) {
+                                $("#pills-photos > .panel").prepend(
+                                    $(`<img src=${images.process_photo} class='d-block w-100'>`).html("{% trans "Kabinet rasmi" %}")
+                                )
+                            }
+                        }
+                        $("#process-photo-upload").val("")
+                        clearInterval(intervalFunc)
+                    })
+                }
+            }, 500)
+        })
+        let request_path = "{{ request.path }}"
+        request_path = request_path.split("/")
+        $("#pills-profile-tab").on("click", function() {
+            temp = request_path
+            temp[temp.length - 2] = "profile"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-appointment-tab").on("click", function() {
+            temp = request_path
+            temp[temp.length - 2] = "appointment"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-process-tab").on("click", function() {
+            temp = request_path
+            temp[request_path.length - 2] = "process"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-dental-map-tab").on("click", function() {
+            temp = request_path
+            temp[request_path.length - 2] = "dental-map"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+        $("#pills-photos-tab").on("click", function() {
+            temp = request_path
+            temp[request_path.length - 2] = "photos"
+            window.history.replaceState({}, "", temp.join("/"))
+        })
+    </script>
+{% endblock %}

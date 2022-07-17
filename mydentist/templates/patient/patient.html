@@ -7,21 +7,6 @@
 
 {% block content %}
     <section class="container">
-        <div class="row ml-5 mt-5">
-            <div class="col-lg-3 col-md-4 col-4 center">
-                <img src="/media/{{ patient_extra.image }}" class="img-fluid">
-            </div>
-            <div class="col-md-9 col-md-8 col-8">
-                <h3>{{ patient_extra }}</h3>
-                <p>
-                    <a href="tel:{{ patient_extra.phone_number }}" class="text-decoration-none">{{ patient_extra.phone_number }}</a>
-                </p>
-                <p>
-                    <span class="badge bg-success">{{ year }}</span>
-                    <span class="badge bg-primary">{{ gender }}</span>
-                </p>
-            </div>
-        </div>
         <div class="mt-5">
             <ul class="nav nav-pills my_select mx-auto mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item my_select_item" role="presentation">
@@ -31,336 +16,350 @@
                     <button class="nav-link {% if active_tab == "appointment" %}active{% endif %}" id="pills-appointment-tab" data-bs-toggle="pill" data-bs-target="#pills-appointment" type="button" role="tab" aria-controls="pills-appointment" aria-selected="false">{% trans "Yozilgan vaqti" %}</button>
                 </li>
                 <li class="nav-item my_select_item" role="presentation">
-                    <button class="nav-link {% if active_tab == "process" %}active{% endif %}" id="pills-process-tab" data-bs-toggle="pill" data-bs-target="#pills-process" type="button" role="tab" aria-controls="pills-process" aria-selected="false">{% trans "Davolanish jarayoni" %}</button>
-                </li>
-                <li class="nav-item my_select_item" role="presentation">
-                    <button class="nav-link {% if active_tab == "dental-map" %}active{% endif %}" id="pills-dental-map-tab" data-bs-toggle="pill" data-bs-target="#pills-dental-map" type="button" role="tab" aria-controls="pills-dental-map" aria-selected="false">{% trans "Tish xaritasi" %}</button>
-                </li>
-                <li class="nav-item my_select_item" role="presentation">
                     <button class="nav-link {% if active_tab == "photos" %}active{% endif %}" id="pills-photos-tab" data-bs-toggle="pill" data-bs-target="#pills-photos" type="button" role="tab" aria-controls="pills-photos" aria-selected="false">{% trans "Rasmlar" %}</button>
                 </li>
             </ul>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#profileModal">{% trans "Ma'lumotlarni tahrirlash" %}</button>
+                    </div>
+                </div>
+                <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="serviceModalLabel">{% trans "Ma'lumotlarni tahrirlash" %}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action={% url 'dentx:update_patient' id=patient_extra.id form="profile" %} method="POST">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="big_title mb-5">
+                                            {% trans "Shaxsiy ma'lumotlar" %}
+                                        </div>
+                                        {% for field in userform %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                            {% if field.name == "birth_year" %}
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="birthday_holder" class="form-label">{% trans "Tug'ilgan sana" %}</label>
+                                                    <div id="birthday_holder">
+                                                        <div class="birth_item">
+                                                            <i id="birth_year_1" class="fas fa-sort-up"></i>
+                                                            {{ field }}
+                                                            <i id="birth_year_2" class="fas fa-sort-down"></i>
+                                                        </div>
+                                            {% elif field.name == "birth_month" %}
+                                                        <div class="birth_item">
+                                                            <i id="birth_month_1" class="fas fa-sort-up"></i>
+                                                            {{ field }}
+                                                            <i id="birth_month_2" class="fas fa-sort-down"></i>
+                                                        </div>
+                                            {% elif field.name == "birth_day" %}
+                                                        <div class="birth_item">
+                                                            <i id="birth_day_1" class="fas fa-sort-up"></i>
+                                                            {{ field }}
+                                                            <i id="birth_day_2" class="fas fa-sort-down"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                    {{ field }}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="big_title mb-5">
+                                            {% trans "Kasalliklar haqida" %}
+                                        </div>
+                                        {% for field in illnessform %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                            {% if field.name != "allergy_detail" %}
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                    {{ field }}
+                                                    {% if field.name == "allergy" %}
+                                                        {{ illnessform.allergy_detail }}
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="big_title mb-5">
+                                            {% trans "Boshqa kasalliklar" %}
+                                        </div>
+                                        {% for field in otherillnessform %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                            {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
+                                                    {{ field }}
+                                                    {% if field.name == "medications" %}
+                                                        {{ otherillnessform.medications_detail }}
+                                                    {% elif field.name == "pregnancy" %}
+                                                        {{ otherillnessform.pregnancy_detail }}
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
+                                        <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ml-5 mt-5">
+                    <div class="col-lg-3 col-md-3 col-4 center">
+                        <img src="/media/{{ patient_extra.image }}" class="img-fluid">
+                    </div>
+                    <div class="col-md-3 col-md-3 col-2">
+                        <h3>{{ patient_extra }}</h3>
+                        <p>
+                            <a href="tel:{{ patient_extra.phone_number }}" class="text-decoration-none">{{ patient_extra.phone_number }}</a>
+                        </p>
+                        <p>
+                            <span class="badge bg-success">{{ year }}</span>
+                            <span class="badge bg-primary">{{ gender }}</span>
+                        </p>
+                        <p>{{ patient_extra.address }}</p>
+                        <p>{{ patient.email }}</p>
+                    </div>
+                    <div class="col-md-3 col-md-3 col-3">
+                        <div class="info-pane">
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Qandli diabet" %}: </div>
+                                {% if not patient_illness.diabet.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='diabet' index=patient_illness.diabet_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Nechi marta narkoz qo'llanilgan?" %}: </div>
+                                {% if not patient_illness.anesthesia.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='anesthesia' index=patient_illness.anesthesia_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Gepatit B" %}: </div>
+                                {% if not patient_illness.hepatitis.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='hepatitis' index=patient_illness.hepatitis_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "OITS" %}: </div>
+                                {% if not patient_illness.aids.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='aids' index=patient_illness.aids_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Qon bosimi" %}: </div>
+                                {% if not patient_illness.pressure.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='pressure' index=patient_illness.pressure_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Allergiya" %}: </div>
+                                {% if not patient_illness.allergy.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='allergy' index=patient_illness.allergy_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Bronxial astma" %}: </div>
+                                {% if not patient_illness.asthma.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='asthma' index=patient_illness.asthma_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Bosh aylanishi" %}: </div>
+                                {% if not patient_illness.dizziness.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='dizziness' index=patient_illness.dizziness_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Hushdan ketish" %}: </div>
+                                {% if not patient_illness.fainting.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='fainting' index=patient_illness.fainting_id %}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-3 col-3">
+                        <div class="info-pane">
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Epilepsiya" %}: </div>
+                                {% if not patient_other_illness.epilepsy.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Doimiy dorilar" %}: </div>
+                                {% if not patient_other_illness.medications.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='medications' index=patient_other_illness.medications_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Insultga uchraganmisiz?" %}: </div>
+                                {% if not patient_other_illness.stroke.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='stroke' index=patient_other_illness.stroke_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Yurak xurujiga uchraganmisiz?" %}: </div>
+                                {% if not patient_other_illness.heart_attack.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='heart_attack' index=patient_other_illness.heart_attack_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Onkologik kasalliklar" %}: </div>
+                                {% if not patient_other_illness.oncologic.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='oncologic' index=patient_other_illness.oncologic_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Sil kasalligi" %}: </div>
+                                {% if not patient_other_illness.tuberculosis.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='tuberculosis' index=patient_other_illness.tuberculosis_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Spirtli ichimlik ichasizmi?" %}: </div>
+                                {% if not patient_other_illness.alcohol.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='alcohol' index=patient_other_illness.alcohol_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Homiladorlik" %}: </div>
+                                {% if not patient_other_illness.pregnancy.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info_holder mb-2">
+                                <div class="info_name">{% trans "Emizasizmi" %}: </div>
+                                {% if not patient_other_illness.breastfeeding.value %}
+                                    <div class="info_desc">-</div>
+                                {% else %}
+                                    <div class="info_desc">{% get_option select='breastfeeding' index=patient_other_illness.breastfeeding_id %}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col"></div>
-                            <div class="col-auto">
-                                <button class="btn my_btn" data-bs-toggle="modal" data-bs-target="#profileModal">{% trans "Ma'lumotlarni tahrirlash" %}</button>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="serviceModalLabel">{% trans "Ma'lumotlarni tahrirlash" %}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action={% url 'dentx:update_patient' id=patient_extra.id form="profile" %} method="POST">
-                                            {% csrf_token %}
-                                            <div class="row">
-                                                <div class="big_title mb-5">
-                                                    {% trans "Shaxsiy ma'lumotlar" %}
-                                                </div>
-                                                {% for field in userform %}
-                                                    {% for error in field.errors %}
-                                                        <div class="alert alert-danger">
-                                                            {{ error }}
-                                                        </div>
-                                                    {% endfor %}
-                                                    {% if field.name == "birth_year" %}
-                                                        <div class="col-md-6 mb-3">
-                                                            <label for="birthday_holder" class="form-label">{% trans "Tug'ilgan sana" %}</label>
-                                                            <div id="birthday_holder">
-                                                                <div class="birth_item">
-                                                                    <i id="birth_year_1" class="fas fa-sort-up"></i>
-                                                                    {{ field }}
-                                                                    <i id="birth_year_2" class="fas fa-sort-down"></i>
-                                                                </div>
-                                                    {% elif field.name == "birth_month" %}
-                                                                <div class="birth_item">
-                                                                    <i id="birth_month_1" class="fas fa-sort-up"></i>
-                                                                    {{ field }}
-                                                                    <i id="birth_month_2" class="fas fa-sort-down"></i>
-                                                                </div>
-                                                    {% elif field.name == "birth_day" %}
-                                                                <div class="birth_item">
-                                                                    <i id="birth_day_1" class="fas fa-sort-up"></i>
-                                                                    {{ field }}
-                                                                    <i id="birth_day_2" class="fas fa-sort-down"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    {% else %}
-                                                        <div class="col-md-6 mb-3">
-                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
-                                                            {{ field }}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                                <div class="big_title mb-5">
-                                                    {% trans "Kasalliklar haqida" %}
-                                                </div>
-                                                {% for field in illnessform %}
-                                                    {% for error in field.errors %}
-                                                        <div class="alert alert-danger">
-                                                            {{ error }}
-                                                        </div>
-                                                    {% endfor %}
-                                                    {% if field.name != "allergy_detail" %}
-                                                        <div class="col-md-6 mb-3">
-                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
-                                                            {{ field }}
-                                                            {% if field.name == "allergy" %}
-                                                                {{ illnessform.allergy_detail }}
-                                                            {% endif %}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                                <div class="big_title mb-5">
-                                                    {% trans "Boshqa kasalliklar" %}
-                                                </div>
-                                                {% for field in otherillnessform %}
-                                                    {% for error in field.errors %}
-                                                        <div class="alert alert-danger">
-                                                            {{ error }}
-                                                        </div>
-                                                    {% endfor %}
-                                                    {% if field.name != "medications_detail" and field.name != "pregnancy_detail" %}
-                                                        <div class="col-md-6 mb-3">
-                                                            <label for="id_{{ field.name }}" class="form-label">{{ field.label }}</label>
-                                                            {{ field }}
-                                                            {% if field.name == "medications" %}
-                                                                {{ otherillnessform.medications_detail }}
-                                                            {% elif field.name == "pregnancy" %}
-                                                                {{ otherillnessform.pregnancy_detail }}
-                                                            {% endif %}
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
-                                                <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="tab-pane fade show active">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="info-pane">
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Familiya" %}: </div>
-                                        <div class="info_desc">{{ patient.last_name }}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Ism" %}: </div>
-                                        <div class="info_desc">{{ patient.first_name }}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Jinsi" %}: </div>
-                                        <div class="info_desc">{% get_gender patient_extra.gender_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Tug’ilgan sana" %}: </div>
-                                        <div class="info_desc">{% date_format patient_extra.birthday %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Elektron manzil" %}: </div>
-                                        <div class="info_desc">{{ patient.email }}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Telefon raqam" %}: </div>
-                                        <div class="info_desc">{{ patient_extra.phone_number }}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Manzil" %}: </div>
-                                        <div class="info_desc">{{ patient_extra.address }}</div>
+                            <button id="first-check" on="0" class="btn w-auto rounded-pill px-4" style="border: 1px solid #289cd7; font-weight: 600">{% trans "Birlamchi ko'rik" %}</button>
+                        </div>
+                        <div class="teeth-row">
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_upper in teeth_upper %}
+                                        <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
+                                            <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
+                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="info-pane">
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Qandli diabet" %}: </div>
-                                        <div class="info_desc">{% get_option select='diabet' index=patient_illness.diabet_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Nechi marta narkoz qo'llanilgan?" %}: </div>
-                                        <div class="info_desc">{% get_option select='anesthesia' index=patient_illness.anesthesia_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Gepatit B" %}: </div>
-                                        <div class="info_desc">{% get_option select='hepatitis' index=patient_illness.hepatitis_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "OITS" %}: </div>
-                                        <div class="info_desc">{% get_option select='aids' index=patient_illness.aids_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Qon bosimi" %}: </div>
-                                        <div class="info_desc">{% get_option select='pressure' index=patient_illness.pressure_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Allergiya" %}: </div>
-                                        <div class="info_desc">{% get_option select='allergy' index=patient_illness.allergy_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Bronxial astma" %}: </div>
-                                        <div class="info_desc">{% get_option select='asthma' index=patient_illness.asthma_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Bosh aylanishi" %}: </div>
-                                        <div class="info_desc">{% get_option select='dizziness' index=patient_illness.dizziness_id %}</div>
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Hushdan ketish" %}: </div>
-                                        <div class="info_desc">{% get_option select='fainting' index=patient_illness.fainting_id %}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="info-pane">
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Epilepsiya" %}: </div>
-                                        {% if not patient_other_illness.epilepsy.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='epilepsy' index=patient_other_illness.epilepsy_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Doimiy dorilar" %}: </div>
-                                        {% if not patient_other_illness.medications.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='medications' index=patient_other_illness.medications_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Insultga uchraganmisiz?" %}: </div>
-                                        {% if not patient_other_illness.stroke.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='stroke' index=patient_other_illness.stroke_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Yurak xurujiga uchraganmisiz?" %}: </div>
-                                        {% if not patient_other_illness.heart_attack.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='heart_attack' index=patient_other_illness.heart_attack_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Onkologik kasalliklar" %}: </div>
-                                        {% if not patient_other_illness.oncologic.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='oncologic' index=patient_other_illness.oncologic_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Sil kasalligi" %}: </div>
-                                        {% if not patient_other_illness.tuberculosis.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='tuberculosis' index=patient_other_illness.tuberculosis_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Spirtli ichimlik ichasizmi?" %}: </div>
-                                        {% if not patient_other_illness.alcohol.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='alcohol' index=patient_other_illness.alcohol_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Homiladorlik" %}: </div>
-                                        {% if not patient_other_illness.pregnancy.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='pregnancy' index=patient_other_illness.pregnancy_id %}</div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="info_holder mb-2">
-                                        <div class="info_name">{% trans "Emizasizmi" %}: </div>
-                                        {% if not patient_other_illness.breastfeeding.value %}
-                                            <div class="info_desc">-</div>
-                                        {% else %}
-                                            <div class="info_desc">{% get_option select='breastfeeding' index=patient_other_illness.breastfeeding_id %}</div>
-                                        {% endif %}
+                            <div class="row mt-5">
+                                {% static 'svg' as path %}
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-md-around">
+                                        {% for tooth_lower in teeth_lower %}
+                                        <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
+                                            <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
+                                            <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
+                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade {% if active_tab == "appointment" %}show active{% endif %}" id="pills-appointment" role="tabpanel" aria-labelledby="pills-appointment-tab">
-                    {% if upcoming is not None %}
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-                                    <div class="card-body">
-                                        <div tabindex="0" class="kanban-category">
-                                            <div tabindex="0" class="kanban-item">
-                                                <div class="card" draggable="false" style="border-top: 3px solid rgb(91, 192, 235); transform: translateZ(0px);">
-                                                    <div class="card-body p-3">
-                                                        <div class="row align-items-center">
-                                                            <div class="col">
-                                                                <h4>{% date_format upcoming.appointment.begin %}</h4>
-                                                                <h4>{% time_format upcoming.appointment.begin %} - {% time_format upcoming.appointment.end %}</h4>
-                                                            </div>
-                                                            <div class="col-auto small">
-                                                            {% if upcoming.appointment.status == "waiting" %}
-                                                                <span class="badge bg-info">{% trans "Kutilmoqda" %}</span>
-                                                            {% elif upcoming.appointment.status == "done" %}
-                                                                <span class="badge bg-success">{% trans "Kelgan" %}</span>
-                                                            {% elif upcoming.appointment.status == "missed" %}
-                                                                <span class="badge bg-danger">{% trans "Kelmagan" %}</span>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row align-items-start">
-                                                            <div class="col">
-                                                                <div class="mb-4"></div>
-                                                                <div class="row align-items-start mt-1">
-                                                                    <div class="col">
-                                                                        <div class="small text-muted">{{ upcoming.service.name }}</div>
-                                                                        <div class="small text-muted">{{ upcoming.appointment.comment }}</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer1 p-2 border-top">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <a href="tel:{{ patient_extra.phone_number }}" class="btn btn-outline-info mr-2" draggable="false">
-                                                                    <i class="fas fa-phone"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                    <div class="d-none hidden-button">
+                        <button data-bs-toggle="modal" data-bs-target="#toothModal"></button>
+                    </div>
+                    <div class="modal fade" id="toothModal" tabindex="-1" aria-labelledby="toothModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="toothModalLabel">{% trans "Tishni tahrirlash" %}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="number" id="id_on" name="on" class="d-none" required>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex flex-wrap justify-content-around">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
+                                            <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    {% else %}
-                        <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor ko'rikga yozilmagan" %}</h2>
-                    {% endif %}
-                </div>
-                <div class="tab-pane fade {% if active_tab == "process" %}show active{% endif %}" id="pills-process" role="tabpanel" aria-labelledby="pills-process-tab">
+                    </div>
                     <div class="container">
                         {% if text is not None %}
                             <div class="alert alert-{% if is_success %}success{% else %}danger{% endif %}">
@@ -462,25 +461,23 @@
                             <table class="table table-primary table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">{% trans "Shifokor" %}</th>
                                         <th scope="col">{% trans "Xizmat nomi" %}</th>
                                         <th scope="col">{% trans "Narxi" %}</th>
-                                        <th scope="col">{% trans "Davomiyligi" %}</th>
+                                        <th scope="col">{% trans "Izoh" %}</th>
                                         <th scope="col">{% trans "Boshlangan vaqti" %}</th>
-                                        <th scope="col">{% trans "Tugagan vaqti" %}</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for appointment in appointments %}
+                                    {% for procedure in procedures %}
                                         <tr>
-                                            <td>{{ appointment.number }}</td>
-                                            <td>{{ appointment.dentist.fullname }}</td>
-                                            <td>{{ appointment.service_translation.name }}</td>
-                                            <td>{{ appointment.service.price }} {% trans "so'm" %}</td>
-                                            <td>{% convert_time appointment.service.duration %}</td>
-                                            <td>{{ appointment.appointment.begin }}</td>
-                                            <td>{{ appointment.appointment.end }}</td>
+                                            <td>{{ procedure.service_name }}</td>
+                                            <td>{{ procedure.service.price }} {% trans "so'm" %}</td>
+                                            <td>{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
+                                            <td>{{ procedure.begin }}</td>
+                                            <td>
+                                                <input type="checkbox" name="is_done" class="form-check-input">
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -490,69 +487,64 @@
                         <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor davolanmagan" %}</h2>
                     {% endif %}
                 </div>
-                <div class="tab-pane fade {% if active_tab == "dental-map" %}show active{% endif %}" id="pills-dental-map" role="tabpanel" aria-labelledby="pills-dental-map-tab">
-                    <div class="tab-pane fade show active">
-                        <div class="row">
-                            <button id="first-check" on="0" class="btn w-auto rounded-pill px-4" style="border: 1px solid #289cd7; font-weight: 600">{% trans "Birlamchi ko'rik" %}</button>
-                        </div>
-                        <div class="teeth-row">
-                            <div class="row mt-5">
-                                {% static 'svg' as path %}
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-md-around">
-                                        {% for tooth_upper in teeth_upper %}
-                                        <div class="d-flex flex-column align-items-center mt-auto tooth" code="{{ tooth_upper.code }}" status="{{ tooth_upper.status.prefix }}">
-                                            <img src="{{ path }}/{{ tooth_upper.status.prefix }}-{{ tooth_upper.code }}.svg" width="40" />
-                                            <span class="badge bg-secondary mt-3">{{ tooth_upper.code }}</span>
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-5">
-                                {% static 'svg' as path %}
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-md-around">
-                                        {% for tooth_lower in teeth_lower %}
-                                        <div class="d-flex flex-column align-items-center mb-auto tooth" code="{{ tooth_lower.code }}" status="{{ tooth_upper.status.prefix }}">
-                                            <span class="badge bg-secondary mb-3">{{ tooth_lower.code }}</span>
-                                            <img src="{{ path }}/{{ tooth_lower.status.prefix }}-{{ tooth_lower.code }}.svg" width="40" />
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-none hidden-button">
-                        <button data-bs-toggle="modal" data-bs-target="#toothModal"></button>
-                    </div>
-                    <div class="modal fade" id="toothModal" tabindex="-1" aria-labelledby="toothModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="toothModalLabel">{% trans "Tishni tahrirlash" %}</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{% url 'dentx:update_patient' id=patient_extra.id form="dental-map" %}" method="POST">
-                                        {% csrf_token %}
-                                        <input type="number" id="id_on" name="on" class="d-none" required/>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="d-flex flex-wrap justify-content-around">
+                <div class="tab-pane fade {% if active_tab == "appointment" %}show active{% endif %}" id="pills-appointment" role="tabpanel" aria-labelledby="pills-appointment-tab">
+                    {% if upcoming is not None %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="card-body">
+                                        <div tabindex="0" class="kanban-category">
+                                            <div tabindex="0" class="kanban-item">
+                                                <div class="card" draggable="false" style="border-top: 3px solid rgb(91, 192, 235); transform: translateZ(0px);">
+                                                    <div class="card-body p-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h4>{% date_format upcoming.appointment.begin %}</h4>
+                                                                <h4>{% time_format upcoming.appointment.begin %} - {% time_format upcoming.appointment.end %}</h4>
+                                                            </div>
+                                                            <div class="col-auto small">
+                                                            {% if upcoming.appointment.status == "waiting" %}
+                                                                <span class="badge bg-info">{% trans "Kutilmoqda" %}</span>
+                                                            {% elif upcoming.appointment.status == "done" %}
+                                                                <span class="badge bg-success">{% trans "Kelgan" %}</span>
+                                                            {% elif upcoming.appointment.status == "missed" %}
+                                                                <span class="badge bg-danger">{% trans "Kelmagan" %}</span>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row align-items-start">
+                                                            <div class="col">
+                                                                <div class="mb-4"></div>
+                                                                <div class="row align-items-start mt-1">
+                                                                    <div class="col">
+                                                                        <div class="small text-muted">{{ upcoming.service.name }}</div>
+                                                                        <div class="small text-muted">{{ upcoming.appointment.comment }}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer1 p-2 border-top">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <a href="tel:{{ patient_extra.phone_number }}" class="btn btn-outline-info mr-2" draggable="false">
+                                                                    <i class="fas fa-phone"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Tasdiqlash" %}</button>
-                                            <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor ko'rikga yozilmagan" %}</h2>
+                    {% endif %}
                 </div>
                 <div class="tab-pane fade {% if active_tab == "photos" %}show active{% endif %}" id="pills-photos" role="tabpanel" aria-labelledby="pills-photos-tab">
                     <div class="panel">
@@ -565,7 +557,7 @@
                                 </div>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="{{ cabinet_image.image.url }}" class="d-block w-100">
+                                        <img src="{{ process_photo.image.url }}" class="d-block w-100">
                                     </div>
                                     {% for image in process_photos %}
                                         <div class="carousel-item">
@@ -683,7 +675,13 @@
                     $("#id_allergy_detail").addClass("d-block").removeClass("d-none")
                 }
             {% elif field.name != "allergy_detail" %}
-                $("#id_{{ field.name }}").val({{ field.value }})
+                {% if not field.value %}
+                $("#id_{{ field.name }}").prepend(
+                    $("<option hidden disabled selected>{% trans "Tanlang" %}</option>")
+                )
+                {% else %}
+                    $("#id_{{ field.name }}").val({{ field.value }})
+                {% endif %}
             {% endif %}
         {% endfor %}
         {% for field in otherillnessform %}
@@ -941,8 +939,29 @@
                 }
                 $("#toothModal .modal-body .row > .col-12 > .d-flex").empty()
                 $("#toothModal .modal-body .row").append(
-                    $("<div class=\"details px-4\"></div>").append(
+                    $("<div class=\"row details px-4 mb-3\"></div>").append(
                         $("<input type=\"number\" id=\"id_code\" name=\"code\" class=\"form-control d-none\" required/>"),
+                        $("<div class='col-md-6'></div>").append(
+                            $("<label for=\"id_service\" class=\"mb-1\"></label>").html("{% trans "Xizmat" %}"),
+                            $('<div class="wid" style="height: 250px; overflow-x: hidden; overflow-y: scroll; border: 1px solid #bbbbbb"></div>').append(
+                                $('<ul id="id_service" class="wid"></ul>'){% for el in tooth_services %}.append(
+                                    $('<div class="form-check"></div>').append(
+                                        $('<input type="checkbox" name="service" value="{{ el.service.id }}" id="id_service_{{ el.service.id }}" class="form-check-input">'),
+                                        $('<label class="form-check-label" for="id_service_{{ el.service.id }}"></label>').html("{{ el.service_name.name }}")
+                                    )
+                                ){% endfor %}
+                            )
+                        ),
+                        $("<div class='col-md-6'></div>").append(
+                            $("<label for=\"id_service\" class=\"mb-1\"></label>").html("{% trans "Qabul" %}"),
+                            $("<select name='appointment' class='form-select wid' id='id_appointment'></select>"){% for appointment in appointments %}.append(
+                                $("<option value='{{ appointment.appointment.id }}'></option>").html("{{ appointment.appointment.begin }} - {{ appointment.appointment.end }}")
+                            ){% endfor %}
+                        )
+                    )
+                )
+                /* $("#toothModal .modal-body .row").append(
+                    $("<div class=\"details px-4\"></div>").append(
                         $("<div class=\"form-title\"></div>").append(
                             $("<div class=\"input-group mb-3\" style=\"width: 250px\"></div>").append(
                                 $("<span class=\"input-group-text\" style=\"border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important;\"></span>").append(
@@ -974,8 +993,6 @@
                         )
                     )
                 )
-                let code = $(this).attr("code")
-                $("#id_code").val(code)
                 $("#toothModal #id_duration"){% for option in appointmentform.duration %}.append(
                     $('{{ option }}')
                 )
@@ -1001,7 +1018,9 @@
                     let month = temp.split("-")[1]
                     let year = temp.split("-")[0]
                     $("#toothModal #id_begin_day").val(`${day}-${months[month - 1]} ${year}`)
-                })
+                }) */
+                let code = $(this).attr("code")
+                $("#id_code").val(code)
             }
         })
         let intervalFunc
