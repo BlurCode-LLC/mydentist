@@ -336,6 +336,8 @@
                 $("#id_birthday").val("")
                 $("#id_birthday").removeAttr("readonly")
                 $(`#id_gender_0`).attr("checked", true)
+                console.log($('input[name="service"]'))
+                $('input[name="service"]').removeAttr("checked")
                 $("#id_address").val("")
                 $("#id_address").removeAttr("readonly")
                 $("#id_begin_day").val(temp[0])
@@ -381,6 +383,7 @@
                     $("#id_birthday").val(result["birthday"])
                     $("#id_birthday").attr("readonly", "readonly")
                     $(`#id_gender_${result["gender"] - 1}`).attr("checked", true)
+                    $('input[name="service"]').removeAttr("checked")
                     result["services"].forEach(function (item) {
                         $(`#id_service_${item}`).attr("checked", true)
                     })

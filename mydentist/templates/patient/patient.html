@@ -466,6 +466,7 @@
                                         <th scope="col">{% trans "Izoh" %}</th>
                                         <th scope="col">{% trans "Boshlangan vaqti" %}</th>
                                         <th scope="col"></th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -476,7 +477,12 @@
                                             <td>{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
                                             <td>{{ procedure.begin }}</td>
                                             <td>
-                                                <input type="checkbox" name="is_done" class="form-check-input">
+                                                <input type="checkbox" name="is_done" class="form-check-input" key="{{ procedure.id }}">
+                                            </td>
+                                            <td>
+                                                <button class="delete-procedure" class="border-0 bg-white" key="{{ procedure.id }}">
+                                                    <i class="fas fa-minus-circle"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     {% endfor %}

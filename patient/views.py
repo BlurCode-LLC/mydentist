@@ -735,16 +735,19 @@ def patient(request, id, active_tab="profile"):
             ).name,
             'begin': procedure.appointment.begin,
             'comment': procedure.comment,
+            'id': procedure.id,
         })
     services = get_services(
-        Service.objects.filter(dentist=dentist),
+        Service.objects.filter(
+            dentist=dentist
+        ).exclude(price__isnull=True),
         dentist.language_id
     )
     tooth_services = get_services(
         Service.objects.filter(
             dentist=dentist,
             one_tooth=True
-        ),
+        ).exclude(price__isnull=True),
         dentist.language_id
     )
     today = date.today()
@@ -1013,5 +1016,5 @@ def patient_update(request, id, form):
                 #             datetime=timezone.now() + timedelta(seconds=global_settings.TIME_ZONE_HOUR * 3600),
                 #             is_read=False
                 #         )
-                return redirect("dentx:patient", id=id, active_tab="dental-map")
+                return redirect("dentx:patient", id=id, active_tab="profile")
         return redirect("dentx:patient", id=id, active_tab="profile")
