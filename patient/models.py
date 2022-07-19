@@ -14,6 +14,7 @@ class User(models.Model):
     birthday = models.DateField(_("Tug'ilgan sanasi"), auto_now=False, auto_now_add=False)
     image = models.ImageField(_("Rasmi"), upload_to="patients/photos/", default="patients/photos/default.png")
     language = models.ForeignKey("baseapp.Language", verbose_name=_("Tili"), on_delete=models.CASCADE, related_name="patient_language")
+    total = models.PositiveIntegerField(_("Jami"), default=0)
 
     class Meta:
         verbose_name = _("Bemor")
@@ -152,3 +153,18 @@ class Key(models.Model):
     
     def __str__(self):
         return f"{self.key} - {self.patient.__str__()}"
+
+
+class Payment(models.Model):
+
+    patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_payment")
+    date = models.DateField(_("Sana"), auto_now_add=True)
+    amount = models.DecimalField(_("Miqdori"), max_digits=10, decimal_places=2)
+
+
+    class Meta:
+        verbose_name = _("To'lov")
+        verbose_name_plural = _("To'lovlar")
+    
+    def __str__(self):
+        return f"{self.patient.__str__()} - {self.amount} - {self.date}"
