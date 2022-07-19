@@ -1,4 +1,6 @@
 from datetime import datetime, date
+from decimal import Decimal
+import decimal
 from random import randint
 from django.conf import settings as global_settings
 from django.contrib.auth import authenticate, login
@@ -19,7 +21,7 @@ from mydentist.handler import *
 from mydentist.var import *
 from patient.tooth_handler import get_teeth
 from .forms import *
-from .models import Key, Tooth, Tooth_status, User as PatientUser, Illness, Other_Illness, Process_photo
+from .models import Key, Payment, Tooth, Tooth_status, User as PatientUser, Illness, Other_Illness, Process_photo
 
 
 def profile(request):
@@ -736,6 +738,7 @@ def patient(request, id, active_tab="profile"):
             'begin': procedure.appointment.begin,
             'comment': procedure.comment,
             'id': procedure.id,
+            'is_done': procedure.is_done,
         })
     services = get_services(
         Service.objects.filter(
@@ -750,6 +753,11 @@ def patient(request, id, active_tab="profile"):
         ).exclude(price__isnull=True),
         dentist.language_id
     )
+    total = int(patient_extra.total)
+    paid = 0
+    for payment in Payment.objects.filter(patient=patient_extra):
+        paid += payment.amount
+    debt = total - paid
     today = date.today()
     times = []
     day_begin = datetime(
@@ -809,6 +817,11 @@ def patient(request, id, active_tab="profile"):
         'procedures': procedures,
         'services': services,
         'tooth_services': tooth_services,
+        'money': {
+            'total': total,
+            'paid': paid,
+            'debt': debt,
+        },
         'times': times,
         'patientform': patientform,
         'appointmentform': appointmentform,
@@ -1017,4 +1030,44 @@ def patient_update(request, id, form):
                 #             is_read=False
                 #         )
                 return redirect("dentx:patient", id=id, active_tab="profile")
+        elif form == "payment":
+            payment = Payment.objects.create(
+                patient=patient,
+                amount=Decimal(int(request.POST.get('payment'))),
+            )
+            total = int(patient.total)
+            paid = 0
+            for payment in Payment.objects.filter(patient=patient):
+                paid += payment.amount
+            debt = total - paid
+            return JsonResponse({
+                'total': total,
+                'paid': paid,
+                'debt': debt,
+            }, safe=False)
+        elif form == "procedure":
+            procedure = Procedure.objects.get(pk=int(request.POST.get('procedure')))
+            is_done = procedure.is_done
+            procedure.is_done = request.POST.get('is_done') == "true"
+            procedure.save()
+            if not is_done and procedure.is_done:
+                patient.total += procedure.service.price
+            elif is_done and not procedure.is_done:
+                patient.total -= procedure.service.price
+            patient.save()
+            total = int(patient.total)
+            paid = 0
+            for payment in Payment.objects.filter(patient=patient):
+                paid += payment.amount
+            debt = total - paid
+            return JsonResponse({
+                'total': total,
+                'paid': paid,
+                'debt': debt,
+            }, safe=False)
+        elif form == "comment":
+            procedure = Procedure.objects.get(pk=int(request.POST.get('procedure_id')))
+            procedure.comment = request.POST.get('comment')
+            procedure.save()
+            return JsonResponse({}, safe=False)
         return redirect("dentx:patient", id=id, active_tab="profile")

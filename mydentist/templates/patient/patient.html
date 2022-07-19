@@ -474,10 +474,10 @@
                                         <tr>
                                             <td>{{ procedure.service_name }}</td>
                                             <td>{{ procedure.service.price }} {% trans "so'm" %}</td>
-                                            <td>{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
+                                            <td id="procedure_comment_{{ procedure.id }}">{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
                                             <td>{{ procedure.begin }}</td>
                                             <td>
-                                                <input type="checkbox" name="is_done" class="form-check-input" key="{{ procedure.id }}">
+                                                <input type="checkbox" name="is_done" class="form-check-input" {% if procedure.is_done %}checked{% endif %} id="id_is_done_{{ procedure.id }}">
                                             </td>
                                             <td>
                                                 <button class="delete-procedure" class="border-0 bg-white" key="{{ procedure.id }}">
@@ -492,6 +492,33 @@
                     {% else %}
                         <h2 class="mt-5" style="text-align: center;">{% trans "Ushbu bemor davolanmagan" %}</h2>
                     {% endif %}
+                    <div class="row payments">
+                        <div class="col-sm-4 text-center">
+                            <h4>
+                                {% trans "Jami" %}:
+                                <span>{{ money.total }}</span>
+                                {% trans "so'm" %}
+                            </h4>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h4>
+                                {% trans "Berdi" %}:
+                                <span>{{ money.paid }}</span>
+                                {% trans "so'm" %}
+                                <button id="edit-paid" class="border-0 bg-white ms-1">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </h4>
+                            
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h4>
+                                {% trans "Qarz" %}:
+                                <span>{{ money.debt }}</span>
+                                {% trans "so'm" %}
+                            </h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade {% if active_tab == "appointment" %}show active{% endif %}" id="pills-appointment" role="tabpanel" aria-labelledby="pills-appointment-tab">
                     {% if upcoming is not None %}
@@ -1098,6 +1125,114 @@
                 }
             }, 500)
         })
+        function editPaymentClick() {
+            $(this).parent().after(
+                $(`<div class="input-group"></div>`).append(
+                    $(`<input id="id_payment" class="form-control" type="text" placeholder="{% trans "Miqdorni kiriting" %}" style="border-radius: 0">`),
+                    $(`<button id="add-payment" class="btn btn-primary"></button>`).append(
+                        $("<i class=\"fas fa-check\"></i>")
+                    ),
+                    $(`<button id="cancel-payment" class="btn btn-secondary"></button>`).append(
+                        $("<i class=\"fas fa-times\"></i>")
+                    )
+                )
+            )
+            $(this).remove()
+            $("#add-payment").on("click", function() {
+                let payment = $("#id_payment").val()
+                addPaymentClick(this, payment)
+            })
+            $("#cancel-payment").on("click", function () {
+                createEditPayment(this)
+            })
+        }
+        function createEditPayment(el) {
+            $(el).parent().prev().append(
+                $("<button id='edit-paid' class='border-0 bg-white ms-1'></button>").append(
+                    $("<i class=\"fas fa-edit\"></i>")
+                )
+            )
+            $("#edit-paid").on("click", editPaymentClick)
+            $(el).parent().remove()
+        }
+        function addPaymentClick(el, payment) {
+            $.ajax({
+                url: "{% url 'dentx:update_patient' id=patient_extra.id form='payment' %}",
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    payment: payment
+                },
+                dataType: "json"
+            }).always(function (result) {
+                createEditPayment(el)
+                $(".payments h4 > span")[0].innerHTML = result.total
+                $(".payments h4 > span")[1].innerHTML = result.paid
+                $(".payments h4 > span")[2].innerHTML = result.debt
+            })
+        }
+        $("#edit-paid").on("click", editPaymentClick)
+        function editComment(id, comment) {
+            $(`#procedure_comment_${id}`).empty()
+            $(`#procedure_comment_${id}`).append(
+                $(`<div class="input-group"></div>`).append(
+                    $(`<input id="id_procedure_comment-${id}" class="form-control" type="text" value="${comment ? comment : ''}" placeholder="{% trans "Izohni kiriting" %}" style="border-radius: 0">`),
+                    $(`<button id="add-comment-${id}" class="btn btn-primary"></button>`).append(
+                        $("<i class=\"fas fa-check\"></i>")
+                    ),
+                    $(`<button id="cancel-comment-${id}" class="btn btn-secondary"></button>`).append(
+                        $("<i class=\"fas fa-times\"></i>")
+                    )
+                )
+            )
+            $(`#add-comment-${id}`).on("click", function () {
+                addComment(id, comment)
+            })
+            $(`#cancel-comment-${id}`).on("click", function () {
+                createComment(id, comment)
+            })
+        }
+        function createComment(id, comment) {
+            $(`#procedure_comment_${id}`).empty()
+            $(`#procedure_comment_${id}`).html(comment ? comment : "-")
+            $(`#procedure_comment_${id}`).on("dblclick", function() {
+                editComment(id, comment)
+            })
+        }
+        function addComment(id, comment) {
+            $.ajax({
+                url: "{% url 'dentx:update_patient' id=patient_extra.id form='comment' %}",
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    procedure_id: id,
+                    comment: $(`#id_procedure_comment-${id}`).val()
+                }
+            }).always(function (result) {
+                createComment(id, $(`#id_procedure_comment-${id}`).val())
+            })
+        }
+        {% for procedure in procedures %}
+        $("#procedure_comment_{{ procedure.id }}").on("dblclick", function() {
+            editComment({{ procedure.id }}, {% if procedure.comment is none %}null{% else %}"{{ procedure.comment }}"{% endif %})
+        })
+        $("#id_is_done_{{ procedure.id }}").on("click", function() {
+            let is_done = $(this).is(":checked")
+            $.ajax({
+                url: "{% url 'dentx:update_patient' id=patient_extra.id form='procedure' %}",
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    procedure: {{ procedure.id }},
+                    is_done: is_done
+                }
+            }).always(function (result) {
+                $(".payments h4 > span")[0].innerHTML = result.total
+                $(".payments h4 > span")[1].innerHTML = result.paid
+                $(".payments h4 > span")[2].innerHTML = result.debt
+            })
+        })
+        {% endfor %}
         let request_path = "{{ request.path }}"
         request_path = request_path.split("/")
         $("#pills-profile-tab").on("click", function() {

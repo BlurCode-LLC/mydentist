@@ -14,7 +14,7 @@ class User(models.Model):
     birthday = models.DateField(_("Tug'ilgan sanasi"), auto_now=False, auto_now_add=False)
     image = models.ImageField(_("Rasmi"), upload_to="patients/photos/", default="patients/photos/default.png")
     language = models.ForeignKey("baseapp.Language", verbose_name=_("Tili"), on_delete=models.CASCADE, related_name="patient_language")
-    total = models.PositiveIntegerField(_("Jami"), default=0)
+    total = models.DecimalField(_("Jami"), max_digits=10, decimal_places=2, default=0)
 
     class Meta:
         verbose_name = _("Bemor")
