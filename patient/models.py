@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -158,7 +159,7 @@ class Key(models.Model):
 class Payment(models.Model):
 
     patient = models.ForeignKey("patient.User", verbose_name=_("Bemor"), on_delete=models.CASCADE, related_name="patient_payment")
-    date = models.DateField(_("Sana"), auto_now_add=True)
+    datetime = models.DateTimeField(_("Tarix"), auto_now_add=True)
     amount = models.DecimalField(_("Miqdori"), max_digits=10, decimal_places=2)
 
 

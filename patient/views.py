@@ -742,7 +742,8 @@ def patient(request, id, active_tab="profile"):
         })
     services = get_services(
         Service.objects.filter(
-            dentist=dentist
+            dentist=dentist,
+            one_tooth=False
         ).exclude(price__isnull=True),
         dentist.language_id
     )

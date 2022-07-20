@@ -250,14 +250,18 @@ def appointments_update(request):
                         appointment.end = end
                         appointment.comment = appointmentform.cleaned_data["comment"]
                         services = request.POST.getlist('service')
-                        print(Procedure.objects.filter(appointment__pk=int(request.POST.get('appointment_id'))))
                         for procedure in Procedure.objects.filter(appointment__pk=int(request.POST.get('appointment_id'))):
-                            procedure.delete()
+                            if not str(procedure.service.id) in services and not procedure.service.one_tooth:
+                                procedure.delete()
                         for service in services:
-                            procedure = Procedure.objects.create(
-                                appointment=appointment,
-                                service=Service.objects.get(pk=int(service)),
-                            )
+                            if len(Procedure.objects.filter(
+                                appointment__pk=int(request.POST.get('appointment_id')),
+                                service__id=int(service)
+                            )) == 0:
+                                procedure = Procedure.objects.create(
+                                    appointment=appointment,
+                                    service=Service.objects.get(pk=int(service)),
+                                )
                         appointment.save()
                     except Exception as E:
                         print(E)

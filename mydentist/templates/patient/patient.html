@@ -382,7 +382,30 @@
                                     <div class="modal-body">
                                         <form class="form-group" method="POST" action="{% url 'dentx:appointment_plan' %}">
                                             {% csrf_token %}
-                                            <div class="pats">
+                                            <div class="row">
+                                                <div class='col-md-6'>
+                                                    <label for="id_procedure_service" class="mb-1">{% trans "Xizmat" %}</label>
+                                                    <div class="wid" style="height: 250px; overflow-x: hidden; overflow-y: scroll; border: 1px solid #bbbbbb">
+                                                        <ul id="id_procedure_service" class="wid">
+                                                            {% for el in services %}
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="service" value="{{ el.service.id }}" id="id_procedure_service_{{ el.service.id }}" class="form-check-input">
+                                                                <label class="form-check-label" for="id_procedure_service_{{ el.service.id }}">{{ el.service_name.name }}</label>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="id_procedure_appointment" class="mb-1">{% trans "Qabul" %}</label>
+                                                    <select name='appointment' class='form-select wid' id='id_procedure_appointment'>
+                                                        {% for appointment in appointments %}
+                                                        <option value='{{ appointment.appointment.id }}'>{{ appointment.appointment.begin }} - {{ appointment.appointment.end }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="pats">
                                                 <div class="mb-1 d-flex justify-content-between">
                                                     <label for="id_name">{{ patientform.name.label }}</label>
                                                 </div>
@@ -445,7 +468,7 @@
                                                         {{ appointmentform.comment }}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary me-md-2 mt-2" type="submit">{% trans "Saqlash" %}</button>
                                                 <button class="btn btn-secondary mt-2" type="button" data-bs-dismiss="modal" aria-label="Close">{% trans "Bekor qilish" %}</button>
@@ -986,7 +1009,7 @@
                             )
                         ),
                         $("<div class='col-md-6'></div>").append(
-                            $("<label for=\"id_service\" class=\"mb-1\"></label>").html("{% trans "Qabul" %}"),
+                            $("<label for=\"id_appointment\" class=\"mb-1\"></label>").html("{% trans "Qabul" %}"),
                             $("<select name='appointment' class='form-select wid' id='id_appointment'></select>"){% for appointment in appointments %}.append(
                                 $("<option value='{{ appointment.appointment.id }}'></option>").html("{{ appointment.appointment.begin }} - {{ appointment.appointment.end }}")
                             ){% endfor %}
