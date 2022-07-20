@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
@@ -1065,6 +1066,23 @@ def patient_update(request, id, form):
                 'total': total,
                 'paid': paid,
                 'debt': debt,
+            }, safe=False)
+        elif form == "procedure-create":
+            appointment = Appointment.objects.get(pk=int(request.POST.get('appointment')))
+            services = request.POST.getlist('service')
+            for service in services:
+                procedure = Procedure.objects.create(
+                    appointment=appointment,
+                    service=Service.objects.get(pk=int(service))
+                )
+            return redirect("dentx:patient", id=id, active_tab="profile")
+        elif form == "procedure-delete":
+            procedure = Procedure.objects.get(pk=int(request.POST.get('procedure')))
+            if procedure.is_done:
+                patient.total -= procedure.service.price
+            procedure.delete()
+            return JsonResponse({
+                'url': reverse("dentx:patient", kwargs={'id': id, 'active_tab': 'profile'}),
             }, safe=False)
         elif form == "comment":
             procedure = Procedure.objects.get(pk=int(request.POST.get('procedure_id')))

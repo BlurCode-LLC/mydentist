@@ -34,7 +34,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action={% url 'dentx:update_patient' id=patient_extra.id form="profile" %} method="POST">
+                                <form action="{% url 'dentx:update_patient' id=patient_extra.id form="profile" %}" method="POST">
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="big_title mb-5">
@@ -380,7 +380,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="form-group" method="POST" action="{% url 'dentx:appointment_plan' %}">
+                                        <form class="form-group" method="POST" action="{% url 'dentx:update_patient' id=patient_extra.id form="procedure-create" %}">
                                             {% csrf_token %}
                                             <div class="row">
                                                 <div class='col-md-6'>
@@ -493,22 +493,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for procedure in procedures %}
+                                    {% if procedures %}
+                                        {% for procedure in procedures %}
+                                            <tr>
+                                                <td>{{ procedure.service_name }}</td>
+                                                <td>{{ procedure.service.price }} {% trans "so'm" %}</td>
+                                                <td id="procedure_comment_{{ procedure.id }}">{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
+                                                <td>{{ procedure.begin }}</td>
+                                                <td>
+                                                    <input type="checkbox" name="is_done" class="form-check-input" {% if procedure.is_done %}checked{% endif %} id="id_is_done_{{ procedure.id }}">
+                                                </td>
+                                                <td>
+                                                    <button class="delete-procedure" class="border-0 bg-white" key="{{ procedure.id }}">
+                                                        <i class="fas fa-minus-circle"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
                                         <tr>
-                                            <td>{{ procedure.service_name }}</td>
-                                            <td>{{ procedure.service.price }} {% trans "so'm" %}</td>
-                                            <td id="procedure_comment_{{ procedure.id }}">{% if procedure.comment %}{{ procedure.comment }}{% else %}-{% endif %}</td>
-                                            <td>{{ procedure.begin }}</td>
-                                            <td>
-                                                <input type="checkbox" name="is_done" class="form-check-input" {% if procedure.is_done %}checked{% endif %} id="id_is_done_{{ procedure.id }}">
-                                            </td>
-                                            <td>
-                                                <button class="delete-procedure" class="border-0 bg-white" key="{{ procedure.id }}">
-                                                    <i class="fas fa-minus-circle"></i>
-                                                </button>
+                                            <td colspan="6">
+                                                <h4 class="text-center">
+                                                    {% trans "Xizmatlar mavjud emas" %}
+                                                </h4>
                                             </td>
                                         </tr>
-                                    {% endfor %}
+                                    {% endif %}
                                 </tbody>
                             </table>
                         </div>
@@ -1256,6 +1266,21 @@
             })
         })
         {% endfor %}
+        $(".delete-procedure").on("click", function() {
+            if (confirm("{% trans "Xizmatni o'chirishni tasdiqlaysizmi?" %}")) {
+                let id = $(this).attr("key")
+                $.ajax({
+                    url: "{% url 'dentx:update_patient' id=patient_extra.id form='procedure-delete' %}",
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: "{{ csrf_token }}",
+                        procedure: id
+                    }
+                }).always(function (result) {
+                    window.location.href = result.url
+                })
+            }
+        })
         let request_path = "{{ request.path }}"
         request_path = request_path.split("/")
         $("#pills-profile-tab").on("click", function() {
