@@ -602,22 +602,22 @@ def search(request):
             patient_extra = PatientUser.objects.get(user=patient)
             appointments = Appointment.objects.filter(
                 patient=patient_extra
-            )
+            ).order_by("begin")
+            procedures = []
+            for appointment in appointments:
+                for procedure in appointment.appointment_procedure.all():
+                    procedures.append(procedure)
             done = mark_safe(f", {NEW_LINE}".join([Service_translation.objects.get(
-                service__pk=appointment.service_id,
+                service=procedure.service,
                 language__name=get_language()
-            ).name for appointment in appointments.filter(status="done").order_by("begin")]))
-            total_sum = sum([Service.objects.get(
-                pk=appointment.service_id
-            ).price for appointment in appointments.filter(status="done")])
-            coming = "-"
-            for appointment in appointments.filter(status="waiting").order_by("begin"):
-                if appointment.upcoming():
-                    coming = Service_translation.objects.get(
-                        service__pk=appointment.service_id,
-                        language__name=get_language()
-                    ).name
-                    break
+            ).name for procedure in procedures if procedure.is_done]))
+            total_sum = patient_extra.total
+            for payment in Payment.objects.filter(patient=patient_extra):
+                total_sum -= payment.sum
+            coming = mark_safe(f", {NEW_LINE}".join([Service_translation.objects.get(
+                service=procedure.service,
+                language__name=get_language()
+            ).name for procedure in procedures if not procedure.is_done]))
             last = appointments.filter(status="done").order_by("-begin").first()
             last_visit = last.begin if last else "-"
             results.append({
@@ -630,7 +630,7 @@ def search(request):
                 'gender': GENDERS[patient_extra.gender_id - 1],
                 'done': done if done != "" else "-",
                 'total_sum': total_sum,
-                'coming': coming,
+                'coming': coming if coming != "" else "-",
                 'last_visit': last_visit
             })
     return render(request, "patient/search.html", {

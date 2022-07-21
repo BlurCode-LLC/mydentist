@@ -70,7 +70,7 @@ class UserForm(forms.Form):
             attrs={
                 'class': "form-control",
                 'type': "tel",
-                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}]",
+                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}",
                 'placeholder': _("(XX) XXX-XX-XX"),
                 'min-length': "14",
                 'max-length': "14"
@@ -139,7 +139,7 @@ class PatientForm(forms.Form):
             attrs={
                 'class': "form-control wid",
                 'type': "tel",
-                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}]",
+                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}",
                 'placeholder': _("(XX) XXX-XX-XX"),
                 'min-length': "14",
                 'max-length': "14"

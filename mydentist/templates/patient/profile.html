@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 offset-md-1">
-                        <img src="/media/{{ user_extra.image }}" class="img-fluid">
+                        <div class="card_img_holder" style="background-image: url(/media/{{ user_extra.image }})"></div>
                     </div>
                     <div class="col-md-6 offset-lg-1">
                         <div class="info-pane">
@@ -113,7 +113,7 @@
                                                 <div class="sub_title_gray_2 center mb-3">
                                                     {{ dentist_extra.fullname }}
                                                 </div>
-                                                <img class="avatar exit-avatar" src="/media/{{ dentist.image }}" alt="{{ dentist_extra.fullname }}">
+                                                <div class="card_img_holder" style="background-image: url(/media/{{ dentist.image }})"></div>
                                             </div>
                                             <div class="col-md-8 col-sm-12">
                                                 <div class="row pt-4">

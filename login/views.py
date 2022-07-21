@@ -24,6 +24,16 @@ from .forms import *
 from .tokens import reset_password_token
 
 
+def load_photo(request):
+    if request.method == "POST":
+        image = request.FILES.get("file")
+        photo = Photo.objects.create(image=image)
+        return JsonResponse({
+            'photo': str(photo.image),
+            'url': photo.image.url
+        }, safe=False)
+
+
 def register(request):
     if is_authenticated(request, "patient") or is_authenticated(request, "dentist"):
         return redirect(request.META.get("HTTP_REFERER", "/"))
@@ -57,7 +67,7 @@ def register(request):
                         phone_number=userform.cleaned_data['phone_number'],
                         address=userform.cleaned_data['address'],
                         birthday=datetime(year, month, day),
-                        image="patients/photos/default.png",
+                        image=request.POST.get("photo") if request.POST.get("photo") else "patients/photos/default.png",
                         language=Language.objects.get(name=get_language()),
                         gender=Gender.objects.get(pk=userform.cleaned_data['gender'])
                     )

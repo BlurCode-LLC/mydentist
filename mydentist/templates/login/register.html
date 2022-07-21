@@ -16,8 +16,14 @@
                     {{ error_message }}
                 </div>
             {% endif %}
+            <div class="col-md-6 mb-3 text-center offset-md-3">
+                <div id="profile-photo" class="card_img_holder mx-auto" style="background-image: url(/media/patients/photos/default.png)"></div>
+                <button class="btn my_btn mt-3 mx-auto" id="photo-upload-button">Rasmni o'zgartirish</button>
+                <input type="file" class="d-none" id="photo-upload" name="photo-upload">
+            </div>
             <form method="POST">
                 {% csrf_token %}
+                <input type="text" class="d-none" id="id_photo" name="photo">
                 <div class="container">
                     <div class="row">
                         {% for field in userform %}
@@ -137,6 +143,31 @@
 
 {% block javascript %}
     <script type="text/javascript">
+        let intervalFunc
+        $("#photo-upload-button").on("click", function () {
+            $("#photo-upload").click()
+            intervalFunc = setInterval(function () {
+                if ($("#photo-upload")[0].files.length != 0) {
+                    let data = new FormData()
+                    data.append("file", $("#photo-upload")[0].files[0])
+                    data.append("csrfmiddlewaretoken", "{{ csrf_token }}")
+                    $.ajax({
+                        url: "{% url 'login:load_photo' %}",
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        mimeType: "multipart/form-data",
+                        data: data,
+                        dataType: "json"
+                    }).always(function (result) {
+                        $("#profile-photo").attr("style", `background-image: url(${result.url})`)
+                        $("#id_photo").val(result.photo)
+                        $("#photo-upload").val("")
+                        clearInterval(intervalFunc)
+                    })
+                }
+            }, 500)
+        })
         var date = new Date()
         var current_year = date.getFullYear(), current_month = date.getMonth()
         var months_uz = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avgust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],

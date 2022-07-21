@@ -31,7 +31,7 @@
             <div class="tab-pane fade {% if active_tab == "profile" %}show active{% endif %}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="panel">
                     <div class="col-md-6 mb-3 text-center offset-md-3">
-                        <div class='card_img_holder mx-auto' style="background-image: url(http://{{ request.META.HTTP_HOST }}{{ dentist.image.url }})"></div>
+                        <div id="profile-photo" class='card_img_holder mx-auto' style="background-image: url({{ dentist.image.url }})"></div>
                         {% comment %} <img src="{{ dentist.image.url }}" class="img-fluid" id="profile-photo"> {% endcomment %}
                         <button class="btn my_btn mt-3 mx-auto" id="photo-upload-button">Rasmni o'zgartirish</button>
                         <input type="file" class="d-none" id="photo-upload" name="photo-upload">
@@ -323,7 +323,7 @@
                         data: data,
                         dataType: "json"
                     }).always(function(result) {
-                        $("#profile-photo").attr("src", result.photo)
+                        $("#profile-photo").attr("style", `background-image: url(${result.photo})`)
                         $("#photo-upload").val("")
                         clearInterval(intervalFuncPhoto)
                     })

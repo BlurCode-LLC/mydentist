@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 17:41+0500\n"
+"POT-Creation-Date: 2022-07-21 15:17+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,9 @@ msgid "(XX) XXX-XX-XX"
 msgstr ""
 
 #: .\appointment\forms.py:33
-msgid "Tugilgan sana"
+#, fuzzy
+#| msgid "Tugilgan sana"
+msgid "Tug'ilgan sana"
 msgstr "Дата рождения"
 
 #: .\appointment\forms.py:43
@@ -57,19 +59,15 @@ msgstr "Адрес"
 msgid "Manzilni kiriting"
 msgstr "Введите адрес"
 
-#: .\appointment\forms.py:67 .\appointment\models.py:27
-msgid "Xizmat"
-msgstr "Услуга"
-
-#: .\appointment\forms.py:79 .\appointment\models.py:28
+#: .\appointment\forms.py:70 .\appointment\models.py:27
 msgid "Boshlanish vaqti"
 msgstr "Время начала"
 
-#: .\appointment\forms.py:87
+#: .\appointment\forms.py:78
 msgid "Davomiyligi"
 msgstr "Длительность"
 
-#: .\appointment\forms.py:96
+#: .\appointment\forms.py:87
 msgid "Eslatma"
 msgstr "Напоминание"
 
@@ -81,7 +79,8 @@ msgstr "Стоматолог"
 msgid "Sabab"
 msgstr "Причина"
 
-#: .\appointment\models.py:13 .\appointment\models.py:30
+#: .\appointment\models.py:13 .\appointment\models.py:29
+#: .\appointment\models.py:49
 msgid "Izohlar"
 msgstr "Комментарии"
 
@@ -93,21 +92,41 @@ msgstr "Запрос на приём"
 msgid "So'rovlar"
 msgstr "Запросы на приём"
 
-#: .\appointment\models.py:29
+#: .\appointment\models.py:28
 msgid "Tugash vaqti"
 msgstr "Время конца"
 
-#: .\appointment\models.py:31
+#: .\appointment\models.py:30
 msgid "Qabul holati"
 msgstr "Состояние приёма"
 
-#: .\appointment\models.py:34
+#: .\appointment\models.py:33 .\appointment\models.py:45
 msgid "Qabul"
 msgstr "Приём"
 
-#: .\appointment\models.py:35
+#: .\appointment\models.py:34
 msgid "Qabullar"
 msgstr "Приёмы"
+
+#: .\appointment\models.py:46
+msgid "Xizmat"
+msgstr "Услуга"
+
+#: .\appointment\models.py:47
+msgid "Tish"
+msgstr ""
+
+#: .\appointment\models.py:48
+msgid "Bajarilgan"
+msgstr "Выполнено"
+
+#: .\appointment\models.py:52
+msgid "Tish holati"
+msgstr "Состояние зуба"
+
+#: .\appointment\models.py:53
+msgid "Tish holatlari"
+msgstr "Состояния зуба"
 
 #: .\appointment\views.py:55
 msgid "Bemor ma'lumotlari to'g'ri kelmayapti"
@@ -121,18 +140,18 @@ msgstr "Это не ваш пациент"
 msgid "Yangi bemor qo'shildi"
 msgstr "Добавлен новый пациент"
 
-#: .\appointment\views.py:152 .\appointment\views.py:593
+#: .\appointment\views.py:152 .\appointment\views.py:601
 msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
 msgstr "Нельзя назначить данный приём. Выберите другое время"
 
-#: .\appointment\views.py:269
+#: .\appointment\views.py:278
 msgid "Kutilmoqda"
 msgstr "Ожидается"
 
-#: .\appointment\views.py:271
+#: .\appointment\views.py:280
 msgid "Kelgan"
 msgstr "Посещён"
 
-#: .\appointment\views.py:273
+#: .\appointment\views.py:282
 msgid "Kelmagan"
 msgstr "Не посещён"

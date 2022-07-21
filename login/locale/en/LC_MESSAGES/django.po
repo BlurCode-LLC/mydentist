@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 17:41+0500\n"
+"POT-Creation-Date: 2022-07-21 15:17+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,39 +70,51 @@ msgstr "Password reset"
 msgid "Parol tiklanishlari"
 msgstr "Password resets"
 
-#: .\login\views.py:70
+#: .\login\models.py:22
+msgid "Image"
+msgstr ""
+
+#: .\login\models.py:25
+msgid "Photo"
+msgstr ""
+
+#: .\login\models.py:26
+msgid "Photos"
+msgstr ""
+
+#: .\login\views.py:80
 msgid "Bu raqam ostida foydalanuvchi mavjud"
 msgstr "User with given phone number already exists"
 
-#: .\login\views.py:165
+#: .\login\views.py:176
 msgid "Parollar to'g'ri kemayapti"
 msgstr "Passwords do not match"
 
-#: .\login\views.py:216 .\login\views.py:241
+#: .\login\views.py:227 .\login\views.py:252
 msgid "Xato parol"
 msgstr "Incorrect password"
 
-#: .\login\views.py:246
+#: .\login\views.py:257
 msgid "Xato telefon raqam"
 msgstr "Incorrect phone number"
 
-#: .\login\views.py:282
+#: .\login\views.py:293
 msgid "Foydalanuvchi topilmadi"
 msgstr "User not found"
 
-#: .\login\views.py:294
+#: .\login\views.py:305
 msgid "Parolni tiklash"
 msgstr "Reset password"
 
-#: .\login\views.py:336
+#: .\login\views.py:347
 msgid "Parollar mos kelmayapti"
 msgstr "Passwords do not match"
 
-#: .\login\views.py:351 .\login\views.py:353 .\login\views.py:355
-#: .\login\views.py:357
+#: .\login\views.py:362 .\login\views.py:364 .\login\views.py:366
+#: .\login\views.py:368
 msgid "Havolani muddati yakunlandi"
 msgstr "Link has expired"
 
-#: .\login\views.py:406
+#: .\login\views.py:417
 msgid "Noto'g'ri login yoki parol"
 msgstr "Incorrect username or password"

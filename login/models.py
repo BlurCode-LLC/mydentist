@@ -15,3 +15,15 @@ class PasswordReset(models.Model):
 
     def __str__(self):
         return f"{self.email} - {self.is_active}"
+
+
+class Photo(models.Model):
+
+    image = models.ImageField(_("Image"), upload_to="patients/photos/")
+
+    class Meta:
+        verbose_name = _("Photo")
+        verbose_name_plural = _("Photos")
+
+    def __str__(self):
+        return f"{self.image}"

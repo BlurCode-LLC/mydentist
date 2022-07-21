@@ -21,7 +21,7 @@ class AppointmentPatientForm(forms.Form):
             attrs={
                 'class': "form-control wid",
                 'type': "tel",
-                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}]",
+                'pattern': "[(]{1}[\d]{2}[)]{1} [\d]{3}-[\d]{2}-[\d]{2}",
                 'placeholder': _("(XX) XXX-XX-XX"),
                 'min-length': "14",
                 'max-length': "14"
@@ -30,7 +30,7 @@ class AppointmentPatientForm(forms.Form):
         localize=True
     )
     birthday = forms.CharField(
-        label=_("Tugilgan sana"),
+        label=_("Tug'ilgan sana"),
         widget=forms.DateInput(
             attrs={
                 'class': "form-control wid",

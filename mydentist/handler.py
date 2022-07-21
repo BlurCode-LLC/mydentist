@@ -14,7 +14,7 @@ from appointment.models import Appointment
 from baseapp.models import Language
 from dentist.models import Expire, Patient, User as DentistUser, User_translation, Clinic, Clinic_translation, Service, Service_translation
 from notification.models import *
-from patient.models import User as PatientUser
+from patient.models import Payment, User as PatientUser
 from .var import CHOICES, GENDERS, NEW_LINE
 
 
@@ -322,7 +322,7 @@ def get_patients(request, sort_by):
     for patient in patients:
         appointments = Appointment.objects.filter(
             patient=patient
-        )
+        ).order_by("begin")
         procedures = []
         for appointment in appointments:
             for procedure in appointment.appointment_procedure.all():
@@ -331,7 +331,9 @@ def get_patients(request, sort_by):
             service=procedure.service,
             language__name=get_language()
         ).name for procedure in procedures if procedure.is_done]))
-        total_sum = sum([procedure.service.price for procedure in procedures if procedure.is_done])
+        total_sum = patient.total
+        for payment in Payment.objects.filter(patient=patient):
+            total_sum -= payment.sum
         coming = mark_safe(f", {NEW_LINE}".join([ Service_translation.objects.get(
             service=procedure.service,
             language__name=get_language()

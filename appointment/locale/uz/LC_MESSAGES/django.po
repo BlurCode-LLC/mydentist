@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 17:41+0500\n"
+"POT-Creation-Date: 2022-07-21 15:17+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgid "(XX) XXX-XX-XX"
 msgstr ""
 
 #: .\appointment\forms.py:33
-msgid "Tugilgan sana"
+msgid "Tug'ilgan sana"
 msgstr ""
 
 #: .\appointment\forms.py:43
@@ -55,19 +55,15 @@ msgstr ""
 msgid "Manzilni kiriting"
 msgstr ""
 
-#: .\appointment\forms.py:67 .\appointment\models.py:27
-msgid "Xizmat"
-msgstr ""
-
-#: .\appointment\forms.py:79 .\appointment\models.py:28
+#: .\appointment\forms.py:70 .\appointment\models.py:27
 msgid "Boshlanish vaqti"
 msgstr ""
 
-#: .\appointment\forms.py:87
+#: .\appointment\forms.py:78
 msgid "Davomiyligi"
 msgstr ""
 
-#: .\appointment\forms.py:96
+#: .\appointment\forms.py:87
 msgid "Eslatma"
 msgstr ""
 
@@ -79,7 +75,8 @@ msgstr ""
 msgid "Sabab"
 msgstr ""
 
-#: .\appointment\models.py:13 .\appointment\models.py:30
+#: .\appointment\models.py:13 .\appointment\models.py:29
+#: .\appointment\models.py:49
 msgid "Izohlar"
 msgstr ""
 
@@ -91,20 +88,40 @@ msgstr ""
 msgid "So'rovlar"
 msgstr ""
 
-#: .\appointment\models.py:29
+#: .\appointment\models.py:28
 msgid "Tugash vaqti"
 msgstr ""
 
-#: .\appointment\models.py:31
+#: .\appointment\models.py:30
 msgid "Qabul holati"
 msgstr ""
 
-#: .\appointment\models.py:34
+#: .\appointment\models.py:33 .\appointment\models.py:45
 msgid "Qabul"
 msgstr ""
 
-#: .\appointment\models.py:35
+#: .\appointment\models.py:34
 msgid "Qabullar"
+msgstr ""
+
+#: .\appointment\models.py:46
+msgid "Xizmat"
+msgstr ""
+
+#: .\appointment\models.py:47
+msgid "Tish"
+msgstr ""
+
+#: .\appointment\models.py:48
+msgid "Bajarilgan"
+msgstr ""
+
+#: .\appointment\models.py:52
+msgid "Tish holati"
+msgstr ""
+
+#: .\appointment\models.py:53
+msgid "Tish holatlari"
 msgstr ""
 
 #: .\appointment\views.py:55
@@ -119,18 +136,18 @@ msgstr ""
 msgid "Yangi bemor qo'shildi"
 msgstr ""
 
-#: .\appointment\views.py:152 .\appointment\views.py:593
+#: .\appointment\views.py:152 .\appointment\views.py:601
 msgid "Ushbu qabulni belgilab bo'lmaydi. Boshqa vaqtni tanlang"
 msgstr ""
 
-#: .\appointment\views.py:269
+#: .\appointment\views.py:278
 msgid "Kutilmoqda"
 msgstr ""
 
-#: .\appointment\views.py:271
+#: .\appointment\views.py:280
 msgid "Kelgan"
 msgstr ""
 
-#: .\appointment\views.py:273
+#: .\appointment\views.py:282
 msgid "Kelmagan"
 msgstr ""

@@ -408,6 +408,13 @@ a.my_btn {
   background-position: center;
 }
 
+.card_img_holder_mini {
+  height: 60px;
+  width: 60px;
+  background-size: cover;
+  background-position: center;
+}
+
 .card_clinic {
   margin-left: 5px;
   font-size: 16px;
@@ -991,7 +998,7 @@ span.input-group-text {
   border-bottom-right-radius: 25px !important;
 }
 
-.avatar img {
+.avatar .card_img_holder_mini {
   width: 60px;
 }
 

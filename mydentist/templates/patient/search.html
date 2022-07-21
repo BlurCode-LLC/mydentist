@@ -77,7 +77,7 @@
                                 <th>
                                     <div class="avatar avatar-xs mx-auto">
                                         <div class="border border-1">
-                                            <img src="{{ result.image }}">
+                                            <div class="card_img_holder_mini" style="background-image: url({{ result.image }})"></div>
                                         </div>
                                     </div>
                                 </th>
@@ -90,10 +90,10 @@
                                 </td>
                                 <td>{{ result.gender }}</td>
                                 <td>{{ result.address }}</td>
-                                <td>{{ result.done }}</td>
+                                <td>{% if result.done %}{{ result.done }}{% else %}-{% endif %}</td>
                                 <td>{{ result.total_sum }} {% trans "so'm" %}</td>
-                                <td>{{ result.coming }}</td>
-                                <td>{% last_visit_format result.last_visit %}</td>
+                                <td>{% if result.coming %}{{ result.coming }}{% else %}-{% endif %}</td>
+                                <td>{% if result.last_visit %}{% last_visit_format result.last_visit %}{% else %}-{% endif %}</td>
                             </tr>
                             {% endfor %}
                         </tbody>

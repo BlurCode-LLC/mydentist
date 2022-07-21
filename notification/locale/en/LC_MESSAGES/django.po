@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 17:41+0500\n"
+"POT-Creation-Date: 2022-07-21 15:17+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\notification\apps.py:8
+#: .\notification\apps.py:8 .\notification\models.py:47
 msgid "Xabarlar"
 msgstr "Notifications"
 
@@ -35,14 +35,17 @@ msgid "Xabar turi"
 msgstr "Notification type"
 
 #: .\notification\models.py:10 .\notification\models.py:27
+#: .\notification\models.py:41
 msgid "Xabar matni"
 msgstr "Notification text"
 
 #: .\notification\models.py:11 .\notification\models.py:28
+#: .\notification\models.py:42
 msgid "Xabar jo'natilgan vaqt"
 msgstr "Notification sent time"
 
 #: .\notification\models.py:12 .\notification\models.py:29
+#: .\notification\models.py:43
 msgid "O'qilganmi?"
 msgstr "Read?"
 
@@ -61,3 +64,9 @@ msgstr "P2D Notification"
 #: .\notification\models.py:33
 msgid "P2D Xabarlar"
 msgstr "P2D Notifications"
+
+#: .\notification\models.py:46
+#, fuzzy
+#| msgid "Xabarlar"
+msgid "Xabar"
+msgstr "Notifications"
