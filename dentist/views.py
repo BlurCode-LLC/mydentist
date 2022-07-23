@@ -98,7 +98,11 @@ def dentist(request, slug):
             except:
                 pass
     try:
-        services_obj = Service_translation.objects.filter(language__name=current_language, service__dentist=dentist)
+        services_obj = Service_translation.objects.filter(
+            language__name=current_language,
+            service__dentist=dentist,
+            service__price__isnull=False
+        )
         services = []
         for service_extra in services_obj:
             services.append({

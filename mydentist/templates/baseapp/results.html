@@ -99,77 +99,75 @@
 					if ($("main > .container").hasClass("d-none")) {
 						$("main > .container").removeClass("d-none")
 					}
-					for (let i = 0; i < result.length; i++) {
-						$(`#pills-${tab} > .row`).append(
-							$("<div class='col col-sm-12'></div>").append(
-								$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
-									$("<div class='col-md-4 order-md-2'></div>").append(
-										$("<div class='card_img_holder mx-auto'></div>").attr("style", `background-image: url(http://{{ request.META.HTTP_HOST }}${result[i]["image"]});`)
-									),
-									$("<div class='col-md-8 order-md-1'></div>").append(
-										// $("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
-										$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona nomi:" %} ${result[i]["clinic_name"]}`),
-										$("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
-										/* $("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
-										$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`), */
-										$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]} (${result[i]["distance"].toFixed(1)} {% trans "km" %})`)
-									)	
-								)
-							)
-						)
-						if (result[i]["orientir"]) {
-							$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
-								$("<div></div>").addClass("card_info").html(`{% trans "Mo'ljal:" %} ${result[i]["orientir"]}`)
-							)
-						}
-						if (result[i]["is_fullday"]) {
-							$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
-								$("<div></div>").addClass("card_info").html("{% trans "Ishlash vaqti:" %} {% trans "24 soat" %}")
-							)
-						} else {
-							$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
-								$("<div></div>").addClass("card_info").html(`{% trans "Ishlash vaqti:" %} ${result[i]["worktime_begin"]} - ${result[i]["worktime_end"]}`)
-							)
-						}
-						let prices = result[i]["service_price_min"] != result[i]["service_price_max"] ? `${result[i]["service_price_min"]} {% trans "so'm" %} - ${result[i]["service_price_max"]} {% trans "so'm" %}` : `${result[i]["service_price_min"]} {% trans "so'm" %}`
-						$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
-							$("<div></div>").addClass("card_info").html(`{% trans "Telefon raqami:" %} ${result[i]["phone_number"]}`),
-							$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`),
-							$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${prices}`),
-							$("<div></div>").addClass("btn_holder").append(
-								$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Batafsil" %}"),
-								$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Qabulga yozilish" %}")
-							)
-						)
-						console.log(i)
-						if ($("#map").is(":empty")) {
-							ymaps.ready(init)
-							function init() {
-								let myMap = new ymaps.Map("map", {
-									center: [40.767684, 72.336187],
-									zoom: 10
-								}), myGeoObject
-								for (let i = 0; i < result.length; i++) {
-									myGeoObject = new ymaps.GeoObject(
-										{
-											// Описание геометрии.
-											geometry: {
-												type: "Point",
-												coordinates: [result[i]["latitude"], result[i]["longitude"]]
-											},
-											// Свойства.
-											properties: {
-												// Контент метки.
-												iconContent: result[i]["clinic_name"]
-											}
-										}, {
-											// Опции.
-											// Иконка метки будет растягиваться под размер ее содержимого.
-											preset: 'islands#blackStretchyIcon'
-										}
+					if ($("#map").is(":empty")) {
+						ymaps.ready(init)
+						function init() {
+							let myMap = new ymaps.Map("map", {
+								center: [40.767684, 72.336187],
+								zoom: 10
+							}), myGeoObject
+							for (let i = 0; i < result.length; i++) {
+								$(`#pills-${tab} > .row`).append(
+									$("<div class='col col-sm-12'></div>").append(
+										$(`<div class="stom_card row" number="${i + 1}"></div>`).append(
+											$("<div class='col-md-4 order-md-2'></div>").append(
+												$("<div class='card_img_holder mx-auto'></div>").attr("style", `background-image: url(http://{{ request.META.HTTP_HOST }}${result[i]["image"]});`)
+											),
+											$("<div class='col-md-8 order-md-1'></div>").append(
+												// $("<div></div>").addClass("card_clinic").html(result[i]["clinic_name"]),
+												$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona nomi:" %} ${result[i]["clinic_name"]}`),
+												$("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
+												/* $("<div></div>").addClass("card_info").html(`{% trans "FISh:" %} ${result[i]["fullname"]}`),
+												$("<div></div>").addClass("card_info").html(`{% trans "Shifoxona:" %} ${result[i]["clinic_name"]}`), */
+												$("<div></div>").addClass("card_info").html(`{% trans "Manzil:" %} ${result[i]["address"]} (${result[i]["distance"].toFixed(1)} {% trans "km" %})`)
+											)	
+										)
 									)
-									myMap.geoObjects.add(myGeoObject)
+								)
+								if (result[i]["orientir"]) {
+									$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
+										$("<div></div>").addClass("card_info").html(`{% trans "Mo'ljal:" %} ${result[i]["orientir"]}`)
+									)
 								}
+								if (result[i]["is_fullday"]) {
+									$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
+										$("<div></div>").addClass("card_info").html("{% trans "Ishlash vaqti:" %} {% trans "24 soat" %}")
+									)
+								} else {
+									$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
+										$("<div></div>").addClass("card_info").html(`{% trans "Ishlash vaqti:" %} ${result[i]["worktime_begin"]} - ${result[i]["worktime_end"]}`)
+									)
+								}
+								let prices = result[i]["service_price_min"] != result[i]["service_price_max"] ? `${result[i]["service_price_min"]} {% trans "so'm" %} - ${result[i]["service_price_max"]} {% trans "so'm" %}` : `${result[i]["service_price_min"]} {% trans "so'm" %}`
+								$(`#pills-${tab} .stom_card[number="${i + 1}"] .col-md-8`).append(
+									$("<div></div>").addClass("card_info").html(`{% trans "Telefon raqami:" %} ${result[i]["phone_number"]}`),
+									$("<div></div>").addClass("card_info").html(`{% trans "Xizmat nomi:" %} ${result[i]["service_name"]}`),
+									$("<div></div>").addClass("card_info").html(`{% trans "Xizmat narxi:" %} ${prices}`),
+									$("<div></div>").addClass("btn_holder").append(
+										$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Batafsil" %}"),
+										$("<a></a>").addClass("btn my_btn_2").attr("href", `/dentist/${result[i]["slug"]}`).html("{% trans "Qabulga yozilish" %}")
+									)
+								)
+								console.log(i)
+								myGeoObject = new ymaps.GeoObject(
+									{
+										// Описание геометрии.
+										geometry: {
+											type: "Point",
+											coordinates: [result[i]["latitude"], result[i]["longitude"]]
+										},
+										// Свойства.
+										properties: {
+											// Контент метки.
+											iconContent: result[i]["clinic_name"]
+										}
+									}, {
+										// Опции.
+										// Иконка метки будет растягиваться под размер ее содержимого.
+										preset: 'islands#blackStretchyIcon'
+									}
+								)
+								myMap.geoObjects.add(myGeoObject)
 							}
 						}
 					}

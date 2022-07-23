@@ -17,14 +17,16 @@
             <div class="col-md-8 col-sm-12">
                 <div class="row pt-5">
                     <div class="col-md-9 col-sm-12">
+                        {% if dentist_extra.speciality %}
                         <div class="info_holder">
                             <div class="info_name">{% trans "Ish sohasi:" %}</div>
                             <div class="info_desc">{{ dentist_extra.speciality }}</div>
                         </div>
+                        {% endif %}
                         {% if dentist.experience %}
                             <div class="info_holder">
                                 <div class="info_name">{% trans "Ish tajribasi:" %}</div>
-                                <div class="info_desc">{{ dentist.experience }}</div>
+                                <div class="info_desc">{{ dentist.experience }} {% trans "yil" %}</div>
                             </div>
                         {% endif %}
                         <div class="info_holder">
@@ -113,7 +115,6 @@
                                 <tr>
                                     <th scope="col">{% trans "Xizmat nomi" %}</th>
                                     <th scope="col">{% trans "Narxi" %}</th>
-                                    <th scope="col">{% trans "Davomiyligi" %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,7 +122,6 @@
                                     <tr>
                                         <td>{{ service.service_extra.name }}</td>
                                         <td>{{ service.service.price }} {% trans "so'm" %}</td>
-                                        <td>{% convert_time service.service.duration %}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
