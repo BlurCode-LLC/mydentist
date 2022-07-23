@@ -1,0 +1,474 @@
+[
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 1,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-1.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 2,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-2.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 3,
+        "fields": {
+            "image": "dentists/cabinet_photos/muydinova-barnoxon-asqarovna-3.jpg",
+            "dentist": 1
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 4,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-1.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 5,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-2.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 6,
+        "fields": {
+            "image": "dentists/cabinet_photos/qodirov-muhammadali-mahammadsoli-ogli-3.jpg",
+            "dentist": 2
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 7,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-1.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 8,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-2.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 9,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-3.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 10,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboyev-rozijon-abdujabborovich-4.jpg",
+            "dentist": 3
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 11,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-1.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 12,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-2.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 13,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-3.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 14,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibragimov-dilmurodjon-zakirjanovich-4.jpg",
+            "dentist": 4
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 15,
+        "fields": {
+            "image": "dentists/cabinet_photos/shokirov-xurshidbek-usmonjonovich-1.jpg",
+            "dentist": 5
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 16,
+        "fields": {
+            "image": "dentists/cabinet_photos/shokirov-xurshidbek-usmonjonovich-2.jpg",
+            "dentist": 5
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 17,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-1.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 18,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-2.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 19,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-3.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 20,
+        "fields": {
+            "image": "dentists/cabinet_photos/ibrohimov-muhammadaziz-abdurasul-ogli-4.jpg",
+            "dentist": 6
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 21,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-1.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 22,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-2.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 23,
+        "fields": {
+            "image": "dentists/cabinet_photos/pulatov-nosirullo-xosiljonovich-3.jpg",
+            "dentist": 7
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 24,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-1.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 25,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-2.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 26,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-3.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 27,
+        "fields": {
+            "image": "dentists/cabinet_photos/karimqulov-nodirbek-abdujalilovich-4.jpg",
+            "dentist": 8
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 28,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-1.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 29,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-2.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 30,
+        "fields": {
+            "image": "dentists/cabinet_photos/qurbonov-egamberdi-mominovich-3.jpg",
+            "dentist": 10
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 31,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-1.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 32,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-2.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 33,
+        "fields": {
+            "image": "dentists/cabinet_photos/ahmedov-muzaffarbek-ulugbek-ogli-3.jpg",
+            "dentist": 11
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 34,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-1.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 35,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-2.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 36,
+        "fields": {
+            "image": "dentists/cabinet_photos/tojiboev-azizbek-alisher-ogli-3.jpg",
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 37,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-1.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 38,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-2.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 39,
+        "fields": {
+            "image": "dentists/cabinet_photos/mamajonov-baxtiyor-abdullayevich-3.jpg",
+            "dentist": 13
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 40,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-1.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 41,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-2.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 42,
+        "fields": {
+            "image": "dentists/cabinet_photos/sadikova-irodaxon-yangiboyevna-3.jpg",
+            "dentist": 14
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 43,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-1.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 44,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-2.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 45,
+        "fields": {
+            "image": "dentists/cabinet_photos/valiyev-zaynobiddin-nizomiddinovich-3.jpg",
+            "dentist": 15
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 46,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-1.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 47,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-2.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 48,
+        "fields": {
+            "image": "dentists/cabinet_photos/xurboyev-durbek-kabuljonovich-3.jpg",
+            "dentist": 16
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 49,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-1.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 50,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-2.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 51,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-3.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 52,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-4.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 53,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-5.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 54,
+        "fields": {
+            "image": "dentists/cabinet_photos/jorayeva-nigoraxon-iminjanovna-6.jpg",
+            "dentist": 18
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 58,
+        "fields": {
+            "image": "dentists/cabinet_photos/Untitled_eCNIOb1.jpg",
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 61,
+        "fields": {
+            "image": "dentists/cabinet_photos/fon_TId3OMF.jpg",
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 64,
+        "fields": {
+            "image": "dentists/cabinet_photos/2653644.webp",
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 65,
+        "fields": {
+            "image": "dentists/cabinet_photos/2653644_K2EbRN3.webp",
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.cabinet_image",
+        "pk": 66,
+        "fields": {
+            "image": "dentists/cabinet_photos/DI_set2-bridge-400.jpg",
+            "dentist": 22
+        }
+    }
+]
