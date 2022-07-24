@@ -1,0 +1,79 @@
+[
+    {
+        "model": "dentist.service",
+        "pk": 121,
+        "fields": {
+            "name": "Tishlarni toshini terish",
+            "service_category": null,
+            "duration": 15,
+            "price": 150000,
+            "dentist": 12
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 211,
+        "fields": {
+            "name": "Milklarni davolash",
+            "service_category": null,
+            "duration": 30,
+            "price": 150000,
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 212,
+        "fields": {
+            "name": "Svetoplomba Charisma",
+            "service_category": null,
+            "duration": 30,
+            "price": 100000,
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 213,
+        "fields": {
+            "name": "Svetoplomba Composite",
+            "service_category": null,
+            "duration": 30,
+            "price": 70000,
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 252,
+        "fields": {
+            "name": "Tish toshlarini terish",
+            "service_category": null,
+            "duration": 30,
+            "price": 50000,
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 253,
+        "fields": {
+            "name": "Professional tozalov 1",
+            "service_category": null,
+            "duration": 45,
+            "price": 70000,
+            "dentist": 22
+        }
+    },
+    {
+        "model": "dentist.service",
+        "pk": 254,
+        "fields": {
+            "name": "Professional tozalov 2",
+            "service_category": null,
+            "duration": 45,
+            "price": 100000,
+            "dentist": 22
+        }
+    }
+]
