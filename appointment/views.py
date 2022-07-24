@@ -453,6 +453,8 @@ def test_table(request):
         dentist.worktime_end.hour,
         dentist.worktime_end.minute
     )
+    if dentist.worktime_begin.hour == dentist.worktime_end.hour == 0 and dentist.worktime_begin.minute == dentist.worktime_end.minute == 0:
+        day_end += timedelta(days=1)
     while day_begin < day_end:
         table.append([])
         table[-1].append({
