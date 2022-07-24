@@ -1,340 +1,11 @@
 [
     {
-        "model": "appointment.query",
-        "pk": 1,
-        "fields": {
-            "dentist": 2,
-            "patient": 5,
-            "reason": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 2,
-        "fields": {
-            "dentist": 2,
-            "patient": 5,
-            "reason": "Tish og‘rig‘i (shirinlikda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 3,
-        "fields": {
-            "dentist": 2,
-            "patient": 5,
-            "reason": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 4,
-        "fields": {
-            "dentist": 2,
-            "patient": 5,
-            "reason": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
-            "comment": "hfufufuff"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 5,
-        "fields": {
-            "dentist": 12,
-            "patient": 1,
-            "reason": "Konsultatsiya",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 7,
-        "fields": {
-            "dentist": 6,
-            "patient": 1,
-            "reason": "Tish qo‘ydirish",
-            "comment": "gh"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 8,
-        "fields": {
-            "dentist": 6,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
-            "comment": "7"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 9,
-        "fields": {
-            "dentist": 18,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (tunda), Tish og‘rig‘i (faqat sovuqqa), Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 10,
-        "fields": {
-            "dentist": 18,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (tishlaganda)dad, Tish og‘rig‘i (shirinlikda), Tish og‘rig‘i (faqat sovuqqa)",
-            "comment": "asd"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 11,
-        "fields": {
-            "dentist": 3,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (doimiy), Tish og‘rig‘i (issiq va sovuqqa)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 13,
-        "fields": {
-            "dentist": 2,
-            "patient": 10,
-            "reason": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "comment": "jt"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 14,
-        "fields": {
-            "dentist": 16,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (faqat sovuqqa)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 15,
-        "fields": {
-            "dentist": 3,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 16,
-        "fields": {
-            "dentist": 18,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 17,
-        "fields": {
-            "dentist": 15,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (shirinlikda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 18,
-        "fields": {
-            "dentist": 1,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (shirinlikda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 19,
-        "fields": {
-            "dentist": 18,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 20,
-        "fields": {
-            "dentist": 18,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 21,
-        "fields": {
-            "dentist": 1,
-            "patient": 12,
-            "reason": "Milk qonashi",
-            "comment": "еннгггпг ошщло ипрол ролл"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 22,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "sdfsdfsdf, Tish og‘rig‘i (ertalab, og‘izni ochganda, yutinganda)",
-            "comment": "asdfsadfsdf"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 24,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Зубная боль (ночью)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 25,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Зубная боль (от горячего и от холодного)",
-            "comment": "wfdfgdfgdfgdf dfff"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 26,
-        "fields": {
-            "dentist": 10,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (issiq va sovuqqa), Tish og‘rig‘i (faqat sovuqqa)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 27,
-        "fields": {
-            "dentist": 13,
-            "patient": 1,
-            "reason": "Tish og‘rig‘i (shirinlikda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 28,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Toothache (when food gets into the tooth cavity)",
-            "comment": "гп7п7"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 29,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (kovakka ovqat kirib qolganda)",
-            "comment": "hdjdififififof"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 30,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (faqat sovuqqa)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 31,
-        "fields": {
-            "dentist": 17,
-            "patient": 12,
-            "reason": "Toothache (when biting)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 32,
-        "fields": {
-            "dentist": 16,
-            "patient": 12,
-            "reason": "Зубная боль (при попадании еды в полость зуба)",
-            "comment": "ледез5 едезе едезе еде еде еще еще еще ще ещ4 ед4тещеле\nн\nн\nн\nн\nн\nн\nн\nн"
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 33,
-        "fields": {
-            "dentist": 11,
-            "patient": 6,
-            "reason": "Tish og‘rig‘i (jag‘ning to'la bir tomonida)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 34,
-        "fields": {
-            "dentist": 5,
-            "patient": 12,
-            "reason": "Зубная боль (при употреблении сладости)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 35,
-        "fields": {
-            "dentist": 20,
-            "patient": 6,
-            "reason": "Tish og‘rig‘i (tunda)",
-            "comment": ""
-        }
-    },
-    {
-        "model": "appointment.query",
-        "pk": 36,
-        "fields": {
-            "dentist": 11,
-            "patient": 12,
-            "reason": "Tish og‘rig‘i (shirinlikda)",
-            "comment": ""
-        }
-    },
-    {
         "model": "appointment.appointment",
         "pk": 1,
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 8,
             "begin": "2022-04-17T16:00:00Z",
             "end": "2022-04-17T16:15:00Z",
             "comment": "",
@@ -347,6 +18,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 200,
             "begin": "2022-04-15T14:45:00Z",
             "end": "2022-04-15T15:00:00Z",
             "comment": "",
@@ -359,6 +31,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 195,
             "begin": "2022-04-18T09:30:00Z",
             "end": "2022-04-18T10:00:00Z",
             "comment": "",
@@ -371,6 +44,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 195,
             "begin": "2022-04-19T08:00:00Z",
             "end": "2022-04-19T08:15:00Z",
             "comment": "21-tish",
@@ -383,6 +57,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 196,
             "begin": "2022-04-20T08:00:00Z",
             "end": "2022-04-20T08:15:00Z",
             "comment": "",
@@ -395,6 +70,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 196,
             "begin": "2022-04-05T08:00:00Z",
             "end": "2022-04-05T08:15:00Z",
             "comment": "",
@@ -407,6 +83,7 @@
         "fields": {
             "dentist": 2,
             "patient": 6,
+            "service": 199,
             "begin": "2022-04-21T08:00:00Z",
             "end": "2022-04-21T08:15:00Z",
             "comment": "",
@@ -419,6 +96,7 @@
         "fields": {
             "dentist": 22,
             "patient": 1,
+            "service": 208,
             "begin": "2022-04-26T08:00:00Z",
             "end": "2022-04-26T08:15:00Z",
             "comment": "",
@@ -431,6 +109,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 224,
             "begin": "2022-05-07T08:00:00Z",
             "end": "2022-05-07T08:15:00Z",
             "comment": "12-tish",
@@ -443,6 +122,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-12T08:00:00Z",
             "end": "2022-05-12T08:30:00Z",
             "comment": "",
@@ -455,6 +135,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-13T08:15:00Z",
             "end": "2022-05-13T08:45:00Z",
             "comment": "",
@@ -467,6 +148,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-14T08:15:00Z",
             "end": "2022-05-14T08:45:00Z",
             "comment": "",
@@ -479,6 +161,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-11T09:45:00Z",
             "end": "2022-05-11T10:15:00Z",
             "comment": "",
@@ -491,6 +174,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-10T09:45:00Z",
             "end": "2022-05-10T10:15:00Z",
             "comment": "",
@@ -503,6 +187,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 213,
             "begin": "2022-05-09T10:00:00Z",
             "end": "2022-05-09T10:30:00Z",
             "comment": "",
@@ -515,6 +200,7 @@
         "fields": {
             "dentist": 22,
             "patient": 1,
+            "service": 213,
             "begin": "2022-05-16T09:45:00Z",
             "end": "2022-05-16T10:15:00Z",
             "comment": "",
@@ -527,6 +213,7 @@
         "fields": {
             "dentist": 22,
             "patient": 26,
+            "service": 249,
             "begin": "2022-05-20T08:00:00Z",
             "end": "2022-05-20T08:30:00Z",
             "comment": "",
@@ -539,6 +226,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 8,
             "begin": "2022-05-16T08:00:00Z",
             "end": "2022-05-16T08:15:00Z",
             "comment": "",
@@ -551,6 +239,7 @@
         "fields": {
             "dentist": 22,
             "patient": 26,
+            "service": 8,
             "begin": "2022-05-16T08:30:00Z",
             "end": "2022-05-16T08:45:00Z",
             "comment": "",
@@ -563,6 +252,7 @@
         "fields": {
             "dentist": 22,
             "patient": 20,
+            "service": 252,
             "begin": "2022-05-16T09:00:00Z",
             "end": "2022-05-16T09:45:00Z",
             "comment": "",
@@ -575,6 +265,7 @@
         "fields": {
             "dentist": 22,
             "patient": 16,
+            "service": 230,
             "begin": "2022-05-16T11:00:00Z",
             "end": "2022-05-16T11:45:00Z",
             "comment": "",
@@ -587,6 +278,7 @@
         "fields": {
             "dentist": 22,
             "patient": 7,
+            "service": 239,
             "begin": "2022-05-16T12:00:00Z",
             "end": "2022-05-16T13:00:00Z",
             "comment": "",
@@ -599,6 +291,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 246,
             "begin": "2022-05-17T08:15:00Z",
             "end": "2022-05-17T09:15:00Z",
             "comment": "",
@@ -611,6 +304,7 @@
         "fields": {
             "dentist": 22,
             "patient": 26,
+            "service": 246,
             "begin": "2022-05-17T09:30:00Z",
             "end": "2022-05-17T10:15:00Z",
             "comment": "",
@@ -623,6 +317,7 @@
         "fields": {
             "dentist": 22,
             "patient": 16,
+            "service": 245,
             "begin": "2022-05-17T10:30:00Z",
             "end": "2022-05-17T11:00:00Z",
             "comment": "",
@@ -635,6 +330,7 @@
         "fields": {
             "dentist": 22,
             "patient": 7,
+            "service": 213,
             "begin": "2022-05-17T12:00:00Z",
             "end": "2022-05-17T12:30:00Z",
             "comment": "",
@@ -647,6 +343,7 @@
         "fields": {
             "dentist": 22,
             "patient": 1,
+            "service": 208,
             "begin": "2022-05-18T08:00:00Z",
             "end": "2022-05-18T08:30:00Z",
             "comment": "",
@@ -659,6 +356,7 @@
         "fields": {
             "dentist": 22,
             "patient": 24,
+            "service": 212,
             "begin": "2022-05-18T09:00:00Z",
             "end": "2022-05-18T09:30:00Z",
             "comment": "",
@@ -671,6 +369,7 @@
         "fields": {
             "dentist": 22,
             "patient": 20,
+            "service": 216,
             "begin": "2022-05-18T10:00:00Z",
             "end": "2022-05-18T10:30:00Z",
             "comment": "",
@@ -683,6 +382,7 @@
         "fields": {
             "dentist": 22,
             "patient": 11,
+            "service": 251,
             "begin": "2022-05-18T11:30:00Z",
             "end": "2022-05-18T12:00:00Z",
             "comment": "",
@@ -695,6 +395,7 @@
         "fields": {
             "dentist": 22,
             "patient": 26,
+            "service": 252,
             "begin": "2022-05-19T08:00:00Z",
             "end": "2022-05-19T08:30:00Z",
             "comment": "",
@@ -707,6 +408,7 @@
         "fields": {
             "dentist": 22,
             "patient": 13,
+            "service": 255,
             "begin": "2022-05-19T10:00:00Z",
             "end": "2022-05-19T10:15:00Z",
             "comment": "",
@@ -719,6 +421,7 @@
         "fields": {
             "dentist": 22,
             "patient": 20,
+            "service": 241,
             "begin": "2022-05-19T10:30:00Z",
             "end": "2022-05-19T11:00:00Z",
             "comment": "",
@@ -731,6 +434,7 @@
         "fields": {
             "dentist": 22,
             "patient": 19,
+            "service": 237,
             "begin": "2022-05-20T09:00:00Z",
             "end": "2022-05-20T09:30:00Z",
             "comment": "",
@@ -743,6 +447,7 @@
         "fields": {
             "dentist": 22,
             "patient": 13,
+            "service": 212,
             "begin": "2022-05-20T10:00:00Z",
             "end": "2022-05-20T10:30:00Z",
             "comment": "",
@@ -755,6 +460,7 @@
         "fields": {
             "dentist": 22,
             "patient": 26,
+            "service": 233,
             "begin": "2022-05-19T12:30:00Z",
             "end": "2022-05-19T13:00:00Z",
             "comment": "",
@@ -767,6 +473,7 @@
         "fields": {
             "dentist": 22,
             "patient": 20,
+            "service": 211,
             "begin": "2022-05-20T12:00:00Z",
             "end": "2022-05-20T12:30:00Z",
             "comment": "",

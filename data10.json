@@ -1,0 +1,402 @@
+[
+    {
+        "model": "dentist.patient",
+        "pk": 1,
+        "fields": {
+            "dentist": 2,
+            "patient": 5
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 2,
+        "fields": {
+            "dentist": 12,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 3,
+        "fields": {
+            "dentist": 2,
+            "patient": 6
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 4,
+        "fields": {
+            "dentist": 6,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 5,
+        "fields": {
+            "dentist": 18,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 6,
+        "fields": {
+            "dentist": 3,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 7,
+        "fields": {
+            "dentist": 2,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 8,
+        "fields": {
+            "dentist": 2,
+            "patient": 11
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 9,
+        "fields": {
+            "dentist": 2,
+            "patient": 10
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 10,
+        "fields": {
+            "dentist": 20,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 11,
+        "fields": {
+            "dentist": 16,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 12,
+        "fields": {
+            "dentist": 3,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 13,
+        "fields": {
+            "dentist": 18,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 14,
+        "fields": {
+            "dentist": 15,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 15,
+        "fields": {
+            "dentist": 1,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 16,
+        "fields": {
+            "dentist": 22,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 17,
+        "fields": {
+            "dentist": 1,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 18,
+        "fields": {
+            "dentist": 11,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 19,
+        "fields": {
+            "dentist": 2,
+            "patient": 16
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 20,
+        "fields": {
+            "dentist": 10,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 21,
+        "fields": {
+            "dentist": 13,
+            "patient": 1
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 22,
+        "fields": {
+            "dentist": 17,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 23,
+        "fields": {
+            "dentist": 22,
+            "patient": 24
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 24,
+        "fields": {
+            "dentist": 11,
+            "patient": 6
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 25,
+        "fields": {
+            "dentist": 5,
+            "patient": 12
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 26,
+        "fields": {
+            "dentist": 22,
+            "patient": 26
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 27,
+        "fields": {
+            "dentist": 20,
+            "patient": 6
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 28,
+        "fields": {
+            "dentist": 22,
+            "patient": 25
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 29,
+        "fields": {
+            "dentist": 22,
+            "patient": 20
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 30,
+        "fields": {
+            "dentist": 22,
+            "patient": 19
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 31,
+        "fields": {
+            "dentist": 22,
+            "patient": 16
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 32,
+        "fields": {
+            "dentist": 22,
+            "patient": 13
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 33,
+        "fields": {
+            "dentist": 22,
+            "patient": 11
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 34,
+        "fields": {
+            "dentist": 22,
+            "patient": 7
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 35,
+        "fields": {
+            "dentist": 22,
+            "patient": 27
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 36,
+        "fields": {
+            "dentist": 22,
+            "patient": 3
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 37,
+        "fields": {
+            "dentist": 20,
+            "patient": 28
+        }
+    },
+    {
+        "model": "dentist.patient",
+        "pk": 38,
+        "fields": {
+            "dentist": 22,
+            "patient": 29
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 1,
+        "fields": {
+            "dentist": 19,
+            "expire_date": "2022-04-22T05:06:00.284Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 2,
+        "fields": {
+            "dentist": 2,
+            "expire_date": "2022-04-24T11:59:00.789Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 5,
+        "fields": {
+            "dentist": 21,
+            "expire_date": "2022-04-25T07:23:44.876Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 7,
+        "fields": {
+            "dentist": 20,
+            "expire_date": "2022-06-23T12:15:06.786Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 9,
+        "fields": {
+            "dentist": 22,
+            "expire_date": "2022-07-01T20:18:02.257Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 10,
+        "fields": {
+            "dentist": 21,
+            "expire_date": "2022-05-25T07:23:44.876Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 11,
+        "fields": {
+            "dentist": 22,
+            "expire_date": "2022-07-31T20:18:02.257Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 12,
+        "fields": {
+            "dentist": 7,
+            "expire_date": "2022-06-09T04:12:47.718Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 13,
+        "fields": {
+            "dentist": 23,
+            "expire_date": "2022-05-19T04:24:40.050Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 14,
+        "fields": {
+            "dentist": 24,
+            "expire_date": "2022-05-19T05:33:41.379Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 15,
+        "fields": {
+            "dentist": 25,
+            "expire_date": "2022-05-19T09:13:23.744Z"
+        }
+    },
+    {
+        "model": "dentist.expire",
+        "pk": 16,
+        "fields": {
+            "dentist": 26,
+            "expire_date": "2022-05-19T14:22:10.479Z"
+        }
+    }
+]

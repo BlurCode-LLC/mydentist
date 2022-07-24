@@ -345,7 +345,8 @@ class WorkForm(forms.Form):
                 'placeholder': _("Tajriba")
             }
         ),
-        localize=True
+        localize=True,
+        required=False
     )
     work_days = forms.ChoiceField(
         label=_("Ish kuni"),
